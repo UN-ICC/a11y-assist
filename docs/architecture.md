@@ -8,9 +8,9 @@ permalink: /architecture/
 
 How a11y-assist is put together: the accessibility model it encodes, the sources it draws from, and the discipline that keeps every claim traceable. For setup, see [For agents]({{ '/agents/' | relative_url }}); for the tools, the [a11y-assist-mcp package]({{ '/packages/a11y-assist-mcp/' | relative_url }}).
 
-## The principle
+## Principle
 
-**Aggregation, not authorship.** Every claim the system makes is derivable from a versioned upstream source. There is no LLM-paraphrased "best practice" content, and **no editorial role→SC or role→rule mapping** that could silently drift from the spec.
+a11y-assist aggregates published guidance rather than authoring it. Every claim is derivable from a versioned upstream source. There is no paraphrased "best practice" content, and no editorial role-to-criterion or role-to-rule mapping that could diverge from the specifications.
 
 Where W3C documents the content — APG patterns, WCAG Success Criteria, Techniques, Failures, ACT rules, the WAI-ARIA spec — a11y-assist extracts it verbatim into query packages. The system composes these sources at request time and hands the agent verbatim data plus *queries to run next*; the LLM agent does the synthesis (recommendations, code, fixes) by reasoning over the structured inputs. The one mechanical cross-corpus link is **ACT rule → WCAG SC**, taken straight from ACT front-matter.
 
@@ -85,15 +85,15 @@ npm run extract --workspace=apg-query -- --refresh
 npm run extract --workspace=wcag-query -- --refresh
 ```
 
-## No editorial residue
+## Editorial content
 
-There is no hand-maintained applicability data. `a11y-assist-core` ships **no data of its own**: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` query the agent runs itself. The role→SC question that used to require an editorial table is now answered by the agent drilling down through `search_act` → the mechanical ACT→SC bridge.
+`a11y-assist-core` contains no hand-maintained applicability data and ships no data of its own: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` query. Which Success Criteria apply to a component is determined by the agent through `search_act` and the ACT-rule-to-Success-Criterion mapping, not by an editorial table.
 
-The cost of this honesty is a known blind spot: ACT publishes no rules for several visual/perceptual SCs (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` won't surface them. They are caught by **axe at verification** (contrast, target size) and by manual review — never asserted per-pattern.
+This has a known limitation: ACT publishes no rules for several visual or perceptual Success Criteria (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` does not surface them. These are covered by axe-core at verification (contrast, target size) and by human review; they are not asserted per pattern.
 
-## Honest scope
+## Limitations of automated checks
 
-Automated tooling catches roughly **half** of WCAG. Treat a passing audit as *"no automated violations found,"* not *"accessible."* Out of scope, by design:
+Automated tooling covers approximately half of WCAG. A passing audit indicates "no automated violations found," not conformance. The following require human review:
 
 - **Manual screen reader review** — NVDA, JAWS, VoiceOver, TalkBack interpret the same code differently.
 - **Manual keyboard review** — every interaction reachable, focus order matches visual order, focus always visible, no traps.

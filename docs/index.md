@@ -4,38 +4,32 @@ nav_order: 1
 ---
 
 # a11y-assist
-{: .fs-9 }
 
-Accessibility you can **query** — and honest about what only a human can check. APG, WCAG, ACT, and ARIA turned into on-demand data for AI agents and developers, with every claim traceable to a versioned W3C source.
-{: .fs-6 .fw-300 }
+a11y-assist provides programmatic, source-traceable access to W3C web-accessibility guidance — WCAG, the ARIA Authoring Practices Guide (APG), WAI-ARIA, and ACT Rules — together with automated verification via axe-core. It is intended for AI-assisted development: an AI agent, through an MCP server, or a developer, through a web application, can retrieve the guidance relevant to a component and verify markup against it.
 
-[For humans → open the app]({{ '/app/' | relative_url }}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[For agents → set it up]({{ '/agents/' | relative_url }}){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Open the web application]({{ '/app/' | relative_url }}){: .btn .btn-primary .mr-2 }
+[Set up for AI agents]({{ '/agents/' | relative_url }}){: .btn }
 
----
+## Purpose
 
-## The problem
+a11y-assist addresses two practical problems in applying web-accessibility standards.
 
-Getting web accessibility right runs into two walls.
+### 1. The guidance is distributed and not machine-readable
 
-**1. The knowledge is fragmented and voluminous.** The norms live across four W3C documents, in prose and HTML — WCAG (the requirements), APG (recipes for components), ARIA (the vocabulary), ACT (conformance tests) — none of it machine-queryable, and doing a single component right means cross-referencing all of them. Worse, the relevant material for even one component (keyboard tables, an ARIA contract, several success criteria each with techniques and failures, ACT rules) is far too much to read — or, for an AI agent, to hold in context — all at once.
+Accessibility requirements are spread across four W3C documents — WCAG (requirements), APG (component recipes), WAI-ARIA (roles and properties), and ACT Rules (conformance tests). They are published as prose and HTML, and addressing a single component requires consulting all of them. The combined material for one component is also too large to review in full at once, and exceeds the context available to an AI agent.
 
-**2. Verification is only partly automatable.** Tools like axe cover roughly half of WCAG — the structural, machine-checkable half. The rest is *qualitative*: does the screen reader announce something **meaningful**? Is the label **clear in context**? Is focus **visibly** obvious? Most tooling quietly treats a passing automated scan as "accessible," which it isn't.
+a11y-assist extracts each source verbatim into a queryable library and exposes the data on demand: a request begins at a pattern or role and is refined progressively — the ARIA contract, the applicable ACT rules, and the WCAG Success Criteria they cover — filtered to the target conformance level. Only the requested information is returned.
 
-## What a11y-assist does
+### 2. Verification is only partly automatable
 
-**Makes the knowledge queryable, on demand.** Each W3C source is extracted *verbatim* into a small library (see [Packages]({{ '/packages/' | relative_url }})), and the system serves it as a drill-down: enter at a pattern or role, then query progressively — the ARIA contract, then the ACT rules that apply, then the WCAG criteria they cover — gated to your conformance level. Nothing is dumped; you pull only what you need. This isn't merely tidier for humans — it's what lets an **agent** use the whole corpus without exhausting its context window.
+Automated tools, including axe-core, cover approximately half of the WCAG Success Criteria: the structurally testable ones. The remainder require human judgement — for example, whether a label is meaningful in context, whether screen-reader output is correct, or whether the focus indicator is visible. a11y-assist does not treat a passing automated scan as conformance. Verification proceeds in three stages:
 
-**Makes verification honest, in tiers.** It automates what it can and makes the rest explicit, instead of hiding behind a green check:
+1. axe-core performs the automated structural checks.
+2. The agent reviews the markup against the retrieved recipe (element choice, required ARIA attributes, accessible name, keyboard handling, focus management).
+3. The remaining qualitative criteria are presented as a checklist for human review. Each item is derived from the retrieved data — for example, the keyboard-interaction table or the ARIA contract — and cites its Success Criterion.
 
-> **Tier 1 — axe** runs the structural ~50%.
-> **Tier 2 — the agent** verifies more by reviewing the code against the recipe (right element, required ARIA, accessible name, keyboard handlers, focus management).
-> **Tier 3 — a human checklist** covers the irreducible qualitative part (screen-reader output, focus visibility, meaningful labels) — and even those items are *derived from the same sourced data* (the keyboard table, the ARIA contract), so they're concrete and traceable, not hand-waved.
+## Scope
 
-Nothing is editorialised, and nothing claims more than it can: a11y-assist doesn't *make* your UI accessible — it makes the **route to accessibility** legible, sourced, and as automated as honesty allows.
+a11y-assist supports lightweight, on-demand verification during AI-assisted development. It is not a systematic auditing or continuous-integration tool; broader support for systematic auditing is planned.
 
-## Built for AI-assisted development
-
-a11y-assist is a **lightweight, on-demand, in-the-loop** companion for building accessible UI with an AI agent: plan a component correctly, verify it quickly, and get a short, sourced list of what a human still needs to check. It is **not (yet) a systematic CI / audit suite** — deeper, systematic auditing support is on the roadmap. Today's focus is fast, trustworthy verification while you build.
-
-See [Architecture]({{ '/architecture/' | relative_url }}) for how it works — or jump in: [the app]({{ '/app/' | relative_url }}) for humans, [setup]({{ '/agents/' | relative_url }}) for agents.
+See [Architecture]({{ '/architecture/' | relative_url }}) for the technical model and [Packages]({{ '/packages/' | relative_url }}) for the libraries.

@@ -6,7 +6,7 @@ permalink: /agents/
 
 # Use a11y-assist with an AI agent
 
-a11y-assist ships an MCP server (`a11y-assist-mcp`) that gives an AI coding agent source-traceable accessibility tools — planning, drill-down, and axe verification. Point your MCP client at it and the agent can plan components correctly, audit markup, and tell you exactly what still needs a human.
+a11y-assist provides an MCP server (`a11y-assist-mcp`) that exposes source-traceable accessibility tools to an AI agent: planning, drill-down, and axe-core verification. Once configured, the agent can retrieve the guidance for a component, audit its markup, and report what remains for human review.
 
 ## 1. Add the MCP server
 
@@ -47,14 +47,12 @@ curl -sL https://raw.githubusercontent.com/UN-ICC/a11y-assist/main/.claude/skill
 
 ## How the agent works
 
-Set the **WCAG level** (A / AA / AAA) up front, then work the staged flow — entry point → `search_act` → `get_wcag_sc` → verify. Every claim is verbatim or a query the agent runs; nothing is asserted, so responses stay small and the agent pulls only what it needs.
+The agent establishes the target WCAG level (A, AA, or AAA) first, then follows a staged sequence: entry point → `search_act` → `get_wcag_sc` → verify. Responses contain verbatim data or queries to run, so the agent retrieves only what it needs.
 
-The payoff is **honest, tiered verification** at the end of every component — instead of a green check that overstates coverage:
+Verification proceeds in three stages:
 
-1. **axe** runs the structural ~50% (`audit_html` / `audit_url`).
-2. **The agent reviews the code** against the recipe — right element, required ARIA, accessible name, keyboard handlers, focus management.
-3. **A human checklist** covers the irreducible qualitative part — screen-reader output, focus visibility, meaningful labels — with each item *derived from the sourced data* (the keyboard table, the ARIA contract) and cited, so it's concrete, not hand-waved.
+1. axe-core performs the automated structural checks (`audit_html` / `audit_url`).
+2. The agent reviews the markup against the retrieved recipe: element choice, required ARIA attributes, accessible name, keyboard handling, focus management.
+3. The remaining qualitative criteria — screen-reader output, focus visibility, meaningful labels — are presented as a checklist for human review. Each item is derived from the retrieved data (the keyboard-interaction table, the ARIA contract) and cites its Success Criterion.
 
-You get exactly what was verified, and the short, sourced list of what only a human can confirm.
-
-Full behavioural spec: the [`SKILL.md`](https://github.com/UN-ICC/a11y-assist/blob/main/.claude/skills/a11y-assist/SKILL.md) and the [`a11y-assist-mcp` package docs]({{ '/packages/a11y-assist-mcp/' | relative_url }}).
+Full behavioural specification: the [`SKILL.md`](https://github.com/UN-ICC/a11y-assist/blob/main/.claude/skills/a11y-assist/SKILL.md) and the [`a11y-assist-mcp` package documentation]({{ '/packages/a11y-assist-mcp/' | relative_url }}).

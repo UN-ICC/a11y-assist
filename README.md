@@ -1,15 +1,15 @@
 # a11y-assist
 
-Accessibility you can **query** — and honest about what only a human can check. APG, WCAG, ACT, and ARIA turned into on-demand data for AI agents and developers, with every claim traceable to a versioned W3C source.
+a11y-assist provides programmatic, source-traceable access to W3C web-accessibility guidance (WCAG, APG, WAI-ARIA, ACT Rules) and automated verification via axe-core, for use in AI-assisted development. Guidance is available to AI agents through an MCP server and to developers through a web application.
 
-**📖 Docs & live app: <https://un-icc.github.io/a11y-assist/>**
+Documentation and the web application: <https://un-icc.github.io/a11y-assist/>
 
-## What it solves
+## Purpose
 
-- **Fragmented, voluminous knowledge.** a11y norms span four W3C documents (WCAG, APG, ARIA, ACT) in prose — not machine-queryable, and far too much to read (or, for an agent, hold in context) at once. → We extract each *verbatim* into queryable libraries and serve them as an on-demand drill-down.
-- **Partly-automatable verification.** axe covers ~half of WCAG; the rest is qualitative (meaningful labels, screen-reader output, focus visibility). → We verify in tiers — **axe** → **agent code-review** → a short, *sourced* **human checklist** for what's left — instead of pretending a green scan means "accessible."
+- Accessibility requirements are distributed across four W3C documents and published as prose. They are not machine-readable, and the material for a single component is too large to review at once and exceeds an AI agent's context. a11y-assist extracts each source verbatim into queryable libraries and serves them on demand.
+- Automated tools cover approximately half of the WCAG Success Criteria; the remainder require human judgement. Verification proceeds in three stages — axe-core, agent review of the markup against the retrieved recipe, and a checklist of the remaining qualitative criteria for human review.
 
-Built for **AI-assisted development**: lightweight, on-demand, in-the-loop verification while you build — not (yet) a systematic CI/audit suite (that's on the roadmap).
+Scope: a11y-assist supports lightweight, on-demand verification during AI-assisted development. It is not a systematic auditing tool; broader auditing support is planned.
 
 ## Packages (on npm)
 
