@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "a11y-core": "*",
@@ -27,7 +27,7 @@
     "zod": "^3.23.0"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@types/node": "^26.0.0",
     "tsx": "^4.7.0",
     "typescript": "^5.4.0"
   },

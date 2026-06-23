@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "act-rules-query": "*",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/aria-query": "^5.0.4",
-    "@types/node": "^20.0.0",
+    "@types/node": "^26.0.0",
     "typescript": "^5.4.0"
   },
   "license": "MIT"
