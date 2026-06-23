@@ -47,6 +47,14 @@ curl -sL https://raw.githubusercontent.com/UN-ICC/a11y-assist/main/.claude/skill
 
 ## How the agent works
 
-Set the **WCAG level** (A/AA/AAA) up front, then a staged flow: entry point → `search_act` → `get_wcag_sc` → `audit`. Every claim is verbatim or a query the agent runs — nothing is asserted. Each component finishes with a **checklist** splitting what the agent verified (axe + code review) from the short list only a human can confirm (screen reader, focus visibility, meaningful labels). axe covers ~50% of WCAG; the rest is made explicit, never hidden behind a green check.
+Set the **WCAG level** (A / AA / AAA) up front, then work the staged flow — entry point → `search_act` → `get_wcag_sc` → verify. Every claim is verbatim or a query the agent runs; nothing is asserted, so responses stay small and the agent pulls only what it needs.
+
+The payoff is **honest, tiered verification** at the end of every component — instead of a green check that overstates coverage:
+
+1. **axe** runs the structural ~50% (`audit_html` / `audit_url`).
+2. **The agent reviews the code** against the recipe — right element, required ARIA, accessible name, keyboard handlers, focus management.
+3. **A human checklist** covers the irreducible qualitative part — screen-reader output, focus visibility, meaningful labels — with each item *derived from the sourced data* (the keyboard table, the ARIA contract) and cited, so it's concrete, not hand-waved.
+
+You get exactly what was verified, and the short, sourced list of what only a human can confirm.
 
 Full behavioural spec: the [`SKILL.md`](https://github.com/UN-ICC/a11y-assist/blob/main/.claude/skills/a11y-assist/SKILL.md) and the [`a11y-assist-mcp` package docs]({{ '/packages/a11y-assist-mcp/' | relative_url }}).

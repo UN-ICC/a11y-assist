@@ -1,8 +1,15 @@
 # a11y-assist
 
-Source-traceable web accessibility — APG, WCAG, ACT, ARIA, plus axe verification. One core, served two ways: an **MCP server** for AI coding agents and a **browsable app** for developers. Every claim traces back to a versioned W3C document.
+Accessibility you can **query** — and honest about what only a human can check. APG, WCAG, ACT, and ARIA turned into on-demand data for AI agents and developers, with every claim traceable to a versioned W3C source.
 
 **📖 Docs & live app: <https://un-icc.github.io/a11y-assist/>**
+
+## What it solves
+
+- **Fragmented, voluminous knowledge.** a11y norms span four W3C documents (WCAG, APG, ARIA, ACT) in prose — not machine-queryable, and far too much to read (or, for an agent, hold in context) at once. → We extract each *verbatim* into queryable libraries and serve them as an on-demand drill-down.
+- **Partly-automatable verification.** axe covers ~half of WCAG; the rest is qualitative (meaningful labels, screen-reader output, focus visibility). → We verify in tiers — **axe** → **agent code-review** → a short, *sourced* **human checklist** for what's left — instead of pretending a green scan means "accessible."
+
+Built for **AI-assisted development**: lightweight, on-demand, in-the-loop verification while you build — not (yet) a systematic CI/audit suite (that's on the roadmap).
 
 ## Packages (on npm)
 
