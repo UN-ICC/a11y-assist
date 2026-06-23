@@ -31,6 +31,9 @@ button { font: inherit; cursor: pointer; }
 
 main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
 .note { color: var(--muted); }
+.tab-intro { margin: 0 0 1.5rem; }
+.tab-intro h2 { margin: 0 0 0.4rem; }
+.tab-intro p { color: var(--muted); max-width: 75ch; margin: 0; }
 .role { font: 0.8rem ui-monospace, monospace; background: var(--accent-soft); color: var(--accent); padding: 0.1rem 0.45rem; border-radius: 5px; vertical-align: middle; }
 
 .split { display: grid; grid-template-columns: 300px 1fr; gap: 1.25rem; align-items: start; }

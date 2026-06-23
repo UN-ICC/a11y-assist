@@ -133,8 +133,9 @@
   }
 
   // --- list/detail tabs ---
-  function renderList(items, key, detailFn) {
-    main.innerHTML = '<div class="split"><div class="list-col">'
+  function renderList(items, key, detailFn, intro) {
+    main.innerHTML = (intro || '')
+      + '<div class="split"><div class="list-col">'
       + '<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">'
       + '<p class="list-count"></p>'
       + '<ul class="list"></ul></div>'
@@ -196,10 +197,12 @@
     return t
   }
   function renderVerify() {
-    main.innerHTML = '<div class="pane"><h2>Verify</h2>'
-      + '<p class="note">Paste an HTML snippet and run axe-core (WCAG ' + esc(state.level) + '). Static markup check only — dynamic behaviour and some visual criteria still need manual review.</p>'
+    main.innerHTML = '<section class="tab-intro"><h2>Verify</h2>'
+      + '<p>Paste an HTML snippet and run <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noreferrer">axe-core</a> in your browser to check it against WCAG at the selected level. This covers the structurally testable criteria — roughly half of WCAG. Qualitative criteria (screen-reader output, focus visibility, meaningful labels) and dynamic behaviour require human review.</p></section>'
+      + '<div class="pane">'
       + '<textarea id="vhtml" rows="8" placeholder="&lt;button&gt;&lt;/button&gt;"></textarea>'
-      + '<p><button id="vrun" class="primary">Run axe</button></p><div id="vout"></div></div>'
+      + '<p><button id="vrun" class="primary">Run axe (WCAG ' + esc(state.level) + ')</button></p>'
+      + '<div id="vout"></div></div>'
     document.getElementById('vrun').addEventListener('click', runVerify)
   }
   async function runVerify() {
@@ -246,10 +249,18 @@
       b.setAttribute('aria-selected', String(b.getAttribute('data-tab') === state.tab))
     })
   }
+  var INTRO = {
+    apg: '<section class="tab-intro"><h2>APG patterns</h2>'
+      + '<p>The <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noreferrer">ARIA Authoring Practices Guide</a> is a W3C collection of recipes for building common composite components — dialogs, tabs, comboboxes, menus, and so on — accessibly with ARIA. Browse or filter the patterns below, then open one to see its ARIA contract, the native HTML elements that carry its roles, and suggested queries for drilling down to the applicable ACT rules and WCAG Success Criteria.</p></section>',
+    html: '<section class="tab-intro"><h2>Native primitives</h2>'
+      + '<p>Native HTML elements carry implicit ARIA roles, defined by <a href="https://www.w3.org/TR/html-aria/" target="_blank" rel="noreferrer">ARIA in HTML</a> and <a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank" rel="noreferrer">WAI-ARIA</a>. These primitives — text inputs, links, images, buttons, and so on — are the building blocks to prefer before adding custom ARIA. Browse or filter the roles below, then open one to see its ARIA contract, the native elements that provide it, and drill down to the applicable ACT rules and WCAG Success Criteria.</p></section>',
+  }
+
   function render() {
-    if (state.tab === 'apg') renderList(D.apg, 'apgRole', renderApgDetail)
-    else if (state.tab === 'html') renderList(D.primitives, 'htmlRole', renderPrimitiveDetail)
-    else if (state.tab === 'rn') main.innerHTML = '<div class="pane"><h2>React Native</h2><p class="note">Not implemented yet. a11y-assist currently covers the web. React Native is a planned future surface — a peer to the APG recipes, sourced from RN docs.</p></div>'
+    if (state.tab === 'apg') renderList(D.apg, 'apgRole', renderApgDetail, INTRO.apg)
+    else if (state.tab === 'html') renderList(D.primitives, 'htmlRole', renderPrimitiveDetail, INTRO.html)
+    else if (state.tab === 'rn') main.innerHTML = '<section class="tab-intro"><h2>React Native</h2>'
+      + '<p>Not implemented yet. a11y-assist currently covers the web. React Native is a planned future surface — a peer to the APG recipes, sourced from React Native documentation.</p></section>'
     else if (state.tab === 'verify') renderVerify()
   }
   document.querySelectorAll('.tab').forEach(function (b) {
