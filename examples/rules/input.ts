@@ -91,7 +91,7 @@ export const inputMeta: ComponentMeta = {
   storybook_title: 'Components/Input',
   // HTML primitive — wraps <input type="text">. Governed by HTML spec and
   // ARIA in HTML. No APG pattern applies. The agent should call
-  // get_a11y_pattern("textbox") for the primitive recipe.
+  // get_aria_role("textbox") for the primitive recipe.
   primitive: {
     html_element: 'input',
     aria_role: 'textbox',

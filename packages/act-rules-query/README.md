@@ -14,7 +14,7 @@ npm install act-rules-query
 
 ```ts
 import {
-  getRule, listRules, rulesByWCAG, rulesByRole, ACT_SNAPSHOT,
+  getRule, listRules, rulesByWCAG, search, ACT_SNAPSHOT,
 } from 'act-rules-query'
 
 const r = getRule('97a4e1')
@@ -24,8 +24,8 @@ console.log(r.applicability_text)
 //  'This rule applies to elements that are included in the accessibility tree
 //   and have a semantic role of `button`...'
 
-rulesByWCAG('4.1.2')             // → ACT rules covering "Name, Role, Value"
-rulesByRole('img')               // → image-related ACT rules (heuristic match)
+rulesByWCAG('4.1.2')             // → ACT rules covering "Name, Role, Value" (mechanical, front-matter)
+search('button')                 // → rules whose name or applicability text mentions "button"
 ```
 
 ## Data shape
@@ -65,7 +65,7 @@ The loader writes `src/data/<rule-id>.json` per rule plus a `_manifest.json` ind
 
 v0 ships **94 rules** snapshotted from `act-rules/act-rules.github.io@80e887e`. ACT is actively maintained — refreshing the snapshot pulls in new rules.
 
-`rulesByRole(role)` is a heuristic — it word-boundary-matches role names and common element synonyms in the first ~400 characters of `applicability_text`. False positives are possible (e.g. an audio rule mentioning "play button" matches `button`); the agent reads each rule's name + applicability text and can filter contextually.
+`search(query)` is a plain case-insensitive substring match over each rule's name and applicability text — it makes no judgement about which rules "apply" to a role. The caller supplies the term (a role name, an ARIA attribute, an element) and filters the results contextually. `rulesByWCAG(scId)` is the one mechanical mapping (straight from each rule's front-matter).
 
 ## Provenance and licensing
 

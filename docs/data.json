@@ -2,178 +2,115 @@
   "patterns": [
     {
       "role": "accordion",
-      "name": "Accordion (HTML <button>)",
-      "type": "html_native"
+      "name": "Accordion"
     },
     {
       "role": "alert",
-      "name": "Alert",
-      "type": "apg_pattern"
+      "name": "Alert"
     },
     {
       "role": "alertdialog",
-      "name": "Alert Dialog",
-      "type": "apg_pattern"
+      "name": "Alert Dialog"
     },
     {
       "role": "breadcrumb",
-      "name": "Breadcrumb",
-      "type": "apg_pattern"
+      "name": "Breadcrumb"
     },
     {
       "role": "button",
-      "name": "Button (HTML <button>)",
-      "type": "html_native"
-    },
-    {
-      "role": "button",
-      "name": "Button (RN Pressable)",
-      "type": "rn_primitive"
+      "name": "Button"
     },
     {
       "role": "carousel",
-      "name": "Carousel (HTML <address>)",
-      "type": "html_native"
+      "name": "Carousel"
     },
     {
       "role": "checkbox",
-      "name": "Checkbox (HTML <input>)",
-      "type": "html_native"
+      "name": "Checkbox"
     },
     {
       "role": "combobox",
-      "name": "Combobox (HTML <input>)",
-      "type": "html_native"
+      "name": "Combobox"
     },
     {
       "role": "dialog",
-      "name": "Dialog (HTML <dialog>)",
-      "type": "html_native"
-    },
-    {
-      "role": "dialog",
-      "name": "Dialog (RN Modal)",
-      "type": "rn_primitive"
+      "name": "Dialog (Modal)"
     },
     {
       "role": "disclosure",
-      "name": "Disclosure (HTML <button>)",
-      "type": "html_native"
+      "name": "Disclosure (Show/Hide)"
     },
     {
       "role": "feed",
-      "name": "Feed (HTML <article>)",
-      "type": "html_native"
+      "name": "Feed"
     },
     {
       "role": "grid",
-      "name": "Grid (HTML <th>)",
-      "type": "html_native"
-    },
-    {
-      "role": "img",
-      "name": "Img (HTML <img>)",
-      "type": "html_native"
-    },
-    {
-      "role": "img",
-      "name": "Img (RN Image)",
-      "type": "rn_primitive"
+      "name": "Grid"
     },
     {
       "role": "link",
-      "name": "Link (HTML <a>)",
-      "type": "html_native"
+      "name": "Link"
     },
     {
       "role": "listbox",
-      "name": "Listbox (HTML <datalist>)",
-      "type": "html_native"
+      "name": "Listbox"
     },
     {
       "role": "menu",
-      "name": "Menu (HTML <hr>)",
-      "type": "html_native"
+      "name": "Menu / Menubar"
     },
     {
       "role": "menubutton",
-      "name": "Menubutton (HTML <button>)",
-      "type": "html_native"
+      "name": "Menu Button"
     },
     {
       "role": "meter",
-      "name": "Meter (HTML <meter>)",
-      "type": "html_native"
+      "name": "Meter"
     },
     {
       "role": "radio",
-      "name": "Radio (HTML <input>)",
-      "type": "html_native"
+      "name": "Radio Group"
     },
     {
       "role": "slider",
-      "name": "Slider (HTML <input>)",
-      "type": "html_native"
+      "name": "Slider"
     },
     {
       "role": "slider-multithumb",
-      "name": "Slider-multithumb (HTML <input>)",
-      "type": "html_native"
+      "name": "Slider (Multi-Thumb)"
     },
     {
       "role": "spinbutton",
-      "name": "Spinbutton (HTML <input>)",
-      "type": "html_native"
+      "name": "Spinbutton"
     },
     {
       "role": "switch",
-      "name": "Switch (HTML <address>)",
-      "type": "html_native"
-    },
-    {
-      "role": "switch",
-      "name": "Switch (RN Switch)",
-      "type": "rn_primitive"
+      "name": "Switch"
     },
     {
       "role": "table",
-      "name": "Table (HTML <table>)",
-      "type": "html_native"
+      "name": "Table"
     },
     {
       "role": "tabs",
-      "name": "Tabs",
-      "type": "apg_pattern"
-    },
-    {
-      "role": "textbox",
-      "name": "Textbox (HTML <textarea>)",
-      "type": "html_native"
-    },
-    {
-      "role": "textbox",
-      "name": "Textbox (RN TextInput)",
-      "type": "rn_primitive"
+      "name": "Tabs"
     },
     {
       "role": "toolbar",
-      "name": "Toolbar",
-      "type": "apg_pattern"
+      "name": "Toolbar"
     },
     {
       "role": "tooltip",
-      "name": "Tooltip",
-      "type": "apg_pattern"
+      "name": "Tooltip"
     },
     {
       "role": "treegrid",
-      "name": "Treegrid (HTML <th>)",
-      "type": "html_native"
+      "name": "Tree Grid"
     },
     {
       "role": "treeview",
-      "name": "Treeview (HTML <address>)",
-      "type": "html_native"
+      "name": "Tree View"
     }
   ],
   "scs": [

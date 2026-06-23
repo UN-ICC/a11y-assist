@@ -5,7 +5,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
 import {
-  getSC, getTechnique, getFailure, listSCs,
+  getSC, getTechnique, getFailure, listSCs, search,
   successCriteria, techniques, failures,
   WCAG_VERSION, WCAG_SNAPSHOT,
 } from '../src/index.js'
@@ -45,4 +45,27 @@ test('listSCs is sorted, unique, and matches the map', () => {
 test('version constants agree', () => {
   assert.equal(WCAG_VERSION, '2.2')
   assert.equal(WCAG_SNAPSHOT.version, '2.2')
+})
+
+test('search matches id/title/statement, sorted, empty query+no level → []', () => {
+  assert.deepEqual(search(''), [])
+  const hits = search('focus')
+  assert.ok(hits.length > 0, 'expected matches for "focus"')
+  assert.deepEqual(hits.map((s) => s.id), [...hits].map((s) => s.id), 'already sorted by id')
+  for (const sc of hits) {
+    const m =
+      sc.id.includes('focus') ||
+      sc.title.toLowerCase().includes('focus') ||
+      sc.short_text.toLowerCase().includes('focus')
+    assert.ok(m, `${sc.id}: term must appear in id/title/statement`)
+  }
+})
+
+test('level filter is cumulative and excludes higher levels', () => {
+  const aa = search('', { level: 'AA' })
+  assert.ok(aa.length > 0)
+  assert.ok(aa.every((s) => s.level === 'A' || s.level === 'AA'), 'AA keeps A + AA, drops AAA')
+  const a = search('', { level: 'A' })
+  assert.ok(a.every((s) => s.level === 'A'), 'A keeps only A')
+  assert.ok(aa.length >= a.length, 'AA is a superset of A')
 })

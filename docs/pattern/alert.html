@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alert — a11y-assist</title>
+  <meta name="description" content="Accessibility pattern for alert — APG recipe, ARIA contract, native elements, and ACT/WCAG drill-down.">
+  <link rel="stylesheet" href="../assets/a11y-assist.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">a11y-assist</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">APG pattern</p>
+<h1>Alert</h1>
+<p class="role-tag">role: <code>alert</code></p>
+<p><a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" rel="noreferrer">APG: https://www.w3.org/WAI/ARIA/apg/patterns/alert/</a></p>
+</header>
+<section><h2>About <span class="provenance-tag">from APG</span></h2><p>An alert is an element that displays a brief, important message in a way that attracts the user&#39;s attention without interrupting the user&#39;s task. Dynamically rendered alerts are automatically announced by most screen readers, and in some operating systems, they may trigger an alert sound. It is important to note that, at this time, screen readers do not inform users of alerts that are present on the page before page load completes.<br><br>Because alerts are intended to provide important and potentially time-sensitive information without interfering with the user&#39;s ability to continue working, it is crucial they do not affect keyboard focus. The Alert Dialog Pattern is designed for situations where interrupting work flow is necessary.<br><br>It is also important to avoid designing alerts that disappear automatically. An alert that disappears too quickly can lead to failure to meet WCAG 2.0 success criterion 2.2.3. Another critical design consideration is the frequency of interruption caused by alerts. Frequent interruptions inhibit usability for people with visual and cognitive disabilities, which makes meeting the requirements of WCAG 2.0 success criterion 2.2.4 more difficult.</p></section>
+<section><h2>ARIA roles</h2>
+<p>Uses role <code>alert</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>alert</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-live</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#alert" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#alert</a></dd>
+</dl></details>
+</section>
+<section><h2>Drill down to conformance tests</h2>
+<p class="hint">Run these <code>search_act</code> queries to reach the applicable ACT rules and their WCAG SCs:</p>
+<p><code>search_act("alert")</code></p>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_apg_pattern("alert", "AA")</code> over MCP returns this:</p>
+<pre id="agent-json"><code>{
+  &quot;apg&quot;: {
+    &quot;role&quot;: &quot;alert&quot;,
+    &quot;name&quot;: &quot;Alert&quot;,
+    &quot;apg_url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/alert/&quot;,
+    &quot;about_this_pattern&quot;: &quot;An alert is an element that displays a brief, important message in a way that attracts the user&#39;s attention without interrupting the user&#39;s task. Dynamically rendered alerts are automatically announced by most screen readers, and in some operating systems, they may trigger an alert sound. It is important to note that, at this time, screen readers do not inform users of alerts that are present on the page before page load completes.\n\nBecause alerts are intended to provide important and potentially time-sensitive information without interfering with the user&#39;s ability to continue working, it is crucial they do not affect keyboard focus. The Alert Dialog Pattern is designed for situations where interrupting work flow is necessary.\n\nIt is also important to avoid designing alerts that disappear automatically. An alert that disappears too quickly can lead to failure to meet WCAG 2.0 success criterion 2.2.3. Another critical design consideration is the frequency of interruption caused by alerts. Frequent interruptions inhibit usability for people with visual and cognitive disabilities, which makes meeting the requirements of WCAG 2.0 success criterion 2.2.4 more difficult.&quot;,
+    &quot;aria_roles&quot;: [
+      &quot;alert&quot;
+    ],
+    &quot;keyboard_interactions&quot;: [],
+    &quot;examples&quot;: [
+      {
+        &quot;name&quot;: &quot;Alert Example&quot;,
+        &quot;url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/&quot;
+      }
+    ]
+  },
+  &quot;role&quot;: &quot;alert&quot;,
+  &quot;aria_contract&quot;: {
+    &quot;alert&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#alert&quot;
+    }
+  },
+  &quot;native_elements&quot;: [],
+  &quot;suggested_queries&quot;: [
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;alert&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;alert\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    }
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

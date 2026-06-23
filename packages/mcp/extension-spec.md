@@ -253,13 +253,13 @@ ComponentMeta = {
 }
 ```
 
-The audit pipeline should then call the core's `audit_html` / `audit_url` only for web-supported components; for RN-only components, validation falls back to manual / lint-based / simulator-based testing. The planning surface (`get_a11y_pattern`) works identically on both platforms — the agent just passes the right `platform` argument when looking up.
+The audit pipeline runs `audit_html` / `audit_url` against web markup. (a11y-assist is web-only today; React Native is a reserved future surface — see [`../../REDESIGN.md`](../../REDESIGN.md) — so `platforms` is forward-looking.)
 
 ---
 
 ## Component briefings (optional, LLM-generated rules)
 
-If your team prefers, the rule files can be **generated** from a per-component briefing — a ~30-line YAML describing conventions, tokens, and house-style decisions. An LLM consumes the briefing plus the ARIA APG pattern (from the core's `get_a11y_pattern`) plus the component's source code, and produces `<component>.ts` + `<component>.a11y.yaml`.
+If your team prefers, the rule files can be **generated** from a per-component briefing — a ~30-line YAML describing conventions, tokens, and house-style decisions. An LLM consumes the briefing plus the ARIA APG pattern (from the core's `get_apg_pattern`) plus the component's source code, and produces `<component>.ts` + `<component>.a11y.yaml`.
 
 Briefing shape:
 
@@ -455,13 +455,13 @@ When you start the server with the extension configured, you should see:
 ```
 [a11y-mcp] Loaded DS extension: Acme DS v1.0.0
 [a11y-mcp] axe tags: wcag2a, wcag2aa, wcag21a, wcag21aa, ds-rules
-[a11y-mcp] Tools: audit_html, audit_url, get_a11y_pattern, get_ds_guidelines
+[a11y-mcp] Tools: audit_html, audit_url, get_apg_pattern, get_ds_guidelines
 ```
 
 Smoke test:
 
 1. Call `get_ds_guidelines("Button")` — should return states from your Storybook index.
 2. Call `audit_html("<button disabled>x</button>", "Button")` — should return your `ds-button-disabled-pattern` violation with `design_system` populated.
-3. Call `get_a11y_pattern("button")` — should return the core's APG pattern (universal, unaffected by extension).
+3. Call `get_apg_pattern("button")` — should return the core's APG pattern (universal, unaffected by extension).
 
 If any of those return an unexpected shape, your extension is misconfigured. Common causes: bundle path wrong, axe tags missing `'ds-rules'`, enricher not handling unknown component names gracefully.

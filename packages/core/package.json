@@ -1,17 +1,18 @@
 {
   "name": "a11y-core",
   "version": "0.1.0",
-  "description": "Pure-logic accessibility core: pattern aggregation (apg-query + wcag-query + act-rules-query + aria-query + role-bindings) and audit response shaping. No I/O, no MCP, no Playwright.",
+  "description": "Pure, mechanical accessibility composition: assembles APG/ARIA recipes + ARIA contract + native elements + drill-down queries (apg-query + wcag-query + act-rules-query + aria-query) and shapes audit responses. No I/O, no MCP, no Playwright, no editorial data.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src/data/*.json"
+    "dist"
   ],
   "scripts": {
-    "build": "tsc && mkdir -p dist/data && cp src/data/*.json dist/data/",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "test:types": "tsc -p test"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/aria-query": "^5.0.4",
     "@types/node": "^26.0.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.4.0"
   },
   "license": "MIT"

@@ -4,7 +4,7 @@ import type { ACTSnapshot } from 'act-rules-query'
 import { baseLayout, esc } from '../render.js'
 
 export interface IndexData {
-  patterns: { role: string; name: string; type: 'apg_pattern' | 'html_native' | 'rn_primitive' }[]
+  patterns: { role: string; name: string }[]
   scs: { id: string; level: 'A' | 'AA' | 'AAA'; title: string }[]
   acts: { id: string; name: string; wcag_sc_ids: string[] }[]
   apg_snapshot: APGSnapshot
@@ -28,10 +28,9 @@ function indexBody(data: IndexData): string {
   parts.push(`<a class="count-card" href="#act"><h2>${data.acts.length}</h2><p>ACT rules</p></a>`)
   parts.push(`</section>`)
 
-  parts.push(`<section id="patterns"><h2>Patterns</h2><ul class="pattern-list">`)
+  parts.push(`<section id="patterns"><h2>APG Patterns</h2><ul class="pattern-list">`)
   for (const p of data.patterns) {
-    const platform = p.type === 'rn_primitive' ? 'react-native' : 'web'
-    parts.push(`<li data-search="${esc(p.role)} ${esc(p.name)}"><a href="pattern/${esc(p.role)}-${platform}.html"><code>${esc(p.role)}</code> ${esc(p.name)}</a> <span class="badge">${esc(p.type.replace('_', ' '))}</span></li>`)
+    parts.push(`<li data-search="${esc(p.role)} ${esc(p.name)}"><a href="pattern/${esc(p.role)}.html"><code>${esc(p.role)}</code> ${esc(p.name)}</a></li>`)
   }
   parts.push(`</ul></section>`)
 

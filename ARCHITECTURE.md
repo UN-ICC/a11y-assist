@@ -1,12 +1,12 @@
 # Architecture
 
-How a11y-assist is put together: the accessibility model it encodes, the sources it draws from, and the discipline that keeps every claim traceable. For a quick overview and setup, see the [README](./README.md); for the MCP server's tool contract, see [`packages/mcp/README.md`](./packages/mcp/README.md).
+How a11y-assist is put together: the accessibility model it encodes, the sources it draws from, and the discipline that keeps every claim traceable. For a quick overview and setup, see the [README](./README.md); for the MCP tool contract, see [`packages/mcp/README.md`](./packages/mcp/README.md); for the full design of the entry-point + drill-down model, see [`REDESIGN.md`](./REDESIGN.md).
 
 ## The principle
 
-**Aggregation, not authorship.** Every claim the system makes is derivable from a versioned upstream source. There is no LLM-paraphrased "best practice" content that can silently drift from the spec.
+**Aggregation, not authorship.** Every claim the system makes is derivable from a versioned upstream source. There is no LLM-paraphrased "best practice" content, and **no editorial role→SC or role→rule mapping** that could silently drift from the spec.
 
-Where W3C documents the content — APG patterns, WCAG Success Criteria, Techniques, Failures, ACT rules, the WAI-ARIA spec — a11y-assist extracts it verbatim into query packages. Where W3C doesn't (notably React Native component mapping), it keeps a small editorial table with explicit citations. The system composes these sources at request time; the LLM agent does the synthesis (recommendations, code, fixes) by reasoning over the structured inputs.
+Where W3C documents the content — APG patterns, WCAG Success Criteria, Techniques, Failures, ACT rules, the WAI-ARIA spec — a11y-assist extracts it verbatim into query packages. The system composes these sources at request time and hands the agent verbatim data plus *queries to run next*; the LLM agent does the synthesis (recommendations, code, fixes) by reasoning over the structured inputs. The one mechanical cross-corpus link is **ACT rule → WCAG SC**, taken straight from ACT front-matter.
 
 ## The accessibility model
 
@@ -39,43 +39,30 @@ The recipe layer (APG / HTML primitives) splits in two because APG only covers *
 
 APG and ARIA-in-HTML sit at the same conceptual altitude — APG for custom components, HTML primitives for native ones. The decision tree: is there a native element? Use it. Augmenting one? Apply the matching APG pattern. Building from scratch? Use the APG pattern plus ARIA roles and keyboard handling. Nothing fits? It's novel — combine primitives and apply WCAG general principles, and expect heavier manual testing.
 
-### The platform dimension
-
-Planning is platform-aware (`web` | `react-native`). The two platforms share WCAG (layer 4) and the ARIA role contract (layer 2); they diverge at the recipe layer:
-
-| | Web | React Native |
-|---|---|---|
-| WCAG | same | same |
-| ARIA contract | from aria-query | same (RN's `accessibilityRole` maps to ARIA roles) |
-| Primitives | HTML elements (`input`, `a`, `img`…) | RN components (`TextInput`, `Pressable`, `Image`…) |
-| Validation | axe-core + Playwright | **none on-device** — planning works, automated audit does not |
+> **Platform scope.** Today a11y-assist is **web only**. React Native is a reserved future recipe surface (a peer to APG, sourced from RN docs) — see [`REDESIGN.md`](./REDESIGN.md). It is not implemented; nothing in the current system asserts RN guidance.
 
 ## The pipeline
 
 ```
-Upstream                    Extractor / Loader                 Query package          Aggregator
-───────────────────────────────────────────────────────────────────────────────────────────────
-W3C APG HTML          →  apg-query/tools/extract.ts        →  apg-query/src/data/*  ┐
-W3C WCAG HTML         →  wcag-query/tools/extract.ts       →  wcag-query/src/data/* ├→  a11y-core
-ACT Rules YAML/MD     →  act-rules-query/tools/load-yaml   →  act-rules-query/data  ┤   loadPattern()
-WAI-ARIA (npm)        →  [no extraction — aria-query]      →  aria-query            ┤      │
-role-bindings (small editorial table)                      →  a11y-core/src/data    ┘      ▼
-                                                                                  response to consumer
+Upstream                  Extractor / Loader               Query package           Compose (a11y-core)
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+W3C APG HTML        →  apg-query/tools/extract.ts      →  apg-query/src/data/*   ┐
+W3C WCAG HTML       →  wcag-query/tools/extract.ts     →  wcag-query/src/data/*  ├→  composeApgPattern
+ACT Rules YAML/MD   →  act-rules-query/tools/load-yaml →  act-rules-query/data   ┤   composeAriaRole
+WAI-ARIA (npm)      →  [no extraction — aria-query]    →  aria-query             ┘   searchAct (ACT→SC)
+                                                                                          ▼
+                                                                              response to consumer
 ```
 
-Each query package owns exactly one upstream source. `a11y-core` knows nothing about scraping HTML or parsing YAML — it imports `getPattern`, `getSC`, `getRule`, etc. and composes them.
+Each query package owns exactly one upstream source. `a11y-core` knows nothing about scraping HTML or parsing YAML — it imports `getPattern`, `getSC`, `search`, etc. and composes them, with **no data of its own**.
 
-A single `loadPattern(role, platform)` call resolves to one `A11yPattern`:
+The composition does not assert "which SCs apply." Instead:
 
-1. Alias resolution (`button` is canonical).
-2. `role-bindings.json` lookup → supplemental WCAG SCs + web/RN primitive binding.
-3. `apg-query` → APG narrative, keyboard interactions, examples.
-4. `aria-query` → the ARIA contract (required/supported props, name-from).
-5. `act-rules-query` → ACT rules matching the role + the SCs they cover.
-6. Merge SCs (ACT-derived ∪ binding supplement, deduped); expand each via `wcag-query` into SC + techniques + failures.
-7. Aggregate, attach a `provenance` block, return.
+1. **Entry** — `composeApgPattern(name, level)` (composite components) or `composeAriaRole(role, level)` (native primitives). Each returns the verbatim recipe + the ARIA contract for its roles + the native HTML elements that carry them (all mechanical) + `suggested_queries`.
+2. **`suggested_queries`** are `search_act` calls derived deterministically from the entry's structured fields (role names, required ARIA props, native element tags, and a focus/keyboard seed when a keyboard table exists), stamped with the conformance `level`.
+3. **Drill-down** — the agent runs a suggested query: `searchAct(query, level)` returns ACT rules whose covered WCAG SCs are gated to the level (the one mechanical ACT→SC bridge); then `getSC(id)` expands a criterion into techniques + failures.
 
-The response carries a `type` of `apg_pattern`, `html_native`, or `rn_primitive` so the consumer knows which kind of card it received.
+The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-core` joins ACT to WCAG levels, because the extractor packages stay single-source. See [`REDESIGN.md`](./REDESIGN.md) for the full tool surface and workflow.
 
 ## Snapshot discipline
 
@@ -92,15 +79,11 @@ npm run extract --workspace=apg-query -- --refresh
 npm run extract --workspace=wcag-query -- --refresh
 ```
 
-## The editorial residue
+## No editorial residue
 
-The only hand-maintained content is `packages/core/src/data/role-bindings.json` (~30 entries). It does three jobs:
+There is no hand-maintained applicability data. `a11y-core` ships **no data of its own**: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` query the agent runs itself. The role→SC question that used to require an editorial table is now answered by the agent drilling down through `search_act` → the mechanical ACT→SC bridge.
 
-1. **Supplemental WCAG SC mapping** — SCs that apply to a role but no ACT rule covers yet (e.g. `2.4.7` Focus Visible, `2.5.8` Target Size — visual concerns ACT has limited coverage for). Merged with ACT-derived SCs, deduped.
-2. **Role → HTML primitive** (web) — for roles with a native element. *(The element binding itself is now derived from `aria-query`; only the role→primitive intent is editorial.)*
-3. **Role → React Native primitive** — no W3C document covers RN.
-
-The role → SC binding is a **floor**, not the source of truth. ACT is the source of truth; the binding ensures coverage doesn't regress if ACT removes a rule, and supplements SCs ACT doesn't yet cover. When ACT adds covering rules, the redundant entries become harmless.
+The cost of this honesty is a known blind spot: ACT publishes no rules for several visual/perceptual SCs (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` won't surface them. They are caught by **axe at verification** (contrast, target size) and by manual review — never asserted per-pattern.
 
 ## Honest scope
 
@@ -109,7 +92,8 @@ Automated tooling catches roughly **half** of WCAG. Treat a passing audit as *"n
 - **Manual screen reader review** — NVDA, JAWS, VoiceOver, TalkBack interpret the same code differently.
 - **Manual keyboard review** — every interaction reachable, focus order matches visual order, focus always visible, no traps.
 - **Cognitive review** — clear language, predictable behaviour, error recovery, no reliance on colour or shape alone.
-- **React Native on-device validation** — planning works; automated audit does not (axe needs a DOM). Fall back to `eslint-plugin-react-native-a11y`, simulator testing (Detox/Maestro), and manual VoiceOver/TalkBack passes.
+- **ACT's blind spot** (contrast, target size, focus appearance/order) — caught by axe at verification, not asserted per pattern.
+- **React Native** — not implemented (web only).
 
 ## The optional DS extension
 
@@ -117,9 +101,9 @@ A team with a design system can plug in a **DS extension** (set `A11Y_MCP_EXTENS
 
 ## Contributing data
 
-**Add an APG pattern:** add an entry to `apg-query/tools/extract.ts`'s pattern list → `npm run extract --workspace=apg-query` (fetches, snapshots, writes data) → add the applicable WCAG SC IDs to `role-bindings.json` → commit snapshot, data, and bindings together.
+**Add an APG pattern:** add an entry to `apg-query/tools/extract.ts`'s pattern list → `npm run extract --workspace=apg-query` (fetches, snapshots, writes data) → commit snapshot + data. No bindings to maintain — the compose layer derives the ARIA contract, native elements, and drill-down seeds mechanically.
 
-**Add a WCAG SC:** add an entry to `wcag-query/tools/extract.ts`'s SC list → `npm run extract --workspace=wcag-query` → optionally reference it from `role-bindings.json` → commit snapshot + data.
+**Add a WCAG SC:** add an entry to `wcag-query/tools/extract.ts`'s SC list → `npm run extract --workspace=wcag-query` → commit snapshot + data.
 
 **Refresh ACT rules:** copy the upstream `_rules/*.md` into `act-rules-query/snapshots/_rules/` → `npm run load --workspace=act-rules-query` (records the upstream commit hash) → diff-review and commit.
 

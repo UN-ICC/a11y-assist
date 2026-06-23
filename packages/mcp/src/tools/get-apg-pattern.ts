@@ -1,0 +1,39 @@
+import { z } from 'zod'
+import { composeApgPattern, listApgPatterns } from 'a11y-core'
+
+const parameters = z.object({
+  name: z.string().describe(
+    'APG pattern name — e.g. dialog, tabs, combobox, accordion, listbox, ' +
+    'disclosure, menubutton. Aliases like "modal" → dialog are accepted. ' +
+    'Call list_apg_patterns to discover names.',
+  ),
+  level: z
+    .enum(['A', 'AA', 'AAA'])
+    .default('AA')
+    .describe('Target WCAG conformance level (cumulative). Stamped into the suggested ACT queries.'),
+})
+
+type Args = z.infer<typeof parameters>
+
+export const getApgPatternTool = {
+  name: 'get_apg_pattern',
+  description:
+    'ENTRY POINT for building a composite component. Returns the verbatim W3C APG ' +
+    'card (about, keyboard interactions, examples), the ARIA contract for its roles, ' +
+    'the native HTML elements that carry them, and `suggested_queries` (ACT searches) ' +
+    'to run next. Workflow: get_apg_pattern → run a suggested search_act → get_wcag_sc ' +
+    'for the SCs it returns → verify with audit_html. For native primitives (text input, ' +
+    'link, image) use get_aria_role instead.',
+  parameters,
+  execute: async ({ name, level }: Args): Promise<string> => {
+    const composed = composeApgPattern(name, level)
+    if (!composed) {
+      return JSON.stringify({
+        error: `No APG pattern for "${name}".`,
+        available: listApgPatterns(),
+        hint: 'For native primitives (textbox, link, img) use get_aria_role.',
+      })
+    }
+    return JSON.stringify(composed)
+  },
+}

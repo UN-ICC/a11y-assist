@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tree Grid — a11y-assist</title>
+  <meta name="description" content="Accessibility pattern for treegrid — APG recipe, ARIA contract, native elements, and ACT/WCAG drill-down.">
+  <link rel="stylesheet" href="../assets/a11y-assist.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">a11y-assist</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">APG pattern</p>
+<h1>Tree Grid</h1>
+<p class="role-tag">role: <code>treegrid</code></p>
+<p><a href="https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/" rel="noreferrer">APG: https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/</a></p>
+</header>
+<section><h2>About <span class="provenance-tag">from APG</span></h2><p>A treegrid widget presents a hierarchical data grid consisting of tabular information that is editable or interactive. Any row in the hierarchy may have child rows, and rows with children may be expanded or collapsed to show or hide the children. For example, in a treegrid used to display messages and message responses for a e-mail discussion list, messages with responses would be in rows that can be expanded to reveal the response messages.<br><br>In a treegrid both rows and cells are focusable. Every row and cell contains a focusable element or is itself focusable, regardless of whether individual cell content is editable or interactive. There is one exception: if column header cells do not provide functions, such as sort or filter, they do not need to be focusable. One reason it is important for all cells to be able to receive or contain keyboard focus is that screen readers will typically be in their application reading mode, rather than their document reading mode, when users are interacting with the grid. While in application mode, a screen reader user hears only focusable elements and content that labels focusable elements. So, screen reader users may unknowingly overlook elements contained in a treegrid that are either not focusable or not used to label a column or row.<br><br>When using a keyboard to navigate a treegrid, a visual keyboard indicator informs users which row or cell is focused. If the treegrid allows users to choose just one item for an action, then it is known as a single-select treegrid, and the item with focus also has a selected state. However, in a multi-select treegrid, which enables users to select more than one row or cell for an action, the selected state is independent of the focus. For example, in a hierarchical e-mail discussion grid, users can move focus to select any number of rows for an action, such as delete or move. It is important that the visual design distinguish between items that are selected and the item that has focus. For more details, see this description of differences between focus and selection.</p></section>
+<section><h2>ARIA roles</h2>
+<p>Uses roles <code>columnheader</code>, <code>gridcell</code>, <code>row</code>, <code>rowgroup</code>, <code>rowheader</code>, <code>treegrid</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>columnheader</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-sort</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-colindex</code>, <code>aria-colspan</code>, <code>aria-rowindex</code>, <code>aria-rowspan</code>, <code>aria-disabled</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-selected</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#columnheader" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#columnheader</a></dd>
+</dl></details>
+<details open><summary><code>gridcell</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-disabled</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-selected</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-colindex</code>, <code>aria-colspan</code>, <code>aria-rowindex</code>, <code>aria-rowspan</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#gridcell" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#gridcell</a></dd>
+</dl></details>
+<details open><summary><code>row</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-colindex</code>, <code>aria-expanded</code>, <code>aria-level</code>, <code>aria-posinset</code>, <code>aria-rowindex</code>, <code>aria-selected</code>, <code>aria-setsize</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-activedescendant</code>, <code>aria-disabled</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#row" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#row</a></dd>
+</dl></details>
+<details open><summary><code>rowgroup</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#rowgroup" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#rowgroup</a></dd>
+</dl></details>
+<details open><summary><code>rowheader</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-sort</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-colindex</code>, <code>aria-colspan</code>, <code>aria-rowindex</code>, <code>aria-rowspan</code>, <code>aria-disabled</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-selected</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#rowheader" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#rowheader</a></dd>
+</dl></details>
+<details open><summary><code>treegrid</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-activedescendant</code>, <code>aria-disabled</code>, <code>aria-multiselectable</code>, <code>aria-readonly</code>, <code>aria-colcount</code>, <code>aria-rowcount</code>, <code>aria-orientation</code>, <code>aria-errormessage</code>, <code>aria-invalid</code>, <code>aria-required</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#treegrid" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#treegrid</a></dd>
+</dl></details>
+</section>
+<section><h2>Keyboard interactions <span class="provenance-tag">from APG</span></h2>
+<table class="kbd-table"><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
+<tr><td><code>Tab</code></td><td>The following keys provide treegrid navigation by moving focus among rows and cells of the grid. Implementations of treegrid make these key commands available when an element in the grid has received focus, e.g., after a user has moved focus to the grid with Tab. Moving focus into the grid may result in the first cell or the first row being focused. Whether focus goes to a cell or the row depends on author preferences and whether row focus is supported, since some implementations of treegrid may not provide focus to rows.</td></tr>
+<tr><td><code>Enter</code></td><td>If cell-only focus is enabled and focus is on the first cell with the aria-expanded property, opens or closes the child rows.,Otherwise, performs the default action for the cell.</td></tr>
+<tr><td><code>Tab</code></td><td>If the row containing focus contains focusable elements (e.g., inputs, buttons, links, etc.), moves focus to the next input in the row. If focus is on the last focusable element in the row, moves focus out of the treegrid widget to the next focusable element.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>If focus is on a collapsed row, expands the row.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>If focus is on an expanded row or is on a row that does not have child rows, moves focus to the first cell in the row.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>If focus is on the right-most cell in a row, focus does not move.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>If focus is on any other cell, moves focus one cell to the right.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>If focus is on an expanded row, collapses the row.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>If focus is on a collapsed row or on a row that does not have child rows, focus does not move.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>If focus is on the first cell in a row and row focus is supported, moves focus to the row.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>If focus is on the first cell in a row and row focus is not supported, focus does not move.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>If focus is on any other cell, moves focus one cell to the left.</td></tr>
+<tr><td><code>Down Arrow</code></td><td>If focus is on a row, moves focus one row down. If focus is on the last row, focus does not move.</td></tr>
+<tr><td><code>Down Arrow</code></td><td>If focus is on a cell, moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.</td></tr>
+<tr><td><code>Up Arrow</code></td><td>If focus is on a row, moves focus one row up. If focus is on the first row, focus does not move.</td></tr>
+<tr><td><code>Up Arrow</code></td><td>If focus is on a cell, moves focus one cell up. If focus is on the top cell in the column, focus does not move.</td></tr>
+<tr><td><code>Page Down</code></td><td>If focus is on a row, moves focus down an author-determined number of rows, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row, focus does not move.</td></tr>
+<tr><td><code>Page Down</code></td><td>If focus is on a cell, moves focus down an author-determined number of cells, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row, focus does not move.</td></tr>
+<tr><td><code>Page Up</code></td><td>If focus is on a row, moves focus up an author-determined number of rows, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row, focus does not move.</td></tr>
+<tr><td><code>Page Up</code></td><td>If focus is on a cell, moves focus up an author-determined number of cells, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row, focus does not move.</td></tr>
+<tr><td><code>Home</code></td><td>If focus is on a row, moves focus to the first row. If focus is in the first row, focus does not move.</td></tr>
+<tr><td><code>Home</code></td><td>If focus is on a cell, moves focus to the first cell in the row. If focus is in the first cell of the row, focus does not move.</td></tr>
+<tr><td><code>End</code></td><td>If focus is on a row, moves focus to the last row. If focus is in the last row, focus does not move.</td></tr>
+<tr><td><code>End</code></td><td>If focus is on a cell, moves focus to the last cell in the row. If focus is in the last cell of the row, focus does not move.</td></tr>
+<tr><td><code>Control + Home</code></td><td>If focus is on a row, moves focus to the first row. If focus is in the first row, focus does not move.</td></tr>
+<tr><td><code>Control + Home</code></td><td>If focus is on a cell, moves focus to the cell in the first row in the same column as the cell that had focus. If focus is in the first row, focus does not move.</td></tr>
+<tr><td><code>Control + End</code></td><td>If focus is on a row, moves focus to the last row. If focus is in the last row, focus does not move.</td></tr>
+<tr><td><code>Control + End</code></td><td>If focus is on a cell, moves focus to the cell in the last row in the same column as the cell that had focus. If focus is in the last row, focus does not move.</td></tr>
+<tr><td><code>Control + Space</code></td><td>If focus is on a row, selects all cells.</td></tr>
+<tr><td><code>Control + Space</code></td><td>If focus is on a cell, selects the column that contains the focus.</td></tr>
+<tr><td><code>Shift + Space</code></td><td>If focus is on a row, selects the row.</td></tr>
+<tr><td><code>Shift + Space</code></td><td>If focus is on a cell, selects the row that contains the focus. If the treegrid includes a column with checkboxes for selecting rows, this key can serve as a shortcut for checking the box when focus is not on the checkbox.</td></tr>
+<tr><td><code>Control + A</code></td><td>Selects all cells.</td></tr>
+<tr><td><code>Shift + Right Arrow</code></td><td>If focus is on a row, does not change selection.</td></tr>
+<tr><td><code>Shift + Right Arrow</code></td><td>if focus is on a cell, extends selection one cell to the right.</td></tr>
+<tr><td><code>Shift + Left Arrow</code></td><td>If focus is on a row, does not change selection.</td></tr>
+<tr><td><code>Shift + Left Arrow</code></td><td>if focus is on a cell, extends selection one cell to the left.</td></tr>
+<tr><td><code>Shift + Down Arrow</code></td><td>If focus is on a row, extends selection to all the cells in the next row.</td></tr>
+<tr><td><code>Shift + Down Arrow</code></td><td>If focus is on a cell, extends selection one cell down.</td></tr>
+<tr><td><code>Shift + Up Arrow</code></td><td>If focus is on a row, extends selection to all the cells in the previous row.</td></tr>
+<tr><td><code>Shift + Up Arrow</code></td><td>If focus is on a cell, extends selection one cell up.</td></tr>
+</tbody></table></section>
+<section><h2>Native HTML elements <span class="provenance-tag">from aria-query</span></h2>
+<p>Elements that natively carry one of this pattern's ARIA roles — using them gives you the role for free.</p><ul class="element-list">
+<li><code>&lt;th&gt;</code> · implicit role <code>columnheader</code></li>
+<li><code>&lt;th[scope=col]&gt;</code> · implicit role <code>columnheader</code></li>
+<li><code>&lt;th[scope=colgroup]&gt;</code> · implicit role <code>columnheader</code></li>
+<li><code>&lt;td&gt;</code> · implicit role <code>gridcell</code> · <span class="hint">ancestor table element has grid role, ancestor table element has treegrid role</span></li>
+<li><code>&lt;tr&gt;</code> · implicit role <code>row</code></li>
+<li><code>&lt;tbody&gt;</code> · implicit role <code>rowgroup</code></li>
+<li><code>&lt;tfoot&gt;</code> · implicit role <code>rowgroup</code></li>
+<li><code>&lt;thead&gt;</code> · implicit role <code>rowgroup</code></li>
+<li><code>&lt;th[scope=row]&gt;</code> · implicit role <code>rowheader</code></li>
+<li><code>&lt;th[scope=rowgroup]&gt;</code> · implicit role <code>rowheader</code></li>
+</ul></section>
+<section><h2>Drill down to conformance tests</h2>
+<p class="hint">Run these <code>search_act</code> queries to reach the applicable ACT rules and their WCAG SCs:</p>
+<p><code>search_act("columnheader")</code> <code>search_act("th")</code> <code>search_act("gridcell")</code> <code>search_act("td")</code> <code>search_act("row")</code> <code>search_act("tr")</code> <code>search_act("rowgroup")</code> <code>search_act("tbody")</code> <code>search_act("tfoot")</code> <code>search_act("thead")</code> <code>search_act("rowheader")</code> <code>search_act("treegrid")</code> <code>search_act("focus")</code> <code>search_act("keyboard")</code></p>
+<h3>Related ACT rules <span class="provenance-tag">via search</span></h3><ul class="act-list">
+<li><a href="../act/0ssw9k.html"><code>0ssw9k</code> Scrollable content can be reached with sequential focus navigation</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/0va7u6.html"><code>0va7u6</code> HTML images contain no text</a>
+ · <a class="level" href="../wcag/1.4.5.html">1.4.5</a>
+</li>
+<li><a href="../act/1ec09b.html"><code>1ec09b</code> Video element visual content has strict accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.5.html">1.2.5</a>
+</li>
+<li><a href="../act/23a2a8.html"><code>23a2a8</code> Image has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/24afc2.html"><code>24afc2</code> Important letter spacing in style attributes is wide enough</a>
+ · <a class="level" href="../wcag/1.4.12.html">1.4.12</a>
+</li>
+<li><a href="../act/2779a5.html"><code>2779a5</code> HTML page has non-empty title</a>
+ · <a class="level" href="../wcag/2.4.2.html">2.4.2</a>
+</li>
+<li><a href="../act/2ee8b8.html"><code>2ee8b8</code> Visible label is part of accessible name</a>
+ · <a class="level" href="../wcag/2.5.3.html">2.5.3</a>
+</li>
+<li><a href="../act/2t702h.html"><code>2t702h</code> Summary element has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/307n5z.html"><code>307n5z</code> Element with presentational children has no focusable content</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/36b590.html"><code>36b590</code> Error message describes invalid form field value</a>
+ · <a class="level" href="../wcag/3.3.1.html">3.3.1</a>
+</li>
+<li><a href="../act/4b1c6c.html"><code>4b1c6c</code> Iframe elements with identical accessible names have equivalent purpose</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/59796f.html"><code>59796f</code> Image button has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>, <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/59br37.html"><code>59br37</code> Zoomed text node is not clipped with CSS overflow</a>
+ · <a class="level" href="../wcag/1.4.4.html">1.4.4</a>
+</li>
+<li><a href="../act/5b7ae0.html"><code>5b7ae0</code> HTML page lang and xml:lang attributes have matching values</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+<li><a href="../act/5effbb.html"><code>5effbb</code> Link in context is descriptive</a>
+ · <a class="level" href="../wcag/2.4.4.html">2.4.4</a>
+</li>
+<li><a href="../act/6cfa84.html"><code>6cfa84</code> Element with aria-hidden has no content in sequential focus navigation</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/73f2c2.html"><code>73f2c2</code> Autocomplete attribute has valid value</a>
+ · <a class="level" href="../wcag/1.3.5.html">1.3.5</a>
+</li>
+<li><a href="../act/7677a9.html"><code>7677a9</code> Device motion based changes to the content can also be created from the user interface</a>
+ · <a class="level" href="../wcag/2.5.4.html">2.5.4</a>
+</li>
+<li><a href="../act/78fd32.html"><code>78fd32</code> Important line height in style attributes is wide enough</a>
+ · <a class="level" href="../wcag/1.4.12.html">1.4.12</a>
+</li>
+<li><a href="../act/7d6734.html"><code>7d6734</code> SVG element with explicit role has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/80af7b.html"><code>80af7b</code> Focusable element has no keyboard trap</a>
+ · <a class="level" href="../wcag/2.1.2.html">2.1.2</a>
+</li>
+<li><a href="../act/80f0bf.html"><code>80f0bf</code> Audio or video element avoids automatically playing audio</a>
+ · <a class="level" href="../wcag/1.4.2.html">1.4.2</a>
+</li>
+<li><a href="../act/8fc3b6.html"><code>8fc3b6</code> Object element rendering non-text content has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/97a4e1.html"><code>97a4e1</code> Button has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/9bd38c.html"><code>9bd38c</code> Content has alternative for visual reference</a>
+ · <a class="level" href="../wcag/1.3.3.html">1.3.3</a>
+</li>
+<li><a href="../act/9e45ec.html"><code>9e45ec</code> Important word spacing in style attributes is wide enough</a>
+ · <a class="level" href="../wcag/1.4.12.html">1.4.12</a>
+</li>
+<li><a href="../act/9eb3f6.html"><code>9eb3f6</code> Image filename is accessible name for image</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/a25f45.html"><code>a25f45</code> Headers attribute specified on a cell refers to cells in the same table element</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/afw4f7.html"><code>afw4f7</code> Text has minimum contrast</a>
+ · <a class="level" href="../wcag/1.4.3.html">1.4.3</a>
+</li>
+<li><a href="../act/akn7bn.html"><code>akn7bn</code> Iframe with interactive elements is not excluded from tab-order</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/b33eff.html"><code>b33eff</code> Orientation of the page is not restricted using CSS transforms</a>
+ · <a class="level" href="../wcag/1.3.4.html">1.3.4</a>
+</li>
+<li><a href="../act/b49b2e.html"><code>b49b2e</code> Heading is descriptive</a>
+ · <a class="level" href="../wcag/2.4.6.html">2.4.6</a>
+</li>
+<li><a href="../act/b4f0c3.html"><code>b4f0c3</code> Meta viewport allows for zoom</a>
+ · <a class="level" href="../wcag/1.4.4.html">1.4.4</a>
+</li>
+<li><a href="../act/b5c3f8.html"><code>b5c3f8</code> HTML page has lang attribute</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+<li><a href="../act/bc4a75.html"><code>bc4a75</code> ARIA required owned elements</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/bc659a.html"><code>bc659a</code> Meta element has no refresh delay</a>
+ · <a class="level" href="../wcag/2.2.1.html">2.2.1</a>
+</li>
+<li><a href="../act/bf051a.html"><code>bf051a</code> HTML page lang attribute has valid language tag</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+<li><a href="../act/c249d5.html"><code>c249d5</code> Device motion based changes to the content can be disabled</a>
+ · <a class="level" href="../wcag/2.5.4.html">2.5.4</a>
+</li>
+<li><a href="../act/c3232f.html"><code>c3232f</code> Video element visual-only content has accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.1.html">1.2.1</a>
+</li>
+<li><a href="../act/c487ae.html"><code>c487ae</code> Link has non-empty accessible name</a>
+ · <a class="level" href="../wcag/2.4.4.html">2.4.4</a>, <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/c4a8a4.html"><code>c4a8a4</code> HTML page title is descriptive</a>
+ · <a class="level" href="../wcag/2.4.2.html">2.4.2</a>
+</li>
+<li><a href="../act/c5a4ea.html"><code>c5a4ea</code> Video element visual content has accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.3.html">1.2.3</a>
+</li>
+<li><a href="../act/cae760.html"><code>cae760</code> Iframe element has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/cc0f0a.html"><code>cc0f0a</code> Form field label is descriptive</a>
+ · <a class="level" href="../wcag/2.4.6.html">2.4.6</a>
+</li>
+<li><a href="../act/cf77f2.html"><code>cf77f2</code> Bypass Blocks of Repeated Content</a>
+ · <a class="level" href="../wcag/2.4.1.html">2.4.1</a>
+</li>
+<li><a href="../act/d0f69e.html"><code>d0f69e</code> Table header cell has assigned cells</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/de46e4.html"><code>de46e4</code> Element with lang attribute has valid language tag</a>
+ · <a class="level" href="../wcag/3.1.2.html">3.1.2</a>
+</li>
+<li><a href="../act/e086e5.html"><code>e086e5</code> Form field has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/e7aa44.html"><code>e7aa44</code> Audio element content has text alternative</a>
+ · <a class="level" href="../wcag/1.2.1.html">1.2.1</a>
+</li>
+<li><a href="../act/e88epe.html"><code>e88epe</code> Image not in the accessibility tree is decorative</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/eac66b.html"><code>eac66b</code> Video element auditory content has accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.2.html">1.2.2</a>
+</li>
+<li><a href="../act/efbfc7.html"><code>efbfc7</code> Text content that changes automatically can be paused, stopped or hidden</a>
+ · <a class="level" href="../wcag/2.2.2.html">2.2.2</a>
+</li>
+<li><a href="../act/fd3a94.html"><code>fd3a94</code> Links with identical accessible names and same context serve equivalent purpose</a>
+ · <a class="level" href="../wcag/2.4.4.html">2.4.4</a>
+</li>
+<li><a href="../act/ff89c9.html"><code>ff89c9</code> ARIA required context role</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/ffbc54.html"><code>ffbc54</code> No keyboard shortcut uses only printable characters</a>
+ · <a class="level" href="../wcag/2.1.4.html">2.1.4</a>
+</li>
+<li><a href="../act/m6b1q3.html"><code>m6b1q3</code> Menuitem has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/off6ek.html"><code>off6ek</code> HTML element language subtag matches language</a>
+ · <a class="level" href="../wcag/3.1.2.html">3.1.2</a>
+</li>
+<li><a href="../act/oj04fd.html"><code>oj04fd</code> Element in sequential focus order has visible focus</a>
+ · <a class="level" href="../wcag/2.4.7.html">2.4.7</a>
+</li>
+<li><a href="../act/qt1vmo.html"><code>qt1vmo</code> Image accessible name is descriptive</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/ucwvc8.html"><code>ucwvc8</code> HTML page language subtag matches default language</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+</ul>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_apg_pattern("treegrid", "AA")</code> over MCP returns this:</p>
+<pre id="agent-json"><code>{
+  &quot;apg&quot;: {
+    &quot;role&quot;: &quot;treegrid&quot;,
+    &quot;name&quot;: &quot;Tree Grid&quot;,
+    &quot;apg_url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/&quot;,
+    &quot;about_this_pattern&quot;: &quot;A treegrid widget presents a hierarchical data grid consisting of tabular information that is editable or interactive. Any row in the hierarchy may have child rows, and rows with children may be expanded or collapsed to show or hide the children. For example, in a treegrid used to display messages and message responses for a e-mail discussion list, messages with responses would be in rows that can be expanded to reveal the response messages.\n\nIn a treegrid both rows and cells are focusable. Every row and cell contains a focusable element or is itself focusable, regardless of whether individual cell content is editable or interactive. There is one exception: if column header cells do not provide functions, such as sort or filter, they do not need to be focusable. One reason it is important for all cells to be able to receive or contain keyboard focus is that screen readers will typically be in their application reading mode, rather than their document reading mode, when users are interacting with the grid. While in application mode, a screen reader user hears only focusable elements and content that labels focusable elements. So, screen reader users may unknowingly overlook elements contained in a treegrid that are either not focusable or not used to label a column or row.\n\nWhen using a keyboard to navigate a treegrid, a visual keyboard indicator informs users which row or cell is focused. If the treegrid allows users to choose just one item for an action, then it is known as a single-select treegrid, and the item with focus also has a selected state. However, in a multi-select treegrid, which enables users to select more than one row or cell for an action, the selected state is independent of the focus. For example, in a hierarchical e-mail discussion grid, users can move focus to select any number of rows for an action, such as delete or move. It is important that the visual design distinguish between items that are selected and the item that has focus. For more details, see this description of differences between focus and selection.&quot;,
+    &quot;aria_roles&quot;: [
+      &quot;columnheader&quot;,
+      &quot;gridcell&quot;,
+      &quot;row&quot;,
+      &quot;rowgroup&quot;,
+      &quot;rowheader&quot;,
+      &quot;treegrid&quot;
+    ],
+    &quot;keyboard_interactions&quot;: [
+      {
+        &quot;key&quot;: &quot;Tab&quot;,
+        &quot;description&quot;: &quot;The following keys provide treegrid navigation by moving focus among rows and cells of the grid. Implementations of treegrid make these key commands available when an element in the grid has received focus, e.g., after a user has moved focus to the grid with Tab. Moving focus into the grid may result in the first cell or the first row being focused. Whether focus goes to a cell or the row depends on author preferences and whether row focus is supported, since some implementations of treegrid may not provide focus to rows.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Enter&quot;,
+        &quot;description&quot;: &quot;If cell-only focus is enabled and focus is on the first cell with the aria-expanded property, opens or closes the child rows.,Otherwise, performs the default action for the cell.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Tab&quot;,
+        &quot;description&quot;: &quot;If the row containing focus contains focusable elements (e.g., inputs, buttons, links, etc.), moves focus to the next input in the row. If focus is on the last focusable element in the row, moves focus out of the treegrid widget to the next focusable element.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a collapsed row, expands the row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on an expanded row or is on a row that does not have child rows, moves focus to the first cell in the row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on the right-most cell in a row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on any other cell, moves focus one cell to the right.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on an expanded row, collapses the row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a collapsed row or on a row that does not have child rows, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on the first cell in a row and row focus is supported, moves focus to the row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on the first cell in a row and row focus is not supported, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on any other cell, moves focus one cell to the left.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Down Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus one row down. If focus is on the last row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Down Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Up Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus one row up. If focus is on the first row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Up Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus one cell up. If focus is on the top cell in the column, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Page Down&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus down an author-determined number of rows, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Page Down&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus down an author-determined number of cells, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Page Up&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus up an author-determined number of rows, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Page Up&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus up an author-determined number of cells, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Home&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus to the first row. If focus is in the first row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Home&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus to the first cell in the row. If focus is in the first cell of the row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;End&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus to the last row. If focus is in the last row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;End&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus to the last cell in the row. If focus is in the last cell of the row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + Home&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus to the first row. If focus is in the first row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + Home&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus to the cell in the first row in the same column as the cell that had focus. If focus is in the first row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + End&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, moves focus to the last row. If focus is in the last row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + End&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, moves focus to the cell in the last row in the same column as the cell that had focus. If focus is in the last row, focus does not move.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + Space&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, selects all cells.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + Space&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, selects the column that contains the focus.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Space&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, selects the row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Space&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, selects the row that contains the focus. If the treegrid includes a column with checkboxes for selecting rows, this key can serve as a shortcut for checking the box when focus is not on the checkbox.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Control + A&quot;,
+        &quot;description&quot;: &quot;Selects all cells.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Right Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, does not change selection.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Right Arrow&quot;,
+        &quot;description&quot;: &quot;if focus is on a cell, extends selection one cell to the right.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Left Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, does not change selection.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Left Arrow&quot;,
+        &quot;description&quot;: &quot;if focus is on a cell, extends selection one cell to the left.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Down Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, extends selection to all the cells in the next row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Down Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, extends selection one cell down.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Up Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a row, extends selection to all the cells in the previous row.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Shift + Up Arrow&quot;,
+        &quot;description&quot;: &quot;If focus is on a cell, extends selection one cell up.&quot;
+      }
+    ],
+    &quot;examples&quot;: [
+      {
+        &quot;name&quot;: &quot;E-mail Inbox treegrid Example&quot;,
+        &quot;url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/&quot;
+      }
+    ]
+  },
+  &quot;role&quot;: &quot;treegrid&quot;,
+  &quot;aria_contract&quot;: {
+    &quot;columnheader&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-sort&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-colindex&quot;,
+        &quot;aria-colspan&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-rowspan&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-selected&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#columnheader&quot;
+    },
+    &quot;gridcell&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-disabled&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-selected&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-colindex&quot;,
+        &quot;aria-colspan&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-rowspan&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#gridcell&quot;
+    },
+    &quot;row&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-colindex&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-level&quot;,
+        &quot;aria-posinset&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-selected&quot;,
+        &quot;aria-setsize&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-activedescendant&quot;,
+        &quot;aria-disabled&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;cell&quot;
+        ],
+        [
+          &quot;columnheader&quot;
+        ],
+        [
+          &quot;gridcell&quot;
+        ],
+        [
+          &quot;rowheader&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#row&quot;
+    },
+    &quot;rowgroup&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;row&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#rowgroup&quot;
+    },
+    &quot;rowheader&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-sort&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-colindex&quot;,
+        &quot;aria-colspan&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-rowspan&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-selected&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#rowheader&quot;
+    },
+    &quot;treegrid&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-activedescendant&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-multiselectable&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-colcount&quot;,
+        &quot;aria-rowcount&quot;,
+        &quot;aria-orientation&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-required&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;row&quot;
+        ],
+        [
+          &quot;row&quot;,
+          &quot;rowgroup&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#treegrid&quot;
+    }
+  },
+  &quot;native_elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th&quot;,
+      &quot;implicit_role&quot;: &quot;columnheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;col&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=col]&quot;,
+      &quot;implicit_role&quot;: &quot;columnheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;colgroup&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=colgroup]&quot;,
+      &quot;implicit_role&quot;: &quot;columnheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;td&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [
+        &quot;ancestor table element has grid role&quot;,
+        &quot;ancestor table element has treegrid role&quot;
+      ],
+      &quot;canonical_id&quot;: &quot;td&quot;,
+      &quot;implicit_role&quot;: &quot;gridcell&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;tr&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;tr&quot;,
+      &quot;implicit_role&quot;: &quot;row&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;tbody&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;tbody&quot;,
+      &quot;implicit_role&quot;: &quot;rowgroup&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;tfoot&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;tfoot&quot;,
+      &quot;implicit_role&quot;: &quot;rowgroup&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;thead&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;thead&quot;,
+      &quot;implicit_role&quot;: &quot;rowgroup&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;row&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=row]&quot;,
+      &quot;implicit_role&quot;: &quot;rowheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;rowgroup&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=rowgroup]&quot;,
+      &quot;implicit_role&quot;: &quot;rowheader&quot;
+    }
+  ],
+  &quot;suggested_queries&quot;: [
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;columnheader&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;columnheader\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;th&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;columnheader\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;gridcell&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;gridcell\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;td&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;gridcell\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;row&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;row\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tr&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;row\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;rowgroup&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tbody&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tfoot&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;thead&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;rowheader&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;rowheader\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;treegrid&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;treegrid\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;focus&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;keyboard&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    }
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

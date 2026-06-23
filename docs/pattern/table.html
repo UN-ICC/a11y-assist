@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table — a11y-assist</title>
+  <meta name="description" content="Accessibility pattern for table — APG recipe, ARIA contract, native elements, and ACT/WCAG drill-down.">
+  <link rel="stylesheet" href="../assets/a11y-assist.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">a11y-assist</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">APG pattern</p>
+<h1>Table</h1>
+<p class="role-tag">role: <code>table</code></p>
+<p><a href="https://www.w3.org/WAI/ARIA/apg/patterns/table/" rel="noreferrer">APG: https://www.w3.org/WAI/ARIA/apg/patterns/table/</a></p>
+</header>
+<section><h2>About <span class="provenance-tag">from APG</span></h2><p>Like an HTML table element, a WAI-ARIA table is a static tabular structure containing one or more rows that each contain one or more cells; it is not an interactive widget. Thus, its cells are not focusable or selectable. The grid pattern is used to make an interactive widget that has a tabular structure.<br><br>However, tables are often used to present a combination of information and interactive widgets. Since a table is not a widget, each widget contained in a table is a separate stop in the page tab sequence. If the number of widgets is large, replacing the table with a grid can dramatically reduce the length of the page tab sequence because a grid is a composite widget that can contain other widgets.</p></section>
+<section><h2>ARIA roles</h2>
+<p>Uses roles <code>cell</code>, <code>columnheader</code>, <code>row</code>, <code>rowgroup</code>, <code>rowheader</code>, <code>table</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>cell</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-colindex</code>, <code>aria-colspan</code>, <code>aria-rowindex</code>, <code>aria-rowspan</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#cell" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#cell</a></dd>
+</dl></details>
+<details open><summary><code>columnheader</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-sort</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-colindex</code>, <code>aria-colspan</code>, <code>aria-rowindex</code>, <code>aria-rowspan</code>, <code>aria-disabled</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-selected</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#columnheader" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#columnheader</a></dd>
+</dl></details>
+<details open><summary><code>row</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-colindex</code>, <code>aria-expanded</code>, <code>aria-level</code>, <code>aria-posinset</code>, <code>aria-rowindex</code>, <code>aria-selected</code>, <code>aria-setsize</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-activedescendant</code>, <code>aria-disabled</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#row" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#row</a></dd>
+</dl></details>
+<details open><summary><code>rowgroup</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#rowgroup" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#rowgroup</a></dd>
+</dl></details>
+<details open><summary><code>rowheader</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-sort</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-colindex</code>, <code>aria-colspan</code>, <code>aria-rowindex</code>, <code>aria-rowspan</code>, <code>aria-disabled</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-selected</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#rowheader" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#rowheader</a></dd>
+</dl></details>
+<details open><summary><code>table</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-colcount</code>, <code>aria-rowcount</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#table" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#table</a></dd>
+</dl></details>
+</section>
+<section><h2>Native HTML elements <span class="provenance-tag">from aria-query</span></h2>
+<p>Elements that natively carry one of this pattern's ARIA roles — using them gives you the role for free.</p><ul class="element-list">
+<li><code>&lt;td&gt;</code> · implicit role <code>cell</code> · <span class="hint">ancestor table element has table role</span></li>
+<li><code>&lt;th&gt;</code> · implicit role <code>columnheader</code></li>
+<li><code>&lt;th[scope=col]&gt;</code> · implicit role <code>columnheader</code></li>
+<li><code>&lt;th[scope=colgroup]&gt;</code> · implicit role <code>columnheader</code></li>
+<li><code>&lt;tr&gt;</code> · implicit role <code>row</code></li>
+<li><code>&lt;tbody&gt;</code> · implicit role <code>rowgroup</code></li>
+<li><code>&lt;tfoot&gt;</code> · implicit role <code>rowgroup</code></li>
+<li><code>&lt;thead&gt;</code> · implicit role <code>rowgroup</code></li>
+<li><code>&lt;th[scope=row]&gt;</code> · implicit role <code>rowheader</code></li>
+<li><code>&lt;th[scope=rowgroup]&gt;</code> · implicit role <code>rowheader</code></li>
+<li><code>&lt;table&gt;</code> · implicit role <code>table</code></li>
+</ul></section>
+<section><h2>Drill down to conformance tests</h2>
+<p class="hint">Run these <code>search_act</code> queries to reach the applicable ACT rules and their WCAG SCs:</p>
+<p><code>search_act("cell")</code> <code>search_act("td")</code> <code>search_act("columnheader")</code> <code>search_act("th")</code> <code>search_act("row")</code> <code>search_act("tr")</code> <code>search_act("rowgroup")</code> <code>search_act("tbody")</code> <code>search_act("tfoot")</code> <code>search_act("thead")</code> <code>search_act("rowheader")</code> <code>search_act("table")</code></p>
+<h3>Related ACT rules <span class="provenance-tag">via search</span></h3><ul class="act-list">
+<li><a href="../act/0ssw9k.html"><code>0ssw9k</code> Scrollable content can be reached with sequential focus navigation</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/0va7u6.html"><code>0va7u6</code> HTML images contain no text</a>
+ · <a class="level" href="../wcag/1.4.5.html">1.4.5</a>
+</li>
+<li><a href="../act/1ec09b.html"><code>1ec09b</code> Video element visual content has strict accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.5.html">1.2.5</a>
+</li>
+<li><a href="../act/23a2a8.html"><code>23a2a8</code> Image has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/24afc2.html"><code>24afc2</code> Important letter spacing in style attributes is wide enough</a>
+ · <a class="level" href="../wcag/1.4.12.html">1.4.12</a>
+</li>
+<li><a href="../act/2779a5.html"><code>2779a5</code> HTML page has non-empty title</a>
+ · <a class="level" href="../wcag/2.4.2.html">2.4.2</a>
+</li>
+<li><a href="../act/2ee8b8.html"><code>2ee8b8</code> Visible label is part of accessible name</a>
+ · <a class="level" href="../wcag/2.5.3.html">2.5.3</a>
+</li>
+<li><a href="../act/2t702h.html"><code>2t702h</code> Summary element has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/307n5z.html"><code>307n5z</code> Element with presentational children has no focusable content</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/36b590.html"><code>36b590</code> Error message describes invalid form field value</a>
+ · <a class="level" href="../wcag/3.3.1.html">3.3.1</a>
+</li>
+<li><a href="../act/4b1c6c.html"><code>4b1c6c</code> Iframe elements with identical accessible names have equivalent purpose</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/59796f.html"><code>59796f</code> Image button has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>, <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/59br37.html"><code>59br37</code> Zoomed text node is not clipped with CSS overflow</a>
+ · <a class="level" href="../wcag/1.4.4.html">1.4.4</a>
+</li>
+<li><a href="../act/5b7ae0.html"><code>5b7ae0</code> HTML page lang and xml:lang attributes have matching values</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+<li><a href="../act/5effbb.html"><code>5effbb</code> Link in context is descriptive</a>
+ · <a class="level" href="../wcag/2.4.4.html">2.4.4</a>
+</li>
+<li><a href="../act/6cfa84.html"><code>6cfa84</code> Element with aria-hidden has no content in sequential focus navigation</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/73f2c2.html"><code>73f2c2</code> Autocomplete attribute has valid value</a>
+ · <a class="level" href="../wcag/1.3.5.html">1.3.5</a>
+</li>
+<li><a href="../act/7677a9.html"><code>7677a9</code> Device motion based changes to the content can also be created from the user interface</a>
+ · <a class="level" href="../wcag/2.5.4.html">2.5.4</a>
+</li>
+<li><a href="../act/78fd32.html"><code>78fd32</code> Important line height in style attributes is wide enough</a>
+ · <a class="level" href="../wcag/1.4.12.html">1.4.12</a>
+</li>
+<li><a href="../act/7d6734.html"><code>7d6734</code> SVG element with explicit role has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/80af7b.html"><code>80af7b</code> Focusable element has no keyboard trap</a>
+ · <a class="level" href="../wcag/2.1.2.html">2.1.2</a>
+</li>
+<li><a href="../act/80f0bf.html"><code>80f0bf</code> Audio or video element avoids automatically playing audio</a>
+ · <a class="level" href="../wcag/1.4.2.html">1.4.2</a>
+</li>
+<li><a href="../act/8fc3b6.html"><code>8fc3b6</code> Object element rendering non-text content has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/97a4e1.html"><code>97a4e1</code> Button has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/9bd38c.html"><code>9bd38c</code> Content has alternative for visual reference</a>
+ · <a class="level" href="../wcag/1.3.3.html">1.3.3</a>
+</li>
+<li><a href="../act/9e45ec.html"><code>9e45ec</code> Important word spacing in style attributes is wide enough</a>
+ · <a class="level" href="../wcag/1.4.12.html">1.4.12</a>
+</li>
+<li><a href="../act/9eb3f6.html"><code>9eb3f6</code> Image filename is accessible name for image</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/a25f45.html"><code>a25f45</code> Headers attribute specified on a cell refers to cells in the same table element</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/afw4f7.html"><code>afw4f7</code> Text has minimum contrast</a>
+ · <a class="level" href="../wcag/1.4.3.html">1.4.3</a>
+</li>
+<li><a href="../act/akn7bn.html"><code>akn7bn</code> Iframe with interactive elements is not excluded from tab-order</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/b33eff.html"><code>b33eff</code> Orientation of the page is not restricted using CSS transforms</a>
+ · <a class="level" href="../wcag/1.3.4.html">1.3.4</a>
+</li>
+<li><a href="../act/b49b2e.html"><code>b49b2e</code> Heading is descriptive</a>
+ · <a class="level" href="../wcag/2.4.6.html">2.4.6</a>
+</li>
+<li><a href="../act/b4f0c3.html"><code>b4f0c3</code> Meta viewport allows for zoom</a>
+ · <a class="level" href="../wcag/1.4.4.html">1.4.4</a>
+</li>
+<li><a href="../act/b5c3f8.html"><code>b5c3f8</code> HTML page has lang attribute</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+<li><a href="../act/bc4a75.html"><code>bc4a75</code> ARIA required owned elements</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/bc659a.html"><code>bc659a</code> Meta element has no refresh delay</a>
+ · <a class="level" href="../wcag/2.2.1.html">2.2.1</a>
+</li>
+<li><a href="../act/bf051a.html"><code>bf051a</code> HTML page lang attribute has valid language tag</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+<li><a href="../act/c249d5.html"><code>c249d5</code> Device motion based changes to the content can be disabled</a>
+ · <a class="level" href="../wcag/2.5.4.html">2.5.4</a>
+</li>
+<li><a href="../act/c3232f.html"><code>c3232f</code> Video element visual-only content has accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.1.html">1.2.1</a>
+</li>
+<li><a href="../act/c487ae.html"><code>c487ae</code> Link has non-empty accessible name</a>
+ · <a class="level" href="../wcag/2.4.4.html">2.4.4</a>, <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/c4a8a4.html"><code>c4a8a4</code> HTML page title is descriptive</a>
+ · <a class="level" href="../wcag/2.4.2.html">2.4.2</a>
+</li>
+<li><a href="../act/c5a4ea.html"><code>c5a4ea</code> Video element visual content has accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.3.html">1.2.3</a>
+</li>
+<li><a href="../act/cae760.html"><code>cae760</code> Iframe element has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/cc0f0a.html"><code>cc0f0a</code> Form field label is descriptive</a>
+ · <a class="level" href="../wcag/2.4.6.html">2.4.6</a>
+</li>
+<li><a href="../act/cf77f2.html"><code>cf77f2</code> Bypass Blocks of Repeated Content</a>
+ · <a class="level" href="../wcag/2.4.1.html">2.4.1</a>
+</li>
+<li><a href="../act/d0f69e.html"><code>d0f69e</code> Table header cell has assigned cells</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/de46e4.html"><code>de46e4</code> Element with lang attribute has valid language tag</a>
+ · <a class="level" href="../wcag/3.1.2.html">3.1.2</a>
+</li>
+<li><a href="../act/e086e5.html"><code>e086e5</code> Form field has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/e7aa44.html"><code>e7aa44</code> Audio element content has text alternative</a>
+ · <a class="level" href="../wcag/1.2.1.html">1.2.1</a>
+</li>
+<li><a href="../act/e88epe.html"><code>e88epe</code> Image not in the accessibility tree is decorative</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/eac66b.html"><code>eac66b</code> Video element auditory content has accessible alternative</a>
+ · <a class="level" href="../wcag/1.2.2.html">1.2.2</a>
+</li>
+<li><a href="../act/efbfc7.html"><code>efbfc7</code> Text content that changes automatically can be paused, stopped or hidden</a>
+ · <a class="level" href="../wcag/2.2.2.html">2.2.2</a>
+</li>
+<li><a href="../act/fd3a94.html"><code>fd3a94</code> Links with identical accessible names and same context serve equivalent purpose</a>
+ · <a class="level" href="../wcag/2.4.4.html">2.4.4</a>
+</li>
+<li><a href="../act/ff89c9.html"><code>ff89c9</code> ARIA required context role</a>
+ · <a class="level" href="../wcag/1.3.1.html">1.3.1</a>
+</li>
+<li><a href="../act/ffbc54.html"><code>ffbc54</code> No keyboard shortcut uses only printable characters</a>
+ · <a class="level" href="../wcag/2.1.4.html">2.1.4</a>
+</li>
+<li><a href="../act/m6b1q3.html"><code>m6b1q3</code> Menuitem has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/off6ek.html"><code>off6ek</code> HTML element language subtag matches language</a>
+ · <a class="level" href="../wcag/3.1.2.html">3.1.2</a>
+</li>
+<li><a href="../act/oj04fd.html"><code>oj04fd</code> Element in sequential focus order has visible focus</a>
+ · <a class="level" href="../wcag/2.4.7.html">2.4.7</a>
+</li>
+<li><a href="../act/qt1vmo.html"><code>qt1vmo</code> Image accessible name is descriptive</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/ucwvc8.html"><code>ucwvc8</code> HTML page language subtag matches default language</a>
+ · <a class="level" href="../wcag/3.1.1.html">3.1.1</a>
+</li>
+</ul>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_apg_pattern("table", "AA")</code> over MCP returns this:</p>
+<pre id="agent-json"><code>{
+  &quot;apg&quot;: {
+    &quot;role&quot;: &quot;table&quot;,
+    &quot;name&quot;: &quot;Table&quot;,
+    &quot;apg_url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/table/&quot;,
+    &quot;about_this_pattern&quot;: &quot;Like an HTML table element, a WAI-ARIA table is a static tabular structure containing one or more rows that each contain one or more cells; it is not an interactive widget. Thus, its cells are not focusable or selectable. The grid pattern is used to make an interactive widget that has a tabular structure.\n\nHowever, tables are often used to present a combination of information and interactive widgets. Since a table is not a widget, each widget contained in a table is a separate stop in the page tab sequence. If the number of widgets is large, replacing the table with a grid can dramatically reduce the length of the page tab sequence because a grid is a composite widget that can contain other widgets.&quot;,
+    &quot;aria_roles&quot;: [
+      &quot;cell&quot;,
+      &quot;columnheader&quot;,
+      &quot;row&quot;,
+      &quot;rowgroup&quot;,
+      &quot;rowheader&quot;,
+      &quot;table&quot;
+    ],
+    &quot;keyboard_interactions&quot;: [],
+    &quot;examples&quot;: [
+      {
+        &quot;name&quot;: &quot;Table Example&quot;,
+        &quot;url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/&quot;
+      },
+      {
+        &quot;name&quot;: &quot;Sortable Table Example&quot;,
+        &quot;url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/&quot;
+      }
+    ]
+  },
+  &quot;role&quot;: &quot;table&quot;,
+  &quot;aria_contract&quot;: {
+    &quot;cell&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-colindex&quot;,
+        &quot;aria-colspan&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-rowspan&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#cell&quot;
+    },
+    &quot;columnheader&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-sort&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-colindex&quot;,
+        &quot;aria-colspan&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-rowspan&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-selected&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#columnheader&quot;
+    },
+    &quot;row&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-colindex&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-level&quot;,
+        &quot;aria-posinset&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-selected&quot;,
+        &quot;aria-setsize&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-activedescendant&quot;,
+        &quot;aria-disabled&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;cell&quot;
+        ],
+        [
+          &quot;columnheader&quot;
+        ],
+        [
+          &quot;gridcell&quot;
+        ],
+        [
+          &quot;rowheader&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#row&quot;
+    },
+    &quot;rowgroup&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;row&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#rowgroup&quot;
+    },
+    &quot;rowheader&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-sort&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-colindex&quot;,
+        &quot;aria-colspan&quot;,
+        &quot;aria-rowindex&quot;,
+        &quot;aria-rowspan&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-selected&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#rowheader&quot;
+    },
+    &quot;table&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-colcount&quot;,
+        &quot;aria-rowcount&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;row&quot;
+        ],
+        [
+          &quot;row&quot;,
+          &quot;rowgroup&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#table&quot;
+    }
+  },
+  &quot;native_elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;td&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [
+        &quot;ancestor table element has table role&quot;
+      ],
+      &quot;canonical_id&quot;: &quot;td&quot;,
+      &quot;implicit_role&quot;: &quot;cell&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th&quot;,
+      &quot;implicit_role&quot;: &quot;columnheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;col&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=col]&quot;,
+      &quot;implicit_role&quot;: &quot;columnheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;colgroup&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=colgroup]&quot;,
+      &quot;implicit_role&quot;: &quot;columnheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;tr&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;tr&quot;,
+      &quot;implicit_role&quot;: &quot;row&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;tbody&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;tbody&quot;,
+      &quot;implicit_role&quot;: &quot;rowgroup&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;tfoot&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;tfoot&quot;,
+      &quot;implicit_role&quot;: &quot;rowgroup&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;thead&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;thead&quot;,
+      &quot;implicit_role&quot;: &quot;rowgroup&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;row&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=row]&quot;,
+      &quot;implicit_role&quot;: &quot;rowheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;th&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;scope&quot;,
+          &quot;value&quot;: &quot;rowgroup&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;th[scope=rowgroup]&quot;,
+      &quot;implicit_role&quot;: &quot;rowheader&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;table&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;table&quot;,
+      &quot;implicit_role&quot;: &quot;table&quot;
+    }
+  ],
+  &quot;suggested_queries&quot;: [
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;cell&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;cell\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;td&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;cell\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;columnheader&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;columnheader\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;th&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;columnheader\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;row&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;row\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tr&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;row\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;rowgroup&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tbody&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tfoot&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;thead&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;rowgroup\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;rowheader&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;rowheader\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;table&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;table\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    }
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

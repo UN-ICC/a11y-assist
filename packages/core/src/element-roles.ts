@@ -4,7 +4,7 @@
  * Re-shapes aria-query's verbose element specs into a typed `ElementSpec`
  * with a stable `canonical_id` suitable for URL fragments. The data is the
  * authoritative answer to "which native HTML elements carry this role
- * implicitly?" — used by `loadPattern` to populate `web_elements`.
+ * implicitly?" — used by the compose layer to populate `native_elements`.
  */
 
 // aria-query's @types declare a stricter constraint enum than the runtime data

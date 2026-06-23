@@ -1,7 +1,7 @@
 {
   "name": "a11y-mcp",
   "version": "6.0.0",
-  "description": "Design-system-agnostic accessibility audit MCP server. Wraps a11y-core as MCP tools; runs Playwright + axe-core for web validation.",
+  "description": "Design-system-agnostic accessibility MCP server for AI agents: scoped entry points (APG patterns, ARIA roles) with ACT/WCAG drill-down, plus Playwright + axe-core verification.",
   "type": "module",
   "main": "dist/server.js",
   "bin": {
@@ -21,6 +21,9 @@
   },
   "dependencies": {
     "a11y-core": "*",
+    "act-rules-query": "*",
+    "apg-query": "*",
+    "wcag-query": "*",
     "axe-core": "^4.10.0",
     "fastmcp": "^4.0.1",
     "playwright": "^1.44.0",

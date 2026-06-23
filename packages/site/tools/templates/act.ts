@@ -1,12 +1,7 @@
 import type { ACTRule } from 'act-rules-query'
 import { baseLayout, esc, jsonPretty } from '../render.js'
 
-export interface ACTExpansion extends ACTRule {
-  /** Roles whose rulesByRole heuristic match includes this rule. */
-  patterns_referencing: string[]
-}
-
-function actBody(r: ACTExpansion, rootHref: string): string {
+function actBody(r: ACTRule, rootHref: string): string {
   const parts: string[] = []
   parts.push(`<article class="card act-card">`)
   parts.push(`<header>`)
@@ -33,14 +28,6 @@ function actBody(r: ACTExpansion, rootHref: string): string {
     parts.push(`</section>`)
   }
 
-  if (r.patterns_referencing.length) {
-    parts.push(`<section><h2>Patterns matched by this rule</h2><ul class="pattern-list">`)
-    for (const role of r.patterns_referencing) {
-      parts.push(`<li><a href="${rootHref}/pattern/${esc(role)}-web.html"><code>${esc(role)}</code></a></li>`)
-    }
-    parts.push(`</ul></section>`)
-  }
-
   parts.push(`<section class="agent-view"><h2>What the agent receives for this rule</h2>`)
   parts.push(`<pre><code>${jsonPretty(r)}</code></pre></section>`)
 
@@ -48,7 +35,7 @@ function actBody(r: ACTExpansion, rootHref: string): string {
   return parts.join('\n')
 }
 
-export function renderACTPage(r: ACTExpansion, rootHref: string): string {
+export function renderACTPage(r: ACTRule, rootHref: string): string {
   return baseLayout({
     title: `ACT Rule ${r.id} ${r.name}`,
     description: `ACT Rule ${r.id}: ${r.name}. Covers WCAG ${r.wcag_sc_ids.join(', ')}.`,

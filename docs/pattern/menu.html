@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu / Menubar — a11y-assist</title>
+  <meta name="description" content="Accessibility pattern for menu — APG recipe, ARIA contract, native elements, and ACT/WCAG drill-down.">
+  <link rel="stylesheet" href="../assets/a11y-assist.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">a11y-assist</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">APG pattern</p>
+<h1>Menu / Menubar</h1>
+<p class="role-tag">role: <code>menu</code></p>
+<p><a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/" rel="noreferrer">APG: https://www.w3.org/WAI/ARIA/apg/patterns/menubar/</a></p>
+</header>
+<section><h2>About <span class="provenance-tag">from APG</span></h2><p>A menu is a widget that offers a list of choices to the user, such as a set of actions or functions. Menu widgets behave like native operating system menus, such as the menus that pull down from the menubars commonly found at the top of many desktop application windows. A menu is usually opened, or made visible, by activating a menu button, choosing an item in a menu that opens a sub menu, or by invoking a command, such as Shift + F10 in Windows, that opens a context specific menu. When a user activates a choice in a menu, the menu usually closes unless the choice opened a submenu.<br><br>A menu that is visually persistent is a menubar. A menubar is typically horizontal and is often used to create a menu bar similar to those found near the top of the window in many desktop applications, offering the user quick access to a consistent set of commands.<br><br>A common convention for indicating that a menu item launches a dialog box is to append &quot;…&quot; (ellipsis) to the menu item label, e.g., &quot;Save as …&quot;.</p></section>
+<section><h2>ARIA roles</h2>
+<p>Uses roles <code>menu</code>, <code>menubar</code>, <code>menuitem</code>, <code>menuitemcheckbox</code>, <code>menuitemradio</code>, <code>separator</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>menu</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-orientation</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-activedescendant</code>, <code>aria-disabled</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#menu" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#menu</a></dd>
+</dl></details>
+<details open><summary><code>menubar</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-orientation</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-activedescendant</code>, <code>aria-disabled</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#menubar" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#menubar</a></dd>
+</dl></details>
+<details open><summary><code>menuitem</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-disabled</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-posinset</code>, <code>aria-setsize</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#menuitem" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#menuitem</a></dd>
+</dl></details>
+<details open><summary><code>menuitemcheckbox</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Required properties</dt><dd><code>aria-checked</code></dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-disabled</code>, <code>aria-checked</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-haspopup</code>, <code>aria-posinset</code>, <code>aria-setsize</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#menuitemcheckbox" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#menuitemcheckbox</a></dd>
+</dl></details>
+<details open><summary><code>menuitemradio</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Required properties</dt><dd><code>aria-checked</code></dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code>, <code>aria-disabled</code>, <code>aria-checked</code>, <code>aria-errormessage</code>, <code>aria-expanded</code>, <code>aria-invalid</code>, <code>aria-readonly</code>, <code>aria-required</code>, <code>aria-haspopup</code>, <code>aria-posinset</code>, <code>aria-setsize</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#menuitemradio" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#menuitemradio</a></dd>
+</dl></details>
+<details open><summary><code>separator</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-disabled</code>, <code>aria-orientation</code>, <code>aria-valuemax</code>, <code>aria-valuemin</code>, <code>aria-valuenow</code>, <code>aria-valuetext</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#separator" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#separator</a></dd>
+</dl></details>
+</section>
+<section><h2>Keyboard interactions <span class="provenance-tag">from APG</span></h2>
+<table class="kbd-table"><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
+<tr><td><code>Tab / Shift / Tab</code></td><td>When a menu opens, or when a menubar receives focus, keyboard focus is placed on the first item. Because menubar and menu elements are composite widgets as described in the practice for Keyboard Navigation Inside Components, Tab and Shift + Tab do not move focus among the items in the menu. Instead, the keyboard commands described in this section enable users to move focus among the elements in a menubar or menu.</td></tr>
+<tr><td><code>Tab + Shift + Tab</code></td><td>Move focus into a menubar:</td></tr>
+<tr><td><code>Tab + Shift + Tab</code></td><td>When focus is on a menuitem in a menu or menubar, move focus out of the menu or menubar, and close all menus and submenus.</td></tr>
+<tr><td><code>Tab + Shift + Tab</code></td><td>Note that Tab and Shift + Tab do not move focus into a menu. Unlike a menubar, a menu is not visually persistent, and authors are responsible for ensuring focus moves to an item inside of a menu when the menu opens.</td></tr>
+<tr><td><code>Enter</code></td><td>When focus is on a menuitem that has a submenu, opens the submenu and places focus on its first item.</td></tr>
+<tr><td><code>Enter</code></td><td>Otherwise, activates the item and closes the menu.</td></tr>
+<tr><td><code>Space</code></td><td>(Optional): When focus is on a menuitemcheckbox, changes the state without closing the menu.</td></tr>
+<tr><td><code>Space</code></td><td>(Optional): When focus is on a menuitemradio that is not checked, without closing the menu, checks the focused menuitemradio and unchecks any other checked menuitemradio element in the same group.</td></tr>
+<tr><td><code>Space</code></td><td>(Optional): When focus is on a menuitem that has a submenu, opens the submenu and places focus on its first item.</td></tr>
+<tr><td><code>Space</code></td><td>(Optional): When focus is on a menuitem that does not have a submenu, activates the menuitem and closes the menu.</td></tr>
+<tr><td><code>Down Arrow</code></td><td>When focus is on a menuitem in a menubar, and that menuitem has a submenu, opens the submenu and places focus on the first item in the submenu.</td></tr>
+<tr><td><code>Down Arrow</code></td><td>When focus is in a menu, moves focus to the next item, optionally wrapping from the last to the first.</td></tr>
+<tr><td><code>Up Arrow</code></td><td>When focus is in a menu, moves focus to the previous item, optionally wrapping from the first to the last.</td></tr>
+<tr><td><code>Up Arrow</code></td><td>(Optional): When focus is on a menuitem in a menubar, and that menuitem has a submenu, opens the submenu and places focus on the last item in the submenu.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>When focus is in a menubar, moves focus to the next item, optionally wrapping from the last to the first.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>When focus is in a menu and on a menuitem that has a submenu, opens the submenu and places focus on its first item.</td></tr>
+<tr><td><code>Right Arrow</code></td><td>When focus is in a menu and on an item that does not have a submenu, performs the following 3 actions: Note that if the menubar were not present, e.g., the menus were opened from a menubutton, Right Arrow would not do anything when focus is on an item that does not have a submenu.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>When focus is in a menubar, moves focus to the previous item, optionally wrapping from the first to the last.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>When focus is in a submenu of an item in a menu, closes the submenu and returns focus to the parent menuitem.</td></tr>
+<tr><td><code>Left Arrow</code></td><td>When focus is in a submenu of an item in a menubar, performs the following 3 actions:</td></tr>
+<tr><td><code>Home</code></td><td>If arrow key wrapping is not supported, moves focus to the first item in the current menu or menubar.</td></tr>
+<tr><td><code>End</code></td><td>If arrow key wrapping is not supported, moves focus to the last item in the current menu or menubar.</td></tr>
+<tr><td><code>Escape</code></td><td>Close the menu that contains focus and return focus to the element or context, e.g., menu button or parent menuitem, from which the menu was opened.</td></tr>
+</tbody></table></section>
+<section><h2>Native HTML elements <span class="provenance-tag">from aria-query</span></h2>
+<p>Elements that natively carry one of this pattern's ARIA roles — using them gives you the role for free.</p><ul class="element-list">
+<li><code>&lt;hr&gt;</code> · implicit role <code>separator</code></li>
+</ul></section>
+<section><h2>Drill down to conformance tests</h2>
+<p class="hint">Run these <code>search_act</code> queries to reach the applicable ACT rules and their WCAG SCs:</p>
+<p><code>search_act("menu")</code> <code>search_act("menubar")</code> <code>search_act("menuitem")</code> <code>search_act("menuitemcheckbox")</code> <code>search_act("aria-checked")</code> <code>search_act("menuitemradio")</code> <code>search_act("separator")</code> <code>search_act("hr")</code> <code>search_act("focus")</code> <code>search_act("keyboard")</code></p>
+<h3>Related ACT rules <span class="provenance-tag">via search</span></h3><ul class="act-list">
+<li><a href="../act/0ssw9k.html"><code>0ssw9k</code> Scrollable content can be reached with sequential focus navigation</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/307n5z.html"><code>307n5z</code> Element with presentational children has no focusable content</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/36b590.html"><code>36b590</code> Error message describes invalid form field value</a>
+ · <a class="level" href="../wcag/3.3.1.html">3.3.1</a>
+</li>
+<li><a href="../act/6cfa84.html"><code>6cfa84</code> Element with aria-hidden has no content in sequential focus navigation</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/73f2c2.html"><code>73f2c2</code> Autocomplete attribute has valid value</a>
+ · <a class="level" href="../wcag/1.3.5.html">1.3.5</a>
+</li>
+<li><a href="../act/80af7b.html"><code>80af7b</code> Focusable element has no keyboard trap</a>
+ · <a class="level" href="../wcag/2.1.2.html">2.1.2</a>
+</li>
+<li><a href="../act/akn7bn.html"><code>akn7bn</code> Iframe with interactive elements is not excluded from tab-order</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/cc0f0a.html"><code>cc0f0a</code> Form field label is descriptive</a>
+ · <a class="level" href="../wcag/2.4.6.html">2.4.6</a>
+</li>
+<li><a href="../act/e086e5.html"><code>e086e5</code> Form field has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/ffbc54.html"><code>ffbc54</code> No keyboard shortcut uses only printable characters</a>
+ · <a class="level" href="../wcag/2.1.4.html">2.1.4</a>
+</li>
+<li><a href="../act/m6b1q3.html"><code>m6b1q3</code> Menuitem has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/oj04fd.html"><code>oj04fd</code> Element in sequential focus order has visible focus</a>
+ · <a class="level" href="../wcag/2.4.7.html">2.4.7</a>
+</li>
+</ul>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_apg_pattern("menu", "AA")</code> over MCP returns this:</p>
+<pre id="agent-json"><code>{
+  &quot;apg&quot;: {
+    &quot;role&quot;: &quot;menu&quot;,
+    &quot;name&quot;: &quot;Menu / Menubar&quot;,
+    &quot;apg_url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/menubar/&quot;,
+    &quot;about_this_pattern&quot;: &quot;A menu is a widget that offers a list of choices to the user, such as a set of actions or functions. Menu widgets behave like native operating system menus, such as the menus that pull down from the menubars commonly found at the top of many desktop application windows. A menu is usually opened, or made visible, by activating a menu button, choosing an item in a menu that opens a sub menu, or by invoking a command, such as Shift + F10 in Windows, that opens a context specific menu. When a user activates a choice in a menu, the menu usually closes unless the choice opened a submenu.\n\nA menu that is visually persistent is a menubar. A menubar is typically horizontal and is often used to create a menu bar similar to those found near the top of the window in many desktop applications, offering the user quick access to a consistent set of commands.\n\nA common convention for indicating that a menu item launches a dialog box is to append \&quot;…\&quot; (ellipsis) to the menu item label, e.g., \&quot;Save as …\&quot;.&quot;,
+    &quot;aria_roles&quot;: [
+      &quot;menu&quot;,
+      &quot;menubar&quot;,
+      &quot;menuitem&quot;,
+      &quot;menuitemcheckbox&quot;,
+      &quot;menuitemradio&quot;,
+      &quot;separator&quot;
+    ],
+    &quot;keyboard_interactions&quot;: [
+      {
+        &quot;key&quot;: &quot;Tab / Shift / Tab&quot;,
+        &quot;description&quot;: &quot;When a menu opens, or when a menubar receives focus, keyboard focus is placed on the first item. Because menubar and menu elements are composite widgets as described in the practice for Keyboard Navigation Inside Components, Tab and Shift + Tab do not move focus among the items in the menu. Instead, the keyboard commands described in this section enable users to move focus among the elements in a menubar or menu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Tab + Shift + Tab&quot;,
+        &quot;description&quot;: &quot;Move focus into a menubar:&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Tab + Shift + Tab&quot;,
+        &quot;description&quot;: &quot;When focus is on a menuitem in a menu or menubar, move focus out of the menu or menubar, and close all menus and submenus.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Tab + Shift + Tab&quot;,
+        &quot;description&quot;: &quot;Note that Tab and Shift + Tab do not move focus into a menu. Unlike a menubar, a menu is not visually persistent, and authors are responsible for ensuring focus moves to an item inside of a menu when the menu opens.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Enter&quot;,
+        &quot;description&quot;: &quot;When focus is on a menuitem that has a submenu, opens the submenu and places focus on its first item.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Enter&quot;,
+        &quot;description&quot;: &quot;Otherwise, activates the item and closes the menu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Space&quot;,
+        &quot;description&quot;: &quot;(Optional): When focus is on a menuitemcheckbox, changes the state without closing the menu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Space&quot;,
+        &quot;description&quot;: &quot;(Optional): When focus is on a menuitemradio that is not checked, without closing the menu, checks the focused menuitemradio and unchecks any other checked menuitemradio element in the same group.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Space&quot;,
+        &quot;description&quot;: &quot;(Optional): When focus is on a menuitem that has a submenu, opens the submenu and places focus on its first item.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Space&quot;,
+        &quot;description&quot;: &quot;(Optional): When focus is on a menuitem that does not have a submenu, activates the menuitem and closes the menu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Down Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is on a menuitem in a menubar, and that menuitem has a submenu, opens the submenu and places focus on the first item in the submenu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Down Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a menu, moves focus to the next item, optionally wrapping from the last to the first.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Up Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a menu, moves focus to the previous item, optionally wrapping from the first to the last.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Up Arrow&quot;,
+        &quot;description&quot;: &quot;(Optional): When focus is on a menuitem in a menubar, and that menuitem has a submenu, opens the submenu and places focus on the last item in the submenu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a menubar, moves focus to the next item, optionally wrapping from the last to the first.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a menu and on a menuitem that has a submenu, opens the submenu and places focus on its first item.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Right Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a menu and on an item that does not have a submenu, performs the following 3 actions: Note that if the menubar were not present, e.g., the menus were opened from a menubutton, Right Arrow would not do anything when focus is on an item that does not have a submenu.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a menubar, moves focus to the previous item, optionally wrapping from the first to the last.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a submenu of an item in a menu, closes the submenu and returns focus to the parent menuitem.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Left Arrow&quot;,
+        &quot;description&quot;: &quot;When focus is in a submenu of an item in a menubar, performs the following 3 actions:&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Home&quot;,
+        &quot;description&quot;: &quot;If arrow key wrapping is not supported, moves focus to the first item in the current menu or menubar.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;End&quot;,
+        &quot;description&quot;: &quot;If arrow key wrapping is not supported, moves focus to the last item in the current menu or menubar.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Escape&quot;,
+        &quot;description&quot;: &quot;Close the menu that contains focus and return focus to the element or context, e.g., menu button or parent menuitem, from which the menu was opened.&quot;
+      }
+    ],
+    &quot;examples&quot;: [
+      {
+        &quot;name&quot;: &quot;Editor Menubar Example&quot;,
+        &quot;url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/&quot;
+      },
+      {
+        &quot;name&quot;: &quot;Navigation Menubar Example&quot;,
+        &quot;url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/&quot;
+      }
+    ]
+  },
+  &quot;role&quot;: &quot;menu&quot;,
+  &quot;aria_contract&quot;: {
+    &quot;menu&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-orientation&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-activedescendant&quot;,
+        &quot;aria-disabled&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;menuitem&quot;,
+          &quot;group&quot;
+        ],
+        [
+          &quot;menuitemradio&quot;,
+          &quot;group&quot;
+        ],
+        [
+          &quot;menuitemcheckbox&quot;,
+          &quot;group&quot;
+        ],
+        [
+          &quot;menuitem&quot;
+        ],
+        [
+          &quot;menuitemcheckbox&quot;
+        ],
+        [
+          &quot;menuitemradio&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#menu&quot;
+    },
+    &quot;menubar&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-orientation&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-activedescendant&quot;,
+        &quot;aria-disabled&quot;
+      ],
+      &quot;required_owned_elements&quot;: [
+        [
+          &quot;menuitem&quot;,
+          &quot;group&quot;
+        ],
+        [
+          &quot;menuitemradio&quot;,
+          &quot;group&quot;
+        ],
+        [
+          &quot;menuitemcheckbox&quot;,
+          &quot;group&quot;
+        ],
+        [
+          &quot;menuitem&quot;
+        ],
+        [
+          &quot;menuitemcheckbox&quot;
+        ],
+        [
+          &quot;menuitemradio&quot;
+        ]
+      ],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#menubar&quot;
+    },
+    &quot;menuitem&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-disabled&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-posinset&quot;,
+        &quot;aria-setsize&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#menuitem&quot;
+    },
+    &quot;menuitemcheckbox&quot;: {
+      &quot;required_props&quot;: [
+        &quot;aria-checked&quot;
+      ],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-checked&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-posinset&quot;,
+        &quot;aria-setsize&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#menuitemcheckbox&quot;
+    },
+    &quot;menuitemradio&quot;: {
+      &quot;required_props&quot;: [
+        &quot;aria-checked&quot;
+      ],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-checked&quot;,
+        &quot;aria-errormessage&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-invalid&quot;,
+        &quot;aria-readonly&quot;,
+        &quot;aria-required&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-posinset&quot;,
+        &quot;aria-setsize&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#menuitemradio&quot;
+    },
+    &quot;separator&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-disabled&quot;,
+        &quot;aria-orientation&quot;,
+        &quot;aria-valuemax&quot;,
+        &quot;aria-valuemin&quot;,
+        &quot;aria-valuenow&quot;,
+        &quot;aria-valuetext&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#separator&quot;
+    }
+  },
+  &quot;native_elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;hr&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;hr&quot;,
+      &quot;implicit_role&quot;: &quot;separator&quot;
+    }
+  ],
+  &quot;suggested_queries&quot;: [
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;menu&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;menu\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;menubar&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;menubar\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;menuitem&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;menuitem\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;menuitemcheckbox&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;menuitemcheckbox\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;aria-checked&quot;,
+      &quot;why&quot;: &quot;required ARIA property of \&quot;menuitemcheckbox\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;menuitemradio&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;menuitemradio\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;separator&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;separator\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;hr&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;separator\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;focus&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;keyboard&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    }
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

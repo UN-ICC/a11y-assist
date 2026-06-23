@@ -11,8 +11,8 @@
     "build:site": "npm run build && npm run build --workspace=a11y-assist-site && npm run build:audit-bundle --workspace=a11y-assist-site",
     "typecheck": "npm run build --workspace=act-rules-query && npm run build --workspace=apg-query && npm run build --workspace=wcag-query && npm run build --workspace=a11y-core && npm run typecheck --workspace=a11y-mcp && npm run typecheck --workspace=a11y-assist-site",
     "extract": "npm run extract --workspace=apg-query && npm run extract --workspace=wcag-query && npm run load --workspace=act-rules-query",
-    "test": "npm run test --workspace=apg-query --workspace=wcag-query --workspace=act-rules-query",
-    "test:types": "npm run test:types --workspace=apg-query --workspace=wcag-query --workspace=act-rules-query"
+    "test": "npm run test --workspace=apg-query --workspace=wcag-query --workspace=act-rules-query --workspace=a11y-core",
+    "test:types": "npm run test:types --workspace=apg-query --workspace=wcag-query --workspace=act-rules-query --workspace=a11y-core"
   },
   "engines": {
     "node": ">=22.0.0"

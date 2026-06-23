@@ -41,6 +41,9 @@
 <li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F40" rel="noreferrer"><code>F40</code> Failure due to using meta redirect with a time limit</a></li>
 <li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F41" rel="noreferrer"><code>F41</code> Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh to reload the page</a></li>
 </ul></section>
+<section><h2>ACT rules covering this SC <span class="provenance-tag">mechanical</span></h2><ul class="act-list">
+<li><a href="../act/bisz58.html"><code>bisz58</code> Meta element has no refresh delay (no exception)</a></li>
+</ul></section>
 <section class="agent-view"><h2>What the agent receives for this SC</h2>
 <pre><code>{
   &quot;id&quot;: &quot;2.2.4&quot;,
@@ -111,7 +114,12 @@
       &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F41&quot;
     }
   ],
-  &quot;patterns_referencing&quot;: []
+  &quot;act_rules_covering&quot;: [
+    {
+      &quot;id&quot;: &quot;bisz58&quot;,
+      &quot;name&quot;: &quot;Meta element has no refresh delay (no exception)&quot;
+    }
+  ]
 }</code></pre></section>
 </article>
   </main>

@@ -52,21 +52,15 @@
   </dl>
   </section>
 
-  <section><h2>Editorial residue</h2>
-  <p>Three small hand-maintained pieces remain. All three failure modes are "missed match" rather than "wrong claim" — a SC ACT doesn't cover gets supplemented by binding; a primitive without binding falls back to APG; a search-term map miss attaches fewer ACT rules than ideal.</p>
-  <ul>
-    <li><code>role-bindings.json</code> · ~30 entries. Per-role: applicable WCAG SCs (supplemental floor — most overlap with ACT-derived SCs) and React Native component binding (no W3C source for RN). The HTML element binding is now derived from <code>aria-query</code> — no longer editorial.</li>
-    <li><code>ROLE_SEARCH_TERMS</code> in act-rules-query · ~30 entries. Translates role names to prose forms ACT uses in <em>Applicability</em> sections, so <code>rulesByRole</code> can match.</li>
-    <li>Light heuristics in extractors — extracted text is verbatim; section selectors and trimming are author-determined.</li>
-  </ul>
+  <section><h2>No editorial residue</h2>
+  <p>Nothing on a11y-assist is hand-asserted. Every pattern page is the verbatim APG card plus its ARIA contract and native elements (from <code>aria-query</code>); the only cross-corpus link is <strong>ACT rule → WCAG SC</strong>, taken straight from ACT front-matter. There is no editorial role→SC table and no role→rule heuristic — drill-down is plain search over the verbatim corpora.</p>
   </section>
 
   <section><h2>Coverage</h2>
-  <p>Computed at build time directly from the query packages — the same data the MCP server serves. Reveals where the dataset has thin spots — every gap is also a TODO.</p>
+  <p>Computed at build time directly from the query packages — the same data the MCP server serves.</p>
   <ul>
-    <li>49 of 86 WCAG SCs have <strong>no ACT rule</strong> coverage. These are typically visual or behavioural SCs (focus visibility, target size, motion-based) that ACT hasn't yet specified — the editorial supplement in <code>role-bindings.json</code> is what attaches them to patterns.</li>
-    <li>6 of 30 patterns have <strong>no native HTML element</strong>. These are composite APG patterns (tabs, accordion, breadcrumb) whose roles don't have implicit semantics on any HTML element — they require <code>role="…"</code> attributes.</li>
-    <li>25 of 30 patterns have <strong>no React Native primitive</strong>. RN's accessibility surface is shallower than the web's; most composite patterns don't have a one-component RN equivalent.</li>
+    <li>49 of 86 WCAG SCs have <strong>no ACT rule</strong> coverage. These are typically visual or behavioural SCs (contrast, focus appearance, target size, motion) ACT hasn't specified — they are caught by <strong>axe at verification</strong> and by manual review, not asserted per pattern.</li>
+    <li>94 ACT rules in the dataset bridge patterns to their WCAG Success Criteria.</li>
   </ul>
   </section>
 

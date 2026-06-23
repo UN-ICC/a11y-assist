@@ -41,65 +41,22 @@ export function rulesByWCAG(scId: string): ACTRule[] {
 }
 
 /**
- * Heuristic role/element matcher: rules whose `applicability_text` mentions
- * the role or its associated HTML elements. Word-boundary-aware to avoid
- * substring false positives ('button' should not match 'spinbutton'-only
- * applicability text).
+ * Full-text search over rule name and applicability text (case-insensitive
+ * substring). Returns all matches, sorted by id — ranking and selection are
+ * the caller's job.
  *
- * The mapping role → search terms includes both the ARIA role name and
- * common HTML element synonyms so we catch rules whose applicability is
- * phrased element-first.
+ * This replaces the old editorial role→term heuristic. The caller (e.g. an
+ * agent that has a role name or ARIA attribute in hand) supplies the query
+ * term; the package makes no judgement about which rules "apply" to a role.
  */
-const ROLE_SEARCH_TERMS: Record<string, string[]> = {
-  button: ['button', 'role=button'],
-  textbox: ['textbox', 'input element', 'textarea'],
-  link: ['link', 'role=link', '<a> element', '<a href>', '<a> elements'],
-  img: ['img', 'image element', '<img>'],
-  checkbox: ['checkbox', 'type="checkbox"', "type='checkbox'"],
-  radio: ['radio', 'type="radio"', "type='radio'"],
-  dialog: ['dialog', 'role=dialog', 'modal'],
-  alertdialog: ['alertdialog', 'role=alertdialog'],
-  alert: ['alert', 'role=alert'],
-  tabs: ['tab', 'tablist', 'tabpanel'],
-  listbox: ['listbox', 'role=listbox', 'option'],
-  combobox: ['combobox', 'role=combobox'],
-  menu: ['menu', 'menuitem', 'menubar'],
-  menubutton: ['menu button', 'menubutton', 'aria-haspopup'],
-  switch: ['switch', 'role=switch'],
-  slider: ['slider', 'role=slider'],
-  spinbutton: ['spinbutton', 'type="number"', 'role=spinbutton'],
-  meter: ['meter', 'role=meter'],
-  progressbar: ['progressbar', 'role=progressbar'],
-  tree: ['tree', 'treeitem'],
-  treeview: ['tree', 'treeitem'],
-  treegrid: ['treegrid'],
-  grid: ['grid', 'gridcell', 'role=grid'],
-  table: ['table', '<table>', 'tablerow'],
-  toolbar: ['toolbar', 'role=toolbar'],
-  tooltip: ['tooltip', 'role=tooltip'],
-  accordion: ['accordion', 'aria-expanded'],
-  disclosure: ['aria-expanded', 'disclosure'],
-  breadcrumb: ['breadcrumb', 'aria-current'],
-  carousel: ['carousel'],
-  feed: ['feed', 'role=feed'],
-}
-
-export function rulesByRole(role: string): ACTRule[] {
-  const terms = ROLE_SEARCH_TERMS[role.toLowerCase()] ?? [role.toLowerCase()]
-  // Compile each term to a word-boundary regex so 'button' doesn't match
-  // 'spinbutton', 'summary button', etc.
-  const patterns = terms.map(
-    (t) => new RegExp(`(?<![\\w-])${escapeRegex(t)}(?![\\w-])`, 'i'),
-  )
-  return RULE_LIST.filter((r) => {
-    // Restrict the search to the leading applicability sentence(s) — the
-    // canonical "This rule applies to X" portion. Anything beyond ~400 chars
-    // is typically clarifications, exclusions, or incidental mentions.
-    const lead = r.applicability_text.slice(0, 400)
-    return patterns.some((p) => p.test(lead))
-  })
-}
-
-function escapeRegex(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+export function search(query: string): ACTRule[] {
+  const q = query.trim().toLowerCase()
+  if (!q) return []
+  return RULE_LIST
+    .filter(
+      (r) =>
+        r.name.toLowerCase().includes(q) ||
+        r.applicability_text.toLowerCase().includes(q),
+    )
+    .sort((a, b) => a.id.localeCompare(b.id))
 }

@@ -4,8 +4,8 @@ import { baseLayout, esc, join, jsonPretty } from '../render.js'
 export interface SCExpansion extends SuccessCriterion {
   techniques: Technique[]
   failures: Technique[]
-  /** Roles whose role-bindings list this SC. */
-  patterns_referencing: string[]
+  /** ACT rules that cover this SC (mechanical, from ACT front-matter). */
+  act_rules_covering: { id: string; name: string }[]
 }
 
 function scBody(sc: SCExpansion, rootHref: string): string {
@@ -33,10 +33,10 @@ function scBody(sc: SCExpansion, rootHref: string): string {
     parts.push(`</ul></section>`)
   }
 
-  if (sc.patterns_referencing.length) {
-    parts.push(`<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">`)
-    for (const role of sc.patterns_referencing) {
-      parts.push(`<li><a href="${rootHref}/pattern/${esc(role)}-web.html"><code>${esc(role)}</code></a></li>`)
+  if (sc.act_rules_covering.length) {
+    parts.push(`<section><h2>ACT rules covering this SC <span class="provenance-tag">mechanical</span></h2><ul class="act-list">`)
+    for (const r of sc.act_rules_covering) {
+      parts.push(`<li><a href="${rootHref}/act/${esc(r.id)}.html"><code>${esc(r.id)}</code> ${esc(r.name)}</a></li>`)
     }
     parts.push(`</ul></section>`)
   }

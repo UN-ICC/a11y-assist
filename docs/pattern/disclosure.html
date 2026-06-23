@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disclosure (Show/Hide) — a11y-assist</title>
+  <meta name="description" content="Accessibility pattern for disclosure — APG recipe, ARIA contract, native elements, and ACT/WCAG drill-down.">
+  <link rel="stylesheet" href="../assets/a11y-assist.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">a11y-assist</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">APG pattern</p>
+<h1>Disclosure (Show/Hide)</h1>
+<p class="role-tag">role: <code>disclosure</code></p>
+<p><a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/" rel="noreferrer">APG: https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/</a></p>
+</header>
+<section><h2>About <span class="provenance-tag">from APG</span></h2><p>A disclosure is a widget that enables content to be either collapsed (hidden) or expanded (visible). It has two elements: a disclosure button and a section of content whose visibility is controlled by the button. When the controlled content is hidden, the button is often styled as a typical push button with a right-pointing arrow or triangle to hint that activating the button will display additional content. When the content is visible, the arrow or triangle typically points down.</p></section>
+<section><h2>ARIA roles</h2>
+<p>Uses role <code>button</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>button</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-disabled</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-pressed</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#button" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#button</a></dd>
+</dl></details>
+</section>
+<section><h2>Keyboard interactions <span class="provenance-tag">from APG</span></h2>
+<table class="kbd-table"><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
+<tr><td><code>Enter</code></td><td>activates the disclosure control and toggles the visibility of the disclosure content.</td></tr>
+<tr><td><code>Space</code></td><td>activates the disclosure control and toggles the visibility of the disclosure content.</td></tr>
+</tbody></table></section>
+<section><h2>Native HTML elements <span class="provenance-tag">from aria-query</span></h2>
+<p>Elements that natively carry one of this pattern's ARIA roles — using them gives you the role for free.</p><ul class="element-list">
+<li><code>&lt;button&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=button]&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=image]&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=reset]&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=submit]&gt;</code> · implicit role <code>button</code></li>
+</ul></section>
+<section><h2>Drill down to conformance tests</h2>
+<p class="hint">Run these <code>search_act</code> queries to reach the applicable ACT rules and their WCAG SCs:</p>
+<p><code>search_act("button")</code> <code>search_act("input")</code> <code>search_act("focus")</code> <code>search_act("keyboard")</code></p>
+<h3>Related ACT rules <span class="provenance-tag">via search</span></h3><ul class="act-list">
+<li><a href="../act/0ssw9k.html"><code>0ssw9k</code> Scrollable content can be reached with sequential focus navigation</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/2t702h.html"><code>2t702h</code> Summary element has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/307n5z.html"><code>307n5z</code> Element with presentational children has no focusable content</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/36b590.html"><code>36b590</code> Error message describes invalid form field value</a>
+ · <a class="level" href="../wcag/3.3.1.html">3.3.1</a>
+</li>
+<li><a href="../act/59796f.html"><code>59796f</code> Image button has non-empty accessible name</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>, <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/6cfa84.html"><code>6cfa84</code> Element with aria-hidden has no content in sequential focus navigation</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/73f2c2.html"><code>73f2c2</code> Autocomplete attribute has valid value</a>
+ · <a class="level" href="../wcag/1.3.5.html">1.3.5</a>
+</li>
+<li><a href="../act/80af7b.html"><code>80af7b</code> Focusable element has no keyboard trap</a>
+ · <a class="level" href="../wcag/2.1.2.html">2.1.2</a>
+</li>
+<li><a href="../act/97a4e1.html"><code>97a4e1</code> Button has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/9eb3f6.html"><code>9eb3f6</code> Image filename is accessible name for image</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/akn7bn.html"><code>akn7bn</code> Iframe with interactive elements is not excluded from tab-order</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/cc0f0a.html"><code>cc0f0a</code> Form field label is descriptive</a>
+ · <a class="level" href="../wcag/2.4.6.html">2.4.6</a>
+</li>
+<li><a href="../act/e086e5.html"><code>e086e5</code> Form field has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/e7aa44.html"><code>e7aa44</code> Audio element content has text alternative</a>
+ · <a class="level" href="../wcag/1.2.1.html">1.2.1</a>
+</li>
+<li><a href="../act/e88epe.html"><code>e88epe</code> Image not in the accessibility tree is decorative</a>
+ · <a class="level" href="../wcag/1.1.1.html">1.1.1</a>
+</li>
+<li><a href="../act/ffbc54.html"><code>ffbc54</code> No keyboard shortcut uses only printable characters</a>
+ · <a class="level" href="../wcag/2.1.4.html">2.1.4</a>
+</li>
+<li><a href="../act/oj04fd.html"><code>oj04fd</code> Element in sequential focus order has visible focus</a>
+ · <a class="level" href="../wcag/2.4.7.html">2.4.7</a>
+</li>
+</ul>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_apg_pattern("disclosure", "AA")</code> over MCP returns this:</p>
+<pre id="agent-json"><code>{
+  &quot;apg&quot;: {
+    &quot;role&quot;: &quot;disclosure&quot;,
+    &quot;name&quot;: &quot;Disclosure (Show/Hide)&quot;,
+    &quot;apg_url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/&quot;,
+    &quot;about_this_pattern&quot;: &quot;A disclosure is a widget that enables content to be either collapsed (hidden) or expanded (visible). It has two elements: a disclosure button and a section of content whose visibility is controlled by the button. When the controlled content is hidden, the button is often styled as a typical push button with a right-pointing arrow or triangle to hint that activating the button will display additional content. When the content is visible, the arrow or triangle typically points down.&quot;,
+    &quot;aria_roles&quot;: [
+      &quot;button&quot;
+    ],
+    &quot;keyboard_interactions&quot;: [
+      {
+        &quot;key&quot;: &quot;Enter&quot;,
+        &quot;description&quot;: &quot;activates the disclosure control and toggles the visibility of the disclosure content.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Space&quot;,
+        &quot;description&quot;: &quot;activates the disclosure control and toggles the visibility of the disclosure content.&quot;
+      }
+    ],
+    &quot;examples&quot;: []
+  },
+  &quot;role&quot;: &quot;disclosure&quot;,
+  &quot;aria_contract&quot;: {
+    &quot;button&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-disabled&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-pressed&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#button&quot;
+    }
+  },
+  &quot;native_elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;button&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;button&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;button&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=button]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;image&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=image]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;reset&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=reset]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;submit&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=submit]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    }
+  ],
+  &quot;suggested_queries&quot;: [
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;button&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;button\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;input&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;button\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;focus&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;keyboard&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    }
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

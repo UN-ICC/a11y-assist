@@ -1,26 +1,31 @@
 /**
- * a11y-core — pure logic shared by the MCP server (a11y-mcp) and the
- * a11y-assist website (a11y-assist-site). No I/O, no Playwright, no MCP protocol.
+ * a11y-core — pure, mechanical composition shared by the MCP server (a11y-mcp)
+ * and the a11y-assist website (a11y-assist-site). No I/O, no Playwright, no MCP
+ * protocol, and no editorial assertions.
  *
  * Two responsibility areas:
- *   1. Pattern aggregation — composes apg-query + wcag-query + act-rules-query
- *      + aria-query + role-bindings.json into a unified `A11yPattern` shape.
- *      Public API: `loadPattern`, `listPatterns`.
+ *   1. Composition — given an APG pattern or an ARIA role, assemble the verbatim
+ *      recipe + ARIA contract + native elements + deterministic drill-down
+ *      queries, and run the level-gated ACT search (the one mechanical
+ *      ACT→WCAG-SC bridge). API: composeApgPattern, composeAriaRole,
+ *      listApgPatterns, searchAct.
  *
- *   2. Audit response shaping — turns raw axe violations into the canonical
- *      response shape. Public API: `wrapAuditResponse`, `enrichBase`,
- *      `toBaseShape`.
+ *   2. Audit response shaping — turn raw axe violations into the canonical
+ *      response shape. API: wrapAuditResponse, enrichBase, toBaseShape.
  *
  * Same functions, both consumers. No drift possible.
  */
 
 export {
-  loadPattern,
-  listPatterns,
-  type Platform,
-  type A11yPattern,
-  type SCExpansion,
-} from './load-pattern.js'
+  composeApgPattern,
+  composeAriaRole,
+  listApgPatterns,
+  searchAct,
+  type ComposedApgPattern,
+  type ComposedAriaRole,
+  type SuggestedQuery,
+  type WCAGLevel,
+} from './compose.js'
 
 export {
   wrapAuditResponse,
@@ -37,12 +42,6 @@ export {
   deriveContracts,
   type AriaContract,
 } from './aria-contract.js'
-
-export {
-  roleBindings,
-  type RoleBinding,
-  type PrimitiveBindingRN,
-} from './role-bindings.js'
 
 export {
   getElementsForRole,

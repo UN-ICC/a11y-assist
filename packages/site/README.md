@@ -19,7 +19,7 @@ Output goes to `docs/` at the repo root, served as **GitHub Pages**.
 
 ## How it stays in sync
 
-Pages render the exact data `loadPattern` produces, so the website and the MCP server cannot disagree. The only site-specific logic is `tools/derive.ts`, which computes the few things a single lookup doesn't give you — reverse backlinks ("which patterns reference this SC / ACT rule?") and dataset coverage stats — by iterating the same canonical pattern set. The in-page audit button reuses `wrapAuditResponse` from `a11y-core`, the same function the MCP `audit_html` tool uses.
+Pattern pages render exactly what `composeApgPattern` produces — the same compose function the MCP server serves to agents — so the website and the server cannot disagree. The only site-specific logic is `tools/derive.ts`: the build-time `search_act` hop that lists each pattern's related ACT rules, and a mechanical coverage summary. SC pages link to the ACT rules covering them (`rulesByWCAG`, straight from ACT front-matter). The in-page audit button reuses `wrapAuditResponse` from `a11y-core`, the same function the MCP `audit_html` tool uses.
 
 ## Licensing
 

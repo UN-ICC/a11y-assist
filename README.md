@@ -14,14 +14,14 @@ packages/
 ├── act-rules-query/  — programmatic access to W3C ACT Rules (loaded from snapshotted YAML/MD)
 │
 │  aggregator (pure logic)
-├── core/  (a11y-core) — composes the three query packages (+ aria-query + role-bindings) into a
-│                        unified pattern shape, and shapes audit responses. No I/O, no MCP, no Playwright.
+├── core/  (a11y-core) — composes the three query packages (+ aria-query) into recipe + ARIA
+│                        contract + drill-down queries, and shapes audit responses. No editorial data.
 │
 │  surfaces (same data, two audiences)
 ├── mcp/   (a11y-mcp)  — the MCP server: the agent's view. Wraps a11y-core as MCP tools and runs
 │                        Playwright + axe-core for web validation. This is what AI agents connect to.
 └── site/  (a11y-assist-site) — static GitHub Pages browser: the developer's view. The same data
-                            loadPattern serves to agents, rendered as browsable pages.
+                            composeApgPattern serves to agents, rendered as browsable pages.
 ```
 
 The two surfaces read the **same** `a11y-core`, so an agent (via MCP) and a developer (via the website) see the same guidance — they can't drift.
@@ -73,25 +73,14 @@ The site is served from `docs/` as GitHub Pages — pattern, WCAG, and ACT pages
 
 ## Honest scope
 
-- **Web validation** (audit_html / audit_url): supported via axe-core + Playwright.
-- **React Native validation**: not directly supported. axe is a DOM tool. RN audits require lint (`eslint-plugin-react-native-a11y`), simulator-based testing (Detox/Maestro), or HTML approximation.
-- **Web + React Native planning** (get_a11y_pattern, list_a11y_patterns): supported. Both platforms get aria_contract, WCAG SCs, and platform-specific bindings.
-- **Manual screen reader, keyboard, and cognitive review**: still required. axe catches roughly 50% of WCAG; the other 50% is human work. See [`ARCHITECTURE.md`](./ARCHITECTURE.md) "Honest scope."
+- **Web only.** Planning (`get_apg_pattern`, `get_aria_role`) and validation (`audit_html`, `audit_url`) target the web. React Native is a reserved future surface — not implemented.
+- **Validation** runs axe-core + Playwright. axe catches ~50% of WCAG; a clean audit means "no automated violations found," not "accessible."
+- **ACT blind spot**: some visual/perceptual SCs (contrast, target size, focus appearance) have no ACT rules — caught by `audit_html`/`audit_url`, not asserted per pattern.
+- **Manual screen reader, keyboard, and cognitive review**: still required. See [`ARCHITECTURE.md`](./ARCHITECTURE.md) "Honest scope."
 
-## Provenance
+## Traceability
 
-Every response from the MCP server includes a `provenance` block:
-
-```json
-{
-  "apg_query": { "date": "2026-05-07", "pattern_count": 28 },
-  "wcag_query": { "date": "2026-05-07", "version": "2.2", "sc_count": 86 },
-  "aria_query": "aria-query npm package",
-  "generated_at": "2026-05-07T..."
-}
-```
-
-If a piece of guidance comes from APG, you can find it in the snapshotted HTML committed alongside the data. If it comes from WCAG, same. If it's the ARIA contract, it's mechanically derived from the WAI-ARIA spec via aria-query.
+Nothing is asserted. Every claim is verbatim from a query package, mechanically derived from `aria-query`, or a query you run yourself; the one cross-corpus link (ACT rule → WCAG SC) comes straight from ACT front-matter. Each query package carries a versioned snapshot (date + source commit), and its committed raw HTML/YAML lets you re-derive the data. See [`ARCHITECTURE.md`](./ARCHITECTURE.md) and [`REDESIGN.md`](./REDESIGN.md).
 
 ## Status
 

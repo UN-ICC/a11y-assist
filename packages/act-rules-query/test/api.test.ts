@@ -5,7 +5,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
 import {
-  getRule, listRules, rulesByWCAG, rulesByRole, rules,
+  getRule, listRules, rulesByWCAG, search, rules,
 } from '../src/index.js'
 
 test('getRule resolves a known rule and rejects unknown ids', () => {
@@ -37,7 +37,19 @@ test('rulesByWCAG returns [] for an SC no rule covers', () => {
   assert.deepEqual(rulesByWCAG('9.9.9'), [])
 })
 
-test('rulesByRole returns matches for a common role and an array otherwise', () => {
-  assert.ok(rulesByRole('button').length > 0, 'expected button rules')
-  assert.ok(Array.isArray(rulesByRole('not-a-real-role')))
+test('search matches rule name / applicability, sorted, and every hit contains the term', () => {
+  const hits = search('button')
+  assert.ok(hits.length > 0, 'expected matches for "button"')
+  assert.deepEqual(hits.map((r) => r.id), [...hits.map((r) => r.id)].sort(), 'results sorted by id')
+  for (const r of hits) {
+    const inName = r.name.toLowerCase().includes('button')
+    const inApplicability = r.applicability_text.toLowerCase().includes('button')
+    assert.ok(inName || inApplicability, `${r.id}: term must appear in name or applicability`)
+  }
+})
+
+test('search is case-insensitive and empty query returns []', () => {
+  assert.deepEqual(search('BUTTON').map((r) => r.id), search('button').map((r) => r.id))
+  assert.deepEqual(search('   '), [])
+  assert.deepEqual(search('zzzznotpresentzzzz'), [])
 })

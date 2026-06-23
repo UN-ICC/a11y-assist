@@ -48,10 +48,9 @@
 <li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F80" rel="noreferrer"><code>F80</code> Failure of Success Criterion 1.4.4 when text-based form controls do not resize when visually rendered text is resized up to 200%</a></li>
 <li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F94" rel="noreferrer"><code>F94</code> Failure of Success Criterion 1.4.4 due to incorrect use of viewport units to resize text</a></li>
 </ul></section>
-<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
-<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
-<li><a href="../pattern/table-web.html"><code>table</code></a></li>
-<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+<section><h2>ACT rules covering this SC <span class="provenance-tag">mechanical</span></h2><ul class="act-list">
+<li><a href="../act/59br37.html"><code>59br37</code> Zoomed text node is not clipped with CSS overflow</a></li>
+<li><a href="../act/b4f0c3.html"><code>b4f0c3</code> Meta viewport allows for zoom</a></li>
 </ul></section>
 <section class="agent-view"><h2>What the agent receives for this SC</h2>
 <pre><code>{
@@ -194,10 +193,15 @@
       &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F94&quot;
     }
   ],
-  &quot;patterns_referencing&quot;: [
-    &quot;combobox&quot;,
-    &quot;table&quot;,
-    &quot;treeview&quot;
+  &quot;act_rules_covering&quot;: [
+    {
+      &quot;id&quot;: &quot;59br37&quot;,
+      &quot;name&quot;: &quot;Zoomed text node is not clipped with CSS overflow&quot;
+    },
+    {
+      &quot;id&quot;: &quot;b4f0c3&quot;,
+      &quot;name&quot;: &quot;Meta viewport allows for zoom&quot;
+    }
   ]
 }</code></pre></section>
 </article>

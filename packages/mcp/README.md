@@ -1,23 +1,50 @@
 # a11y-mcp
 
-The **a11y-assist MCP server** — the agent-facing surface. It wraps [`a11y-core`](../core) as MCP tools and runs axe-core via Playwright for web validation. Design-system-agnostic: it works against any framework, any design system, or none; a team can plug in an optional [DS extension](./extension-spec.md).
+The **a11y-assist MCP server** — the agent-facing surface. It exposes the tested query packages ([`apg-query`](../apg-query), [`wcag-query`](../wcag-query), [`act-rules-query`](../act-rules-query), `aria-query`) through scoped tools, composes them via [`a11y-core`](../core), and runs axe-core via Playwright for verification. Design-system-agnostic; an optional [DS extension](./extension-spec.md) can layer on custom rules.
 
-It automates the deterministic half of accessibility review. axe-core catches roughly 50% of WCAG — the structural, machine-verifiable issues. Treat a passing audit as **"no automated violations found,"** not **"accessible."** Manual screen-reader, keyboard, and cognitive review remain required (see [Honest scope](#honest-scope)).
+It asserts nothing about "which SCs apply." Each response is verbatim data, mechanically-derived data, or a runnable next query. See [`../../REDESIGN.md`](../../REDESIGN.md) for the model.
 
-For the conceptual model and data pipeline behind the responses, see [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md).
+## The model: scoped entry points → shared drill-down → verify
+
+```
+ENTRY (recipe surfaces)              DRILL-DOWN (shared corpora)        VERIFY
+  get_apg_pattern   (composite)  ─┐    search_act → get_wcag_sc          audit_html
+  get_aria_role     (primitive)  ─┼─►  search_wcag  get_act_rule         audit_url
+  get_element_roles (resolve)    ─┘
+  list_apg_patterns (discover)
+```
+
+Both entry points return the same shape (`aria_contract` + `native_elements` + `suggested_queries`; APG adds the verbatim `apg` card) and converge on the same drill-down. The only mechanical cross-corpus link is **ACT rule → WCAG SC**, surfaced level-gated by `search_act`.
 
 ## Tools
 
-The server exposes four tools. **Planning** (`get_a11y_pattern`, `list_a11y_patterns`) is platform-aware and serves both web and React Native. **Validation** (`audit_html`, `audit_url`) is web-only — axe-core requires a DOM.
-
-| Tool | Parameters | Purpose |
+| Tool | Params | Purpose |
 |---|---|---|
-| `get_a11y_pattern` | `role: string`, `platform: 'web' \| 'react-native' = 'web'` | The accessibility pattern for a role: ARIA contract, APG recipe, applicable WCAG SCs (with techniques + failures), ACT rules, platform binding. Use *before* building. |
-| `list_a11y_patterns` | `platform: 'web' \| 'react-native' = 'web'` | Enumerate resolvable patterns. Returns `{ apg_patterns: string[], primitives: string[] }`. |
-| `audit_html` | `html: string`, `component?: string`, `stylesheetPath?: string` | Run axe-core against an HTML snippet. No dev server or Storybook needed. Cannot evaluate dynamic behaviour. |
-| `audit_url` | `url: string`, `component?: string`, `waitForSelector?: string` | Run axe-core against a live URL. Catches dynamic behaviour (focus management, route changes, live regions) that `audit_html` cannot. |
+| `get_apg_pattern` | `name`, `level=AA` | Entry for composite components. Verbatim APG card + ARIA contract + native elements + `suggested_queries`. |
+| `get_aria_role` | `role`, `level=AA` | Entry for native primitives. ARIA contract + native elements + `suggested_queries`. |
+| `get_element_roles` | `tag`, `attrs?` | Resolve an HTML element to its implicit ARIA role(s). |
+| `list_apg_patterns` | — | Discover APG pattern names. |
+| `search_act` | `query`, `level=AA` | Drill-down hub. ACT rules matching `query`, each with its in-scope WCAG SC ids; suggests `get_wcag_sc` calls. |
+| `get_act_rule` | `id` | Full verbatim ACT rule. |
+| `search_wcag` | `query`, `level=AA` | SCs by keyword, level-gated. |
+| `get_wcag_sc` | `id` | Verbatim SC + sufficient techniques + documented failures. (Not level-gated — explicit fetch.) |
+| `audit_html` | `html`, `component?`, `stylesheetPath?` | Run axe against an HTML snippet. |
+| `audit_url` | `url`, `component?`, `waitForSelector?` | Run axe against a live URL (catches dynamic behaviour). |
 
-`get_a11y_pattern` aggregates from authoritative sources and does **not** paraphrase; the agent reasons over the structured data to produce recommendations and code. Every response carries a `provenance` block with versioned snapshot info — every claim is traceable.
+`level` is `A | AA | AAA`, cumulative (`AA` ⇒ A∪AA), default `AA`. It's set at the entry call and stamped into the `suggested_queries`, so the agent runs pre-gated drill-down.
+
+## Workflow
+
+```
+get_apg_pattern("dialog", "AA")          # or get_aria_role("textbox","AA") for a primitive
+   → suggested_queries: search_act("dialog"|"focus"|"keyboard", AA)
+search_act("focus", "AA")                # run the suggestions; the agent picks
+   → ACT rules + their in-scope SC ids → suggests get_wcag_sc(...)
+get_wcag_sc("2.1.2")                      # full SC + techniques + failures
+audit_html("<dialog>…</dialog>")          # verify (axe covers contrast, target size, etc.)
+```
+
+Each call returns a small payload; the agent decides how far to drill.
 
 ## Install
 
@@ -28,8 +55,6 @@ npx playwright install chromium   # required for audit tools (~150 MB)
 ```
 
 ## MCP client config
-
-Claude Code / Cursor / VS Code Copilot / Codex:
 
 ```json
 {
@@ -42,105 +67,19 @@ Claude Code / Cursor / VS Code Copilot / Codex:
 }
 ```
 
-With a DS extension, add the env var:
-
-```json
-{
-  "mcpServers": {
-    "a11y": {
-      "command": "node",
-      "args": ["/absolute/path/to/a11y-assist/packages/mcp/dist/server.js"],
-      "env": { "A11Y_MCP_EXTENSION": "/path/to/your-ds-extension/dist/index.js" }
-    }
-  }
-}
-```
+Add `"env": { "A11Y_MCP_EXTENSION": "/path/to/extension/dist/index.js" }` to load a DS extension.
 
 ## Verify
 
-The server logs data versions to stderr on boot (stdout stays clean for MCP traffic):
-
 ```sh
-node dist/server.js < /dev/null 2>&1 | head -5
+node dist/server.js < /dev/null 2>&1 | head -4
 ```
-
 ```
 [a11y-mcp] axe tags: wcag2a, wcag2aa, wcag21a, wcag21aa
-[a11y-mcp] tools: audit_html, audit_url, get_a11y_pattern, list_a11y_patterns
-[a11y-mcp] data: apg-query (28 patterns @ 2026-05-07), wcag-query (WCAG 2.2, 86 SCs), act-rules-query (94 rules @ <commit>)
-[a11y-mcp] No DS extension configured (baseline WCAG mode).
+[a11y-mcp] tools: get_apg_pattern, get_aria_role, get_element_roles, list_apg_patterns, search_act, get_act_rule, search_wcag, get_wcag_sc, audit_html, audit_url
+[a11y-mcp] data: apg-query (28 patterns @ …), wcag-query (WCAG 2.2, 86 SCs), act-rules-query (94 rules @ …)
 ```
 
-That data line tells you exactly which snapshots are in use.
+## Honest scope
 
-## Response shape
-
-`get_a11y_pattern` returns one `A11yPattern` (see [`a11y-core`](../core) for the type). Top-level fields:
-
-```jsonc
-{
-  "type": "apg_pattern" | "html_native" | "rn_primitive",
-  "role": "button",
-  "name": "Button",
-  "platform": "web",
-
-  // from apg-query (when type === "apg_pattern")
-  "apg_url": "...",
-  "apg_about": "...verbatim from APG...",
-  "keyboard_interactions": [{ "key": "...", "description": "..." }],
-  "examples": [{ "name": "...", "url": "..." }],
-
-  // from aria-query
-  "aria_roles": ["button"],
-  "aria_contract": { "button": { "required_props": [], "supported_props": [], "name_from": [] } },
-
-  // from wcag-query — each SC expanded with its techniques + failures
-  "wcag_applicable": [
-    { "id": "4.1.2", "level": "A", "title": "...", "short_text": "...", "understanding_url": "...",
-      "technique_ids": [], "failure_ids": [], "techniques": [], "failures": [] }
-  ],
-
-  // from act-rules-query (heuristic match by role)
-  "act_rules_applicable": [
-    { "id": "97a4e1", "name": "Button has non-empty accessible name", "wcag_sc_ids": ["4.1.2"] }
-  ],
-
-  // platform bindings
-  "web_elements": [{ "canonical_id": "button", "implicit_role": "button" }],
-  "rn_primitive": null,
-
-  // provenance — every claim traceable
-  "provenance": {
-    "apg_query": { "date": "...", "pattern_count": 28 },
-    "wcag_query": { "date": "...", "version": "2.2", "sc_count": 86 },
-    "act_rules_query": { "date": "...", "upstream_commit": "...", "rule_count": 94 },
-    "aria_query": "aria-query npm package",
-    "generated_at": "..."
-  }
-}
-```
-
-The agent reads this and synthesises actionable guidance (e.g. "use `aria-disabled` because F42 is a failure for 2.1.1") by reasoning over the WCAG failures + APG keyboard table + ARIA contract.
-
-## Configuration
-
-`src/config.ts`:
-
-| Field | Default | Meaning |
-|---|---|---|
-| `axeTags` | `wcag2a, wcag2aa, wcag21a, wcag21aa` | Tags applied to every audit. AA is the baseline gate. |
-| `aaaCriteria` | `[]` | Selected AAA criteria to opt into (blanket AAA is rarely realistic; e.g. `2.4.11`, `2.5.8`). |
-| `idleMs` | `300000` | Idle teardown of the persistent Chromium instance. |
-| `extensionPath` | `$A11Y_MCP_EXTENSION` | DS extension module path; `null` disables. |
-
-## DS extension
-
-A DS extension is optional and additive: it layers custom `ds-*` axe rules, per-component fix guidance, and a classification of each design-system component (APG-aligned / primitive / novel). The core stays DS-agnostic. Full authoring guide: [`extension-spec.md`](./extension-spec.md).
-
-## Dependencies
-
-Workspace: `a11y-core` (which pulls in `apg-query`, `wcag-query`, `act-rules-query`). External: `aria-query`, `axe-core`, `fastmcp`, `playwright`, `zod`.
-
-## What this does not cover
-
-The other ~50% of WCAG is intentionally out of scope: meaningful labels, semantic ARIA correctness, cognitive accessibility, screen-reader experience quality, keyboard-journey logic, and mobile/native on-device behaviour. See [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md) "Honest scope."
+axe catches ~50% of WCAG. A passing audit means "no automated violations found," not "accessible." ACT publishes no rules for some visual/perceptual SCs (contrast, target size, focus appearance) — those are caught by **axe at verification** and by manual review, not asserted per-pattern. Manual screen-reader, keyboard, and cognitive review remain required. See [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md).

@@ -14,10 +14,13 @@ npm install wcag-query
 
 ```ts
 import {
-  getSC, getTechnique, getFailure,
+  getSC, getTechnique, getFailure, search,
   successCriteria, techniques, failures,
   WCAG_VERSION, WCAG_SNAPSHOT,
 } from 'wcag-query'
+
+// Substring search over id/title/statement, with an optional cumulative level filter:
+search('focus', { level: 'AA' })   // → AA-and-below SCs mentioning "focus"
 
 const sc = getSC('2.4.7')
 console.log(sc.title)            // 'Focus Visible'

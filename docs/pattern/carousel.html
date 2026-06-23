@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carousel — a11y-assist</title>
+  <meta name="description" content="Accessibility pattern for carousel — APG recipe, ARIA contract, native elements, and ACT/WCAG drill-down.">
+  <link rel="stylesheet" href="../assets/a11y-assist.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">a11y-assist</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">APG pattern</p>
+<h1>Carousel</h1>
+<p class="role-tag">role: <code>carousel</code></p>
+<p><a href="https://www.w3.org/WAI/ARIA/apg/patterns/carousel/" rel="noreferrer">APG: https://www.w3.org/WAI/ARIA/apg/patterns/carousel/</a></p>
+</header>
+<section><h2>About <span class="provenance-tag">from APG</span></h2><p>A carousel presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides. Typically, one slide is displayed at a time, and users can activate a next or previous slide control that hides the current slide and &quot;rotates&quot; the next or previous slide into view. In some implementations, rotation automatically starts when the page loads, and it may also automatically stop once all the slides have been displayed. While a slide may contain any type of content, image carousels where each slide contains nothing more than a single image are common.<br><br>Ensuring all users can easily control and are not adversely affected by slide rotation is an essential aspect of making carousels accessible. For instance, the screen reader experience can be confusing and disorienting if slides that are not visible on screen are incorrectly hidden, e.g., displayed off-screen. Similarly, if slides rotate automatically and a screen reader user is not aware of the rotation, the user may read an element on slide 1, execute the screen reader command for next element, and, instead of hearing the next element on slide 1, hear an element from slide 2 without any knowledge that the element just announced is from an entirely new context.<br><br>Features needed to provide sufficient rotation control include:</p></section>
+<section><h2>ARIA roles</h2>
+<p>Uses roles <code>group</code>, <code>region</code>, <code>tabpanel</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>group</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>No</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-activedescendant</code>, <code>aria-disabled</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#group" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#group</a></dd>
+</dl></details>
+<details open><summary><code>region</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#region" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#region</a></dd>
+</dl></details>
+<details open><summary><code>tabpanel</code></summary><dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author</dd>
+<dt>Supported properties</dt><dd><code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#tabpanel" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#tabpanel</a></dd>
+</dl></details>
+</section>
+<section><h2>Keyboard interactions <span class="provenance-tag">from APG</span></h2>
+<table class="kbd-table"><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
+<tr><td><code>Tab and Shift + Tab</code></td><td>Move focus through the interactive elements of the carousel as specified by the page tab sequence -- scripting for Tab is not necessary.</td></tr>
+<tr><td><code>Tab</code></td><td>If present, the rotation control is the first element in the Tab sequence inside the carousel. It is essential that it precede the rotating content so it can be easily located.</td></tr>
+</tbody></table></section>
+<section><h2>Native HTML elements <span class="provenance-tag">from aria-query</span></h2>
+<p>Elements that natively carry one of this pattern's ARIA roles — using them gives you the role for free.</p><ul class="element-list">
+<li><code>&lt;address&gt;</code> · implicit role <code>group</code></li>
+<li><code>&lt;details&gt;</code> · implicit role <code>group</code></li>
+<li><code>&lt;fieldset&gt;</code> · implicit role <code>group</code></li>
+<li><code>&lt;optgroup&gt;</code> · implicit role <code>group</code></li>
+<li><code>&lt;section[aria-label]&gt;</code> · implicit role <code>region</code></li>
+<li><code>&lt;section[aria-labelledby]&gt;</code> · implicit role <code>region</code></li>
+</ul></section>
+<section><h2>Drill down to conformance tests</h2>
+<p class="hint">Run these <code>search_act</code> queries to reach the applicable ACT rules and their WCAG SCs:</p>
+<p><code>search_act("group")</code> <code>search_act("address")</code> <code>search_act("details")</code> <code>search_act("fieldset")</code> <code>search_act("optgroup")</code> <code>search_act("region")</code> <code>search_act("section")</code> <code>search_act("tabpanel")</code> <code>search_act("focus")</code> <code>search_act("keyboard")</code></p>
+<h3>Related ACT rules <span class="provenance-tag">via search</span></h3><ul class="act-list">
+<li><a href="../act/0ssw9k.html"><code>0ssw9k</code> Scrollable content can be reached with sequential focus navigation</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/2t702h.html"><code>2t702h</code> Summary element has non-empty accessible name</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/307n5z.html"><code>307n5z</code> Element with presentational children has no focusable content</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/6cfa84.html"><code>6cfa84</code> Element with aria-hidden has no content in sequential focus navigation</a>
+ · <a class="level" href="../wcag/4.1.2.html">4.1.2</a>
+</li>
+<li><a href="../act/73f2c2.html"><code>73f2c2</code> Autocomplete attribute has valid value</a>
+ · <a class="level" href="../wcag/1.3.5.html">1.3.5</a>
+</li>
+<li><a href="../act/80af7b.html"><code>80af7b</code> Focusable element has no keyboard trap</a>
+ · <a class="level" href="../wcag/2.1.2.html">2.1.2</a>
+</li>
+<li><a href="../act/afw4f7.html"><code>afw4f7</code> Text has minimum contrast</a>
+ · <a class="level" href="../wcag/1.4.3.html">1.4.3</a>
+</li>
+<li><a href="../act/akn7bn.html"><code>akn7bn</code> Iframe with interactive elements is not excluded from tab-order</a>
+ · <a class="level" href="../wcag/2.1.1.html">2.1.1</a>
+</li>
+<li><a href="../act/ffbc54.html"><code>ffbc54</code> No keyboard shortcut uses only printable characters</a>
+ · <a class="level" href="../wcag/2.1.4.html">2.1.4</a>
+</li>
+<li><a href="../act/oj04fd.html"><code>oj04fd</code> Element in sequential focus order has visible focus</a>
+ · <a class="level" href="../wcag/2.4.7.html">2.4.7</a>
+</li>
+</ul>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_apg_pattern("carousel", "AA")</code> over MCP returns this:</p>
+<pre id="agent-json"><code>{
+  &quot;apg&quot;: {
+    &quot;role&quot;: &quot;carousel&quot;,
+    &quot;name&quot;: &quot;Carousel&quot;,
+    &quot;apg_url&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns/carousel/&quot;,
+    &quot;about_this_pattern&quot;: &quot;A carousel presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides. Typically, one slide is displayed at a time, and users can activate a next or previous slide control that hides the current slide and \&quot;rotates\&quot; the next or previous slide into view. In some implementations, rotation automatically starts when the page loads, and it may also automatically stop once all the slides have been displayed. While a slide may contain any type of content, image carousels where each slide contains nothing more than a single image are common.\n\nEnsuring all users can easily control and are not adversely affected by slide rotation is an essential aspect of making carousels accessible. For instance, the screen reader experience can be confusing and disorienting if slides that are not visible on screen are incorrectly hidden, e.g., displayed off-screen. Similarly, if slides rotate automatically and a screen reader user is not aware of the rotation, the user may read an element on slide 1, execute the screen reader command for next element, and, instead of hearing the next element on slide 1, hear an element from slide 2 without any knowledge that the element just announced is from an entirely new context.\n\nFeatures needed to provide sufficient rotation control include:&quot;,
+    &quot;aria_roles&quot;: [
+      &quot;group&quot;,
+      &quot;region&quot;,
+      &quot;tabpanel&quot;
+    ],
+    &quot;keyboard_interactions&quot;: [
+      {
+        &quot;key&quot;: &quot;Tab and Shift + Tab&quot;,
+        &quot;description&quot;: &quot;Move focus through the interactive elements of the carousel as specified by the page tab sequence -- scripting for Tab is not necessary.&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Tab&quot;,
+        &quot;description&quot;: &quot;If present, the rotation control is the first element in the Tab sequence inside the carousel. It is essential that it precede the rotating content so it can be easily located.&quot;
+      }
+    ],
+    &quot;examples&quot;: []
+  },
+  &quot;role&quot;: &quot;carousel&quot;,
+  &quot;aria_contract&quot;: {
+    &quot;group&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-activedescendant&quot;,
+        &quot;aria-disabled&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: false,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#group&quot;
+    },
+    &quot;region&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#region&quot;
+    },
+    &quot;tabpanel&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#tabpanel&quot;
+    }
+  },
+  &quot;native_elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;address&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;address&quot;,
+      &quot;implicit_role&quot;: &quot;group&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;details&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;details&quot;,
+      &quot;implicit_role&quot;: &quot;group&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;fieldset&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;fieldset&quot;,
+      &quot;implicit_role&quot;: &quot;group&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;optgroup&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;optgroup&quot;,
+      &quot;implicit_role&quot;: &quot;group&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;section&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;aria-label&quot;,
+          &quot;presence&quot;: &quot;set&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;section[aria-label]&quot;,
+      &quot;implicit_role&quot;: &quot;region&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;section&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;aria-labelledby&quot;,
+          &quot;presence&quot;: &quot;set&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;section[aria-labelledby]&quot;,
+      &quot;implicit_role&quot;: &quot;region&quot;
+    }
+  ],
+  &quot;suggested_queries&quot;: [
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;group&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;group\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;address&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;group\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;details&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;group\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;fieldset&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;group\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;optgroup&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;group\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;region&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;region\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;section&quot;,
+      &quot;why&quot;: &quot;native element for \&quot;region\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;tabpanel&quot;,
+      &quot;why&quot;: &quot;ARIA role \&quot;tabpanel\&quot;&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;focus&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    },
+    {
+      &quot;tool&quot;: &quot;search_act&quot;,
+      &quot;query&quot;: &quot;keyboard&quot;,
+      &quot;why&quot;: &quot;pattern defines keyboard interactions&quot;,
+      &quot;level&quot;: &quot;AA&quot;
+    }
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>
