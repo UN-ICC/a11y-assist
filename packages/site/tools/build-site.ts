@@ -24,14 +24,13 @@ import { listPatterns as listAPGPatterns } from 'apg-query'
 import { successCriteria, getTechnique, getFailure, WCAG_SNAPSHOT } from 'wcag-query'
 import { rules as actRules, ACT_SNAPSHOT } from 'act-rules-query'
 import { APG_SNAPSHOT } from 'apg-query'
-import { patternsReferencingSC, patternsReferencingACT, coverageSummary } from 'a11y-graph'
+import { patternsReferencingSC, patternsReferencingACT, coverageSummary } from './derive.js'
 
 import { renderPatternPage } from './templates/pattern.js'
 import { renderSCPage, type SCExpansion } from './templates/sc.js'
 import { renderACTPage, type ACTExpansion } from './templates/act.js'
 import { renderIndexPage, type IndexData } from './templates/index.js'
 import { renderProvenancePage } from './templates/provenance.js'
-import { renderOntologyPage, buildOntologyData } from './templates/ontology.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const SITE_ROOT = resolve(__dirname, '..')
@@ -141,10 +140,6 @@ async function main() {
     act: ACT_SNAPSHOT,
     coverage: coverageSummary(),
   }))
-
-  // Ontology page (Cytoscape.js)
-  const ontologyData = buildOntologyData()
-  write(resolve(DOCS, 'ontology.html'), renderOntologyPage(ontologyData))
 
   // A consolidated data.json for any client-side tooling
   write(resolve(DOCS, 'data.json'), JSON.stringify(indexData, null, 2))

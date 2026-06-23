@@ -1,7 +1,7 @@
 /**
  * Public re-export of the small editorial role-bindings table. Lets other
- * packages in the monorepo (notably a11y-graph) consume this data through a
- * stable surface without reaching into core's internal paths.
+ * packages in the monorepo consume this data through a stable surface without
+ * reaching into core's internal paths.
  *
  * The data is the single source of truth for: per-role WCAG SC supplements,
  * web (HTML) primitive bindings, and React Native primitive bindings.

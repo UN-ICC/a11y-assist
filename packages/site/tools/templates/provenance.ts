@@ -1,14 +1,14 @@
 import type { APGSnapshot } from 'apg-query'
 import type { WCAGSnapshot } from 'wcag-query'
 import type { ACTSnapshot } from 'act-rules-query'
-import type { coverageSummary } from 'a11y-graph'
+import type { CoverageSummary } from '../derive.js'
 import { baseLayout, esc } from '../render.js'
 
 export interface ProvenanceData {
   apg: APGSnapshot
   wcag: WCAGSnapshot
   act: ACTSnapshot
-  coverage: ReturnType<typeof coverageSummary>
+  coverage: CoverageSummary
 }
 
 function body(p: ProvenanceData): string {
@@ -47,7 +47,7 @@ function body(p: ProvenanceData): string {
   </section>
 
   <section><h2>Coverage</h2>
-  <p>Computed at build time by <code>a11y-graph</code>'s <code>coverageSummary</code> over the in-memory ontology. Reveals where the dataset has thin spots — every gap is also a TODO.</p>
+  <p>Computed at build time directly from the query packages — the same data the MCP server serves. Reveals where the dataset has thin spots — every gap is also a TODO.</p>
   <ul>
     <li>${esc(p.coverage.scsWithoutACT)} of ${esc(p.coverage.totalSCs)} WCAG SCs have <strong>no ACT rule</strong> coverage. These are typically visual or behavioural SCs (focus visibility, target size, motion-based) that ACT hasn't yet specified — the editorial supplement in <code>role-bindings.json</code> is what attaches them to patterns.</li>
     <li>${esc(p.coverage.patternsWithoutWeb)} of ${esc(p.coverage.totalPatterns)} patterns have <strong>no native HTML element</strong>. These are composite APG patterns (tabs, accordion, breadcrumb) whose roles don't have implicit semantics on any HTML element — they require <code>role="…"</code> attributes.</li>

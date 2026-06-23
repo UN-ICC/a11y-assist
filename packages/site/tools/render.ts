@@ -59,7 +59,6 @@ export function baseLayout(opts: BaseLayoutOpts): string {
       <a href="${rootHref}/index.html#patterns">Patterns</a>
       <a href="${rootHref}/index.html#wcag">WCAG</a>
       <a href="${rootHref}/index.html#act">ACT</a>
-      <a href="${rootHref}/ontology.html">Ontology</a>
       <a href="${rootHref}/provenance.html">Provenance</a>
     </nav>
     <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">

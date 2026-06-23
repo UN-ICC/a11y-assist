@@ -2,10 +2,9 @@
  * Adapter over `aria-query`'s `roleElements` and `elementRoles` maps.
  *
  * Re-shapes aria-query's verbose element specs into a typed `ElementSpec`
- * with a stable `canonical_id` suitable for graph node identifiers and URL
- * fragments. The data is the authoritative answer to "which native HTML
- * elements carry this role implicitly?" — used by `loadPattern` to populate
- * `web_elements` and by `a11y-graph` to materialise Element nodes.
+ * with a stable `canonical_id` suitable for URL fragments. The data is the
+ * authoritative answer to "which native HTML elements carry this role
+ * implicitly?" — used by `loadPattern` to populate `web_elements`.
  */
 
 // aria-query's @types declare a stricter constraint enum than the runtime data

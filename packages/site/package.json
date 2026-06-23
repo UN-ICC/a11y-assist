@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "a11y-core": "*",
-    "a11y-graph": "*",
     "act-rules-query": "*",
     "apg-query": "*",
     "wcag-query": "*",

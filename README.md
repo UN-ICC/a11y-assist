@@ -4,21 +4,27 @@ A monorepo of accessibility tooling for AI coding agents and the broader a11y ec
 
 ## What's here
 
-Seven workspace packages, layered so each piece is independently useful: verbatim W3C data at the bottom, pure aggregation logic in the middle, and human/agent-facing surfaces on top.
+Six workspace packages in a simple line: three verbatim-W3C data libraries → one aggregator → two surfaces over the same data, one for agents and one for humans.
 
 ```
 packages/
+│  data libraries (one upstream W3C source each)
 ├── apg-query/        — programmatic access to the W3C ARIA Authoring Practices Guide patterns
 ├── wcag-query/       — programmatic access to WCAG 2.2 SCs + Techniques + Failures
 ├── act-rules-query/  — programmatic access to W3C ACT Rules (loaded from snapshotted YAML/MD)
-├── core/  (a11y-core) — pure-logic aggregation of the three query packages (+ aria-query +
-│                        role-bindings) and audit response shaping. No I/O, no MCP, no Playwright.
-├── graph/ (a11y-graph) — in-memory graphology projection of the consolidated dataset, exposing
-│                         the 8-node / 8-edge ontology over the queries + core role-bindings.
-├── mcp/   (a11y-mcp)  — the MCP server. Wraps a11y-core as MCP tools and runs Playwright +
-│                        axe-core for web validation. This is what AI agents connect to.
-└── site/  (a11ycat-site) — static GitHub Pages browser for the same dataset, rendered for humans.
+│
+│  aggregator (pure logic)
+├── core/  (a11y-core) — composes the three query packages (+ aria-query + role-bindings) into a
+│                        unified pattern shape, and shapes audit responses. No I/O, no MCP, no Playwright.
+│
+│  surfaces (same data, two audiences)
+├── mcp/   (a11y-mcp)  — the MCP server: the agent's view. Wraps a11y-core as MCP tools and runs
+│                        Playwright + axe-core for web validation. This is what AI agents connect to.
+└── site/  (a11ycat-site) — static GitHub Pages browser: the developer's view. The same data
+                            loadPattern serves to agents, rendered as browsable pages.
 ```
+
+The two surfaces read the **same** `a11y-core`, so an agent (via MCP) and a developer (via the website) see the same guidance — they can't drift.
 
 The three query packages mirror the precedent set by [`aria-query`](https://www.npmjs.com/package/aria-query) (which we use for ARIA spec data). They are independently useful — eslint plugins, Storybook addons, doc generators, other MCP servers can all consume them without our MCP server.
 

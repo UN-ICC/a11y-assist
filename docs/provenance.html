@@ -17,7 +17,6 @@
       <a href="./index.html#patterns">Patterns</a>
       <a href="./index.html#wcag">WCAG</a>
       <a href="./index.html#act">ACT</a>
-      <a href="./ontology.html">Ontology</a>
       <a href="./provenance.html">Provenance</a>
     </nav>
     <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
@@ -64,9 +63,9 @@
   </section>
 
   <section><h2>Coverage</h2>
-  <p>Computed at build time by <code>a11y-graph</code>'s <code>coverageSummary</code> over the in-memory ontology. Reveals where the dataset has thin spots — every gap is also a TODO.</p>
+  <p>Computed at build time directly from the query packages — the same data the MCP server serves. Reveals where the dataset has thin spots — every gap is also a TODO.</p>
   <ul>
-    <li>49 of 87 WCAG SCs have <strong>no ACT rule</strong> coverage. These are typically visual or behavioural SCs (focus visibility, target size, motion-based) that ACT hasn't yet specified — the editorial supplement in <code>role-bindings.json</code> is what attaches them to patterns.</li>
+    <li>49 of 86 WCAG SCs have <strong>no ACT rule</strong> coverage. These are typically visual or behavioural SCs (focus visibility, target size, motion-based) that ACT hasn't yet specified — the editorial supplement in <code>role-bindings.json</code> is what attaches them to patterns.</li>
     <li>6 of 30 patterns have <strong>no native HTML element</strong>. These are composite APG patterns (tabs, accordion, breadcrumb) whose roles don't have implicit semantics on any HTML element — they require <code>role="…"</code> attributes.</li>
     <li>25 of 30 patterns have <strong>no React Native primitive</strong>. RN's accessibility surface is shallower than the web's; most composite patterns don't have a one-component RN equivalent.</li>
   </ul>

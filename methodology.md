@@ -126,17 +126,14 @@ The `WARN: <pattern> has empty <field>` messages from the extractor are early si
 
 If the table grows past ~30 entries, consider promoting it to a standalone `rn-aria-query` package — same pattern as the others.
 
-## In-memory graph projection
+## Two consumers, one core
 
-The query packages plus `a11y-core`'s `loadPattern` are sufficient on their own — the MCP server consumes them directly. For graph-shaped queries that the website needs (backlinks, neighbourhoods, coverage gaps), a separate package — `a11y-graph` — materialises the four sources into a [graphology](https://graphology.github.io/) directed graph: 8 node types, 8 edge types, ~670 nodes, ~1050 edges.
+`a11y-core`'s `loadPattern` is the single aggregation surface. Two consumers read from it, for two audiences:
 
-The graph is a *projection*, not a new authoritative layer:
+- **`a11y-mcp`** — the MCP server. The agent's perspective: pattern lookups and audits, served over the MCP protocol at request time.
+- **`a11ycat-site`** — the static website. The developer's perspective: the same data, rendered as browsable pages.
 
-- Nothing inside `a11y-graph` is canonical. Every node and edge is re-derivable from upstream packages.
-- `loadPattern` is unchanged and unaware of the graph. The MCP server has no dependency on `a11y-graph`.
-- The site uses `a11y-graph` for its own purposes (build-time backlinks, ontology subgraphs, coverage stats).
-
-This separation keeps `a11y-core` minimal — graphology is not pulled into MCP — while letting graph-shaped consumers opt in.
+The website needs a few derivations beyond a single lookup — reverse backlinks ("which patterns reference this SC / ACT rule?") and coverage stats. These are computed at build time in `site/tools/derive.ts` by iterating the same canonical pattern set once and indexing it — no separate graph layer, no extra source of truth. Both consumers see exactly the data `loadPattern` produces, so the two perspectives can't drift.
 
 ## Validation
 
