@@ -1,24 +1,31 @@
 import { createRequire } from 'node:module'
 import type { Page } from 'playwright'
 import { CONFIG } from '../config.js'
-import { getExtension } from '../extensions/loader.js'
 
 const requireFromHere = createRequire(import.meta.url)
 const AXE_PATH: string = requireFromHere.resolve('axe-core')
 
+/** What was actually on the page when axe ran — so the consumer can tell which
+ *  view was tested (e.g. a "Not found" fallback vs the intended page). */
+export interface AuditContext {
+  title: string
+  heading: string | null
+  element_count: number
+}
+
+export interface AxeResult {
+  violations: unknown[]
+  context: AuditContext
+}
+
 /**
- * Inject axe-core (always) and the DS extension's bundle (if loaded),
- * then run axe with WCAG + DS tags. Returns the raw violations array.
+ * Inject axe-core, run it with the configured WCAG tags, and capture a small
+ * snapshot of what was actually rendered.
  */
-export async function runAxe(page: Page): Promise<unknown[]> {
+export async function runAxe(page: Page): Promise<AxeResult> {
   await page.addScriptTag({ path: AXE_PATH })
 
-  const ext = getExtension()
-  if (ext?.bundlePath) {
-    await page.addScriptTag({ path: ext.bundlePath })
-  }
-
-  const tags = ext ? [...CONFIG.axeTags, ...ext.axeTags] : [...CONFIG.axeTags]
+  const tags = [...CONFIG.axeTags]
   if (CONFIG.aaaCriteria.length > 0) tags.push(...CONFIG.aaaCriteria)
 
   return await page.evaluate(async (tagList: string[]) => {
@@ -27,6 +34,14 @@ export async function runAxe(page: Page): Promise<unknown[]> {
     const results = (await axe.run(document, {
       runOnly: { type: 'tag', values: tagList },
     })) as { violations: unknown[] }
-    return results.violations
+    const h1 = document.querySelector('h1')
+    return {
+      violations: results.violations,
+      context: {
+        title: document.title || '',
+        heading: h1 ? (h1.textContent || '').trim().slice(0, 140) : null,
+        element_count: document.querySelectorAll('*').length,
+      },
+    }
   }, tags)
 }

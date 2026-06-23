@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a11y-assist</title>
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">a11y-assist</div>
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" data-tab="apg" role="tab">APG</button>
+    <button class="tab" data-tab="html" role="tab">HTML</button>
+    <button class="tab" data-tab="rn" role="tab">React Native</button>
+    <button class="tab" data-tab="verify" role="tab">Verify</button>
+  </nav>
+  <fieldset class="level">
+    <legend>WCAG level</legend>
+    <label><input type="radio" name="level" value="A"> A</label>
+    <label><input type="radio" name="level" value="AA" checked> AA</label>
+    <label><input type="radio" name="level" value="AAA"> AAA</label>
+  </fieldset>
+</header>
+
+<main id="main"></main>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Detail">
+    <button id="modal-close" class="modal-close" aria-label="Close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>window.A11Y_DATA = __DATA__;</script>
+<script>/*__AXE__*/</script>
+<script>/*__APP__*/</script>
+</body>
+</html>

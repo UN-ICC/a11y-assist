@@ -1,6 +1,6 @@
 # a11y-mcp
 
-The **a11y-assist MCP server** — the agent-facing surface. It exposes the tested query packages ([`apg-query`](../apg-query), [`wcag-query`](../wcag-query), [`act-rules-query`](../act-rules-query), `aria-query`) through scoped tools, composes them via [`a11y-core`](../core), and runs axe-core via Playwright for verification. Design-system-agnostic; an optional [DS extension](./extension-spec.md) can layer on custom rules.
+The **a11y-assist MCP server** — the agent-facing surface. It exposes the tested query packages ([`apg-query`](../apg-query), [`wcag-query`](../wcag-query), [`act-rules-query`](../act-rules-query), `aria-query`) through scoped tools, composes them via [`a11y-core`](../core), and runs axe-core via Playwright for verification.
 
 It asserts nothing about "which SCs apply." Each response is verbatim data, mechanically-derived data, or a runnable next query. See [`../../REDESIGN.md`](../../REDESIGN.md) for the model.
 
@@ -66,8 +66,6 @@ npx playwright install chromium   # required for audit tools (~150 MB)
   }
 }
 ```
-
-Add `"env": { "A11Y_MCP_EXTENSION": "/path/to/extension/dist/index.js" }` to load a DS extension.
 
 ## Verify
 

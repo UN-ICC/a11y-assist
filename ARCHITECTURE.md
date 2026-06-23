@@ -95,10 +95,6 @@ Automated tooling catches roughly **half** of WCAG. Treat a passing audit as *"n
 - **ACT's blind spot** (contrast, target size, focus appearance/order) — caught by axe at verification, not asserted per pattern.
 - **React Native** — not implemented (web only).
 
-## The optional DS extension
-
-A team with a design system can plug in a **DS extension** (set `A11Y_MCP_EXTENSION`). It is optional and additive: it layers custom `ds-*` axe rules, per-component fix guidance, and a classification of each DS component as APG-aligned, a primitive, or novel. The core stays design-system-agnostic; there is no DS-specific code in it. Full authoring guide: [`packages/mcp/extension-spec.md`](./packages/mcp/extension-spec.md).
-
 ## Contributing data
 
 **Add an APG pattern:** add an entry to `apg-query/tools/extract.ts`'s pattern list → `npm run extract --workspace=apg-query` (fetches, snapshots, writes data) → commit snapshot + data. No bindings to maintain — the compose layer derives the ARIA contract, native elements, and drill-down seeds mechanically.

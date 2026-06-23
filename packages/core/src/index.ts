@@ -11,7 +11,7 @@
  *      listApgPatterns, searchAct.
  *
  *   2. Audit response shaping — turn raw axe violations into the canonical
- *      response shape. API: wrapAuditResponse, enrichBase, toBaseShape.
+ *      response shape. API: wrapAuditResponse, toBaseShape.
  *
  * Same functions, both consumers. No drift possible.
  */
@@ -29,7 +29,6 @@ export {
 
 export {
   wrapAuditResponse,
-  enrichBase,
   toBaseShape,
   AUDIT_CAVEATS,
   type AuditResponse,

@@ -1,0 +1,29 @@
+{
+  "name": "a11y-assist-web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Prototype: single-file SPA browser for a11y-assist (4 tabs + WCAG level selector). Builds to one self-contained dist/index.html.",
+  "type": "module",
+  "scripts": {
+    "build": "tsx tools/build.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "a11y-core": "*",
+    "act-rules-query": "*",
+    "apg-query": "*",
+    "wcag-query": "*",
+    "aria-query": "^5.3.2",
+    "axe-core": "^4.10.0"
+  },
+  "devDependencies": {
+    "@types/aria-query": "^5.0.4",
+    "@types/node": "^26.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  },
+  "license": "MIT"
+}

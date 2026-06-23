@@ -7,7 +7,4 @@ export const CONFIG = {
 
   /** Idle teardown of the persistent browser. */
   idleMs: 5 * 60 * 1000,
-
-  /** Path to a DS extension module (Node entry). null disables. */
-  extensionPath: process.env.A11Y_MCP_EXTENSION ?? null,
 }

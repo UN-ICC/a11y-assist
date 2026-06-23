@@ -13,7 +13,6 @@ import { getWcagScTool } from './tools/get-wcag-sc.js'
 import { auditHtmlTool } from './tools/audit-html.js'
 import { auditUrlTool } from './tools/audit-url.js'
 import { shutdownBrowser } from './browser/pool.js'
-import { loadExtension } from './extensions/loader.js'
 import { CONFIG } from './config.js'
 
 // Tool names, for the boot log only. Registration is done individually below so
@@ -41,21 +40,14 @@ async function main(): Promise<void> {
   server.addTool(auditHtmlTool)
   server.addTool(auditUrlTool)
 
-  const extension = await loadExtension()
-  if (extension?.registerTools) {
-    extension.registerTools(server)
-  }
-
   // Log to stderr so the stdio transport stays clean for MCP traffic.
-  const tags = extension ? [...CONFIG.axeTags, ...extension.axeTags] : CONFIG.axeTags
-  console.error(`[a11y-mcp] axe tags: ${tags.join(', ')}`)
+  console.error(`[a11y-mcp] axe tags: ${CONFIG.axeTags.join(', ')}`)
   console.error(`[a11y-mcp] tools: ${TOOL_NAMES.join(', ')}`)
   console.error(
     `[a11y-mcp] data: apg-query (${APG_SNAPSHOT.pattern_count} patterns @ ${APG_SNAPSHOT.date}), ` +
     `wcag-query (WCAG ${WCAG_SNAPSHOT.version}, ${WCAG_SNAPSHOT.sc_count} SCs), ` +
     `act-rules-query (${ACT_SNAPSHOT.rule_count} rules @ ${ACT_SNAPSHOT.upstream_commit.slice(0, 7)})`,
   )
-  if (!extension) console.error('[a11y-mcp] No DS extension configured (baseline WCAG mode).')
 
   process.on('SIGTERM', () => void shutdownBrowser())
   process.on('SIGINT', () => void shutdownBrowser())

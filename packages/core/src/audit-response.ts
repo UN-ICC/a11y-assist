@@ -4,19 +4,13 @@
  * via this module — guaranteeing identical response shape across surfaces.
  */
 
-/**
- * Shape of an enriched violation as surfaced to consumers (agent, browser
- * audit panel, anywhere else). The default mapping in `enrichBase` populates
- * everything except `design_system`, which is null unless an extension-aware
- * enricher is provided.
- */
+/** A single axe violation, reduced to the fields consumers need. */
 export interface EnrichedViolation {
   axe_id: string
   impact: string | null
   description: string
   help_url: string
   nodes_affected: number
-  design_system: unknown
 }
 
 /** Final shape the agent and the website both see for an audit run. */
@@ -31,11 +25,7 @@ export const AUDIT_CAVEATS = [
   'Automated checks cover ~50% of WCAG. Manual screen reader, keyboard, and cognitive review still required.',
 ] as const
 
-/**
- * Default base shape for a single axe violation. No extension awareness here —
- * `design_system` is always null. Extensions hook in via the `enrich` parameter
- * of `wrapAuditResponse`.
- */
+/** Reduce a raw axe violation to the consumer shape. */
 export function toBaseShape(v: unknown): EnrichedViolation {
   const violation = v as {
     id: string
@@ -50,51 +40,30 @@ export function toBaseShape(v: unknown): EnrichedViolation {
     description: violation.description ?? '',
     help_url: violation.helpUrl ?? '',
     nodes_affected: violation.nodes?.length ?? 0,
-    design_system: null,
   }
-}
-
-/** Default enricher — maps each violation through `toBaseShape`. */
-export function enrichBase(violations: unknown[]): EnrichedViolation[] {
-  return violations.map(toBaseShape)
 }
 
 export interface WrapAuditOptions {
   /**
-   * Optional component-name hint passed through to a custom enricher.
-   * Used by DS extensions to attach component-specific context.
-   */
-  component?: string
-
-  /**
-   * Optional custom enricher. If omitted, `enrichBase` is used.
-   * MCP server passes its extension-aware enricher here when an extension is loaded.
-   */
-  enrich?: (violations: unknown[], component?: string) => EnrichedViolation[]
-
-  /**
    * Optional extra caveats to append. The default `AUDIT_CAVEATS` are always
-   * included; this lets specific surfaces add e.g. "audit_html cannot evaluate
-   * dynamic behaviour".
+   * included; this lets a surface add e.g. "audit_html cannot evaluate dynamic
+   * behaviour".
    */
   extraCaveats?: string[]
 }
 
 /**
- * The shared response shaper. Used identically by:
- *   - MCP `audit_html` / `audit_url` tools (after Playwright runs axe.run)
- *   - website "Audit this page" button (after browser-side axe.run)
- *
- * Same function in both contexts → same shape in the response.
+ * The shared response shaper, used identically by the MCP audit tools (after
+ * Playwright runs axe.run) and the website's audit button (after in-browser
+ * axe.run) — same function, same shape.
  */
 export function wrapAuditResponse(
   violations: unknown[],
   opts: WrapAuditOptions = {},
 ): AuditResponse {
-  const enriched = (opts.enrich ?? enrichBase)(violations, opts.component)
   return {
     passed: violations.length === 0,
-    violations: enriched,
+    violations: violations.map(toBaseShape),
     caveats: [...AUDIT_CAVEATS, ...(opts.extraCaveats ?? [])],
   }
 }
