@@ -21,7 +21,7 @@ Before looking anything up, establish the conformance target — **A, AA, or AAA
 1. **Building a composite component** (dialog, tabs, combobox, menu…) → `get_apg_pattern(name, level)`.
 2. **Working on a native primitive** (text input, link, image, button…) → `get_aria_role(role, level)`. If you only have markup, call `get_element_roles({ tag, attrs })` first to get the role.
 3. **React Native** → not supported yet (web only).
-4. **Verifying your output** → `audit_html(html)` or `audit_url(url)`.
+4. **Verifying your output** → `audit_html(html)` or `audit_url(url)` .
 
 Don't mix scenarios — each is scoped. Set `level` (`A` | `AA` | `AAA`, cumulative, default `AA`) at the entry; it's stamped into the suggested queries .
 
