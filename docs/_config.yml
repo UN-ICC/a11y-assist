@@ -13,6 +13,10 @@ plugins:
 search_enabled: true
 color_scheme: light
 
+# Enable Mermaid diagrams (loaded from CDN at this version).
+mermaid:
+  version: "10.9.1"
+
 # Persistent header links (rendered top-right on every page).
 # aux_links are literal — include the baseurl for the in-site app link.
 aux_links:

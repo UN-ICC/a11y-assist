@@ -18,15 +18,18 @@ Where W3C documents the content — APG patterns, WCAG Success Criteria, Techniq
 
 Web accessibility is a layered system. Each layer has a clear authority and scope.
 
-```
-WCAG 2.2          requirements — what must be true for users (normative)
-   │
-   ├── APG        recipes for custom / composite components (combobox, tabs, tree, dialog…)
-   └── HTML+ARIA  recipes for native primitives (input, a, img, button, select…)
-   │
-WAI-ARIA          vocabulary — roles, states, properties (normative)
-   │
-Browsers + AT     the user's actual experience (NVDA, VoiceOver, JAWS, TalkBack)
+```mermaid
+flowchart TB
+  WCAG["WCAG 2.2 — requirements (normative)"]
+  APG["APG — recipes for composite components"]
+  HTML["HTML + ARIA in HTML — recipes for native primitives"]
+  ARIA["WAI-ARIA — vocabulary: roles, states, properties (normative)"]
+  AT["Browsers + assistive technology — the user's experience"]
+  WCAG --> APG
+  WCAG --> HTML
+  APG --> ARIA
+  HTML --> ARIA
+  ARIA --> AT
 ```
 
 Each layer enables the one above: HTML + ARIA give you the words; APG shows how to compose them into working components; WCAG is the standard that says whether the result is acceptable; assistive technology is what users actually experience. The whole stack exists to serve that last layer.
@@ -49,15 +52,29 @@ APG and ARIA-in-HTML sit at the same conceptual altitude — APG for custom comp
 
 ## The pipeline
 
-```
-Upstream                  Extractor / Loader               Query package           Compose (a11y-assist-core)
-─────────────────────────────────────────────────────────────────────────────────────────────────────
-W3C APG HTML        →  apg-query/tools/extract.ts      →  apg-query/src/data/*   ┐
-W3C WCAG HTML       →  wcag-query/tools/extract.ts     →  wcag-query/src/data/*  ├→  composeApgPattern
-ACT Rules YAML/MD   →  act-rules-query/tools/load-yaml →  act-rules-query/data   ┤   composeAriaRole
-WAI-ARIA (npm)      →  [no extraction — aria-query]    →  aria-query             ┘   searchAct (ACT→SC)
-                                                                                          ▼
-                                                                              response to consumer
+```mermaid
+flowchart LR
+  subgraph up [Upstream]
+    A1[W3C APG HTML]
+    A2[W3C WCAG HTML]
+    A3[ACT Rules YAML/MD]
+    A4[WAI-ARIA]
+  end
+  subgraph q [Query packages]
+    P1[apg-query]
+    P2[wcag-query]
+    P3[act-rules-query]
+    P4[aria-query]
+  end
+  A1 -->|extract| P1
+  A2 -->|extract| P2
+  A3 -->|load| P3
+  A4 --> P4
+  P1 --> C[a11y-assist-core]
+  P2 --> C
+  P3 --> C
+  P4 --> C
+  C --> R[Response to consumer]
 ```
 
 Each query package owns exactly one upstream source. `a11y-assist-core` knows nothing about scraping HTML or parsing YAML — it imports `getPattern`, `getSC`, `search`, etc. and composes them, with **no data of its own**.

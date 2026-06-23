@@ -47,7 +47,21 @@ curl -sL https://raw.githubusercontent.com/UN-ICC/a11y-assist/main/.claude/skill
 
 ## How the agent works
 
-The agent establishes the target WCAG level (A, AA, or AAA) first, then follows a staged sequence: entry point → `search_act` → `get_wcag_sc` → verify. Responses contain verbatim data or queries to run, so the agent retrieves only what it needs.
+The agent first establishes the target WCAG level (A, AA, or AAA). The level is passed to every tool call and determines which Success Criteria and ACT rules are in scope.
+
+### Retrieving guidance
+
+Work proceeds as a staged sequence: the agent begins at an entry point and refines only as far as needed. Each response is small and self-contained — verbatim data or further queries to run — so the agent retrieves only what is relevant and stays within its context budget.
+
+For example, to implement a modal dialog at level AA:
+
+1. `get_apg_pattern("dialog", "AA")` returns the APG recipe (description, keyboard-interaction table, examples), the ARIA contract for the dialog role, the native HTML elements that carry it, and a set of suggested `search_act` queries.
+2. The agent runs a suggested query — for example `search_act("focus", "AA")` — which returns the ACT rules matching that term together with the WCAG Success Criteria they cover, filtered to AA.
+3. `get_wcag_sc("2.4.3")` returns that Success Criterion in full, with its sufficient techniques and documented failures.
+
+For native primitives (text inputs, links, images) the agent enters through `get_aria_role` instead — or `get_element_roles` to resolve existing markup to a role first. The drill-down from that point is identical.
+
+### Verifying the result
 
 Verification proceeds in three stages:
 

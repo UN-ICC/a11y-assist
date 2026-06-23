@@ -12,12 +12,28 @@ It asserts nothing about "which SCs apply." Each response is verbatim data, mech
 
 ## The model: scoped entry points → shared drill-down → verify
 
-```
-ENTRY (recipe surfaces)              DRILL-DOWN (shared corpora)        VERIFY
-  get_apg_pattern   (composite)  ─┐    search_act → get_wcag_sc          audit_html
-  get_aria_role     (primitive)  ─┼─►  search_wcag  get_act_rule         audit_url
-  get_element_roles (resolve)    ─┘
-  list_apg_patterns (discover)
+```mermaid
+flowchart LR
+  subgraph entry [Entry points]
+    E1["get_apg_pattern (composite)"]
+    E2["get_aria_role (primitive)"]
+    E3["get_element_roles (resolve)"]
+    E4["list_apg_patterns (discover)"]
+  end
+  subgraph drill [Drill-down]
+    D1[search_act]
+    D2[get_wcag_sc]
+    D3[search_wcag]
+    D4[get_act_rule]
+  end
+  subgraph verify [Verify]
+    V1[audit_html]
+    V2[audit_url]
+  end
+  E1 --> D1
+  E2 --> D1
+  D1 --> D2
+  drill --> verify
 ```
 
 Both entry points return the same shape (`aria_contract` + `native_elements` + `suggested_queries`; APG adds the verbatim `apg` card) and converge on the same drill-down. The only mechanical cross-corpus link is **ACT rule → WCAG SC**, surfaced level-gated by `search_act`.
