@@ -1,0 +1,13 @@
+{
+  "id": "c3232f",
+  "name": "Video element visual-only content has accessible alternative",
+  "rule_type": "composite",
+  "description": "This rule checks that `video` elements without audio have an alternative available.",
+  "wcag_sc_ids": [
+    "1.2.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [],
+  "applicability_text": "This rule applies to any [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio.",
+  "url": "https://act-rules.github.io/rules/c3232f"
+}

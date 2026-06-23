@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index — a11ycat</title>
+  <meta name="description" content="a11ycat — browse W3C accessibility patterns, WCAG criteria, and ACT rules. Same dataset the MCP server serves to AI agents.">
+  <link rel="stylesheet" href="./assets/a11ycat.css">
+</head>
+<body class="page-index">
+  <header class="site-header">
+    <a href="./index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="./index.html#patterns">Patterns</a>
+      <a href="./index.html#wcag">WCAG</a>
+      <a href="./index.html#act">ACT</a>
+      <a href="./ontology.html">Ontology</a>
+      <a href="./provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<section class="hero">
+<p class="hero-tagline">accessibility for the prowler</p>
+<p class="hero-blurb">Humans browse, agents query — same data, every claim sourced. <a href="provenance.html">See provenance</a>.</p>
+<input type="search" id="filter" placeholder="Filter patterns, SCs, rules…" aria-label="Filter">
+</section>
+<section class="counts">
+<a class="count-card" href="#patterns"><h2>35</h2><p>Patterns</p></a>
+<a class="count-card" href="#wcag"><h2>86</h2><p>WCAG SCs</p></a>
+<a class="count-card" href="#act"><h2>94</h2><p>ACT rules</p></a>
+</section>
+<section id="patterns"><h2>Patterns</h2><ul class="pattern-list">
+<li data-search="accordion Accordion (HTML &lt;button&gt;)"><a href="pattern/accordion-web.html"><code>accordion</code> Accordion (HTML &lt;button&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="alert Alert"><a href="pattern/alert-web.html"><code>alert</code> Alert</a> <span class="badge">apg pattern</span></li>
+<li data-search="alertdialog Alert Dialog"><a href="pattern/alertdialog-web.html"><code>alertdialog</code> Alert Dialog</a> <span class="badge">apg pattern</span></li>
+<li data-search="breadcrumb Breadcrumb"><a href="pattern/breadcrumb-web.html"><code>breadcrumb</code> Breadcrumb</a> <span class="badge">apg pattern</span></li>
+<li data-search="button Button (HTML &lt;button&gt;)"><a href="pattern/button-web.html"><code>button</code> Button (HTML &lt;button&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="button Button (RN Pressable)"><a href="pattern/button-react-native.html"><code>button</code> Button (RN Pressable)</a> <span class="badge">rn primitive</span></li>
+<li data-search="carousel Carousel (HTML &lt;address&gt;)"><a href="pattern/carousel-web.html"><code>carousel</code> Carousel (HTML &lt;address&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="checkbox Checkbox (HTML &lt;input&gt;)"><a href="pattern/checkbox-web.html"><code>checkbox</code> Checkbox (HTML &lt;input&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="combobox Combobox (HTML &lt;input&gt;)"><a href="pattern/combobox-web.html"><code>combobox</code> Combobox (HTML &lt;input&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="dialog Dialog (HTML &lt;dialog&gt;)"><a href="pattern/dialog-web.html"><code>dialog</code> Dialog (HTML &lt;dialog&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="dialog Dialog (RN Modal)"><a href="pattern/dialog-react-native.html"><code>dialog</code> Dialog (RN Modal)</a> <span class="badge">rn primitive</span></li>
+<li data-search="disclosure Disclosure (HTML &lt;button&gt;)"><a href="pattern/disclosure-web.html"><code>disclosure</code> Disclosure (HTML &lt;button&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="feed Feed (HTML &lt;article&gt;)"><a href="pattern/feed-web.html"><code>feed</code> Feed (HTML &lt;article&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="grid Grid (HTML &lt;th&gt;)"><a href="pattern/grid-web.html"><code>grid</code> Grid (HTML &lt;th&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="img Img (HTML &lt;img&gt;)"><a href="pattern/img-web.html"><code>img</code> Img (HTML &lt;img&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="img Img (RN Image)"><a href="pattern/img-react-native.html"><code>img</code> Img (RN Image)</a> <span class="badge">rn primitive</span></li>
+<li data-search="link Link (HTML &lt;a&gt;)"><a href="pattern/link-web.html"><code>link</code> Link (HTML &lt;a&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="listbox Listbox (HTML &lt;datalist&gt;)"><a href="pattern/listbox-web.html"><code>listbox</code> Listbox (HTML &lt;datalist&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="menu Menu (HTML &lt;hr&gt;)"><a href="pattern/menu-web.html"><code>menu</code> Menu (HTML &lt;hr&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="menubutton Menubutton (HTML &lt;button&gt;)"><a href="pattern/menubutton-web.html"><code>menubutton</code> Menubutton (HTML &lt;button&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="meter Meter (HTML &lt;meter&gt;)"><a href="pattern/meter-web.html"><code>meter</code> Meter (HTML &lt;meter&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="radio Radio (HTML &lt;input&gt;)"><a href="pattern/radio-web.html"><code>radio</code> Radio (HTML &lt;input&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="slider Slider (HTML &lt;input&gt;)"><a href="pattern/slider-web.html"><code>slider</code> Slider (HTML &lt;input&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="slider-multithumb Slider-multithumb (HTML &lt;input&gt;)"><a href="pattern/slider-multithumb-web.html"><code>slider-multithumb</code> Slider-multithumb (HTML &lt;input&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="spinbutton Spinbutton (HTML &lt;input&gt;)"><a href="pattern/spinbutton-web.html"><code>spinbutton</code> Spinbutton (HTML &lt;input&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="switch Switch (HTML &lt;address&gt;)"><a href="pattern/switch-web.html"><code>switch</code> Switch (HTML &lt;address&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="switch Switch (RN Switch)"><a href="pattern/switch-react-native.html"><code>switch</code> Switch (RN Switch)</a> <span class="badge">rn primitive</span></li>
+<li data-search="table Table (HTML &lt;table&gt;)"><a href="pattern/table-web.html"><code>table</code> Table (HTML &lt;table&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="tabs Tabs"><a href="pattern/tabs-web.html"><code>tabs</code> Tabs</a> <span class="badge">apg pattern</span></li>
+<li data-search="textbox Textbox (HTML &lt;textarea&gt;)"><a href="pattern/textbox-web.html"><code>textbox</code> Textbox (HTML &lt;textarea&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="textbox Textbox (RN TextInput)"><a href="pattern/textbox-react-native.html"><code>textbox</code> Textbox (RN TextInput)</a> <span class="badge">rn primitive</span></li>
+<li data-search="toolbar Toolbar"><a href="pattern/toolbar-web.html"><code>toolbar</code> Toolbar</a> <span class="badge">apg pattern</span></li>
+<li data-search="tooltip Tooltip"><a href="pattern/tooltip-web.html"><code>tooltip</code> Tooltip</a> <span class="badge">apg pattern</span></li>
+<li data-search="treegrid Treegrid (HTML &lt;th&gt;)"><a href="pattern/treegrid-web.html"><code>treegrid</code> Treegrid (HTML &lt;th&gt;)</a> <span class="badge">html native</span></li>
+<li data-search="treeview Treeview (HTML &lt;address&gt;)"><a href="pattern/treeview-web.html"><code>treeview</code> Treeview (HTML &lt;address&gt;)</a> <span class="badge">html native</span></li>
+</ul></section>
+<section id="wcag"><h2>WCAG 2.2 Success Criteria</h2><ul class="sc-list">
+<li data-search="1.1.1 Non-text Content"><a href="wcag/1.1.1.html"><code>1.1.1</code> Non-text Content</a> <span class="level">A</span></li>
+<li data-search="1.2.1 Audio-only and Video-only (Prerecorded)"><a href="wcag/1.2.1.html"><code>1.2.1</code> Audio-only and Video-only (Prerecorded)</a> <span class="level">A</span></li>
+<li data-search="1.2.2 Captions (Prerecorded)"><a href="wcag/1.2.2.html"><code>1.2.2</code> Captions (Prerecorded)</a> <span class="level">A</span></li>
+<li data-search="1.2.3 Audio Description or Media Alternative (Prerecorded)"><a href="wcag/1.2.3.html"><code>1.2.3</code> Audio Description or Media Alternative (Prerecorded)</a> <span class="level">A</span></li>
+<li data-search="1.2.4 Captions (Live)"><a href="wcag/1.2.4.html"><code>1.2.4</code> Captions (Live)</a> <span class="level">AA</span></li>
+<li data-search="1.2.5 Audio Description (Prerecorded)"><a href="wcag/1.2.5.html"><code>1.2.5</code> Audio Description (Prerecorded)</a> <span class="level">AA</span></li>
+<li data-search="1.2.6 Sign Language (Prerecorded)"><a href="wcag/1.2.6.html"><code>1.2.6</code> Sign Language (Prerecorded)</a> <span class="level">AAA</span></li>
+<li data-search="1.2.7 Extended Audio Description (Prerecorded)"><a href="wcag/1.2.7.html"><code>1.2.7</code> Extended Audio Description (Prerecorded)</a> <span class="level">AAA</span></li>
+<li data-search="1.2.8 Media Alternative (Prerecorded)"><a href="wcag/1.2.8.html"><code>1.2.8</code> Media Alternative (Prerecorded)</a> <span class="level">AAA</span></li>
+<li data-search="1.2.9 Audio-only (Live)"><a href="wcag/1.2.9.html"><code>1.2.9</code> Audio-only (Live)</a> <span class="level">AAA</span></li>
+<li data-search="1.3.1 Info and Relationships"><a href="wcag/1.3.1.html"><code>1.3.1</code> Info and Relationships</a> <span class="level">A</span></li>
+<li data-search="1.3.2 Meaningful Sequence"><a href="wcag/1.3.2.html"><code>1.3.2</code> Meaningful Sequence</a> <span class="level">A</span></li>
+<li data-search="1.3.3 Sensory Characteristics"><a href="wcag/1.3.3.html"><code>1.3.3</code> Sensory Characteristics</a> <span class="level">A</span></li>
+<li data-search="1.3.4 Orientation"><a href="wcag/1.3.4.html"><code>1.3.4</code> Orientation</a> <span class="level">AA</span></li>
+<li data-search="1.3.5 Identify Input Purpose"><a href="wcag/1.3.5.html"><code>1.3.5</code> Identify Input Purpose</a> <span class="level">AA</span></li>
+<li data-search="1.3.6 Identify Purpose"><a href="wcag/1.3.6.html"><code>1.3.6</code> Identify Purpose</a> <span class="level">AAA</span></li>
+<li data-search="1.4.1 Use of Color"><a href="wcag/1.4.1.html"><code>1.4.1</code> Use of Color</a> <span class="level">A</span></li>
+<li data-search="1.4.2 Audio Control"><a href="wcag/1.4.2.html"><code>1.4.2</code> Audio Control</a> <span class="level">A</span></li>
+<li data-search="1.4.3 Contrast (Minimum)"><a href="wcag/1.4.3.html"><code>1.4.3</code> Contrast (Minimum)</a> <span class="level">AA</span></li>
+<li data-search="1.4.4 Resize Text"><a href="wcag/1.4.4.html"><code>1.4.4</code> Resize Text</a> <span class="level">AA</span></li>
+<li data-search="1.4.5 Images of Text"><a href="wcag/1.4.5.html"><code>1.4.5</code> Images of Text</a> <span class="level">AA</span></li>
+<li data-search="1.4.6 Contrast (Enhanced)"><a href="wcag/1.4.6.html"><code>1.4.6</code> Contrast (Enhanced)</a> <span class="level">AAA</span></li>
+<li data-search="1.4.7 Low or No Background Audio"><a href="wcag/1.4.7.html"><code>1.4.7</code> Low or No Background Audio</a> <span class="level">AAA</span></li>
+<li data-search="1.4.8 Visual Presentation"><a href="wcag/1.4.8.html"><code>1.4.8</code> Visual Presentation</a> <span class="level">AAA</span></li>
+<li data-search="1.4.9 Images of Text (No Exception)"><a href="wcag/1.4.9.html"><code>1.4.9</code> Images of Text (No Exception)</a> <span class="level">AAA</span></li>
+<li data-search="1.4.10 Reflow"><a href="wcag/1.4.10.html"><code>1.4.10</code> Reflow</a> <span class="level">AA</span></li>
+<li data-search="1.4.11 Non-text Contrast"><a href="wcag/1.4.11.html"><code>1.4.11</code> Non-text Contrast</a> <span class="level">AA</span></li>
+<li data-search="1.4.12 Text Spacing"><a href="wcag/1.4.12.html"><code>1.4.12</code> Text Spacing</a> <span class="level">AA</span></li>
+<li data-search="1.4.13 Content on Hover or Focus"><a href="wcag/1.4.13.html"><code>1.4.13</code> Content on Hover or Focus</a> <span class="level">AA</span></li>
+<li data-search="2.1.1 Keyboard"><a href="wcag/2.1.1.html"><code>2.1.1</code> Keyboard</a> <span class="level">A</span></li>
+<li data-search="2.1.2 No Keyboard Trap"><a href="wcag/2.1.2.html"><code>2.1.2</code> No Keyboard Trap</a> <span class="level">A</span></li>
+<li data-search="2.1.3 Keyboard (No Exception)"><a href="wcag/2.1.3.html"><code>2.1.3</code> Keyboard (No Exception)</a> <span class="level">AAA</span></li>
+<li data-search="2.1.4 Character Key Shortcuts"><a href="wcag/2.1.4.html"><code>2.1.4</code> Character Key Shortcuts</a> <span class="level">A</span></li>
+<li data-search="2.2.1 Timing Adjustable"><a href="wcag/2.2.1.html"><code>2.2.1</code> Timing Adjustable</a> <span class="level">A</span></li>
+<li data-search="2.2.2 Pause, Stop, Hide"><a href="wcag/2.2.2.html"><code>2.2.2</code> Pause, Stop, Hide</a> <span class="level">A</span></li>
+<li data-search="2.2.3 No Timing"><a href="wcag/2.2.3.html"><code>2.2.3</code> No Timing</a> <span class="level">AAA</span></li>
+<li data-search="2.2.4 Interruptions"><a href="wcag/2.2.4.html"><code>2.2.4</code> Interruptions</a> <span class="level">AAA</span></li>
+<li data-search="2.2.5 Re-authenticating"><a href="wcag/2.2.5.html"><code>2.2.5</code> Re-authenticating</a> <span class="level">AAA</span></li>
+<li data-search="2.2.6 Timeouts"><a href="wcag/2.2.6.html"><code>2.2.6</code> Timeouts</a> <span class="level">AAA</span></li>
+<li data-search="2.3.1 Three Flashes or Below Threshold"><a href="wcag/2.3.1.html"><code>2.3.1</code> Three Flashes or Below Threshold</a> <span class="level">A</span></li>
+<li data-search="2.3.2 Three Flashes"><a href="wcag/2.3.2.html"><code>2.3.2</code> Three Flashes</a> <span class="level">AAA</span></li>
+<li data-search="2.3.3 Animation from Interactions"><a href="wcag/2.3.3.html"><code>2.3.3</code> Animation from Interactions</a> <span class="level">AAA</span></li>
+<li data-search="2.4.1 Bypass Blocks"><a href="wcag/2.4.1.html"><code>2.4.1</code> Bypass Blocks</a> <span class="level">A</span></li>
+<li data-search="2.4.2 Page Titled"><a href="wcag/2.4.2.html"><code>2.4.2</code> Page Titled</a> <span class="level">A</span></li>
+<li data-search="2.4.3 Focus Order"><a href="wcag/2.4.3.html"><code>2.4.3</code> Focus Order</a> <span class="level">A</span></li>
+<li data-search="2.4.4 Link Purpose (In Context)"><a href="wcag/2.4.4.html"><code>2.4.4</code> Link Purpose (In Context)</a> <span class="level">A</span></li>
+<li data-search="2.4.5 Multiple Ways"><a href="wcag/2.4.5.html"><code>2.4.5</code> Multiple Ways</a> <span class="level">AA</span></li>
+<li data-search="2.4.6 Headings and Labels"><a href="wcag/2.4.6.html"><code>2.4.6</code> Headings and Labels</a> <span class="level">AA</span></li>
+<li data-search="2.4.7 Focus Visible"><a href="wcag/2.4.7.html"><code>2.4.7</code> Focus Visible</a> <span class="level">AA</span></li>
+<li data-search="2.4.8 Location"><a href="wcag/2.4.8.html"><code>2.4.8</code> Location</a> <span class="level">AAA</span></li>
+<li data-search="2.4.9 Link Purpose (Link Only)"><a href="wcag/2.4.9.html"><code>2.4.9</code> Link Purpose (Link Only)</a> <span class="level">AAA</span></li>
+<li data-search="2.4.10 Section Headings"><a href="wcag/2.4.10.html"><code>2.4.10</code> Section Headings</a> <span class="level">AAA</span></li>
+<li data-search="2.4.11 Focus Not Obscured (Minimum)"><a href="wcag/2.4.11.html"><code>2.4.11</code> Focus Not Obscured (Minimum)</a> <span class="level">AA</span></li>
+<li data-search="2.4.12 Focus Not Obscured (Enhanced)"><a href="wcag/2.4.12.html"><code>2.4.12</code> Focus Not Obscured (Enhanced)</a> <span class="level">AAA</span></li>
+<li data-search="2.4.13 Focus Appearance"><a href="wcag/2.4.13.html"><code>2.4.13</code> Focus Appearance</a> <span class="level">AAA</span></li>
+<li data-search="2.5.1 Pointer Gestures"><a href="wcag/2.5.1.html"><code>2.5.1</code> Pointer Gestures</a> <span class="level">A</span></li>
+<li data-search="2.5.2 Pointer Cancellation"><a href="wcag/2.5.2.html"><code>2.5.2</code> Pointer Cancellation</a> <span class="level">A</span></li>
+<li data-search="2.5.3 Label in Name"><a href="wcag/2.5.3.html"><code>2.5.3</code> Label in Name</a> <span class="level">A</span></li>
+<li data-search="2.5.4 Motion Actuation"><a href="wcag/2.5.4.html"><code>2.5.4</code> Motion Actuation</a> <span class="level">A</span></li>
+<li data-search="2.5.5 Target Size (Enhanced)"><a href="wcag/2.5.5.html"><code>2.5.5</code> Target Size (Enhanced)</a> <span class="level">AAA</span></li>
+<li data-search="2.5.6 Concurrent Input Mechanisms"><a href="wcag/2.5.6.html"><code>2.5.6</code> Concurrent Input Mechanisms</a> <span class="level">AAA</span></li>
+<li data-search="2.5.7 Dragging Movements"><a href="wcag/2.5.7.html"><code>2.5.7</code> Dragging Movements</a> <span class="level">AA</span></li>
+<li data-search="2.5.8 Target Size (Minimum)"><a href="wcag/2.5.8.html"><code>2.5.8</code> Target Size (Minimum)</a> <span class="level">AA</span></li>
+<li data-search="3.1.1 Language of Page"><a href="wcag/3.1.1.html"><code>3.1.1</code> Language of Page</a> <span class="level">A</span></li>
+<li data-search="3.1.2 Language of Parts"><a href="wcag/3.1.2.html"><code>3.1.2</code> Language of Parts</a> <span class="level">AA</span></li>
+<li data-search="3.1.3 Unusual Words"><a href="wcag/3.1.3.html"><code>3.1.3</code> Unusual Words</a> <span class="level">AAA</span></li>
+<li data-search="3.1.4 Abbreviations"><a href="wcag/3.1.4.html"><code>3.1.4</code> Abbreviations</a> <span class="level">AAA</span></li>
+<li data-search="3.1.5 Reading Level"><a href="wcag/3.1.5.html"><code>3.1.5</code> Reading Level</a> <span class="level">AAA</span></li>
+<li data-search="3.1.6 Pronunciation"><a href="wcag/3.1.6.html"><code>3.1.6</code> Pronunciation</a> <span class="level">AAA</span></li>
+<li data-search="3.2.1 On Focus"><a href="wcag/3.2.1.html"><code>3.2.1</code> On Focus</a> <span class="level">A</span></li>
+<li data-search="3.2.2 On Input"><a href="wcag/3.2.2.html"><code>3.2.2</code> On Input</a> <span class="level">A</span></li>
+<li data-search="3.2.3 Consistent Navigation"><a href="wcag/3.2.3.html"><code>3.2.3</code> Consistent Navigation</a> <span class="level">AA</span></li>
+<li data-search="3.2.4 Consistent Identification"><a href="wcag/3.2.4.html"><code>3.2.4</code> Consistent Identification</a> <span class="level">AA</span></li>
+<li data-search="3.2.5 Change on Request"><a href="wcag/3.2.5.html"><code>3.2.5</code> Change on Request</a> <span class="level">AAA</span></li>
+<li data-search="3.2.6 Consistent Help"><a href="wcag/3.2.6.html"><code>3.2.6</code> Consistent Help</a> <span class="level">A</span></li>
+<li data-search="3.3.1 Error Identification"><a href="wcag/3.3.1.html"><code>3.3.1</code> Error Identification</a> <span class="level">A</span></li>
+<li data-search="3.3.2 Labels or Instructions"><a href="wcag/3.3.2.html"><code>3.3.2</code> Labels or Instructions</a> <span class="level">A</span></li>
+<li data-search="3.3.3 Error Suggestion"><a href="wcag/3.3.3.html"><code>3.3.3</code> Error Suggestion</a> <span class="level">AA</span></li>
+<li data-search="3.3.4 Error Prevention (Legal, Financial, Data)"><a href="wcag/3.3.4.html"><code>3.3.4</code> Error Prevention (Legal, Financial, Data)</a> <span class="level">AA</span></li>
+<li data-search="3.3.5 Help"><a href="wcag/3.3.5.html"><code>3.3.5</code> Help</a> <span class="level">AAA</span></li>
+<li data-search="3.3.6 Error Prevention (All)"><a href="wcag/3.3.6.html"><code>3.3.6</code> Error Prevention (All)</a> <span class="level">AAA</span></li>
+<li data-search="3.3.7 Redundant Entry"><a href="wcag/3.3.7.html"><code>3.3.7</code> Redundant Entry</a> <span class="level">A</span></li>
+<li data-search="3.3.8 Accessible Authentication (Minimum)"><a href="wcag/3.3.8.html"><code>3.3.8</code> Accessible Authentication (Minimum)</a> <span class="level">AA</span></li>
+<li data-search="3.3.9 Accessible Authentication (Enhanced)"><a href="wcag/3.3.9.html"><code>3.3.9</code> Accessible Authentication (Enhanced)</a> <span class="level">AAA</span></li>
+<li data-search="4.1.2 Name, Role, Value"><a href="wcag/4.1.2.html"><code>4.1.2</code> Name, Role, Value</a> <span class="level">A</span></li>
+<li data-search="4.1.3 Status Messages"><a href="wcag/4.1.3.html"><code>4.1.3</code> Status Messages</a> <span class="level">AA</span></li>
+</ul></section>
+<section id="act"><h2>ACT Rules</h2><ul class="act-list">
+<li data-search="047fe0 Document has heading for non-repeated content"><a href="act/047fe0.html"><code>047fe0</code> Document has heading for non-repeated content</a>
+</li>
+<li data-search="09o5cg Text has enhanced contrast"><a href="act/09o5cg.html"><code>09o5cg</code> Text has enhanced contrast</a>
+ <span class="level">SCs 1.4.6</span>
+</li>
+<li data-search="0ssw9k Scrollable content can be reached with sequential focus navigation"><a href="act/0ssw9k.html"><code>0ssw9k</code> Scrollable content can be reached with sequential focus navigation</a>
+ <span class="level">SCs 2.1.1, 2.1.3</span>
+</li>
+<li data-search="0va7u6 HTML images contain no text"><a href="act/0va7u6.html"><code>0va7u6</code> HTML images contain no text</a>
+ <span class="level">SCs 1.4.5, 1.4.9</span>
+</li>
+<li data-search="1a02b0 Audio and visuals of video element have transcript"><a href="act/1a02b0.html"><code>1a02b0</code> Audio and visuals of video element have transcript</a>
+ <span class="level">SCs 1.2.8</span>
+</li>
+<li data-search="1ea59c Video element visual content has audio description"><a href="act/1ea59c.html"><code>1ea59c</code> Video element visual content has audio description</a>
+</li>
+<li data-search="1ec09b Video element visual content has strict accessible alternative"><a href="act/1ec09b.html"><code>1ec09b</code> Video element visual content has strict accessible alternative</a>
+ <span class="level">SCs 1.2.5</span>
+</li>
+<li data-search="23a2a8 Image has non-empty accessible name"><a href="act/23a2a8.html"><code>23a2a8</code> Image has non-empty accessible name</a>
+ <span class="level">SCs 1.1.1</span>
+</li>
+<li data-search="24afc2 Important letter spacing in style attributes is wide enough"><a href="act/24afc2.html"><code>24afc2</code> Important letter spacing in style attributes is wide enough</a>
+ <span class="level">SCs 1.4.12</span>
+</li>
+<li data-search="2779a5 HTML page has non-empty title"><a href="act/2779a5.html"><code>2779a5</code> HTML page has non-empty title</a>
+ <span class="level">SCs 2.4.2</span>
+</li>
+<li data-search="2eb176 Audio element content has transcript"><a href="act/2eb176.html"><code>2eb176</code> Audio element content has transcript</a>
+</li>
+<li data-search="2ee8b8 Visible label is part of accessible name"><a href="act/2ee8b8.html"><code>2ee8b8</code> Visible label is part of accessible name</a>
+ <span class="level">SCs 2.5.3</span>
+</li>
+<li data-search="2t702h Summary element has non-empty accessible name"><a href="act/2t702h.html"><code>2t702h</code> Summary element has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="307n5z Element with presentational children has no focusable content"><a href="act/307n5z.html"><code>307n5z</code> Element with presentational children has no focusable content</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="36b590 Error message describes invalid form field value"><a href="act/36b590.html"><code>36b590</code> Error message describes invalid form field value</a>
+ <span class="level">SCs 3.3.1</span>
+</li>
+<li data-search="3e12e1 Block of repeated content is collapsible"><a href="act/3e12e1.html"><code>3e12e1</code> Block of repeated content is collapsible</a>
+</li>
+<li data-search="3ea0c8 Id attribute value is unique"><a href="act/3ea0c8.html"><code>3ea0c8</code> Id attribute value is unique</a>
+ <span class="level">SCs 4.1.1</span>
+</li>
+<li data-search="46ca7f Element marked as decorative is not exposed"><a href="act/46ca7f.html"><code>46ca7f</code> Element marked as decorative is not exposed</a>
+</li>
+<li data-search="4b1c6c Iframe elements with identical accessible names have equivalent purpose"><a href="act/4b1c6c.html"><code>4b1c6c</code> Iframe elements with identical accessible names have equivalent purpose</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="4c31df Audio or video element that plays automatically has a control mechanism"><a href="act/4c31df.html"><code>4c31df</code> Audio or video element that plays automatically has a control mechanism</a>
+</li>
+<li data-search="4e8ab6 Element with role attribute has required states and properties"><a href="act/4e8ab6.html"><code>4e8ab6</code> Element with role attribute has required states and properties</a>
+</li>
+<li data-search="59796f Image button has non-empty accessible name"><a href="act/59796f.html"><code>59796f</code> Image button has non-empty accessible name</a>
+ <span class="level">SCs 1.1.1, 4.1.2</span>
+</li>
+<li data-search="59br37 Zoomed text node is not clipped with CSS overflow"><a href="act/59br37.html"><code>59br37</code> Zoomed text node is not clipped with CSS overflow</a>
+ <span class="level">SCs 1.4.4</span>
+</li>
+<li data-search="5b7ae0 HTML page lang and xml:lang attributes have matching values"><a href="act/5b7ae0.html"><code>5b7ae0</code> HTML page lang and xml:lang attributes have matching values</a>
+ <span class="level">SCs 3.1.1</span>
+</li>
+<li data-search="5c01ea ARIA state or property is permitted"><a href="act/5c01ea.html"><code>5c01ea</code> ARIA state or property is permitted</a>
+</li>
+<li data-search="5effbb Link in context is descriptive"><a href="act/5effbb.html"><code>5effbb</code> Link in context is descriptive</a>
+ <span class="level">SCs 2.4.4</span>
+</li>
+<li data-search="5f99a7 ARIA attribute is defined in WAI-ARIA"><a href="act/5f99a7.html"><code>5f99a7</code> ARIA attribute is defined in WAI-ARIA</a>
+</li>
+<li data-search="674b10 Role attribute has valid value"><a href="act/674b10.html"><code>674b10</code> Role attribute has valid value</a>
+</li>
+<li data-search="6a7281 ARIA state or property has valid value"><a href="act/6a7281.html"><code>6a7281</code> ARIA state or property has valid value</a>
+</li>
+<li data-search="6cfa84 Element with aria-hidden has no content in sequential focus navigation"><a href="act/6cfa84.html"><code>6cfa84</code> Element with aria-hidden has no content in sequential focus navigation</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="73f2c2 Autocomplete attribute has valid value"><a href="act/73f2c2.html"><code>73f2c2</code> Autocomplete attribute has valid value</a>
+ <span class="level">SCs 1.3.5</span>
+</li>
+<li data-search="7677a9 Device motion based changes to the content can also be created from the user interface"><a href="act/7677a9.html"><code>7677a9</code> Device motion based changes to the content can also be created from the user interface</a>
+ <span class="level">SCs 2.5.4</span>
+</li>
+<li data-search="78fd32 Important line height in style attributes is wide enough"><a href="act/78fd32.html"><code>78fd32</code> Important line height in style attributes is wide enough</a>
+ <span class="level">SCs 1.4.12</span>
+</li>
+<li data-search="7d6734 SVG element with explicit role has non-empty accessible name"><a href="act/7d6734.html"><code>7d6734</code> SVG element with explicit role has non-empty accessible name</a>
+ <span class="level">SCs 1.1.1</span>
+</li>
+<li data-search="80af7b Focusable element has no keyboard trap"><a href="act/80af7b.html"><code>80af7b</code> Focusable element has no keyboard trap</a>
+ <span class="level">SCs 2.1.2</span>
+</li>
+<li data-search="80f0bf Audio or video element avoids automatically playing audio"><a href="act/80f0bf.html"><code>80f0bf</code> Audio or video element avoids automatically playing audio</a>
+ <span class="level">SCs 1.4.2</span>
+</li>
+<li data-search="8fc3b6 Object element rendering non-text content has non-empty accessible name"><a href="act/8fc3b6.html"><code>8fc3b6</code> Object element rendering non-text content has non-empty accessible name</a>
+ <span class="level">SCs 1.1.1</span>
+</li>
+<li data-search="97a4e1 Button has non-empty accessible name"><a href="act/97a4e1.html"><code>97a4e1</code> Button has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="9bd38c Content has alternative for visual reference"><a href="act/9bd38c.html"><code>9bd38c</code> Content has alternative for visual reference</a>
+ <span class="level">SCs 1.3.3</span>
+</li>
+<li data-search="9e45ec Important word spacing in style attributes is wide enough"><a href="act/9e45ec.html"><code>9e45ec</code> Important word spacing in style attributes is wide enough</a>
+ <span class="level">SCs 1.4.12</span>
+</li>
+<li data-search="9eb3f6 Image filename is accessible name for image"><a href="act/9eb3f6.html"><code>9eb3f6</code> Image filename is accessible name for image</a>
+ <span class="level">SCs 1.1.1</span>
+</li>
+<li data-search="a1b64e Focusable element has no keyboard trap via standard navigation"><a href="act/a1b64e.html"><code>a1b64e</code> Focusable element has no keyboard trap via standard navigation</a>
+</li>
+<li data-search="a25f45 Headers attribute specified on a cell refers to cells in the same table element"><a href="act/a25f45.html"><code>a25f45</code> Headers attribute specified on a cell refers to cells in the same table element</a>
+ <span class="level">SCs 1.3.1</span>
+</li>
+<li data-search="aaa1bf Audio or video element that plays automatically has no audio that lasts more than 3 seconds"><a href="act/aaa1bf.html"><code>aaa1bf</code> Audio or video element that plays automatically has no audio that lasts more than 3 seconds</a>
+</li>
+<li data-search="ab4d13 Video element content is media alternative for text"><a href="act/ab4d13.html"><code>ab4d13</code> Video element content is media alternative for text</a>
+</li>
+<li data-search="ac7dc6 Video element visual-only content has description track"><a href="act/ac7dc6.html"><code>ac7dc6</code> Video element visual-only content has description track</a>
+</li>
+<li data-search="afb423 Audio element content is media alternative for text"><a href="act/afb423.html"><code>afb423</code> Audio element content is media alternative for text</a>
+</li>
+<li data-search="afw4f7 Text has minimum contrast"><a href="act/afw4f7.html"><code>afw4f7</code> Text has minimum contrast</a>
+ <span class="level">SCs 1.4.3</span>
+</li>
+<li data-search="aizyf1 Link is descriptive"><a href="act/aizyf1.html"><code>aizyf1</code> Link is descriptive</a>
+ <span class="level">SCs 2.4.9</span>
+</li>
+<li data-search="akn7bn Iframe with interactive elements is not excluded from tab-order"><a href="act/akn7bn.html"><code>akn7bn</code> Iframe with interactive elements is not excluded from tab-order</a>
+ <span class="level">SCs 2.1.1, 2.1.3</span>
+</li>
+<li data-search="b20e66 Links with identical accessible names have equivalent purpose"><a href="act/b20e66.html"><code>b20e66</code> Links with identical accessible names have equivalent purpose</a>
+ <span class="level">SCs 2.4.9</span>
+</li>
+<li data-search="b33eff Orientation of the page is not restricted using CSS transforms"><a href="act/b33eff.html"><code>b33eff</code> Orientation of the page is not restricted using CSS transforms</a>
+ <span class="level">SCs 1.3.4</span>
+</li>
+<li data-search="b40fd1 Document has a landmark with non-repeated content"><a href="act/b40fd1.html"><code>b40fd1</code> Document has a landmark with non-repeated content</a>
+</li>
+<li data-search="b49b2e Heading is descriptive"><a href="act/b49b2e.html"><code>b49b2e</code> Heading is descriptive</a>
+ <span class="level">SCs 2.4.6</span>
+</li>
+<li data-search="b4f0c3 Meta viewport allows for zoom"><a href="act/b4f0c3.html"><code>b4f0c3</code> Meta viewport allows for zoom</a>
+ <span class="level">SCs 1.4.4</span>
+</li>
+<li data-search="b5c3f8 HTML page has lang attribute"><a href="act/b5c3f8.html"><code>b5c3f8</code> HTML page has lang attribute</a>
+ <span class="level">SCs 3.1.1</span>
+</li>
+<li data-search="bc4a75 ARIA required owned elements"><a href="act/bc4a75.html"><code>bc4a75</code> ARIA required owned elements</a>
+ <span class="level">SCs 1.3.1</span>
+</li>
+<li data-search="bc659a Meta element has no refresh delay"><a href="act/bc659a.html"><code>bc659a</code> Meta element has no refresh delay</a>
+ <span class="level">SCs 2.2.1</span>
+</li>
+<li data-search="bf051a HTML page lang attribute has valid language tag"><a href="act/bf051a.html"><code>bf051a</code> HTML page lang attribute has valid language tag</a>
+ <span class="level">SCs 3.1.1</span>
+</li>
+<li data-search="bisz58 Meta element has no refresh delay (no exception)"><a href="act/bisz58.html"><code>bisz58</code> Meta element has no refresh delay (no exception)</a>
+ <span class="level">SCs 2.2.4, 3.2.5</span>
+</li>
+<li data-search="c249d5 Device motion based changes to the content can be disabled"><a href="act/c249d5.html"><code>c249d5</code> Device motion based changes to the content can be disabled</a>
+ <span class="level">SCs 2.5.4</span>
+</li>
+<li data-search="c3232f Video element visual-only content has accessible alternative"><a href="act/c3232f.html"><code>c3232f</code> Video element visual-only content has accessible alternative</a>
+ <span class="level">SCs 1.2.1</span>
+</li>
+<li data-search="c487ae Link has non-empty accessible name"><a href="act/c487ae.html"><code>c487ae</code> Link has non-empty accessible name</a>
+ <span class="level">SCs 2.4.4, 2.4.9, 4.1.2</span>
+</li>
+<li data-search="c4a8a4 HTML page title is descriptive"><a href="act/c4a8a4.html"><code>c4a8a4</code> HTML page title is descriptive</a>
+ <span class="level">SCs 2.4.2</span>
+</li>
+<li data-search="c5a4ea Video element visual content has accessible alternative"><a href="act/c5a4ea.html"><code>c5a4ea</code> Video element visual content has accessible alternative</a>
+ <span class="level">SCs 1.2.3</span>
+</li>
+<li data-search="cae760 Iframe element has non-empty accessible name"><a href="act/cae760.html"><code>cae760</code> Iframe element has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="cc0f0a Form field label is descriptive"><a href="act/cc0f0a.html"><code>cc0f0a</code> Form field label is descriptive</a>
+ <span class="level">SCs 2.4.6</span>
+</li>
+<li data-search="cf77f2 Bypass Blocks of Repeated Content"><a href="act/cf77f2.html"><code>cf77f2</code> Bypass Blocks of Repeated Content</a>
+ <span class="level">SCs 2.4.1</span>
+</li>
+<li data-search="d0f69e Table header cell has assigned cells"><a href="act/d0f69e.html"><code>d0f69e</code> Table header cell has assigned cells</a>
+ <span class="level">SCs 1.3.1</span>
+</li>
+<li data-search="d7ba54 Video element visual-only content has audio track alternative"><a href="act/d7ba54.html"><code>d7ba54</code> Video element visual-only content has audio track alternative</a>
+</li>
+<li data-search="de46e4 Element with lang attribute has valid language tag"><a href="act/de46e4.html"><code>de46e4</code> Element with lang attribute has valid language tag</a>
+ <span class="level">SCs 3.1.2</span>
+</li>
+<li data-search="e086e5 Form field has non-empty accessible name"><a href="act/e086e5.html"><code>e086e5</code> Form field has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="e6952f Attribute is not duplicated"><a href="act/e6952f.html"><code>e6952f</code> Attribute is not duplicated</a>
+ <span class="level">SCs 4.1.1</span>
+</li>
+<li data-search="e7aa44 Audio element content has text alternative"><a href="act/e7aa44.html"><code>e7aa44</code> Audio element content has text alternative</a>
+ <span class="level">SCs 1.2.1</span>
+</li>
+<li data-search="e88epe Image not in the accessibility tree is decorative"><a href="act/e88epe.html"><code>e88epe</code> Image not in the accessibility tree is decorative</a>
+ <span class="level">SCs 1.1.1</span>
+</li>
+<li data-search="eac66b Video element auditory content has accessible alternative"><a href="act/eac66b.html"><code>eac66b</code> Video element auditory content has accessible alternative</a>
+ <span class="level">SCs 1.2.2</span>
+</li>
+<li data-search="ebe86a Focusable element has no keyboard trap via non-standard navigation"><a href="act/ebe86a.html"><code>ebe86a</code> Focusable element has no keyboard trap via non-standard navigation</a>
+</li>
+<li data-search="ee13b5 Video element visual-only content has transcript"><a href="act/ee13b5.html"><code>ee13b5</code> Video element visual-only content has transcript</a>
+</li>
+<li data-search="efbfc7 Text content that changes automatically can be paused, stopped or hidden"><a href="act/efbfc7.html"><code>efbfc7</code> Text content that changes automatically can be paused, stopped or hidden</a>
+ <span class="level">SCs 2.2.2</span>
+</li>
+<li data-search="f196ce Video element visual content has description track"><a href="act/f196ce.html"><code>f196ce</code> Video element visual content has description track</a>
+</li>
+<li data-search="f51b46 Video element auditory content has captions"><a href="act/f51b46.html"><code>f51b46</code> Video element auditory content has captions</a>
+</li>
+<li data-search="fd26cf Video element visual-only content is media alternative for text"><a href="act/fd26cf.html"><code>fd26cf</code> Video element visual-only content is media alternative for text</a>
+</li>
+<li data-search="fd3a94 Links with identical accessible names and same context serve equivalent purpose"><a href="act/fd3a94.html"><code>fd3a94</code> Links with identical accessible names and same context serve equivalent purpose</a>
+ <span class="level">SCs 2.4.4</span>
+</li>
+<li data-search="ff89c9 ARIA required context role"><a href="act/ff89c9.html"><code>ff89c9</code> ARIA required context role</a>
+ <span class="level">SCs 1.3.1</span>
+</li>
+<li data-search="ffbc54 No keyboard shortcut uses only printable characters"><a href="act/ffbc54.html"><code>ffbc54</code> No keyboard shortcut uses only printable characters</a>
+ <span class="level">SCs 2.1.4</span>
+</li>
+<li data-search="ffd0e9 Heading has non-empty accessible name"><a href="act/ffd0e9.html"><code>ffd0e9</code> Heading has non-empty accessible name</a>
+</li>
+<li data-search="in6db8 ARIA required ID references exist"><a href="act/in6db8.html"><code>in6db8</code> ARIA required ID references exist</a>
+</li>
+<li data-search="kb1m8s ARIA global properties not used where prohibited"><a href="act/kb1m8s.html"><code>kb1m8s</code> ARIA global properties not used where prohibited</a>
+</li>
+<li data-search="m6b1q3 Menuitem has non-empty accessible name"><a href="act/m6b1q3.html"><code>m6b1q3</code> Menuitem has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li data-search="off6ek HTML element language subtag matches language"><a href="act/off6ek.html"><code>off6ek</code> HTML element language subtag matches language</a>
+ <span class="level">SCs 3.1.2</span>
+</li>
+<li data-search="oj04fd Element in sequential focus order has visible focus"><a href="act/oj04fd.html"><code>oj04fd</code> Element in sequential focus order has visible focus</a>
+ <span class="level">SCs 2.4.7</span>
+</li>
+<li data-search="qt1vmo Image accessible name is descriptive"><a href="act/qt1vmo.html"><code>qt1vmo</code> Image accessible name is descriptive</a>
+ <span class="level">SCs 1.1.1</span>
+</li>
+<li data-search="ucwvc8 HTML page language subtag matches default language"><a href="act/ucwvc8.html"><code>ucwvc8</code> HTML page language subtag matches default language</a>
+ <span class="level">SCs 3.1.1</span>
+</li>
+<li data-search="ye5d6e Document has an instrument to move focus to non-repeated content"><a href="act/ye5d6e.html"><code>ye5d6e</code> Document has an instrument to move focus to non-repeated content</a>
+</li>
+</ul></section>
+<script>
+    (function () {
+      var input = document.getElementById('filter')
+      if (!input) return
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase()
+        document.querySelectorAll('[data-search]').forEach(function (el) {
+          var hit = !q || el.getAttribute('data-search').toLowerCase().indexOf(q) >= 0
+          el.style.display = hit ? '' : 'none'
+        })
+      })
+    })()
+  </script>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="./provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="./assets/audit-button.js" defer></script>
+</body>
+</html>

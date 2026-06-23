@@ -1,0 +1,212 @@
+{
+  "role": "combobox",
+  "name": "Combobox",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/",
+  "about_this_pattern": "A combobox is an input widget that has an associated popup. The popup enables users to choose a value for the input from a collection. The popup may be a listbox, grid, tree, or dialog.\n\nIn some implementations, the popup presents allowed values, while in other implementations, the popup presents suggested values. Many implementations also include a third optional element -- a graphical Open button adjacent to the combobox, which indicates availability of the popup. Activating the Open button displays the popup if suggestions are available.\n\nThe combobox pattern supports several optional behaviors. The one that most shapes interaction is text input. Some comboboxes allow users to type and edit text in the combobox and others do not. If a combobox does not support text input, it is referred to as select-only, meaning the only way users can set its value is by selecting a value in the popup. For example, in some browsers, an HTML select element with size=\"1\" is presented to assistive technologies as a combobox. Alternatively, if a combobox supports text input, it is referred to as editable. An editable combobox may either allow users to input any arbitrary value, or it may restrict its value to a discrete set of allowed values, in which case typing input serves to filter suggestions presented in the popup.\n\nThe popup is hidden by default, i.e., the default state is collapsed. The conditions that trigger expansion -- display of the popup --are specific to each implementation. Some possible conditions that trigger expansion include:\n\nCombobox widgets are useful for acquiring user input in either of two scenarios:\n\nThe nature of possible values presented by a popup and the way they are presented is called the autocomplete behavior. Comboboxes can have one of four forms of autocomplete:\n\nIf a combobox is editable and has any form of list autocomplete, the popup may appear and disappear as the user types. For example, if the user types a two character string that triggers five suggestions to be displayed but then types a third character that forms a string that does not have any matching suggestions, the popup may close and, if present, the inline completion string disappears.\n\nTwo other widgets that are also visually compact and enable users to make a single choice from a set of discrete choices are listbox and menu button. One feature that distinguishes combobox from both listbox and menu button is that the user's choice can be presented as a value in an editable field, which gives users the ability to select some or all of the value for copying to the clipboard. Comboboxes and menu buttons can be implemented so users can explore the set of allowed choices without losing a previously made choice. That is, users can navigate the set of available choices in a combobox popup or menu and then press escape, which closes the popup or menu without changing previous input. In contrast, navigating among options in a single-select listbox immediately changes its value, and Escape does not provide an undo mechanism. Comboboxes and listboxes can be marked as required with aria-required=\"true\", and they have an accessible name that is distinct from their value. Thus, when assistive technology users focus either a combobox or listbox in its default state, they can perceive both a name and value for the widget. However, a menu button cannot be marked required, and while it has an accessible name, it does not have a value so is not suitable for conveying the user's choice in its collapsed state.",
+  "aria_roles": [
+    "combobox",
+    "dialog",
+    "grid",
+    "listbox",
+    "tree"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Tab",
+      "description": "The combobox is in the page Tab sequence."
+    },
+    {
+      "key": "Note",
+      "description": "The popup indicator icon or button (if present), the popup, and the popup descendants are excluded from the page Tab sequence."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "If the autocomplete behavior automatically selected a suggestion before Down Arrow was pressed, focus is placed on the suggestion following the automatically selected suggestion."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Otherwise, places focus on the first focusable element in the popup."
+    },
+    {
+      "key": "Up Arrow (Optional)",
+      "description": "If the popup is available, places focus on the last focusable element in the popup."
+    },
+    {
+      "key": "Escape",
+      "description": "Dismisses the popup if it is visible. Optionally, if the popup is hidden before Escape is pressed, clears the combobox."
+    },
+    {
+      "key": "Enter",
+      "description": "If the combobox is editable and an autocomplete suggestion is selected in the popup, accepts the suggestion either by placing the input cursor at the end of the accepted value in the combobox or by performing a default action on the value. For example, in a messaging application, the default action may be to add the accepted value to a list of message recipients and then clear the combobox so the user can add another recipient."
+    },
+    {
+      "key": "Alt + Down Arrow (Optional)",
+      "description": "If the popup is available but not displayed, displays the popup without moving focus."
+    },
+    {
+      "key": "Alt + Up Arrow",
+      "description": "If the popup contains focus, returns focus to the combobox."
+    },
+    {
+      "key": "Alt + Up Arrow",
+      "description": "Closes the popup."
+    },
+    {
+      "key": "Enter",
+      "description": "Accepts the focused option in the listbox by closing the popup, placing the accepted value in the combobox, and if the combobox is editable, placing the input cursor at the end of the value."
+    },
+    {
+      "key": "Escape",
+      "description": "Closes the popup and returns focus to the combobox. Optionally, if the combobox is editable, clears the contents of the combobox."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Moves focus to and selects the next option. If focus is on the last option, either returns focus to the combobox or does nothing."
+    },
+    {
+      "key": "Up Arrow",
+      "description": "Moves focus to and selects the previous option. If focus is on the first option, either returns focus to the combobox or does nothing."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "If the combobox is editable, returns focus to the combobox without closing the popup and moves the input cursor one character to the right. If the input cursor is on the right-most character, the cursor does not move."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "If the combobox is editable, returns focus to the combobox without closing the popup and moves the input cursor one character to the left. If the input cursor is on the left-most character, the cursor does not move."
+    },
+    {
+      "key": "Home (Optional)",
+      "description": "Either moves focus to and selects the first option or, if the combobox is editable, returns focus to the combobox and places the cursor on the first character."
+    },
+    {
+      "key": "End (Optional)",
+      "description": "Either moves focus to the last option or, if the combobox is editable, returns focus to the combobox and places the cursor after the last character."
+    },
+    {
+      "key": "Backspace (Optional)",
+      "description": "If the combobox is editable, returns focus to the combobox and deletes the character prior to the cursor."
+    },
+    {
+      "key": "Delete (Optional)",
+      "description": "If the combobox is editable, returns focus to the combobox, removes the selected state if a suggestion was selected, and removes the inline autocomplete string if present."
+    },
+    {
+      "key": "Enter",
+      "description": "Accepts the currently selected suggested value by closing the popup, placing the selected value in the combobox, and if the combobox is editable, placing the input cursor at the end of the value."
+    },
+    {
+      "key": "Escape",
+      "description": "Closes the popup and returns focus to the combobox. Optionally, if the combobox is editable, clears the contents of the combobox."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "Moves focus one cell to the right. Optionally, if focus is on the right-most cell in the row, focus may move to the first cell in the following row. If focus is on the last cell in the grid, either does nothing or returns focus to the combobox."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "Moves focus one cell to the left. Optionally, if focus is on the left-most cell in the row, focus may move to the last cell in the previous row. If focus is on the first cell in the grid, either does nothing or returns focus to the combobox."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Moves focus one cell down. If focus is in the last row of the grid, either does nothing or returns focus to the combobox."
+    },
+    {
+      "key": "Up Arrow",
+      "description": "Moves focus one cell up. If focus is in the first row of the grid, either does nothing or returns focus to the combobox."
+    },
+    {
+      "key": "Page Down (Optional)",
+      "description": "Moves focus down an author-determined number of rows, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row of the grid, focus does not move."
+    },
+    {
+      "key": "Page Up (Optional)",
+      "description": "Moves focus up an author-determined number of rows, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row of the grid, focus does not move."
+    },
+    {
+      "key": "Home",
+      "description": "Moves focus to the first cell in the row that contains focus. Or, if the grid has fewer than three cells per row or multiple suggested values per row, focus may move to the first cell in the grid."
+    },
+    {
+      "key": "Home",
+      "description": "If the combobox is editable, returns focus to the combobox and places the cursor on the first character."
+    },
+    {
+      "key": "End",
+      "description": "Moves focus to the last cell in the row that contains focus. Or, if the grid has fewer than three cells per row or multiple suggested values per row, focus may move to the last cell in the grid."
+    },
+    {
+      "key": "End",
+      "description": "If the combobox is editable, returns focus to the combobox and places the cursor after the last character."
+    },
+    {
+      "key": "Control + Home (optional)",
+      "description": "moves focus to the first row."
+    },
+    {
+      "key": "Control + End (Optional)",
+      "description": "moves focus to the last row."
+    },
+    {
+      "key": "Backspace (Optional)",
+      "description": "If the combobox is editable, returns focus to the combobox and deletes the character prior to the cursor."
+    },
+    {
+      "key": "Delete (Optional)",
+      "description": "If the combobox is editable, returns focus to the combobox, removes the selected state if a suggestion was selected, and removes the inline autocomplete string if present."
+    },
+    {
+      "key": "Enter",
+      "description": "Accepts the currently selected suggested value by closing the popup, placing the selected value in the combobox, and if the combobox is editable, placing the input cursor at the end of the value."
+    },
+    {
+      "key": "Escape",
+      "description": "Closes the popup and returns focus to the combobox. Optionally, clears the contents of the combobox."
+    },
+    {
+      "key": "Right arrow",
+      "description": "When focus is on a closed node, opens the node; focus and selection do not move."
+    },
+    {
+      "key": "Right arrow",
+      "description": "When focus is on a open node, moves focus to the first child node and selects it if it is selectable."
+    },
+    {
+      "key": "Right arrow",
+      "description": "When focus is on an end node, does nothing."
+    },
+    {
+      "key": "Left arrow",
+      "description": "When focus is on an open node, closes the node."
+    },
+    {
+      "key": "Left arrow",
+      "description": "When focus is on a child node that is also either an end node or a closed node, moves focus to its parent node and selects it if it is selectable."
+    },
+    {
+      "key": "Left arrow",
+      "description": "When focus is on a root node that is also either an end node or a closed node, does nothing."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Moves focus to the next node that is focusable without opening or closing a node and selects it if it is selectable."
+    },
+    {
+      "key": "Up Arrow",
+      "description": "Moves focus to the previous node that is focusable without opening or closing a node and selects it if it is selectable."
+    },
+    {
+      "key": "Home",
+      "description": "Moves focus to the first focusable node in the tree without opening or closing a node and selects it if it is selectable."
+    },
+    {
+      "key": "End",
+      "description": "Moves focus to the last focusable node in the tree without opening or closing a node and selects it if it is selectable."
+    },
+    {
+      "key": "Escape",
+      "description": "There are two ways to close the popup and return focus to the combobox:"
+    }
+  ],
+  "examples": []
+}

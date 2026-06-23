@@ -1,0 +1,21 @@
+{
+  "id": "c487ae",
+  "name": "Link has non-empty accessible name",
+  "rule_type": "atomic",
+  "description": "This rule checks that each link has a non-empty accessible name.",
+  "wcag_sc_ids": [
+    "2.4.4",
+    "2.4.9",
+    "4.1.2"
+  ],
+  "wcag_sc_ids_secondary": [
+    "1.1.1"
+  ],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] that is an [inheriting semantic][] `link` [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/c487ae"
+}

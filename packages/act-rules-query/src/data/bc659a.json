@@ -1,0 +1,18 @@
+{
+  "id": "bc659a",
+  "name": "Meta element has no refresh delay",
+  "rule_type": "atomic",
+  "description": "This rule checks that the `meta` element is not used for delayed redirecting or refreshing.",
+  "wcag_sc_ids": [
+    "2.2.1"
+  ],
+  "wcag_sc_ids_secondary": [
+    "2.2.4",
+    "3.2.5"
+  ],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to the first `meta` element in a document for which all the following are true:\n\n- the element has an `http-equiv` [attribute value][] of `\"refresh\"`; and\n- the element has a valid `content` [attribute value][], as described in the [meta refresh][] pragma directive.",
+  "url": "https://act-rules.github.io/rules/bc659a"
+}

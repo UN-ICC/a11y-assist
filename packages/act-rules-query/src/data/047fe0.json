@@ -1,0 +1,15 @@
+{
+  "id": "047fe0",
+  "name": "Document has heading for non-repeated content",
+  "rule_type": "atomic",
+  "description": "This rule checks that the non-repeated content contains a heading",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS Styling",
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [HTML web page][].",
+  "url": "https://act-rules.github.io/rules/047fe0"
+}

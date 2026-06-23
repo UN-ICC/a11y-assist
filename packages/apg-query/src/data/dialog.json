@@ -1,0 +1,41 @@
+{
+  "role": "dialog",
+  "name": "Dialog (Modal)",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+  "about_this_pattern": "A dialog is a window overlaid on either the primary window or another dialog window. Windows under a modal dialog are inert. That is, users cannot interact with content outside an active dialog window. Inert content outside an active dialog is typically visually obscured or dimmed so it is difficult to discern, and in some implementations, attempts to interact with the inert content cause the dialog to close.\n\nLike non-modal dialogs, modal dialogs contain their tab sequence. That is, Tab and Shift + Tab do not move focus outside the dialog. However, unlike most non-modal dialogs, modal dialogs do not provide means for moving keyboard focus outside the dialog window without closing the dialog.\n\nThe alertdialog role is a special-case dialog role designed specifically for dialogs that divert users' attention to a brief, important message. Its usage is described in the Alert Dialog Pattern.",
+  "aria_roles": [
+    "dialog"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Tab",
+      "description": "Moves focus to the next tabbable element inside the dialog."
+    },
+    {
+      "key": "Tab",
+      "description": "If focus is on the last tabbable element inside the dialog, moves focus to the first tabbable element inside the dialog."
+    },
+    {
+      "key": "Shift + Tab",
+      "description": "Moves focus to the previous tabbable element inside the dialog."
+    },
+    {
+      "key": "Shift + Tab",
+      "description": "If focus is on the first tabbable element inside the dialog, moves focus to the last tabbable element inside the dialog."
+    },
+    {
+      "key": "Escape",
+      "description": "Closes the dialog."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Modal Dialog Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/"
+    },
+    {
+      "name": "Date Picker Dialog Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/"
+    }
+  ]
+}

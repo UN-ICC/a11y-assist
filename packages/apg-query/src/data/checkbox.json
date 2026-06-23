@@ -1,0 +1,26 @@
+{
+  "role": "checkbox",
+  "name": "Checkbox",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/",
+  "about_this_pattern": "WAI-ARIA supports two types of checkbox widgets: dual-state checkboxes toggle between two choices -- checked and not checked -- and tri-state checkboxes, which allow an additional third state known as partially checked.\n\nOne common use of a tri-state checkbox can be found in software installers where a single tri-state checkbox is used to represent and control the state of an entire group of install options. And, each option in the group can be individually turned on or off with a dual state checkbox.\n\nThe user can use the tri-state checkbox to change all options in the group with a single action:",
+  "aria_roles": [
+    "checkbox",
+    "group"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Space",
+      "description": "When the checkbox has focus, pressing the Space key changes the state of the checkbox."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Checkbox (Two-State) Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/"
+    },
+    {
+      "name": "Checkbox (Mixed-State) Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "role": "radio",
+  "name": "Radio Group",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/",
+  "about_this_pattern": "A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time. Some implementations may initialize the set with all buttons in the unchecked state in order to force the user to check one of the buttons before moving past a certain point in the workflow.",
+  "aria_roles": [
+    "radio",
+    "radiogroup"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Tab + Shift + Tab",
+      "description": "For Radio Groups Not Contained in a Toolbar — If a radio button is checked, focus is set on the checked button."
+    },
+    {
+      "key": "Tab + Shift + Tab",
+      "description": "For Radio Groups Not Contained in a Toolbar — If none of the radio buttons are checked, focus is set on the first radio button in the group."
+    },
+    {
+      "key": "Space",
+      "description": "For Radio Groups Not Contained in a Toolbar — checks the focused radio button if it is not already checked."
+    },
+    {
+      "key": "Right Arrow and Down Arrow",
+      "description": "For Radio Groups Not Contained in a Toolbar — move focus to the next radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the last button, focus moves to the first button."
+    },
+    {
+      "key": "Left Arrow and Up Arrow",
+      "description": "For Radio Groups Not Contained in a Toolbar — move focus to the previous radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the first button, focus moves to the last button."
+    },
+    {
+      "key": "Tab",
+      "description": "For Radio Group Contained in a Toolbar — Because arrow keys are used to navigate among elements of a toolbar and the Tab key moves focus in and out of a toolbar, when a radio group is nested inside a toolbar, the keyboard interaction of the radio group is slightly different from that of a radio group that is not inside of a toolbar. For instance, users need to be able to navigate among all toolbar elements, including the radio buttons, without changing which radio button is checked. So, when navigating through a radio group in a toolbar with arrow keys, the button that is checked does not change. The keyboard interaction of a radio group nested in a toolbar is as follows."
+    },
+    {
+      "key": "Space",
+      "description": "For Radio Group Contained in a Toolbar — If the focused radio button is not checked, unchecks the currently checked radio button and checks the focused radio button. Otherwise, does nothing."
+    },
+    {
+      "key": "Enter (optional)",
+      "description": "For Radio Group Contained in a Toolbar — If the focused radio button is not checked, unchecks the currently checked radio button and checks the focused radio button. Otherwise, does nothing."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "For Radio Group Contained in a Toolbar — When focus is on a radio button and that radio button is not the last radio button in the radio group, moves focus to the next radio button."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "For Radio Group Contained in a Toolbar — When focus is on the last radio button in the radio group and that radio button is not the last element in the toolbar, moves focus to the next element in the toolbar."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "For Radio Group Contained in a Toolbar — When focus is on the last radio button in the radio group and that radio button is also the last element in the toolbar, moves focus to the first element in the toolbar."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "For Radio Group Contained in a Toolbar — When focus is on a radio button and that radio button is not the first radio button in the radio group, moves focus to the previous radio button."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "For Radio Group Contained in a Toolbar — When focus is on the first radio button in the radio group and that radio button is not the first element in the toolbar, moves focus to the previous element in the toolbar."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "For Radio Group Contained in a Toolbar — When focus is on the first radio button in the radio group and that radio button is also the first element in the toolbar, moves focus to the last element in the toolbar."
+    },
+    {
+      "key": "Down Arrow (optional)",
+      "description": "For Radio Group Contained in a Toolbar — Moves focus to the next radio button in the radio group. If focus is on the last radio button in the radio group, moves focus to the first radio button in the group."
+    },
+    {
+      "key": "Up Arrow (optional)",
+      "description": "For Radio Group Contained in a Toolbar — Moves focus to the previous radio button in the radio group. If focus is on the first radio button in the radio group, moves focus to the last radio button in the group."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Radio Group Example Using Roving tabindex",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/"
+    },
+    {
+      "name": "Radio Group Example Using aria-activedescendant",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/"
+    },
+    {
+      "name": "Rating Radio Group Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/"
+    }
+  ]
+}

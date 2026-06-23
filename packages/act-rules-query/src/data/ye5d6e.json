@@ -1,0 +1,16 @@
+{
+  "id": "ye5d6e",
+  "name": "Document has an instrument to move focus to non-repeated content",
+  "rule_type": "atomic",
+  "description": "This rule checks that there is an instrument to move focus to non-repeated content in the page",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS styling",
+    "DOM Tree",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [HTML web page][].",
+  "url": "https://act-rules.github.io/rules/ye5d6e"
+}

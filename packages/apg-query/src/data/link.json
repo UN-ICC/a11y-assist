@@ -1,0 +1,25 @@
+{
+  "role": "link",
+  "name": "Link",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+  "about_this_pattern": "A link widget provides an interactive reference to a resource. The target resource can be either external or local, i.e., either outside or within the current page or application.",
+  "aria_roles": [
+    "link"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Enter",
+      "description": "Executes the link and moves focus to the link target."
+    },
+    {
+      "key": "Shift + F10 (Optional)",
+      "description": "Opens a context menu for the link."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Link Examples",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "off6ek",
+  "name": "HTML element language subtag matches language",
+  "rule_type": "atomic",
+  "description": "This rule checks that the primary language subtag of an element matches its default language",
+  "wcag_sc_ids": [
+    "3.1.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM tree",
+    "Accessibility tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] with a `lang` attribute for which all the following are true:\n\n- <dfn id=\"off6ek:in-body\">in body</dfn>: the element is an [inclusive descendant][] in the [flat tree][] of a `body` element; and\n- <dfn id=\"off6ek:html\">HTML</dfn>: the element is in a [document][] with a [content type][] of `text/html`; and\n- <dfn id=\"off6ek:valid-lang\">Valid language</dfn>: the element's `lang` [attribute value][] has a [known primary language tag][]; and\n- <dfn id=\"off6ek:not-empty\">Not empty</dfn>: there is some non-empty [text inheriting its programmatic language][] from the element which is neither empty nor only [whitespace][].",
+  "url": "https://act-rules.github.io/rules/off6ek"
+}

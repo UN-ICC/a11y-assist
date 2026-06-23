@@ -1,0 +1,16 @@
+{
+  "id": "oj04fd",
+  "name": "Element in sequential focus order has visible focus",
+  "rule_type": "atomic",
+  "description": "This rule checks that each element in sequential focus order has some visible focus indication.",
+  "wcag_sc_ids": [
+    "2.4.7"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "CSS styling",
+    "DOM tree"
+  ],
+  "applicability_text": "The rule applies to any element which is part of [sequential focus navigation][] in an [HTML document](https://html.spec.whatwg.org/#document).",
+  "url": "https://act-rules.github.io/rules/oj04fd"
+}

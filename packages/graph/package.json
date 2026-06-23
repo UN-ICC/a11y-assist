@@ -1,0 +1,32 @@
+{
+  "name": "a11y-graph",
+  "version": "0.1.0",
+  "description": "In-memory graphology projection of the consolidated a11y dataset. Exposes the 8-node-type / 8-edge-type ontology over apg-query + wcag-query + act-rules-query + a11y-core role-bindings.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "smoke": "tsx tools/smoke.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "graphology": "^0.25.4",
+    "a11y-core": "*",
+    "act-rules-query": "*",
+    "apg-query": "*",
+    "wcag-query": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  },
+  "license": "MIT"
+}

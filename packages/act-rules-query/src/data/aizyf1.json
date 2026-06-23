@@ -1,0 +1,18 @@
+{
+  "id": "aizyf1",
+  "name": "Link is descriptive",
+  "rule_type": "atomic",
+  "description": "This rule checks that the accessible name of a link describes its purpose.",
+  "wcag_sc_ids": [
+    "2.4.9"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [inheriting semantic][] `link` for which all the following is true:\n\n- the link is [included in the accessibility tree][]; and\n- the link has a non-empty (`\"\"`) [accessible name][].",
+  "url": "https://act-rules.github.io/rules/aizyf1"
+}

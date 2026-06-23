@@ -1,0 +1,2952 @@
+{
+  "G94": {
+    "id": "G94",
+    "kind": "sufficient",
+    "title": "Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G94"
+  },
+  "ARIA6": {
+    "id": "ARIA6",
+    "kind": "sufficient",
+    "title": "Using aria-label to provide labels for objects",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA6"
+  },
+  "ARIA10": {
+    "id": "ARIA10",
+    "kind": "sufficient",
+    "title": "Using aria-labelledby to provide a text alternative for non-text content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA10"
+  },
+  "G196": {
+    "id": "G196",
+    "kind": "sufficient",
+    "title": "Using a text alternative on one item within a group of images that describes all items in the group",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G196"
+  },
+  "H2": {
+    "id": "H2",
+    "kind": "sufficient",
+    "title": "Combining adjacent image and text links for the same resource",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H2"
+  },
+  "H37": {
+    "id": "H37",
+    "kind": "sufficient",
+    "title": "Using alt attributes on img elements",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H37"
+  },
+  "H53": {
+    "id": "H53",
+    "kind": "sufficient",
+    "title": "Using the body of the object element",
+    "applicable_sc_ids": [
+      "1.1.1",
+      "1.2.3",
+      "1.2.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H53"
+  },
+  "H86": {
+    "id": "H86",
+    "kind": "sufficient",
+    "title": "Providing text alternatives for emojis, emoticons, ASCII art, and leetspeak",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H86"
+  },
+  "PDF1": {
+    "id": "PDF1",
+    "kind": "sufficient",
+    "title": "Applying text alternatives to images with the Alt entry in PDF documents",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF1"
+  },
+  "G95": {
+    "id": "G95",
+    "kind": "sufficient",
+    "title": "Providing short text alternatives that provide a brief description of the non-text content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G95"
+  },
+  "ARIA15": {
+    "id": "ARIA15",
+    "kind": "sufficient",
+    "title": "Using aria-describedby to provide descriptions of images",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA15"
+  },
+  "G73": {
+    "id": "G73",
+    "kind": "sufficient",
+    "title": "Providing a long description in another location with a link to it that is immediately adjacent to the non-text content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G73"
+  },
+  "G74": {
+    "id": "G74",
+    "kind": "sufficient",
+    "title": "Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G74"
+  },
+  "G92": {
+    "id": "G92",
+    "kind": "sufficient",
+    "title": "Providing long description for non-text content that serves the same purpose and presents the same information",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G92"
+  },
+  "G82": {
+    "id": "G82",
+    "kind": "sufficient",
+    "title": "Providing a text alternative that identifies the purpose of interactive non-text content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G82"
+  },
+  "ARIA9": {
+    "id": "ARIA9",
+    "kind": "sufficient",
+    "title": "Using aria-labelledby to concatenate a label from several text nodes",
+    "applicable_sc_ids": [
+      "1.1.1",
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA9"
+  },
+  "H24": {
+    "id": "H24",
+    "kind": "sufficient",
+    "title": "Providing text alternatives for the area elements of image maps",
+    "applicable_sc_ids": [
+      "1.1.1",
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H24"
+  },
+  "H30": {
+    "id": "H30",
+    "kind": "sufficient",
+    "title": "Providing link text that describes the purpose of a link for anchor elements",
+    "applicable_sc_ids": [
+      "1.1.1",
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H30"
+  },
+  "H36": {
+    "id": "H36",
+    "kind": "sufficient",
+    "title": "Using alt attributes on images used as submit buttons",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H36"
+  },
+  "H44": {
+    "id": "H44",
+    "kind": "sufficient",
+    "title": "Using label elements to associate text labels with form controls",
+    "applicable_sc_ids": [
+      "1.1.1",
+      "1.3.1",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H44"
+  },
+  "H65": {
+    "id": "H65",
+    "kind": "sufficient",
+    "title": "Using the title attribute to identify form controls when the label element cannot be used",
+    "applicable_sc_ids": [
+      "1.1.1",
+      "1.3.1",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H65"
+  },
+  "G68": {
+    "id": "G68",
+    "kind": "sufficient",
+    "title": "Providing a short text alternative that describes the purpose of live audio-only and live video-only content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G68"
+  },
+  "G100": {
+    "id": "G100",
+    "kind": "sufficient",
+    "title": "Providing a short text alternative which is the accepted name or a descriptive name of the non-text content",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G100"
+  },
+  "G143": {
+    "id": "G143",
+    "kind": "sufficient",
+    "title": "Providing a text alternative that describes the purpose of the CAPTCHA",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G143"
+  },
+  "G144": {
+    "id": "G144",
+    "kind": "sufficient",
+    "title": "Ensuring that the web page contains another CAPTCHA serving the same purpose using a different modality",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G144"
+  },
+  "C9": {
+    "id": "C9",
+    "kind": "sufficient",
+    "title": "Using CSS to include decorative images",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C9"
+  },
+  "H67": {
+    "id": "H67",
+    "kind": "sufficient",
+    "title": "Using null alt text and no title attribute on img elements for images that assistive technology should ignore",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H67"
+  },
+  "PDF4": {
+    "id": "PDF4",
+    "kind": "sufficient",
+    "title": "Hiding decorative images with the Artifact tag in PDF documents",
+    "applicable_sc_ids": [
+      "1.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF4"
+  },
+  "G158": {
+    "id": "G158",
+    "kind": "sufficient",
+    "title": "Providing an alternative for time-based media for audio-only content",
+    "applicable_sc_ids": [
+      "1.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G158"
+  },
+  "G159": {
+    "id": "G159",
+    "kind": "sufficient",
+    "title": "Providing an alternative for time-based media for video-only content",
+    "applicable_sc_ids": [
+      "1.2.1",
+      "1.2.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G159"
+  },
+  "G166": {
+    "id": "G166",
+    "kind": "sufficient",
+    "title": "Providing audio that describes the important video content and describing it as such",
+    "applicable_sc_ids": [
+      "1.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G166"
+  },
+  "G93": {
+    "id": "G93",
+    "kind": "sufficient",
+    "title": "Providing open (always visible) captions",
+    "applicable_sc_ids": [
+      "1.2.2",
+      "1.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G93"
+  },
+  "G87": {
+    "id": "G87",
+    "kind": "sufficient",
+    "title": "Providing closed captions",
+    "applicable_sc_ids": [
+      "1.2.2",
+      "1.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G87"
+  },
+  "SM11": {
+    "id": "SM11",
+    "kind": "sufficient",
+    "title": "Providing captions through synchronized text streams in SMIL 1.0",
+    "applicable_sc_ids": [
+      "1.2.2",
+      "1.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM11"
+  },
+  "SM12": {
+    "id": "SM12",
+    "kind": "sufficient",
+    "title": "Providing captions through synchronized text streams in SMIL 2.0",
+    "applicable_sc_ids": [
+      "1.2.2",
+      "1.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM12"
+  },
+  "H95": {
+    "id": "H95",
+    "kind": "sufficient",
+    "title": "Using the track element to provide captions",
+    "applicable_sc_ids": [
+      "1.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H95"
+  },
+  "G69": {
+    "id": "G69",
+    "kind": "sufficient",
+    "title": "Providing an alternative for time based media",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G69"
+  },
+  "G58": {
+    "id": "G58",
+    "kind": "sufficient",
+    "title": "Placing a link to the alternative for time-based media immediately next to the non-text content",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G58"
+  },
+  "G78": {
+    "id": "G78",
+    "kind": "sufficient",
+    "title": "Providing a second, user-selectable, audio track that includes audio descriptions",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G78"
+  },
+  "G173": {
+    "id": "G173",
+    "kind": "sufficient",
+    "title": "Providing a version of a movie with audio descriptions",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G173"
+  },
+  "SM6": {
+    "id": "SM6",
+    "kind": "sufficient",
+    "title": "Providing audio description in SMIL 1.0",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM6"
+  },
+  "SM7": {
+    "id": "SM7",
+    "kind": "sufficient",
+    "title": "Providing audio description in SMIL 2.0",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM7"
+  },
+  "G226": {
+    "id": "G226",
+    "kind": "sufficient",
+    "title": "Providing audio descriptions by incorporating narration in the soundtrack",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G226"
+  },
+  "G8": {
+    "id": "G8",
+    "kind": "sufficient",
+    "title": "Providing a movie with extended audio descriptions",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5",
+      "1.2.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G8"
+  },
+  "SM1": {
+    "id": "SM1",
+    "kind": "sufficient",
+    "title": "Adding extended audio description in SMIL 1.0",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5",
+      "1.2.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM1"
+  },
+  "SM2": {
+    "id": "SM2",
+    "kind": "sufficient",
+    "title": "Adding extended audio description in SMIL 2.0",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5",
+      "1.2.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM2"
+  },
+  "G203": {
+    "id": "G203",
+    "kind": "sufficient",
+    "title": "Using a static text alternative to describe a talking head video",
+    "applicable_sc_ids": [
+      "1.2.3",
+      "1.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G203"
+  },
+  "G9": {
+    "id": "G9",
+    "kind": "sufficient",
+    "title": "Creating captions for live synchronized media",
+    "applicable_sc_ids": [
+      "1.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G9"
+  },
+  "G54": {
+    "id": "G54",
+    "kind": "sufficient",
+    "title": "Including a sign language interpreter in the video stream",
+    "applicable_sc_ids": [
+      "1.2.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G54"
+  },
+  "G81": {
+    "id": "G81",
+    "kind": "sufficient",
+    "title": "Providing a synchronized video of the sign language interpreter that can be displayed in a different viewport or overlaid on the image by the player",
+    "applicable_sc_ids": [
+      "1.2.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G81"
+  },
+  "SM13": {
+    "id": "SM13",
+    "kind": "sufficient",
+    "title": "Providing sign language interpretation through synchronized video streams in SMIL 1.0",
+    "applicable_sc_ids": [
+      "1.2.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM13"
+  },
+  "SM14": {
+    "id": "SM14",
+    "kind": "sufficient",
+    "title": "Providing sign language interpretation through synchronized video streams in SMIL 2.0",
+    "applicable_sc_ids": [
+      "1.2.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/smil/SM14"
+  },
+  "G151": {
+    "id": "G151",
+    "kind": "sufficient",
+    "title": "Providing a link to a text transcript of a prepared statement or script if the script is followed",
+    "applicable_sc_ids": [
+      "1.2.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G151"
+  },
+  "G150": {
+    "id": "G150",
+    "kind": "sufficient",
+    "title": "Providing text based alternatives for live audio-only content",
+    "applicable_sc_ids": [
+      "1.2.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G150"
+  },
+  "G157": {
+    "id": "G157",
+    "kind": "sufficient",
+    "title": "Incorporating a live audio captioning service into a web page",
+    "applicable_sc_ids": [
+      "1.2.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G157"
+  },
+  "ARIA11": {
+    "id": "ARIA11",
+    "kind": "sufficient",
+    "title": "Using ARIA landmarks to identify regions of a page",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "1.3.6",
+      "2.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA11"
+  },
+  "H101": {
+    "id": "H101",
+    "kind": "sufficient",
+    "title": "Using semantic HTML elements to identify regions of a page",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H101"
+  },
+  "ARIA12": {
+    "id": "ARIA12",
+    "kind": "sufficient",
+    "title": "Using role=heading to identify headings",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA12"
+  },
+  "ARIA13": {
+    "id": "ARIA13",
+    "kind": "sufficient",
+    "title": "Using aria-labelledby to name regions and landmarks",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA13"
+  },
+  "ARIA16": {
+    "id": "ARIA16",
+    "kind": "sufficient",
+    "title": "Using aria-labelledby to provide a name for user interface controls",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA16"
+  },
+  "ARIA17": {
+    "id": "ARIA17",
+    "kind": "sufficient",
+    "title": "Using grouping roles to identify related form controls",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA17"
+  },
+  "ARIA20": {
+    "id": "ARIA20",
+    "kind": "sufficient",
+    "title": "Using the region role to identify a region of the page",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA20"
+  },
+  "G115": {
+    "id": "G115",
+    "kind": "sufficient",
+    "title": "Using semantic elements to mark up structure",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G115"
+  },
+  "H49": {
+    "id": "H49",
+    "kind": "sufficient",
+    "title": "Using semantic markup to mark emphasized or special text",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H49"
+  },
+  "G117": {
+    "id": "G117",
+    "kind": "sufficient",
+    "title": "Using text to convey information that is conveyed by variations in presentation of text",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G117"
+  },
+  "G140": {
+    "id": "G140",
+    "kind": "sufficient",
+    "title": "Separating information and structure from presentation to enable different presentations",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "1.4.5",
+      "1.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G140"
+  },
+  "ARIA24": {
+    "id": "ARIA24",
+    "kind": "sufficient",
+    "title": "Semantically identifying a font icon with role=\"img\"",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA24"
+  },
+  "ARIA26": {
+    "id": "ARIA26",
+    "kind": "sufficient",
+    "title": "Using aria-current to identify the current item in a set",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "2.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA26"
+  },
+  "G138": {
+    "id": "G138",
+    "kind": "sufficient",
+    "title": "Using semantic markup whenever color cues are used",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G138"
+  },
+  "H51": {
+    "id": "H51",
+    "kind": "sufficient",
+    "title": "Using table markup to present tabular information",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H51"
+  },
+  "PDF6": {
+    "id": "PDF6",
+    "kind": "sufficient",
+    "title": "Using table elements for table markup in PDF Documents",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF6"
+  },
+  "PDF20": {
+    "id": "PDF20",
+    "kind": "sufficient",
+    "title": "Using Adobe Acrobat Pro's Table Editor to repair mistagged tables",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF20"
+  },
+  "H39": {
+    "id": "H39",
+    "kind": "sufficient",
+    "title": "Using caption elements to associate data table captions with data tables",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H39"
+  },
+  "H63": {
+    "id": "H63",
+    "kind": "sufficient",
+    "title": "Using the scope attribute to associate header cells with data cells in data tables",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H63"
+  },
+  "H43": {
+    "id": "H43",
+    "kind": "sufficient",
+    "title": "Using id and headers attributes to associate data cells with header cells in data tables",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H43"
+  },
+  "PDF10": {
+    "id": "PDF10",
+    "kind": "sufficient",
+    "title": "Providing labels for interactive form controls in PDF documents",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF10"
+  },
+  "PDF12": {
+    "id": "PDF12",
+    "kind": "sufficient",
+    "title": "Providing name, role, value information for form fields in PDF documents",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF12"
+  },
+  "H71": {
+    "id": "H71",
+    "kind": "sufficient",
+    "title": "Providing a description for groups of form controls using fieldset and legend elements",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H71"
+  },
+  "H85": {
+    "id": "H85",
+    "kind": "sufficient",
+    "title": "Using optgroup to group option elements inside a select",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H85"
+  },
+  "H48": {
+    "id": "H48",
+    "kind": "sufficient",
+    "title": "Using ol, ul and dl for lists or groups of links",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H48"
+  },
+  "H42": {
+    "id": "H42",
+    "kind": "sufficient",
+    "title": "Using h1-h6 to identify headings",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H42"
+  },
+  "PDF9": {
+    "id": "PDF9",
+    "kind": "sufficient",
+    "title": "Providing headings by marking content with heading tags in PDF documents",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "2.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF9"
+  },
+  "PDF11": {
+    "id": "PDF11",
+    "kind": "sufficient",
+    "title": "Providing links and link text using the Link annotation and the /Link structure element in PDF documents",
+    "applicable_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF11"
+  },
+  "PDF17": {
+    "id": "PDF17",
+    "kind": "sufficient",
+    "title": "Specifying consistent page numbering for PDF documents",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF17"
+  },
+  "PDF21": {
+    "id": "PDF21",
+    "kind": "sufficient",
+    "title": "Using List tags for lists in PDF documents",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF21"
+  },
+  "H97": {
+    "id": "H97",
+    "kind": "sufficient",
+    "title": "Grouping related links using the nav element",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H97"
+  },
+  "T1": {
+    "id": "T1",
+    "kind": "sufficient",
+    "title": "Using standard text formatting conventions for paragraphs",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/text/T1"
+  },
+  "T2": {
+    "id": "T2",
+    "kind": "sufficient",
+    "title": "Using standard text formatting conventions for lists",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/text/T2"
+  },
+  "T3": {
+    "id": "T3",
+    "kind": "sufficient",
+    "title": "Using standard text formatting conventions for headings",
+    "applicable_sc_ids": [
+      "1.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/text/T3"
+  },
+  "G57": {
+    "id": "G57",
+    "kind": "sufficient",
+    "title": "Ordering the content in a meaningful sequence",
+    "applicable_sc_ids": [
+      "1.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G57"
+  },
+  "H34": {
+    "id": "H34",
+    "kind": "sufficient",
+    "title": "Using a Unicode right-to-left mark (RLM) or left-to-right mark (LRM) to mix text direction inline",
+    "applicable_sc_ids": [
+      "1.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H34"
+  },
+  "H56": {
+    "id": "H56",
+    "kind": "sufficient",
+    "title": "Using the dir attribute on an inline element to resolve problems with nested directional runs",
+    "applicable_sc_ids": [
+      "1.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H56"
+  },
+  "C6": {
+    "id": "C6",
+    "kind": "sufficient",
+    "title": "Positioning content based on structural markup",
+    "applicable_sc_ids": [
+      "1.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C6"
+  },
+  "C8": {
+    "id": "C8",
+    "kind": "sufficient",
+    "title": "Using CSS letter-spacing to control spacing within a word",
+    "applicable_sc_ids": [
+      "1.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C8"
+  },
+  "C27": {
+    "id": "C27",
+    "kind": "sufficient",
+    "title": "Making the DOM order match the visual order",
+    "applicable_sc_ids": [
+      "1.3.2",
+      "2.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C27"
+  },
+  "PDF3": {
+    "id": "PDF3",
+    "kind": "sufficient",
+    "title": "Ensuring correct tab and reading order in PDF documents",
+    "applicable_sc_ids": [
+      "1.3.2",
+      "2.1.1",
+      "2.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF3"
+  },
+  "G96": {
+    "id": "G96",
+    "kind": "sufficient",
+    "title": "Providing textual identification of items that otherwise rely only on sensory information to be understood",
+    "applicable_sc_ids": [
+      "1.3.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G96"
+  },
+  "G214": {
+    "id": "G214",
+    "kind": "sufficient",
+    "title": "Using a control to allow access to content in different orientations which is otherwise restricted",
+    "applicable_sc_ids": [
+      "1.3.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G214"
+  },
+  "H98": {
+    "id": "H98",
+    "kind": "sufficient",
+    "title": "Using HTML autocomplete attributes",
+    "applicable_sc_ids": [
+      "1.3.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H98"
+  },
+  "G14": {
+    "id": "G14",
+    "kind": "sufficient",
+    "title": "Ensuring that information conveyed by color differences is also available in text",
+    "applicable_sc_ids": [
+      "1.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G14"
+  },
+  "G205": {
+    "id": "G205",
+    "kind": "sufficient",
+    "title": "Including a text cue for colored form control labels",
+    "applicable_sc_ids": [
+      "1.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G205"
+  },
+  "G182": {
+    "id": "G182",
+    "kind": "sufficient",
+    "title": "Ensuring that additional visual cues are available when text color differences are used to convey information",
+    "applicable_sc_ids": [
+      "1.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G182"
+  },
+  "G183": {
+    "id": "G183",
+    "kind": "sufficient",
+    "title": "Using a contrast ratio of 3:1 with surrounding text and providing additional visual cues on hover for links or controls where color alone is used to identify them",
+    "applicable_sc_ids": [
+      "1.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G183"
+  },
+  "G111": {
+    "id": "G111",
+    "kind": "sufficient",
+    "title": "Using color and pattern",
+    "applicable_sc_ids": [
+      "1.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G111"
+  },
+  "G60": {
+    "id": "G60",
+    "kind": "sufficient",
+    "title": "Playing a sound that turns off automatically within three seconds",
+    "applicable_sc_ids": [
+      "1.4.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G60"
+  },
+  "G170": {
+    "id": "G170",
+    "kind": "sufficient",
+    "title": "Providing a control near the beginning of the web page that turns off sounds that play automatically",
+    "applicable_sc_ids": [
+      "1.4.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G170"
+  },
+  "G171": {
+    "id": "G171",
+    "kind": "sufficient",
+    "title": "Playing sounds only on user request",
+    "applicable_sc_ids": [
+      "1.4.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G171"
+  },
+  "G18": {
+    "id": "G18",
+    "kind": "sufficient",
+    "title": "Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text",
+    "applicable_sc_ids": [
+      "1.4.3",
+      "1.4.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G18"
+  },
+  "G148": {
+    "id": "G148",
+    "kind": "sufficient",
+    "title": "Not specifying background color, not specifying text color, and not using technology features that change those defaults",
+    "applicable_sc_ids": [
+      "1.4.3",
+      "1.4.6",
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G148"
+  },
+  "G174": {
+    "id": "G174",
+    "kind": "sufficient",
+    "title": "Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast",
+    "applicable_sc_ids": [
+      "1.4.3",
+      "1.4.6",
+      "1.4.11"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G174"
+  },
+  "G145": {
+    "id": "G145",
+    "kind": "sufficient",
+    "title": "Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text",
+    "applicable_sc_ids": [
+      "1.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G145"
+  },
+  "G142": {
+    "id": "G142",
+    "kind": "sufficient",
+    "title": "Using a technology that has commonly-available user agents that support zoom",
+    "applicable_sc_ids": [
+      "1.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G142"
+  },
+  "C28": {
+    "id": "C28",
+    "kind": "sufficient",
+    "title": "Specifying the size of text containers using em units",
+    "applicable_sc_ids": [
+      "1.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C28"
+  },
+  "C12": {
+    "id": "C12",
+    "kind": "sufficient",
+    "title": "Using percent for font sizes",
+    "applicable_sc_ids": [
+      "1.4.4",
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C12"
+  },
+  "C13": {
+    "id": "C13",
+    "kind": "sufficient",
+    "title": "Using named font sizes",
+    "applicable_sc_ids": [
+      "1.4.4",
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C13"
+  },
+  "C14": {
+    "id": "C14",
+    "kind": "sufficient",
+    "title": "Using em units for font sizes",
+    "applicable_sc_ids": [
+      "1.4.4",
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C14"
+  },
+  "SCR34": {
+    "id": "SCR34",
+    "kind": "sufficient",
+    "title": "Calculating size and position in a way that scales with text size",
+    "applicable_sc_ids": [
+      "1.4.4",
+      "1.4.8",
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR34"
+  },
+  "G146": {
+    "id": "G146",
+    "kind": "sufficient",
+    "title": "Using liquid layout",
+    "applicable_sc_ids": [
+      "1.4.4",
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G146"
+  },
+  "G178": {
+    "id": "G178",
+    "kind": "sufficient",
+    "title": "Providing controls on the web page that allow users to incrementally change the size of all text on the page up to 200 percent",
+    "applicable_sc_ids": [
+      "1.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G178"
+  },
+  "G179": {
+    "id": "G179",
+    "kind": "sufficient",
+    "title": "Ensuring that there is no loss of content or functionality when the text resizes and text containers do not change their width",
+    "applicable_sc_ids": [
+      "1.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G179"
+  },
+  "C22": {
+    "id": "C22",
+    "kind": "sufficient",
+    "title": "Using CSS to control visual presentation of text",
+    "applicable_sc_ids": [
+      "1.4.5",
+      "1.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C22"
+  },
+  "C30": {
+    "id": "C30",
+    "kind": "sufficient",
+    "title": "Using CSS to replace text with images of text and providing user interface controls to switch",
+    "applicable_sc_ids": [
+      "1.4.5",
+      "1.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C30"
+  },
+  "PDF7": {
+    "id": "PDF7",
+    "kind": "sufficient",
+    "title": "Performing OCR on a scanned PDF document to provide actual text",
+    "applicable_sc_ids": [
+      "1.4.5",
+      "1.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF7"
+  },
+  "G17": {
+    "id": "G17",
+    "kind": "sufficient",
+    "title": "Ensuring that a contrast ratio of at least 7:1 exists between text (and images of text) and background behind the text",
+    "applicable_sc_ids": [
+      "1.4.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G17"
+  },
+  "G56": {
+    "id": "G56",
+    "kind": "sufficient",
+    "title": "Mixing audio files so that non-speech sounds are at least 20 decibels lower than the speech audio content",
+    "applicable_sc_ids": [
+      "1.4.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G56"
+  },
+  "C23": {
+    "id": "C23",
+    "kind": "sufficient",
+    "title": "Specifying text and background colors of secondary content such as banners, features and navigation in CSS while not specifying text and background colors of the main content",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C23"
+  },
+  "C25": {
+    "id": "C25",
+    "kind": "sufficient",
+    "title": "Specifying borders and layout in CSS to delineate areas of a web page while not specifying text and text-background colors",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C25"
+  },
+  "G156": {
+    "id": "G156",
+    "kind": "sufficient",
+    "title": "Using a technology that has commonly-available user agents that can change the foreground and background of blocks of text",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G156"
+  },
+  "G175": {
+    "id": "G175",
+    "kind": "sufficient",
+    "title": "Providing a multi color selection tool on the page for foreground and background colors",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G175"
+  },
+  "G204": {
+    "id": "G204",
+    "kind": "sufficient",
+    "title": "Not interfering with the user agent's reflow of text as the viewing window is narrowed",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G204"
+  },
+  "C20": {
+    "id": "C20",
+    "kind": "sufficient",
+    "title": "Using relative measurements to set column widths so that lines can average 80 characters or less when the browser is resized",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C20"
+  },
+  "C19": {
+    "id": "C19",
+    "kind": "sufficient",
+    "title": "Specifying alignment either to the left or right in CSS",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C19"
+  },
+  "G172": {
+    "id": "G172",
+    "kind": "sufficient",
+    "title": "Providing a mechanism to remove full justification of text",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G172"
+  },
+  "G169": {
+    "id": "G169",
+    "kind": "sufficient",
+    "title": "Aligning text on only one side",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G169"
+  },
+  "G188": {
+    "id": "G188",
+    "kind": "sufficient",
+    "title": "Providing a button on the page to increase line spaces and paragraph spaces",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G188"
+  },
+  "C21": {
+    "id": "C21",
+    "kind": "sufficient",
+    "title": "Specifying line spacing in CSS",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C21"
+  },
+  "C24": {
+    "id": "C24",
+    "kind": "sufficient",
+    "title": "Using percentage values in CSS for container sizes",
+    "applicable_sc_ids": [
+      "1.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C24"
+  },
+  "G206": {
+    "id": "G206",
+    "kind": "sufficient",
+    "title": "Providing options within the content to switch to a layout that does not require the user to scroll horizontally to read a line of text",
+    "applicable_sc_ids": [
+      "1.4.8",
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G206"
+  },
+  "C32": {
+    "id": "C32",
+    "kind": "sufficient",
+    "title": "Using media queries and grid CSS to reflow columns",
+    "applicable_sc_ids": [
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C32"
+  },
+  "C31": {
+    "id": "C31",
+    "kind": "sufficient",
+    "title": "Using CSS Flexbox to reflow content",
+    "applicable_sc_ids": [
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C31"
+  },
+  "C33": {
+    "id": "C33",
+    "kind": "sufficient",
+    "title": "Allowing for Reflow with Long URLs and Strings of Text",
+    "applicable_sc_ids": [
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C33"
+  },
+  "C38": {
+    "id": "C38",
+    "kind": "sufficient",
+    "title": "Using CSS width, max-width and flexbox to fit labels and inputs",
+    "applicable_sc_ids": [
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C38"
+  },
+  "G224": {
+    "id": "G224",
+    "kind": "sufficient",
+    "title": "Accounting for meaningful text indentation and Reflow",
+    "applicable_sc_ids": [
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G224"
+  },
+  "G225": {
+    "id": "G225",
+    "kind": "sufficient",
+    "title": "Section panels that scroll horizontally are designed to fit within a width of 320 CSS pixels on a vertically scrolling page",
+    "applicable_sc_ids": [
+      "1.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G225"
+  },
+  "G195": {
+    "id": "G195",
+    "kind": "sufficient",
+    "title": "Using an author-supplied, visible focus indicator",
+    "applicable_sc_ids": [
+      "1.4.11",
+      "2.4.7",
+      "2.4.13"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G195"
+  },
+  "G207": {
+    "id": "G207",
+    "kind": "sufficient",
+    "title": "Ensuring that a contrast ratio of 3:1 is provided for icons",
+    "applicable_sc_ids": [
+      "1.4.11"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G207"
+  },
+  "G209": {
+    "id": "G209",
+    "kind": "sufficient",
+    "title": "Provide sufficient contrast at the boundaries between adjoining colors",
+    "applicable_sc_ids": [
+      "1.4.11"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G209"
+  },
+  "C36": {
+    "id": "C36",
+    "kind": "sufficient",
+    "title": "Allowing for text spacing override",
+    "applicable_sc_ids": [
+      "1.4.12"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C36"
+  },
+  "C35": {
+    "id": "C35",
+    "kind": "sufficient",
+    "title": "Allowing for text spacing without wrapping",
+    "applicable_sc_ids": [
+      "1.4.12"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C35"
+  },
+  "SCR39": {
+    "id": "SCR39",
+    "kind": "sufficient",
+    "title": "Making content on focus or hover hoverable, dismissible, and persistent",
+    "applicable_sc_ids": [
+      "1.4.13"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR39"
+  },
+  "G202": {
+    "id": "G202",
+    "kind": "sufficient",
+    "title": "Ensuring keyboard control for all functionality",
+    "applicable_sc_ids": [
+      "2.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G202"
+  },
+  "H91": {
+    "id": "H91",
+    "kind": "sufficient",
+    "title": "Using HTML form controls and links",
+    "applicable_sc_ids": [
+      "2.1.1",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H91"
+  },
+  "PDF23": {
+    "id": "PDF23",
+    "kind": "sufficient",
+    "title": "Providing interactive form controls in PDF documents",
+    "applicable_sc_ids": [
+      "2.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF23"
+  },
+  "G90": {
+    "id": "G90",
+    "kind": "sufficient",
+    "title": "Providing keyboard-triggered event handlers",
+    "applicable_sc_ids": [
+      "2.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G90"
+  },
+  "SCR20": {
+    "id": "SCR20",
+    "kind": "sufficient",
+    "title": "Using both keyboard and other device-specific functions",
+    "applicable_sc_ids": [
+      "2.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR20"
+  },
+  "SCR35": {
+    "id": "SCR35",
+    "kind": "sufficient",
+    "title": "Making actions keyboard accessible by using the onclick event of anchors and buttons",
+    "applicable_sc_ids": [
+      "2.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR35"
+  },
+  "SCR2": {
+    "id": "SCR2",
+    "kind": "sufficient",
+    "title": "Using redundant keyboard and mouse event handlers",
+    "applicable_sc_ids": [
+      "2.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR2"
+  },
+  "G21": {
+    "id": "G21",
+    "kind": "sufficient",
+    "title": "Ensuring that users are not trapped in content",
+    "applicable_sc_ids": [
+      "2.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G21"
+  },
+  "G217": {
+    "id": "G217",
+    "kind": "sufficient",
+    "title": "Providing a mechanism to allow users to remap or turn off character key shortcuts",
+    "applicable_sc_ids": [
+      "2.1.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G217"
+  },
+  "G133": {
+    "id": "G133",
+    "kind": "sufficient",
+    "title": "Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit",
+    "applicable_sc_ids": [
+      "2.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G133"
+  },
+  "G198": {
+    "id": "G198",
+    "kind": "sufficient",
+    "title": "Providing a way for the user to turn the time limit off",
+    "applicable_sc_ids": [
+      "2.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G198"
+  },
+  "G180": {
+    "id": "G180",
+    "kind": "sufficient",
+    "title": "Providing the user with a means to set the time limit to 10 times the default time limit",
+    "applicable_sc_ids": [
+      "2.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G180"
+  },
+  "SCR16": {
+    "id": "SCR16",
+    "kind": "sufficient",
+    "title": "Providing a script that warns the user a time limit is about to expire",
+    "applicable_sc_ids": [
+      "2.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR16"
+  },
+  "SCR1": {
+    "id": "SCR1",
+    "kind": "sufficient",
+    "title": "Allowing the user to extend the default time limit",
+    "applicable_sc_ids": [
+      "2.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR1"
+  },
+  "G4": {
+    "id": "G4",
+    "kind": "sufficient",
+    "title": "Allowing the content to be paused and restarted from where it was paused",
+    "applicable_sc_ids": [
+      "2.2.1",
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G4"
+  },
+  "SCR33": {
+    "id": "SCR33",
+    "kind": "sufficient",
+    "title": "Using script to scroll content, and providing a mechanism to pause it",
+    "applicable_sc_ids": [
+      "2.2.1",
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR33"
+  },
+  "SCR36": {
+    "id": "SCR36",
+    "kind": "sufficient",
+    "title": "Providing a mechanism to allow users to display moving, scrolling, or auto-updating text in a static window or area",
+    "applicable_sc_ids": [
+      "2.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR36"
+  },
+  "G11": {
+    "id": "G11",
+    "kind": "sufficient",
+    "title": "Creating content that blinks for less than 5 seconds",
+    "applicable_sc_ids": [
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G11"
+  },
+  "G152": {
+    "id": "G152",
+    "kind": "sufficient",
+    "title": "Setting animated gif images to stop blinking after n cycles (within 5 seconds)",
+    "applicable_sc_ids": [
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G152"
+  },
+  "SCR22": {
+    "id": "SCR22",
+    "kind": "sufficient",
+    "title": "Using scripts to control blinking and stop it in five seconds or less",
+    "applicable_sc_ids": [
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR22"
+  },
+  "G186": {
+    "id": "G186",
+    "kind": "sufficient",
+    "title": "Using a control in the web page that stops moving, blinking, or auto-updating content",
+    "applicable_sc_ids": [
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G186"
+  },
+  "G191": {
+    "id": "G191",
+    "kind": "sufficient",
+    "title": "Providing a link, button, or other mechanism that reloads the page without any blinking content",
+    "applicable_sc_ids": [
+      "2.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G191"
+  },
+  "G5": {
+    "id": "G5",
+    "kind": "sufficient",
+    "title": "Allowing users to complete an activity without any time limit",
+    "applicable_sc_ids": [
+      "2.2.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G5"
+  },
+  "G75": {
+    "id": "G75",
+    "kind": "sufficient",
+    "title": "Providing a mechanism to postpone any updating of content",
+    "applicable_sc_ids": [
+      "2.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G75"
+  },
+  "G76": {
+    "id": "G76",
+    "kind": "sufficient",
+    "title": "Providing a mechanism to request an update of the content instead of updating automatically",
+    "applicable_sc_ids": [
+      "2.2.4",
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G76"
+  },
+  "SCR14": {
+    "id": "SCR14",
+    "kind": "sufficient",
+    "title": "Using scripts to make nonessential alerts optional",
+    "applicable_sc_ids": [
+      "2.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR14"
+  },
+  "G105": {
+    "id": "G105",
+    "kind": "sufficient",
+    "title": "Saving data so that it can be used after a user re-authenticates",
+    "applicable_sc_ids": [
+      "2.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G105"
+  },
+  "G181": {
+    "id": "G181",
+    "kind": "sufficient",
+    "title": "Encoding user data as hidden or encrypted data in a re-authorization page",
+    "applicable_sc_ids": [
+      "2.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G181"
+  },
+  "G19": {
+    "id": "G19",
+    "kind": "sufficient",
+    "title": "Ensuring that no component of the content flashes more than three times in any 1-second period",
+    "applicable_sc_ids": [
+      "2.3.1",
+      "2.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G19"
+  },
+  "G176": {
+    "id": "G176",
+    "kind": "sufficient",
+    "title": "Keeping the flashing area small enough",
+    "applicable_sc_ids": [
+      "2.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G176"
+  },
+  "G15": {
+    "id": "G15",
+    "kind": "sufficient",
+    "title": "Using a tool to ensure that content does not violate the general flash threshold or red flash threshold",
+    "applicable_sc_ids": [
+      "2.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G15"
+  },
+  "C39": {
+    "id": "C39",
+    "kind": "sufficient",
+    "title": "Using the CSS prefers-reduced-motion query to prevent motion",
+    "applicable_sc_ids": [
+      "2.3.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C39"
+  },
+  "SCR40": {
+    "id": "SCR40",
+    "kind": "sufficient",
+    "title": "Using the CSS prefers-reduced-motion query in JavaScript to prevent motion",
+    "applicable_sc_ids": [
+      "2.3.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR40"
+  },
+  "G1": {
+    "id": "G1",
+    "kind": "sufficient",
+    "title": "Adding a link at the top of each page that goes directly to the main content area",
+    "applicable_sc_ids": [
+      "2.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G1"
+  },
+  "G123": {
+    "id": "G123",
+    "kind": "sufficient",
+    "title": "Adding a link at the beginning of a block of repeated content to go to the end of the block",
+    "applicable_sc_ids": [
+      "2.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G123"
+  },
+  "G124": {
+    "id": "G124",
+    "kind": "sufficient",
+    "title": "Adding links at the top of the page to each area of the content",
+    "applicable_sc_ids": [
+      "2.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G124"
+  },
+  "H69": {
+    "id": "H69",
+    "kind": "sufficient",
+    "title": "Providing heading elements at the beginning of each section of content",
+    "applicable_sc_ids": [
+      "2.4.1",
+      "2.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H69"
+  },
+  "H64": {
+    "id": "H64",
+    "kind": "sufficient",
+    "title": "Using the title attribute of the iframe element",
+    "applicable_sc_ids": [
+      "2.4.1",
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H64"
+  },
+  "SCR28": {
+    "id": "SCR28",
+    "kind": "sufficient",
+    "title": "Using an expandable and collapsible menu to bypass block of content",
+    "applicable_sc_ids": [
+      "2.4.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR28"
+  },
+  "G88": {
+    "id": "G88",
+    "kind": "sufficient",
+    "title": "Providing descriptive titles for web pages",
+    "applicable_sc_ids": [
+      "2.4.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G88"
+  },
+  "H25": {
+    "id": "H25",
+    "kind": "sufficient",
+    "title": "Providing a title using the title element",
+    "applicable_sc_ids": [
+      "2.4.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H25"
+  },
+  "PDF18": {
+    "id": "PDF18",
+    "kind": "sufficient",
+    "title": "Specifying the document title using the Title entry in the document information dictionary of a PDF document",
+    "applicable_sc_ids": [
+      "2.4.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF18"
+  },
+  "G59": {
+    "id": "G59",
+    "kind": "sufficient",
+    "title": "Placing the interactive elements in an order that follows sequences and relationships within the content",
+    "applicable_sc_ids": [
+      "2.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G59"
+  },
+  "SCR26": {
+    "id": "SCR26",
+    "kind": "sufficient",
+    "title": "Inserting dynamic content into the Document Object Model immediately following its trigger element",
+    "applicable_sc_ids": [
+      "2.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR26"
+  },
+  "H102": {
+    "id": "H102",
+    "kind": "sufficient",
+    "title": "Creating modal dialogs with the HTML dialog element",
+    "applicable_sc_ids": [
+      "2.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H102"
+  },
+  "SCR27": {
+    "id": "SCR27",
+    "kind": "sufficient",
+    "title": "Reordering page sections using the Document Object Model",
+    "applicable_sc_ids": [
+      "2.4.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR27"
+  },
+  "G91": {
+    "id": "G91",
+    "kind": "sufficient",
+    "title": "Providing link text that describes the purpose of a link",
+    "applicable_sc_ids": [
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G91"
+  },
+  "G189": {
+    "id": "G189",
+    "kind": "sufficient",
+    "title": "Providing a control near the beginning of the web page that changes the link text",
+    "applicable_sc_ids": [
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G189"
+  },
+  "SCR30": {
+    "id": "SCR30",
+    "kind": "sufficient",
+    "title": "Using scripts to change the link text",
+    "applicable_sc_ids": [
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR30"
+  },
+  "G53": {
+    "id": "G53",
+    "kind": "sufficient",
+    "title": "Identifying the purpose of a link using link text combined with the text of the enclosing sentence",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G53"
+  },
+  "H33": {
+    "id": "H33",
+    "kind": "sufficient",
+    "title": "Supplementing link text with the title attribute",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H33"
+  },
+  "C7": {
+    "id": "C7",
+    "kind": "sufficient",
+    "title": "Using CSS to hide a portion of the link text",
+    "applicable_sc_ids": [
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C7"
+  },
+  "ARIA7": {
+    "id": "ARIA7",
+    "kind": "sufficient",
+    "title": "Using aria-labelledby for link purpose",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA7"
+  },
+  "ARIA8": {
+    "id": "ARIA8",
+    "kind": "sufficient",
+    "title": "Using aria-label for link purpose",
+    "applicable_sc_ids": [
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8"
+  },
+  "H77": {
+    "id": "H77",
+    "kind": "sufficient",
+    "title": "Identifying the purpose of a link using link text combined with its enclosing list item",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H77"
+  },
+  "H78": {
+    "id": "H78",
+    "kind": "sufficient",
+    "title": "Identifying the purpose of a link using link text combined with its enclosing paragraph",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H78"
+  },
+  "H79": {
+    "id": "H79",
+    "kind": "sufficient",
+    "title": "Identifying the purpose of a link in a data table using the link text combined with its enclosing table cell and associated table header cells",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H79"
+  },
+  "H81": {
+    "id": "H81",
+    "kind": "sufficient",
+    "title": "Identifying the purpose of a link in a nested list using link text combined with the parent list item under which the list is nested",
+    "applicable_sc_ids": [
+      "2.4.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H81"
+  },
+  "PDF13": {
+    "id": "PDF13",
+    "kind": "sufficient",
+    "title": "Providing replacement text using the /Alt entry for links in PDF documents",
+    "applicable_sc_ids": [
+      "2.4.4",
+      "2.4.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF13"
+  },
+  "G125": {
+    "id": "G125",
+    "kind": "sufficient",
+    "title": "Providing links to navigate to related web pages",
+    "applicable_sc_ids": [
+      "2.4.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G125"
+  },
+  "G64": {
+    "id": "G64",
+    "kind": "sufficient",
+    "title": "Providing a Table of Contents",
+    "applicable_sc_ids": [
+      "2.4.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G64"
+  },
+  "G63": {
+    "id": "G63",
+    "kind": "sufficient",
+    "title": "Providing a site map",
+    "applicable_sc_ids": [
+      "2.4.5",
+      "2.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G63"
+  },
+  "G161": {
+    "id": "G161",
+    "kind": "sufficient",
+    "title": "Providing a search function to help users find content",
+    "applicable_sc_ids": [
+      "2.4.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G161"
+  },
+  "G126": {
+    "id": "G126",
+    "kind": "sufficient",
+    "title": "Providing a list of links to all other web pages",
+    "applicable_sc_ids": [
+      "2.4.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G126"
+  },
+  "G185": {
+    "id": "G185",
+    "kind": "sufficient",
+    "title": "Linking to all of the pages on the site from the home page",
+    "applicable_sc_ids": [
+      "2.4.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G185"
+  },
+  "G130": {
+    "id": "G130",
+    "kind": "sufficient",
+    "title": "Providing descriptive headings",
+    "applicable_sc_ids": [
+      "2.4.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G130"
+  },
+  "G131": {
+    "id": "G131",
+    "kind": "sufficient",
+    "title": "Providing descriptive labels",
+    "applicable_sc_ids": [
+      "2.4.6",
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G131"
+  },
+  "G149": {
+    "id": "G149",
+    "kind": "sufficient",
+    "title": "Using user interface components that are highlighted by the user agent when they receive focus",
+    "applicable_sc_ids": [
+      "2.4.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G149"
+  },
+  "C15": {
+    "id": "C15",
+    "kind": "sufficient",
+    "title": "Using CSS to change the presentation of a user interface component when it receives focus",
+    "applicable_sc_ids": [
+      "2.4.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C15"
+  },
+  "G165": {
+    "id": "G165",
+    "kind": "sufficient",
+    "title": "Using the default focus indicator for the platform so that high visibility default focus indicators will carry over",
+    "applicable_sc_ids": [
+      "2.4.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G165"
+  },
+  "C40": {
+    "id": "C40",
+    "kind": "sufficient",
+    "title": "Creating a two-color focus indicator to ensure sufficient contrast with all components",
+    "applicable_sc_ids": [
+      "2.4.7",
+      "2.4.13"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C40"
+  },
+  "C45": {
+    "id": "C45",
+    "kind": "sufficient",
+    "title": "Using CSS :focus-visible to provide keyboard focus indication",
+    "applicable_sc_ids": [
+      "2.4.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C45"
+  },
+  "SCR31": {
+    "id": "SCR31",
+    "kind": "sufficient",
+    "title": "Using script to change the background color or border of the element with focus",
+    "applicable_sc_ids": [
+      "2.4.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR31"
+  },
+  "G65": {
+    "id": "G65",
+    "kind": "sufficient",
+    "title": "Providing a breadcrumb trail",
+    "applicable_sc_ids": [
+      "2.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G65"
+  },
+  "G128": {
+    "id": "G128",
+    "kind": "sufficient",
+    "title": "Indicating current location within navigation bars",
+    "applicable_sc_ids": [
+      "2.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G128"
+  },
+  "G127": {
+    "id": "G127",
+    "kind": "sufficient",
+    "title": "Identifying a web page's relationship to a larger collection of web pages",
+    "applicable_sc_ids": [
+      "2.4.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G127"
+  },
+  "G141": {
+    "id": "G141",
+    "kind": "sufficient",
+    "title": "Organizing a page using headings",
+    "applicable_sc_ids": [
+      "2.4.10"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G141"
+  },
+  "C43": {
+    "id": "C43",
+    "kind": "sufficient",
+    "title": "Using CSS scroll-padding to un-obscure content",
+    "applicable_sc_ids": [
+      "2.4.11",
+      "2.4.12"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C43"
+  },
+  "C41": {
+    "id": "C41",
+    "kind": "sufficient",
+    "title": "Creating a strong focus indicator within the component",
+    "applicable_sc_ids": [
+      "2.4.13"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C41"
+  },
+  "G215": {
+    "id": "G215",
+    "kind": "sufficient",
+    "title": "Providing controls to achieve the same result as path based or multipoint gestures",
+    "applicable_sc_ids": [
+      "2.5.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G215"
+  },
+  "G216": {
+    "id": "G216",
+    "kind": "sufficient",
+    "title": "Providing single point activation for a control slider",
+    "applicable_sc_ids": [
+      "2.5.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G216"
+  },
+  "G210": {
+    "id": "G210",
+    "kind": "sufficient",
+    "title": "Ensuring that drag-and-drop actions can be cancelled",
+    "applicable_sc_ids": [
+      "2.5.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G210"
+  },
+  "G212": {
+    "id": "G212",
+    "kind": "sufficient",
+    "title": "Using native controls to ensure functionality is triggered on the up-event.",
+    "applicable_sc_ids": [
+      "2.5.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G212"
+  },
+  "G208": {
+    "id": "G208",
+    "kind": "sufficient",
+    "title": "Including the text of the visible label as part of the accessible name",
+    "applicable_sc_ids": [
+      "2.5.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G208"
+  },
+  "G211": {
+    "id": "G211",
+    "kind": "sufficient",
+    "title": "Matching the accessible name to the visible label",
+    "applicable_sc_ids": [
+      "2.5.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G211"
+  },
+  "G213": {
+    "id": "G213",
+    "kind": "sufficient",
+    "title": "Provide conventional controls and an application setting for motion activated input",
+    "applicable_sc_ids": [
+      "2.5.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G213"
+  },
+  "C44": {
+    "id": "C44",
+    "kind": "sufficient",
+    "title": "Using CSS to ensure targets are at least 44 by 44 CSS pixels",
+    "applicable_sc_ids": [
+      "2.5.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C44"
+  },
+  "G219": {
+    "id": "G219",
+    "kind": "sufficient",
+    "title": "Ensuring that an alternative is available for dragging movements that operate on content",
+    "applicable_sc_ids": [
+      "2.5.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G219"
+  },
+  "C42": {
+    "id": "C42",
+    "kind": "sufficient",
+    "title": "Using min-height and min-width on target container to ensure sufficient target spacing",
+    "applicable_sc_ids": [
+      "2.5.8"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C42"
+  },
+  "H57": {
+    "id": "H57",
+    "kind": "sufficient",
+    "title": "Using the language attribute on the HTML element",
+    "applicable_sc_ids": [
+      "3.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H57"
+  },
+  "PDF16": {
+    "id": "PDF16",
+    "kind": "sufficient",
+    "title": "Setting the default language using the /Lang entry in the document catalog of a PDF document",
+    "applicable_sc_ids": [
+      "3.1.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF16"
+  },
+  "PDF19": {
+    "id": "PDF19",
+    "kind": "sufficient",
+    "title": "Specifying the language for a passage or phrase with the Lang entry in PDF documents",
+    "applicable_sc_ids": [
+      "3.1.1",
+      "3.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF19"
+  },
+  "H58": {
+    "id": "H58",
+    "kind": "sufficient",
+    "title": "Using language attributes to identify changes in the human language",
+    "applicable_sc_ids": [
+      "3.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H58"
+  },
+  "G101": {
+    "id": "G101",
+    "kind": "sufficient",
+    "title": "Providing the definition of a word or phrase used in an unusual or restricted way",
+    "applicable_sc_ids": [
+      "3.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G101"
+  },
+  "G55": {
+    "id": "G55",
+    "kind": "sufficient",
+    "title": "Linking to definitions",
+    "applicable_sc_ids": [
+      "3.1.3",
+      "3.1.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G55"
+  },
+  "H40": {
+    "id": "H40",
+    "kind": "sufficient",
+    "title": "Using description lists",
+    "applicable_sc_ids": [
+      "3.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H40"
+  },
+  "G112": {
+    "id": "G112",
+    "kind": "sufficient",
+    "title": "Using inline definitions",
+    "applicable_sc_ids": [
+      "3.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G112"
+  },
+  "H54": {
+    "id": "H54",
+    "kind": "sufficient",
+    "title": "Using the dfn element to identify the defining instance of a word or phrase",
+    "applicable_sc_ids": [
+      "3.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H54"
+  },
+  "G62": {
+    "id": "G62",
+    "kind": "sufficient",
+    "title": "Providing a glossary",
+    "applicable_sc_ids": [
+      "3.1.3",
+      "3.1.4",
+      "3.1.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G62"
+  },
+  "G70": {
+    "id": "G70",
+    "kind": "sufficient",
+    "title": "Providing a function to search an online dictionary",
+    "applicable_sc_ids": [
+      "3.1.3",
+      "3.1.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G70"
+  },
+  "G102": {
+    "id": "G102",
+    "kind": "sufficient",
+    "title": "Providing the expansion or explanation of an abbreviation",
+    "applicable_sc_ids": [
+      "3.1.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G102"
+  },
+  "G97": {
+    "id": "G97",
+    "kind": "sufficient",
+    "title": "Providing the first use of an abbreviation immediately before or after the expanded form",
+    "applicable_sc_ids": [
+      "3.1.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G97"
+  },
+  "PDF8": {
+    "id": "PDF8",
+    "kind": "sufficient",
+    "title": "Providing definitions for abbreviations via an E entry for a structure element",
+    "applicable_sc_ids": [
+      "3.1.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF8"
+  },
+  "G86": {
+    "id": "G86",
+    "kind": "sufficient",
+    "title": "Providing a text summary that can be understood by people with lower secondary education level reading ability",
+    "applicable_sc_ids": [
+      "3.1.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G86"
+  },
+  "G103": {
+    "id": "G103",
+    "kind": "sufficient",
+    "title": "Providing visual illustrations, pictures, and symbols to help explain ideas, events, and processes",
+    "applicable_sc_ids": [
+      "3.1.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G103"
+  },
+  "G79": {
+    "id": "G79",
+    "kind": "sufficient",
+    "title": "Providing a spoken version of the text",
+    "applicable_sc_ids": [
+      "3.1.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G79"
+  },
+  "G153": {
+    "id": "G153",
+    "kind": "sufficient",
+    "title": "Making the text easier to read",
+    "applicable_sc_ids": [
+      "3.1.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G153"
+  },
+  "G160": {
+    "id": "G160",
+    "kind": "sufficient",
+    "title": "Providing sign language versions of information, ideas, and processes that must be understood in order to use the content",
+    "applicable_sc_ids": [
+      "3.1.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G160"
+  },
+  "G120": {
+    "id": "G120",
+    "kind": "sufficient",
+    "title": "Providing the pronunciation immediately following the word",
+    "applicable_sc_ids": [
+      "3.1.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G120"
+  },
+  "G121": {
+    "id": "G121",
+    "kind": "sufficient",
+    "title": "Linking to pronunciations",
+    "applicable_sc_ids": [
+      "3.1.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G121"
+  },
+  "G163": {
+    "id": "G163",
+    "kind": "sufficient",
+    "title": "Using standard diacritical marks that can be turned off",
+    "applicable_sc_ids": [
+      "3.1.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G163"
+  },
+  "H62": {
+    "id": "H62",
+    "kind": "sufficient",
+    "title": "Using the ruby element",
+    "applicable_sc_ids": [
+      "3.1.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H62"
+  },
+  "G107": {
+    "id": "G107",
+    "kind": "sufficient",
+    "title": "Using \"activate\" rather than \"focus\" as a trigger for changes of context",
+    "applicable_sc_ids": [
+      "3.2.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G107"
+  },
+  "G80": {
+    "id": "G80",
+    "kind": "sufficient",
+    "title": "Providing a submit button to initiate a change of context",
+    "applicable_sc_ids": [
+      "3.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G80"
+  },
+  "H32": {
+    "id": "H32",
+    "kind": "sufficient",
+    "title": "Providing submit buttons",
+    "applicable_sc_ids": [
+      "3.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H32"
+  },
+  "H84": {
+    "id": "H84",
+    "kind": "sufficient",
+    "title": "Using a button with a select element to perform an action",
+    "applicable_sc_ids": [
+      "3.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H84"
+  },
+  "PDF15": {
+    "id": "PDF15",
+    "kind": "sufficient",
+    "title": "Providing submit buttons with the submit-form action in PDF forms",
+    "applicable_sc_ids": [
+      "3.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF15"
+  },
+  "G13": {
+    "id": "G13",
+    "kind": "sufficient",
+    "title": "Describing what will happen before a change to a form control that causes a change of context to occur is made",
+    "applicable_sc_ids": [
+      "3.2.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G13"
+  },
+  "SCR19": {
+    "id": "SCR19",
+    "kind": "sufficient",
+    "title": "Using an onchange event on a select element without causing a change of context",
+    "applicable_sc_ids": [
+      "3.2.2",
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR19"
+  },
+  "G61": {
+    "id": "G61",
+    "kind": "sufficient",
+    "title": "Presenting repeated components in the same relative order each time they appear",
+    "applicable_sc_ids": [
+      "3.2.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G61"
+  },
+  "G197": {
+    "id": "G197",
+    "kind": "sufficient",
+    "title": "Using labels, names, and text alternatives consistently for content that has the same functionality",
+    "applicable_sc_ids": [
+      "3.2.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G197"
+  },
+  "SVR1": {
+    "id": "SVR1",
+    "kind": "sufficient",
+    "title": "Implementing automatic redirects on the server side instead of on the client side",
+    "applicable_sc_ids": [
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/server-side-script/SVR1"
+  },
+  "G110": {
+    "id": "G110",
+    "kind": "sufficient",
+    "title": "Using an instant client-side redirect",
+    "applicable_sc_ids": [
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G110"
+  },
+  "H76": {
+    "id": "H76",
+    "kind": "sufficient",
+    "title": "Using meta refresh to create an instant client-side redirect",
+    "applicable_sc_ids": [
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H76"
+  },
+  "H83": {
+    "id": "H83",
+    "kind": "sufficient",
+    "title": "Using the target attribute to open a new window on user request and indicating this in link text",
+    "applicable_sc_ids": [
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H83"
+  },
+  "SCR24": {
+    "id": "SCR24",
+    "kind": "sufficient",
+    "title": "Using progressive enhancement to open new windows on user request",
+    "applicable_sc_ids": [
+      "3.2.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR24"
+  },
+  "G220": {
+    "id": "G220",
+    "kind": "sufficient",
+    "title": "Provide a contact-us link in a consistent location",
+    "applicable_sc_ids": [
+      "3.2.6"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G220"
+  },
+  "G83": {
+    "id": "G83",
+    "kind": "sufficient",
+    "title": "Providing text descriptions to identify required fields that were not completed",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "3.3.2",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G83"
+  },
+  "ARIA21": {
+    "id": "ARIA21",
+    "kind": "sufficient",
+    "title": "Using aria-invalid to Indicate An Error Field",
+    "applicable_sc_ids": [
+      "3.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA21"
+  },
+  "SCR18": {
+    "id": "SCR18",
+    "kind": "sufficient",
+    "title": "Providing client-side validation and alert",
+    "applicable_sc_ids": [
+      "3.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR18"
+  },
+  "PDF5": {
+    "id": "PDF5",
+    "kind": "sufficient",
+    "title": "Indicating required form controls in PDF forms",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF5"
+  },
+  "ARIA18": {
+    "id": "ARIA18",
+    "kind": "sufficient",
+    "title": "Using aria-alertdialog to Identify Errors",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "3.3.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA18"
+  },
+  "ARIA19": {
+    "id": "ARIA19",
+    "kind": "sufficient",
+    "title": "Using ARIA role=alert or Live Regions to Identify Errors",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA19"
+  },
+  "G84": {
+    "id": "G84",
+    "kind": "sufficient",
+    "title": "Providing a text description when the user provides information that is not in the list of allowed values",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "3.3.3",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G84"
+  },
+  "G85": {
+    "id": "G85",
+    "kind": "sufficient",
+    "title": "Providing a text description when user input falls outside the required format or values",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "3.3.3",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G85"
+  },
+  "SCR32": {
+    "id": "SCR32",
+    "kind": "sufficient",
+    "title": "Providing client-side validation and adding error text via the DOM",
+    "applicable_sc_ids": [
+      "3.3.1"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR32"
+  },
+  "PDF22": {
+    "id": "PDF22",
+    "kind": "sufficient",
+    "title": "Indicating when user input falls outside the required format or values in PDF forms",
+    "applicable_sc_ids": [
+      "3.3.1",
+      "3.3.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF22"
+  },
+  "ARIA1": {
+    "id": "ARIA1",
+    "kind": "sufficient",
+    "title": "Using the aria-describedby property to provide a descriptive label for user interface controls",
+    "applicable_sc_ids": [
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1"
+  },
+  "G89": {
+    "id": "G89",
+    "kind": "sufficient",
+    "title": "Providing expected data format and example",
+    "applicable_sc_ids": [
+      "3.3.2",
+      "3.3.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G89"
+  },
+  "G184": {
+    "id": "G184",
+    "kind": "sufficient",
+    "title": "Providing text instructions at the beginning of a form or set of fields that describes the necessary input",
+    "applicable_sc_ids": [
+      "3.3.2",
+      "3.3.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G184"
+  },
+  "G162": {
+    "id": "G162",
+    "kind": "sufficient",
+    "title": "Positioning labels to maximize predictability of relationships",
+    "applicable_sc_ids": [
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G162"
+  },
+  "H90": {
+    "id": "H90",
+    "kind": "sufficient",
+    "title": "Indicating required form controls using label or legend",
+    "applicable_sc_ids": [
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H90"
+  },
+  "G167": {
+    "id": "G167",
+    "kind": "sufficient",
+    "title": "Using an adjacent button to label the purpose of a field",
+    "applicable_sc_ids": [
+      "3.3.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G167"
+  },
+  "G177": {
+    "id": "G177",
+    "kind": "sufficient",
+    "title": "Providing suggested correction text",
+    "applicable_sc_ids": [
+      "3.3.3",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G177"
+  },
+  "G164": {
+    "id": "G164",
+    "kind": "sufficient",
+    "title": "Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request",
+    "applicable_sc_ids": [
+      "3.3.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G164"
+  },
+  "G98": {
+    "id": "G98",
+    "kind": "sufficient",
+    "title": "Providing the ability for the user to review and correct answers before submitting",
+    "applicable_sc_ids": [
+      "3.3.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G98"
+  },
+  "G155": {
+    "id": "G155",
+    "kind": "sufficient",
+    "title": "Providing a checkbox in addition to a submit button",
+    "applicable_sc_ids": [
+      "3.3.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G155"
+  },
+  "G99": {
+    "id": "G99",
+    "kind": "sufficient",
+    "title": "Providing the ability to recover deleted information",
+    "applicable_sc_ids": [
+      "3.3.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G99"
+  },
+  "G168": {
+    "id": "G168",
+    "kind": "sufficient",
+    "title": "Requesting confirmation to continue with selected action",
+    "applicable_sc_ids": [
+      "3.3.4"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G168"
+  },
+  "G71": {
+    "id": "G71",
+    "kind": "sufficient",
+    "title": "Providing a help link on every web page",
+    "applicable_sc_ids": [
+      "3.3.5"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G71"
+  },
+  "G193": {
+    "id": "G193",
+    "kind": "sufficient",
+    "title": "Providing help by an assistant in the web page",
+    "applicable_sc_ids": [
+      "3.3.5",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G193"
+  },
+  "G194": {
+    "id": "G194",
+    "kind": "sufficient",
+    "title": "Providing spell checking and suggestions for text input",
+    "applicable_sc_ids": [
+      "3.3.5",
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G194"
+  },
+  "G221": {
+    "id": "G221",
+    "kind": "sufficient",
+    "title": "Provide data from a previous step in a process",
+    "applicable_sc_ids": [
+      "3.3.7"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G221"
+  },
+  "G218": {
+    "id": "G218",
+    "kind": "sufficient",
+    "title": "Email link authentication",
+    "applicable_sc_ids": [
+      "3.3.8",
+      "3.3.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G218"
+  },
+  "H100": {
+    "id": "H100",
+    "kind": "sufficient",
+    "title": "Providing properly marked up email and password inputs",
+    "applicable_sc_ids": [
+      "3.3.8",
+      "3.3.9"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H100"
+  },
+  "ARIA14": {
+    "id": "ARIA14",
+    "kind": "sufficient",
+    "title": "Using aria-label to provide an accessible name where a visible label cannot be used",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA14"
+  },
+  "G108": {
+    "id": "G108",
+    "kind": "sufficient",
+    "title": "Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G108"
+  },
+  "H88": {
+    "id": "H88",
+    "kind": "sufficient",
+    "title": "Using HTML according to spec",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H88"
+  },
+  "G135": {
+    "id": "G135",
+    "kind": "sufficient",
+    "title": "Using the accessibility API features of a technology to expose names and … notification of changes",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G135"
+  },
+  "G10": {
+    "id": "G10",
+    "kind": "sufficient",
+    "title": "Creating components using a technology that supports the accessibility … notification of changes",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G10"
+  },
+  "ARIA4": {
+    "id": "ARIA4",
+    "kind": "sufficient",
+    "title": "Using a WAI-ARIA role to expose the role of a user interface component",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA4"
+  },
+  "ARIA5": {
+    "id": "ARIA5",
+    "kind": "sufficient",
+    "title": "Using WAI-ARIA state and property attributes to expose the state of a user interface component",
+    "applicable_sc_ids": [
+      "4.1.2"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA5"
+  },
+  "ARIA22": {
+    "id": "ARIA22",
+    "kind": "sufficient",
+    "title": "Using role=status to present status messages",
+    "applicable_sc_ids": [
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22"
+  },
+  "G199": {
+    "id": "G199",
+    "kind": "sufficient",
+    "title": "Providing success feedback when data is submitted successfully",
+    "applicable_sc_ids": [
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/general/G199"
+  },
+  "ARIA23": {
+    "id": "ARIA23",
+    "kind": "sufficient",
+    "title": "Using role=log to identify sequential information updates",
+    "applicable_sc_ids": [
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA23"
+  },
+  "ARIA25": {
+    "id": "ARIA25",
+    "kind": "sufficient",
+    "title": "Using an ARIA live region to convey the status of a progress bar",
+    "applicable_sc_ids": [
+      "4.1.3"
+    ],
+    "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA25"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "afb423",
+  "name": "Audio element content is media alternative for text",
+  "rule_type": "atomic",
+  "description": "This rule checks that the `audio` element is a media alternative for text on the page.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Audio output",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `audio` element that is:\n\n- playing; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/afb423"
+}

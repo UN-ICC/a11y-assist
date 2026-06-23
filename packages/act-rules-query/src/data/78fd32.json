@@ -1,0 +1,16 @@
+{
+  "id": "78fd32",
+  "name": "Important line height in style attributes is wide enough",
+  "rule_type": "atomic",
+  "description": "This rule checks that the `style` attribute is not used to prevent adjusting `line-height` by using `!important`, except if it's at least 1.5 times the font size.",
+  "wcag_sc_ids": [
+    "1.4.12"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] with one or more [visible][] [text node][] children, when the text inside the elements includes a [soft wrap break][] and all the following are true for the `line-height` property of the element:\n\n- the [specified][] value is [declared][] in a `style` attribute; and\n- the [computed][] value is [important][].",
+  "url": "https://act-rules.github.io/rules/78fd32"
+}

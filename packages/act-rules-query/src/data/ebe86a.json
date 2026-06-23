@@ -1,0 +1,14 @@
+{
+  "id": "ebe86a",
+  "name": "Focusable element has no keyboard trap via non-standard navigation",
+  "rule_type": "atomic",
+  "description": "This rule checks if it is possible to use non-standard keyboard navigation to navigate through content where focus is trapped when using standard ways of keyboard navigation.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any [HTML or SVG element][] that is [focusable](#focusable) where focus cannot cycle to the browser UI by using [standard keyboard navigation](#standard-keyboard-navigation).",
+  "url": "https://act-rules.github.io/rules/ebe86a"
+}

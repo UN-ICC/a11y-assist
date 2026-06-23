@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 1.3.2 Meaningful Sequence — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 1.3.2: Meaningful Sequence (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>1.3.2</code> Meaningful Sequence</h1></header>
+<section><h2>Success Criterion</h2><blockquote>When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence" rel="noreferrer">Understanding 1.3.2 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G57" rel="noreferrer"><code>G57</code> Ordering the content in a meaningful sequence</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H34" rel="noreferrer"><code>H34</code> Using a Unicode right-to-left mark (RLM) or left-to-right mark (LRM) to mix text direction inline</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H56" rel="noreferrer"><code>H56</code> Using the dir attribute on an inline element to resolve problems with nested directional runs</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C6" rel="noreferrer"><code>C6</code> Positioning content based on structural markup</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C8" rel="noreferrer"><code>C8</code> Using CSS letter-spacing to control spacing within a word</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C27" rel="noreferrer"><code>C27</code> Making the DOM order match the visual order</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF3" rel="noreferrer"><code>PDF3</code> Ensuring correct tab and reading order in PDF documents</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F34" rel="noreferrer"><code>F34</code> Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to format tables in plain text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F33" rel="noreferrer"><code>F33</code> Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to create multiple columns in plain text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F32" rel="noreferrer"><code>F32</code> Failure of Success Criterion 1.3.2 due to using white space characters to control spacing within a word</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F49" rel="noreferrer"><code>F49</code> Failure of Success Criterion 1.3.2 due to using an HTML layout table that does not make sense when linearized</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F1" rel="noreferrer"><code>F1</code> Failure of Success Criterion 1.3.2 due to changing the meaning of content by positioning information with CSS</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;1.3.2&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Meaningful Sequence&quot;,
+  &quot;short_text&quot;: &quot;When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G57&quot;,
+    &quot;H34&quot;,
+    &quot;H56&quot;,
+    &quot;C6&quot;,
+    &quot;C8&quot;,
+    &quot;C27&quot;,
+    &quot;PDF3&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F34&quot;,
+    &quot;F33&quot;,
+    &quot;F32&quot;,
+    &quot;F49&quot;,
+    &quot;F1&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G57&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Ordering the content in a meaningful sequence&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G57&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H34&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using a Unicode right-to-left mark (RLM) or left-to-right mark (LRM) to mix text direction inline&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H34&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H56&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using the dir attribute on an inline element to resolve problems with nested directional runs&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H56&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C6&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Positioning content based on structural markup&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C6&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C8&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using CSS letter-spacing to control spacing within a word&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C8&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C27&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Making the DOM order match the visual order&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;,
+        &quot;2.4.3&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C27&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF3&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Ensuring correct tab and reading order in PDF documents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;,
+        &quot;2.1.1&quot;,
+        &quot;2.4.3&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF3&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F34&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to format tables in plain text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.1&quot;,
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F34&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F33&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.3.1 and 1.3.2 due to using white space characters to create multiple columns in plain text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.1&quot;,
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F33&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F32&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.3.2 due to using white space characters to control spacing within a word&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F32&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F49&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.3.2 due to using an HTML layout table that does not make sense when linearized&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F49&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F1&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.3.2 due to changing the meaning of content by positioning information with CSS&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F1&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

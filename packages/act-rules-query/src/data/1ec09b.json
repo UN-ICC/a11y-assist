@@ -1,0 +1,13 @@
+{
+  "id": "1ec09b",
+  "name": "Video element visual content has strict accessible alternative",
+  "rule_type": "composite",
+  "description": "This rule checks that `video` elements with audio have audio description.",
+  "wcag_sc_ids": [
+    "1.2.5"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [],
+  "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][], where the video contains audio.",
+  "url": "https://act-rules.github.io/rules/1ec09b"
+}

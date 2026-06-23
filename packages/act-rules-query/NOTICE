@@ -1,0 +1,17 @@
+act-rules-query
+Copyright (c) 2026
+
+This package contains data extracted from the W3C Accessibility Conformance
+Testing (ACT) Rules repository at:
+  https://github.com/act-rules/act-rules.github.io
+
+The ACT Rules content is © W3C® (MIT, ERCIM, Keio, Beihang) and contributors,
+redistributed under the W3C Document License:
+  https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+
+Files in src/data/ are derived from the YAML/Markdown source files in the
+upstream repository. The original .md files are preserved verbatim in
+snapshots/_rules/ for reproducibility, with the upstream Git commit hash
+recorded in src/data/_snapshot.json.
+
+The loader code in this package (src/, tools/) is licensed under MIT.

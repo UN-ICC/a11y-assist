@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACT Rule 80af7b Focusable element has no keyboard trap — a11ycat</title>
+  <meta name="description" content="ACT Rule 80af7b: Focusable element has no keyboard trap. Covers WCAG 2.1.2.">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-act">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card act-card">
+<header>
+<p class="kicker">ACT Rule · composite</p>
+<h1>Focusable element has no keyboard trap</h1>
+<p class="role-tag">id: <code>80af7b</code></p>
+<p><a href="https://act-rules.github.io/rules/80af7b" rel="noreferrer">https://act-rules.github.io/rules/80af7b</a></p>
+</header>
+<section><h2>Description</h2><p>This rule checks for keyboard traps. This includes use of both standard and non-standard keyboard navigation to navigate through all content without becoming trapped.</p></section>
+<section><h2>WCAG Success Criteria covered</h2><ul class="sc-list">
+<li><a href="../wcag/2.1.2.html"><code>2.1.2</code></a></li>
+</ul></section>
+<section><h2>Applicability <span class="provenance-tag">verbatim from upstream</span></h2>
+<div class="applicability">This rule applies to any [HTML or SVG element][] that is [focusable][].</div>
+</section>
+<section class="agent-view"><h2>What the agent receives for this rule</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;80af7b&quot;,
+  &quot;name&quot;: &quot;Focusable element has no keyboard trap&quot;,
+  &quot;rule_type&quot;: &quot;composite&quot;,
+  &quot;description&quot;: &quot;This rule checks for keyboard traps. This includes use of both standard and non-standard keyboard navigation to navigate through all content without becoming trapped.&quot;,
+  &quot;wcag_sc_ids&quot;: [
+    &quot;2.1.2&quot;
+  ],
+  &quot;wcag_sc_ids_secondary&quot;: [],
+  &quot;input_aspects&quot;: [],
+  &quot;applicability_text&quot;: &quot;This rule applies to any [HTML or SVG element][] that is [focusable][].&quot;,
+  &quot;url&quot;: &quot;https://act-rules.github.io/rules/80af7b&quot;,
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

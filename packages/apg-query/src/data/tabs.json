@@ -1,0 +1,50 @@
+{
+  "role": "tabs",
+  "name": "Tabs",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+  "about_this_pattern": "Tabs are a set of layered sections of content, known as tab panels, that display one panel of content at a time. Each tab panel has an associated tab element, that when activated, displays the panel. The list of tab elements is arranged along one edge of the currently displayed panel, most commonly the top edge.\n\nTerms used to describe this design pattern include:\n\nWhen a tabbed interface is initialized, one tab panel is displayed and its associated tab is styled to indicate that it is active. When the user activates one of the other tab elements, the previously displayed tab panel is hidden, the tab panel associated with the activated tab becomes visible, and the tab is considered \"active\".",
+  "aria_roles": [
+    "tab",
+    "tablist",
+    "tabpanel"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Tab",
+      "description": "When focus moves into the tab list, places focus on the active tab element."
+    },
+    {
+      "key": "Tab",
+      "description": "When the tab list contains the focus, moves focus to the next element in the page tab sequence outside the tablist, which is the tabpanel unless the first element containing meaningful content inside the tabpanel is focusable."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "When focus is on a tab element in a horizontal tab list — moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab. Optionally, activates the newly focused tab (See note below)."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "When focus is on a tab element in a horizontal tab list — Moves focus to the next tab. If focus is on the last tab element, moves focus to the first tab. Optionally, activates the newly focused tab (See note below)."
+    },
+    {
+      "key": "Space or Enter",
+      "description": "When focus is on a tab in a tablist with either horizontal or vertical orientation — Activates the tab if it was not activated automatically on focus."
+    },
+    {
+      "key": "Home (Optional)",
+      "description": "When focus is on a tab in a tablist with either horizontal or vertical orientation — Moves focus to the first tab. Optionally, activates the newly focused tab (See note below)."
+    },
+    {
+      "key": "End (Optional)",
+      "description": "When focus is on a tab in a tablist with either horizontal or vertical orientation — Moves focus to the last tab. Optionally, activates the newly focused tab (See note below)."
+    },
+    {
+      "key": "Shift + F10",
+      "description": "When focus is on a tab in a tablist with either horizontal or vertical orientation — If the tab has an associated popup menu, opens the menu."
+    },
+    {
+      "key": "Delete (Optional)",
+      "description": "When focus is on a tab in a tablist with either horizontal or vertical orientation — If deletion is allowed, deletes (closes) the current tab element and its associated tab panel, sets focus on the tab following the tab that was closed, and optionally activates the newly focused tab. If there is not a tab that followed the tab that was deleted, e.g., the deleted tab was the right-most tab in a left-to-right horizontal tab list, sets focus on and optionally activates the tab that preceded the deleted tab. If the application allows all tabs to be deleted, and the user deletes the last remaining tab in the tab list, the application moves focus to another element that provides a logical work flow. As an alternative to Delete, or in addition to supporting Delete, the delete function is available in a context menu."
+    }
+  ],
+  "examples": []
+}

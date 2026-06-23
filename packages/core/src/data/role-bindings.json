@@ -1,0 +1,318 @@
+{
+  "button": {
+    "wcag_sc_ids": [
+      "1.4.3",
+      "2.1.1",
+      "2.4.7",
+      "2.5.5",
+      "2.5.8",
+      "4.1.2"
+    ],
+    "rn_primitive": {
+      "rn_component": "Pressable",
+      "rn_doc_url": "https://reactnative.dev/docs/pressable",
+      "rn_a11y_doc_url": "https://reactnative.dev/docs/accessibility#accessibilityrole"
+    }
+  },
+  "dialog": {
+    "wcag_sc_ids": [
+      "1.4.3",
+      "2.1.1",
+      "2.1.2",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": {
+      "rn_component": "Modal",
+      "rn_doc_url": "https://reactnative.dev/docs/modal",
+      "rn_a11y_doc_url": "https://reactnative.dev/docs/accessibility"
+    }
+  },
+  "tabs": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "listbox": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "disclosure": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "accordion": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.6",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "alert": {
+    "wcag_sc_ids": [
+      "1.4.3",
+      "3.3.1",
+      "4.1.2",
+      "4.1.3"
+    ],
+    "rn_primitive": null
+  },
+  "checkbox": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.7",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "radio": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.7",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "tooltip": {
+    "wcag_sc_ids": [
+      "1.4.3",
+      "1.4.13",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "textbox": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.3.5",
+      "2.4.7",
+      "3.3.1",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "rn_primitive": {
+      "rn_component": "TextInput",
+      "rn_doc_url": "https://reactnative.dev/docs/textinput",
+      "rn_a11y_doc_url": "https://reactnative.dev/docs/accessibility"
+    }
+  },
+  "link": {
+    "wcag_sc_ids": [
+      "1.4.1",
+      "2.4.4",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "img": {
+    "wcag_sc_ids": [
+      "1.1.1",
+      "1.4.5"
+    ],
+    "rn_primitive": {
+      "rn_component": "Image",
+      "rn_doc_url": "https://reactnative.dev/docs/image",
+      "rn_a11y_doc_url": "https://reactnative.dev/docs/accessibility"
+    }
+  },
+  "switch": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.4.1",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": {
+      "rn_component": "Switch",
+      "rn_doc_url": "https://reactnative.dev/docs/switch",
+      "rn_a11y_doc_url": "https://reactnative.dev/docs/accessibility#accessibilityrole"
+    }
+  },
+  "alertdialog": {
+    "wcag_sc_ids": [
+      "1.4.3",
+      "2.1.1",
+      "2.1.2",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2",
+      "4.1.3"
+    ],
+    "rn_primitive": null
+  },
+  "breadcrumb": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.4.4",
+      "2.4.5",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "carousel": {
+    "wcag_sc_ids": [
+      "2.1.1",
+      "2.2.1",
+      "2.2.2",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "combobox": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.3.5",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "feed": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "4.1.2",
+      "4.1.3"
+    ],
+    "rn_primitive": null
+  },
+  "grid": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "menu": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "menubutton": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "meter": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.4.11",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "slider": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.4.11",
+      "2.1.1",
+      "2.4.7",
+      "2.5.1",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "slider-multithumb": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.4.11",
+      "2.1.1",
+      "2.4.7",
+      "2.5.1",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "spinbutton": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.7",
+      "3.3.1",
+      "3.3.2",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "table": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "1.4.4",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "toolbar": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "treeview": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  },
+  "treegrid": {
+    "wcag_sc_ids": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.3",
+      "2.4.7",
+      "4.1.2"
+    ],
+    "rn_primitive": null
+  }
+}

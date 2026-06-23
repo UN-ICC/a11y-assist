@@ -1,0 +1,51 @@
+{
+  "role": "accordion",
+  "name": "Accordion",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/",
+  "about_this_pattern": "An accordion is a vertically stacked set of interactive headings that each contain a title, content snippet, or thumbnail representing a section of content. The headings function as controls that enable users to reveal or hide their associated sections of content. Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.\n\nTerms for understanding accordions include:\n\nIn some accordions, there are additional elements that are always visible adjacent to the accordion header. For instance, a menubutton may accompany each accordion header to provide access to actions that apply to that section. And, in some cases, a snippet of the hidden content may also be visually persistent.",
+  "aria_roles": [
+    "button",
+    "heading",
+    "region"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Enter + Space",
+      "description": "When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel."
+    },
+    {
+      "key": "Enter + Space",
+      "description": "When focus is on the accordion header for an expanded panel, collapses the panel if the implementation supports collapsing. Some implementations require one panel to be expanded at all times and allow only one panel to be expanded; so, they do not support a collapse function."
+    },
+    {
+      "key": "Tab",
+      "description": "Moves focus to the next focusable element; all focusable elements in the accordion are included in the page Tab sequence."
+    },
+    {
+      "key": "Shift + Tab",
+      "description": "Moves focus to the previous focusable element; all focusable elements in the accordion are included in the page Tab sequence."
+    },
+    {
+      "key": "Down Arrow (Optional)",
+      "description": "If focus is on an accordion header, moves focus to the next accordion header. If focus is on the last accordion header, either does nothing or moves focus to the first accordion header."
+    },
+    {
+      "key": "Up Arrow (Optional)",
+      "description": "If focus is on an accordion header, moves focus to the previous accordion header. If focus is on the first accordion header, either does nothing or moves focus to the last accordion header."
+    },
+    {
+      "key": "Home (Optional)",
+      "description": "When focus is on an accordion header, moves focus to the first accordion header."
+    },
+    {
+      "key": "End (Optional)",
+      "description": "When focus is on an accordion header, moves focus to the last accordion header."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Accordion Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "role": "menubutton",
+  "name": "Menu Button",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/",
+  "about_this_pattern": "A menu button is a button that opens a menu as described in the Menu and Menubar Pattern. It is often styled as a typical push button with a downward pointing arrow or triangle to hint that activating the button will display a menu.",
+  "aria_roles": [
+    "button",
+    "menu"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Enter",
+      "description": "With focus on the button — opens the menu and places focus on the first menu item."
+    },
+    {
+      "key": "Space",
+      "description": "With focus on the button — Opens the menu and places focus on the first menu item."
+    },
+    {
+      "key": "(Optional) Down Arrow",
+      "description": "With focus on the button — opens the menu and moves focus to the first menu item."
+    },
+    {
+      "key": "(Optional) Up Arrow",
+      "description": "With focus on the button — opens the menu and moves focus to the last menu item."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Action Menu Button Example Using aria-activedescendant",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/"
+    },
+    {
+      "name": "Action Menu Button Example Using element.focus()",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/"
+    }
+  ]
+}

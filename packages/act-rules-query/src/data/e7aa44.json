@@ -1,0 +1,13 @@
+{
+  "id": "e7aa44",
+  "name": "Audio element content has text alternative",
+  "rule_type": "composite",
+  "description": "This rule checks that `audio` elements have a text alternative available.",
+  "wcag_sc_ids": [
+    "1.2.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [],
+  "applicability_text": "This rule applies to any [non-streaming](#non-streaming-media-element) `audio` element for which at least one of the following is true:\n\n- has an `autoplay` [attribute value][] of true; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree](#included-in-the-accessibility-tree).",
+  "url": "https://act-rules.github.io/rules/e7aa44"
+}

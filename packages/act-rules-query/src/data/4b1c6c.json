@@ -1,0 +1,17 @@
+{
+  "id": "4b1c6c",
+  "name": "Iframe elements with identical accessible names have equivalent purpose",
+  "rule_type": "atomic",
+  "description": "This rule checks that `iframe` elements with identical accessible names embed the same resource or equivalent resources.",
+  "wcag_sc_ids": [
+    "4.1.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any set of any two or more `iframe` elements which:\n\n- are in the same [web page (HTML)][]; and\n- are [included in an accessibility tree][included in the accessibility tree]; and\n- that have [matching][] [accessible names][accessible name] that are not empty (`\"\"`).",
+  "url": "https://act-rules.github.io/rules/4b1c6c"
+}

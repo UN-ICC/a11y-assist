@@ -1,0 +1,15 @@
+apg-query
+Copyright (c) 2026
+
+This package contains data extracted from the W3C "WAI-ARIA Authoring Practices"
+(APG), located at https://www.w3.org/WAI/ARIA/apg/
+
+The APG content is © W3C® (MIT, ERCIM, Keio, Beihang) and is redistributed under
+the W3C Document License:
+  https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+
+Files in src/data/*.json contain content derived from APG pattern pages.
+The original HTML snapshots from which these JSON files were generated are
+preserved in snapshots/*.html (date-stamped) for reproducibility.
+
+The extraction code in this package (src/, tools/) is licensed under MIT.

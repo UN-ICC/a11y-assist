@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.1.3 Keyboard (No Exception) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.1.3: Keyboard (No Exception) (Level AAA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AAA</p>
+<h1><code>2.1.3</code> Keyboard (No Exception)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception" rel="noreferrer">Understanding 2.1.3 on W3C</a></p></section>
+<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.1.3&quot;,
+  &quot;level&quot;: &quot;AAA&quot;,
+  &quot;title&quot;: &quot;Keyboard (No Exception)&quot;,
+  &quot;short_text&quot;: &quot;All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception&quot;,
+  &quot;technique_ids&quot;: [],
+  &quot;failure_ids&quot;: [],
+  &quot;techniques&quot;: [],
+  &quot;failures&quot;: [],
+  &quot;patterns_referencing&quot;: [
+    &quot;combobox&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

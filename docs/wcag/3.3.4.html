@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 3.3.4 Error Prevention (Legal, Financial, Data) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 3.3.4: Error Prevention (Legal, Financial, Data) (Level AA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AA</p>
+<h1><code>3.3.4</code> Error Prevention (Legal, Financial, Data)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>For web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: ReversibleSubmissions are reversible. CheckedData entered by the user is checked for input errors and the user is provided an opportunity to correct them. ConfirmedA mechanism is available for reviewing, confirming, and correcting information before finalizing the submission.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data" rel="noreferrer">Understanding 3.3.4 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G164" rel="noreferrer"><code>G164</code> Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G98" rel="noreferrer"><code>G98</code> Providing the ability for the user to review and correct answers before submitting</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G155" rel="noreferrer"><code>G155</code> Providing a checkbox in addition to a submit button</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G99" rel="noreferrer"><code>G99</code> Providing the ability to recover deleted information</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G168" rel="noreferrer"><code>G168</code> Requesting confirmation to continue with selected action</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;3.3.4&quot;,
+  &quot;level&quot;: &quot;AA&quot;,
+  &quot;title&quot;: &quot;Error Prevention (Legal, Financial, Data)&quot;,
+  &quot;short_text&quot;: &quot;For web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: ReversibleSubmissions are reversible. CheckedData entered by the user is checked for input errors and the user is provided an opportunity to correct them. ConfirmedA mechanism is available for reviewing, confirming, and correcting information before finalizing the submission.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G164&quot;,
+    &quot;G98&quot;,
+    &quot;G155&quot;,
+    &quot;G99&quot;,
+    &quot;G168&quot;
+  ],
+  &quot;failure_ids&quot;: [],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G164&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G164&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G98&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing the ability for the user to review and correct answers before submitting&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G98&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G155&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a checkbox in addition to a submit button&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G155&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G99&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing the ability to recover deleted information&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G99&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G168&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Requesting confirmation to continue with selected action&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G168&quot;
+    }
+  ],
+  &quot;failures&quot;: [],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

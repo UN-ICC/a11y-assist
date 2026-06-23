@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.4.4 Link Purpose (In Context) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.4.4: Link Purpose (In Context) (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>2.4.4</code> Link Purpose (In Context)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context" rel="noreferrer">Understanding 2.4.4 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G91" rel="noreferrer"><code>G91</code> Providing link text that describes the purpose of a link</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H30" rel="noreferrer"><code>H30</code> Providing link text that describes the purpose of a link for anchor elements</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H24" rel="noreferrer"><code>H24</code> Providing text alternatives for the area elements of image maps</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G189" rel="noreferrer"><code>G189</code> Providing a control near the beginning of the web page that changes the link text</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR30" rel="noreferrer"><code>SCR30</code> Using scripts to change the link text</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G53" rel="noreferrer"><code>G53</code> Identifying the purpose of a link using link text combined with the text of the enclosing sentence</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H33" rel="noreferrer"><code>H33</code> Supplementing link text with the title attribute</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C7" rel="noreferrer"><code>C7</code> Using CSS to hide a portion of the link text</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA7" rel="noreferrer"><code>ARIA7</code> Using aria-labelledby for link purpose</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8" rel="noreferrer"><code>ARIA8</code> Using aria-label for link purpose</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H77" rel="noreferrer"><code>H77</code> Identifying the purpose of a link using link text combined with its enclosing list item</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H78" rel="noreferrer"><code>H78</code> Identifying the purpose of a link using link text combined with its enclosing paragraph</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H79" rel="noreferrer"><code>H79</code> Identifying the purpose of a link in a data table using the link text combined with its enclosing table cell and associated table header cells</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H81" rel="noreferrer"><code>H81</code> Identifying the purpose of a link in a nested list using link text combined with the parent list item under which the list is nested</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF11" rel="noreferrer"><code>PDF11</code> Providing links and link text using the Link annotation and the /Link structure element in PDF documents</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF13" rel="noreferrer"><code>PDF13</code> Providing replacement text using the /Alt entry for links in PDF documents</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F63" rel="noreferrer"><code>F63</code> Failure of Success Criterion 2.4.4 due to providing link context only in content that is not related to the link</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F89" rel="noreferrer"><code>F89</code> Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link</a></li>
+</ul></section>
+<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
+<li><a href="../pattern/breadcrumb-web.html"><code>breadcrumb</code></a></li>
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/link-web.html"><code>link</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.4.4&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Link Purpose (In Context)&quot;,
+  &quot;short_text&quot;: &quot;The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G91&quot;,
+    &quot;H30&quot;,
+    &quot;H24&quot;,
+    &quot;G189&quot;,
+    &quot;SCR30&quot;,
+    &quot;G53&quot;,
+    &quot;H33&quot;,
+    &quot;C7&quot;,
+    &quot;ARIA7&quot;,
+    &quot;ARIA8&quot;,
+    &quot;H77&quot;,
+    &quot;H78&quot;,
+    &quot;H79&quot;,
+    &quot;H81&quot;,
+    &quot;PDF11&quot;,
+    &quot;PDF13&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F63&quot;,
+    &quot;F89&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G91&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing link text that describes the purpose of a link&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G91&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H30&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing link text that describes the purpose of a link for anchor elements&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H30&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H24&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing text alternatives for the area elements of image maps&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H24&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G189&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a control near the beginning of the web page that changes the link text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G189&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SCR30&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using scripts to change the link text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR30&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G53&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Identifying the purpose of a link using link text combined with the text of the enclosing sentence&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G53&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H33&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Supplementing link text with the title attribute&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H33&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C7&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using CSS to hide a portion of the link text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C7&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ARIA7&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using aria-labelledby for link purpose&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA7&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ARIA8&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using aria-label for link purpose&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H77&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Identifying the purpose of a link using link text combined with its enclosing list item&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H77&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H78&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Identifying the purpose of a link using link text combined with its enclosing paragraph&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H78&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H79&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Identifying the purpose of a link in a data table using the link text combined with its enclosing table cell and associated table header cells&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H79&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H81&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Identifying the purpose of a link in a nested list using link text combined with the parent list item under which the list is nested&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H81&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF11&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing links and link text using the Link annotation and the /Link structure element in PDF documents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.3.1&quot;,
+        &quot;2.1.1&quot;,
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF11&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF13&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing replacement text using the /Alt entry for links in PDF documents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF13&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F63&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.4.4 due to providing link context only in content that is not related to the link&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F63&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F89&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;,
+        &quot;4.1.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F89&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: [
+    &quot;breadcrumb&quot;,
+    &quot;combobox&quot;,
+    &quot;link&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

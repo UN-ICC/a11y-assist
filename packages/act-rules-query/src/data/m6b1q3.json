@@ -1,0 +1,17 @@
+{
+  "id": "m6b1q3",
+  "name": "Menuitem has non-empty accessible name",
+  "rule_type": "atomic",
+  "description": "This rule checks that each element with a `menuitem` role has a non-empty accessible name.",
+  "wcag_sc_ids": [
+    "4.1.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS Styling",
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to [HTML elements][] that is a [semantic][semantic role] `menuitem` [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/m6b1q3"
+}

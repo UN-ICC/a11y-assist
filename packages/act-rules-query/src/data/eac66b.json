@@ -1,0 +1,13 @@
+{
+  "id": "eac66b",
+  "name": "Video element auditory content has accessible alternative",
+  "rule_type": "composite",
+  "description": "This rule checks that `video` elements have an alternative for information conveyed through audio.",
+  "wcag_sc_ids": [
+    "1.2.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [],
+  "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][], where the video contains audio.",
+  "url": "https://act-rules.github.io/rules/eac66b"
+}

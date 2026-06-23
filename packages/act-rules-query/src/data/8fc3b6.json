@@ -1,0 +1,17 @@
+{
+  "id": "8fc3b6",
+  "name": "Object element rendering non-text content has non-empty accessible name",
+  "rule_type": "atomic",
+  "description": "This rule checks that each `object` element rendering non-text content has a non-empty accessible name.",
+  "wcag_sc_ids": [
+    "1.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Accessibility Tree"
+  ],
+  "applicability_text": "This rule applies to any `object` element for which all the following are true:\n\n- The `object` element is [included in the accessibility tree][]; and\n- The `object` element has no [explicit role][]; and\n- The `object` element embeds a resource whose MIME type is either [image](https://mimesniff.spec.whatwg.org/#image-mime-type), or [audio or video](https://mimesniff.spec.whatwg.org/#audio-or-video-mime-type).",
+  "url": "https://act-rules.github.io/rules/8fc3b6"
+}

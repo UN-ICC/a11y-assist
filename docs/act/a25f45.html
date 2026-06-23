@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACT Rule a25f45 Headers attribute specified on a cell refers to cells in the same table element — a11ycat</title>
+  <meta name="description" content="ACT Rule a25f45: Headers attribute specified on a cell refers to cells in the same table element. Covers WCAG 1.3.1.">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-act">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card act-card">
+<header>
+<p class="kicker">ACT Rule · atomic</p>
+<h1>Headers attribute specified on a cell refers to cells in the same table element</h1>
+<p class="role-tag">id: <code>a25f45</code></p>
+<p><a href="https://act-rules.github.io/rules/a25f45" rel="noreferrer">https://act-rules.github.io/rules/a25f45</a></p>
+</header>
+<section><h2>Description</h2><p>This rule checks that the `headers` attribute on a cell refer to other cells in the same `table` element.</p></section>
+<section><h2>WCAG Success Criteria covered</h2><ul class="sc-list">
+<li><a href="../wcag/1.3.1.html"><code>1.3.1</code></a></li>
+</ul></section>
+<section><h2>Applicability <span class="provenance-tag">verbatim from upstream</span></h2>
+<div class="applicability">This rule applies to any `headers` attribute specified on a [`cell`][] within a [`table`][] element, where all of the following is true for the [`table`][] element:<br><br>- The `table` is [visible][]; and<br>- The `table` is [included in the accessibility tree][]; and<br>- The `table` has a [semantic role][] of `table`, `grid` or `treegrid`.</div>
+</section>
+<section><h2>Patterns matched by this rule</h2><ul class="pattern-list">
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/grid-web.html"><code>grid</code></a></li>
+<li><a href="../pattern/table-web.html"><code>table</code></a></li>
+<li><a href="../pattern/treegrid-web.html"><code>treegrid</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this rule</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;a25f45&quot;,
+  &quot;name&quot;: &quot;Headers attribute specified on a cell refers to cells in the same table element&quot;,
+  &quot;rule_type&quot;: &quot;atomic&quot;,
+  &quot;description&quot;: &quot;This rule checks that the `headers` attribute on a cell refer to other cells in the same `table` element.&quot;,
+  &quot;wcag_sc_ids&quot;: [
+    &quot;1.3.1&quot;
+  ],
+  &quot;wcag_sc_ids_secondary&quot;: [],
+  &quot;input_aspects&quot;: [
+    &quot;DOM Tree&quot;,
+    &quot;CSS Styling&quot;
+  ],
+  &quot;applicability_text&quot;: &quot;This rule applies to any `headers` attribute specified on a [`cell`][] within a [`table`][] element, where all of the following is true for the [`table`][] element:\n\n- The `table` is [visible][]; and\n- The `table` is [included in the accessibility tree][]; and\n- The `table` has a [semantic role][] of `table`, `grid` or `treegrid`.&quot;,
+  &quot;url&quot;: &quot;https://act-rules.github.io/rules/a25f45&quot;,
+  &quot;patterns_referencing&quot;: [
+    &quot;combobox&quot;,
+    &quot;grid&quot;,
+    &quot;table&quot;,
+    &quot;treegrid&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

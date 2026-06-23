@@ -1,0 +1,147 @@
+{
+  "role": "treeview",
+  "name": "Tree View",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/",
+  "about_this_pattern": "A tree view widget presents a hierarchical list. Any item in the hierarchy may have child items, and items that have children may be expanded or collapsed to show or hide the children. For example, in a file system navigator that uses a tree view to display folders and files, an item representing a folder can be expanded to reveal the contents of the folder, which may be files, folders, or both.\n\nWhen using a keyboard to navigate a tree, a visual keyboard indicator informs the user which item is focused. If the tree allows the user to choose just one item for an action, then it is known as a single-select tree. In some implementations of single-select tree, the focused item also has a selected state; this is known as selection follows focus. However, in multi-select trees, which enable the user to select more than one item for an action, the selected state is always independent of the focus. For example, in a typical file system navigator, the user can move focus to select any number of files for an action, such as copy or move. It is important that the visual design distinguish between items that are selected and the item that has focus. For more details, see this description of differences between focus and selection and Deciding When to Make Selection Automatically Follow Focus.",
+  "aria_roles": [
+    "group",
+    "tree",
+    "treeitem"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Right arrow",
+      "description": "When focus is on a closed node, opens the node; focus does not move."
+    },
+    {
+      "key": "Right arrow",
+      "description": "When focus is on a open node, moves focus to the first child node."
+    },
+    {
+      "key": "Right arrow",
+      "description": "When focus is on an end node, does nothing."
+    },
+    {
+      "key": "Left arrow",
+      "description": "When focus is on an open node, closes the node."
+    },
+    {
+      "key": "Left arrow",
+      "description": "When focus is on a child node that is also either an end node or a closed node, moves focus to its parent node."
+    },
+    {
+      "key": "Left arrow",
+      "description": "When focus is on a root node that is also either an end node or a closed node, does nothing."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Moves focus to the next node that is focusable without opening or closing a node."
+    },
+    {
+      "key": "Up Arrow",
+      "description": "Moves focus to the previous node that is focusable without opening or closing a node."
+    },
+    {
+      "key": "Home",
+      "description": "Moves focus to the first node in the tree without opening or closing a node."
+    },
+    {
+      "key": "End",
+      "description": "Moves focus to the last node in the tree that is focusable without opening a node."
+    },
+    {
+      "key": "Enter",
+      "description": "activates a node, i.e., performs its default action. For parent nodes, one possible default action is to open or close the node. In single-select trees where selection does not follow focus (see note below), the default action is typically to select the focused node."
+    },
+    {
+      "key": "* (Optional)",
+      "description": "Expands all siblings that are at the same level as the current node."
+    },
+    {
+      "key": "Shift + Control",
+      "description": "Recommended selection model -- holding a modifier key while moving focus is not necessary:"
+    },
+    {
+      "key": "Space",
+      "description": "Toggles the selection state of the focused node."
+    },
+    {
+      "key": "Shift + Down Arrow (Optional)",
+      "description": "Moves focus to and toggles the selection state of the next node."
+    },
+    {
+      "key": "Shift + Up Arrow (Optional)",
+      "description": "Moves focus to and toggles the selection state of the previous node."
+    },
+    {
+      "key": "Shift + Space (Optional)",
+      "description": "Selects contiguous nodes from the most recently selected node to the current node."
+    },
+    {
+      "key": "Control + Shift + Home (Optional)",
+      "description": "Selects the node with focus and all nodes up to the first node. Optionally, moves focus to the first node."
+    },
+    {
+      "key": "Control + Shift + End (Optional)",
+      "description": "Selects the node with focus and all nodes down to the last node. Optionally, moves focus to the last node."
+    },
+    {
+      "key": "Control + A (Optional)",
+      "description": "Selects all nodes in the tree. Optionally, if all nodes are selected, it can also unselect all nodes."
+    },
+    {
+      "key": "Shift + Control",
+      "description": "Alternative selection model -- Moving focus without holding the Shift or Control modifier unselects all selected nodes except for the focused node:"
+    },
+    {
+      "key": "Shift + Down Arrow",
+      "description": "Moves focus to and toggles the selection state of the next node."
+    },
+    {
+      "key": "Shift + Up Arrow",
+      "description": "Moves focus to and toggles the selection state of the previous node."
+    },
+    {
+      "key": "Control + Down Arrow",
+      "description": "Without changing the selection state, moves focus to the next node."
+    },
+    {
+      "key": "Control + Up Arrow",
+      "description": "Without changing the selection state, moves focus to the previous node."
+    },
+    {
+      "key": "Control + Space",
+      "description": "Toggles the selection state of the focused node."
+    },
+    {
+      "key": "Shift + Space (Optional)",
+      "description": "Selects contiguous nodes from the most recently selected node to the current node."
+    },
+    {
+      "key": "Control + Shift + Home (Optional)",
+      "description": "Selects the node with focus and all nodes up to the first node. Optionally, moves focus to the first node."
+    },
+    {
+      "key": "Control + Shift + End (Optional)",
+      "description": "Selects the node with focus and all nodes down to the last node. Optionally, moves focus to the last node."
+    },
+    {
+      "key": "Control + A (Optional)",
+      "description": "Selects all nodes in the tree. Optionally, if all nodes are selected, it can also unselect all nodes."
+    }
+  ],
+  "examples": [
+    {
+      "name": "File Directory Treeview Example Using Computed Properties",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/"
+    },
+    {
+      "name": "File Directory Treeview Example Using Declared Properties",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/"
+    },
+    {
+      "name": "Navigation Treeview Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/"
+    }
+  ]
+}

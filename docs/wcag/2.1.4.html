@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.1.4 Character Key Shortcuts — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.1.4: Character Key Shortcuts (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>2.1.4</code> Character Key Shortcuts</h1></header>
+<section><h2>Success Criterion</h2><blockquote>If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true: Turn off A mechanism is available to turn the shortcut off; Remap A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt); Active only on focus The keyboard shortcut for a user interface component is only active when that component has focus.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts" rel="noreferrer">Understanding 2.1.4 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G217" rel="noreferrer"><code>G217</code> Providing a mechanism to allow users to remap or turn off character key shortcuts</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F99" rel="noreferrer"><code>F99</code> Failure of Success Criterion 2.1.4 due to implementing character key shortcuts that cannot be turned off or remapped</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.1.4&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Character Key Shortcuts&quot;,
+  &quot;short_text&quot;: &quot;If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true: Turn off A mechanism is available to turn the shortcut off; Remap A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt); Active only on focus The keyboard shortcut for a user interface component is only active when that component has focus.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G217&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F99&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G217&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a mechanism to allow users to remap or turn off character key shortcuts&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.1.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G217&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F99&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.1.4 due to implementing character key shortcuts that cannot be turned off or remapped&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.1.4&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F99&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

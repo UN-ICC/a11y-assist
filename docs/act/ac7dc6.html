@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACT Rule ac7dc6 Video element visual-only content has description track — a11ycat</title>
+  <meta name="description" content="ACT Rule ac7dc6: Video element visual-only content has description track. Covers WCAG .">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-act">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card act-card">
+<header>
+<p class="kicker">ACT Rule · atomic</p>
+<h1>Video element visual-only content has description track</h1>
+<p class="role-tag">id: <code>ac7dc6</code></p>
+<p><a href="https://act-rules.github.io/rules/ac7dc6" rel="noreferrer">https://act-rules.github.io/rules/ac7dc6</a></p>
+</header>
+<section><h2>Description</h2><p>This rule checks that description tracks that come with non-streaming `video` elements, without audio, are descriptive.</p></section>
+<section><h2>Applicability <span class="provenance-tag">verbatim from upstream</span></h2>
+<div class="applicability">This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio and contains a `track` element with a `kind` [attribute value][] of `descriptions`.</div>
+</section>
+<section class="agent-view"><h2>What the agent receives for this rule</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;ac7dc6&quot;,
+  &quot;name&quot;: &quot;Video element visual-only content has description track&quot;,
+  &quot;rule_type&quot;: &quot;atomic&quot;,
+  &quot;description&quot;: &quot;This rule checks that description tracks that come with non-streaming `video` elements, without audio, are descriptive.&quot;,
+  &quot;wcag_sc_ids&quot;: [],
+  &quot;wcag_sc_ids_secondary&quot;: [],
+  &quot;input_aspects&quot;: [
+    &quot;DOM Tree&quot;,
+    &quot;CSS Styling&quot;,
+    &quot;Audio output&quot;,
+    &quot;Visual output&quot;,
+    &quot;Language&quot;
+  ],
+  &quot;applicability_text&quot;: &quot;This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio and contains a `track` element with a `kind` [attribute value][] of `descriptions`.&quot;,
+  &quot;url&quot;: &quot;https://act-rules.github.io/rules/ac7dc6&quot;,
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

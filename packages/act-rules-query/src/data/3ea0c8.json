@@ -1,0 +1,15 @@
+{
+  "id": "3ea0c8",
+  "name": "Id attribute value is unique",
+  "rule_type": "atomic",
+  "description": "This rule checks that all `id` attribute values on a single page are unique.",
+  "wcag_sc_ids": [
+    "4.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any `id` attribute whose value is not an empty string (`\"\"`), specified on a [HTML or SVG element][].\n\n**Note:** Elements that are neither [included in the accessibility tree][] nor [visible][] are still considered for this rule.",
+  "url": "https://act-rules.github.io/rules/3ea0c8"
+}

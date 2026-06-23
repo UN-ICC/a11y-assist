@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 3.2.5 Change on Request — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 3.2.5: Change on Request (Level AAA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AAA</p>
+<h1><code>3.2.5</code> Change on Request</h1></header>
+<section><h2>Success Criterion</h2><blockquote>Changes of context are initiated only by user request or a mechanism is available to turn off such changes.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/change-on-request" rel="noreferrer">Understanding 3.2.5 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G76" rel="noreferrer"><code>G76</code> Providing a mechanism to request an update of the content instead of updating automatically</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/server-side-script/SVR1" rel="noreferrer"><code>SVR1</code> Implementing automatic redirects on the server side instead of on the client side</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G110" rel="noreferrer"><code>G110</code> Using an instant client-side redirect</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H76" rel="noreferrer"><code>H76</code> Using meta refresh to create an instant client-side redirect</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H83" rel="noreferrer"><code>H83</code> Using the target attribute to open a new window on user request and indicating this in link text</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR24" rel="noreferrer"><code>SCR24</code> Using progressive enhancement to open new windows on user request</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR19" rel="noreferrer"><code>SCR19</code> Using an onchange event on a select element without causing a change of context</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F60" rel="noreferrer"><code>F60</code> Failure of Success Criterion 3.2.5 due to launching a new window when a user enters text into an input field</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F61" rel="noreferrer"><code>F61</code> Failure of Success Criterion 3.2.5 due to complete change of main content through an automatic update that the user cannot disable from within the content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F9" rel="noreferrer"><code>F9</code> Failure of Success Criterion 3.2.5 due to changing the context when the user removes focus from a form element</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F22" rel="noreferrer"><code>F22</code> Failure of Success Criterion 3.2.5 due to opening windows that are not requested by the user</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F52" rel="noreferrer"><code>F52</code> Failure of Success Criterion 3.2.5 due to opening a new window as soon as a new page is loaded</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F40" rel="noreferrer"><code>F40</code> Failure due to using meta redirect with a time limit</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F41" rel="noreferrer"><code>F41</code> Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh to reload the page</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;3.2.5&quot;,
+  &quot;level&quot;: &quot;AAA&quot;,
+  &quot;title&quot;: &quot;Change on Request&quot;,
+  &quot;short_text&quot;: &quot;Changes of context are initiated only by user request or a mechanism is available to turn off such changes.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/change-on-request&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G76&quot;,
+    &quot;SVR1&quot;,
+    &quot;G110&quot;,
+    &quot;H76&quot;,
+    &quot;H83&quot;,
+    &quot;SCR24&quot;,
+    &quot;SCR19&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F60&quot;,
+    &quot;F61&quot;,
+    &quot;F9&quot;,
+    &quot;F22&quot;,
+    &quot;F52&quot;,
+    &quot;F40&quot;,
+    &quot;F41&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G76&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a mechanism to request an update of the content instead of updating automatically&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.4&quot;,
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G76&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SVR1&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Implementing automatic redirects on the server side instead of on the client side&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/server-side-script/SVR1&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G110&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using an instant client-side redirect&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G110&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H76&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using meta refresh to create an instant client-side redirect&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H76&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H83&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using the target attribute to open a new window on user request and indicating this in link text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H83&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SCR24&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using progressive enhancement to open new windows on user request&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR24&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SCR19&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using an onchange event on a select element without causing a change of context&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.2&quot;,
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR19&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F60&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 3.2.5 due to launching a new window when a user enters text into an input field&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F60&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F61&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 3.2.5 due to complete change of main content through an automatic update that the user cannot disable from within the content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F61&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F9&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 3.2.5 due to changing the context when the user removes focus from a form element&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F9&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F22&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 3.2.5 due to opening windows that are not requested by the user&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F22&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F52&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 3.2.5 due to opening a new window as soon as a new page is loaded&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F52&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F40&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure due to using meta redirect with a time limit&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.1&quot;,
+        &quot;2.2.4&quot;,
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F40&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F41&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh to reload the page&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.1&quot;,
+        &quot;2.2.4&quot;,
+        &quot;3.2.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F41&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

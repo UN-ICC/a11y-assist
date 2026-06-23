@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.4.11 Focus Not Obscured (Minimum) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.4.11: Focus Not Obscured (Minimum) (Level AA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AA</p>
+<h1><code>2.4.11</code> Focus Not Obscured (Minimum)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content. Note 1 Where content in a configurable interface can be repositioned by the user, then only the initial positions of user-movable content are considered for testing and conformance of this success criterion. Note 2 Content opened by the user may obscure the component receiving focus. If the user can reveal the focused component without advancing the keyboard focus, the component with focus is not considered visually hidden due to author-created content.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum" rel="noreferrer">Understanding 2.4.11 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C43" rel="noreferrer"><code>C43</code> Using CSS scroll-padding to un-obscure content</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F110" rel="noreferrer"><code>F110</code> Failure of Success Criterion 2.4.11 Focus Not Obscured (Minimum) due to a sticky footer or header completely hiding focused elements</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.4.11&quot;,
+  &quot;level&quot;: &quot;AA&quot;,
+  &quot;title&quot;: &quot;Focus Not Obscured (Minimum)&quot;,
+  &quot;short_text&quot;: &quot;When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content. Note 1 Where content in a configurable interface can be repositioned by the user, then only the initial positions of user-movable content are considered for testing and conformance of this success criterion. Note 2 Content opened by the user may obscure the component receiving focus. If the user can reveal the focused component without advancing the keyboard focus, the component with focus is not considered visually hidden due to author-created content.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;C43&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F110&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;C43&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using CSS scroll-padding to un-obscure content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.11&quot;,
+        &quot;2.4.12&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C43&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F110&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.4.11 Focus Not Obscured (Minimum) due to a sticky footer or header completely hiding focused elements&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.11&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F110&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

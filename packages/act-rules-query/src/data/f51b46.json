@@ -1,0 +1,18 @@
+{
+  "id": "f51b46",
+  "name": "Video element auditory content has captions",
+  "rule_type": "atomic",
+  "description": "This rule checks that captions are available for audio information in non-streaming `video` elements.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [
+    "1.2.1"
+  ],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Audio output",
+    "Visual output"
+  ],
+  "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video contains [audio](#audio-output) that is not only silence.",
+  "url": "https://act-rules.github.io/rules/f51b46"
+}

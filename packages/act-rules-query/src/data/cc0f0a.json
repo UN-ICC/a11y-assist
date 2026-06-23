@@ -1,0 +1,18 @@
+{
+  "id": "cc0f0a",
+  "name": "Form field label is descriptive",
+  "rule_type": "atomic",
+  "description": "This rule checks that labels describe the purpose of form field elements.",
+  "wcag_sc_ids": [
+    "2.4.6"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [programmatic label][] of an element for which one of the following is true:\n\n- the element has one of the following [semantic roles][semantic role]: `checkbox`, `combobox`, `listbox`, `menuitemcheckbox`, `menuitemradio`, `radio`, `searchbox`, `slider`, `spinbutton`, `switch`, `textbox`; or\n- the element is an `input` with no [semantic role][] and a `type` [attribute value][] of `color`, `date`, `datetime-local`, `file`, `month`, `password`, `time`, or `week`.\n\nIn addition, both the element and the [programmatic label][] must be [visible][].",
+  "url": "https://act-rules.github.io/rules/cc0f0a"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ac7dc6",
+  "name": "Video element visual-only content has description track",
+  "rule_type": "atomic",
+  "description": "This rule checks that description tracks that come with non-streaming `video` elements, without audio, are descriptive.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Audio output",
+    "Visual output",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio and contains a `track` element with a `kind` [attribute value][] of `descriptions`.",
+  "url": "https://act-rules.github.io/rules/ac7dc6"
+}

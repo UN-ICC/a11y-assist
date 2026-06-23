@@ -1,0 +1,16 @@
+{
+  "role": "breadcrumb",
+  "name": "Breadcrumb",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/",
+  "about_this_pattern": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.",
+  "aria_roles": [
+    "breadcrumb"
+  ],
+  "keyboard_interactions": [],
+  "examples": [
+    {
+      "name": "Breadcrumb design pattern example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/"
+    }
+  ]
+}

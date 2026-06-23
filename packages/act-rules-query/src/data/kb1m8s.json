@@ -1,0 +1,17 @@
+{
+  "id": "kb1m8s",
+  "name": "ARIA global properties not used where prohibited",
+  "rule_type": "atomic",
+  "description": "This rule checks that global WAI-ARIA properties are not on elements whose role prohibits them.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [
+    "1.3.1"
+  ],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS styling",
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [WAI-ARIA global state or property][global] that is specified on an [HTML or SVG element][namespaced element] that is [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/kb1m8s"
+}

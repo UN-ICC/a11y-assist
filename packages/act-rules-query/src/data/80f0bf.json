@@ -1,0 +1,13 @@
+{
+  "id": "80f0bf",
+  "name": "Audio or video element avoids automatically playing audio",
+  "rule_type": "composite",
+  "description": "This rule checks that audio or video that plays automatically does not have audio that lasts for more than 3 seconds or has an audio control mechanism to stop or mute it.",
+  "wcag_sc_ids": [
+    "1.4.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [],
+  "applicability_text": "This rule applies to any `audio` or `video` element for which all the following are true:\n\n- **autoplay**: the element has an `autoplay` [attribute value][] of `true`; and\n- **not muted**: the element has a `muted` [attribute value][] of `false`; and\n- **not paused**: the element has a `paused` [attribute value][] of `false`; and\n- **duration**: the element has a [media resource][] lasting more than 3 seconds and that contains audio.",
+  "url": "https://act-rules.github.io/rules/80f0bf"
+}

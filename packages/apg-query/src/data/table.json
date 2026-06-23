@@ -1,0 +1,25 @@
+{
+  "role": "table",
+  "name": "Table",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/",
+  "about_this_pattern": "Like an HTML table element, a WAI-ARIA table is a static tabular structure containing one or more rows that each contain one or more cells; it is not an interactive widget. Thus, its cells are not focusable or selectable. The grid pattern is used to make an interactive widget that has a tabular structure.\n\nHowever, tables are often used to present a combination of information and interactive widgets. Since a table is not a widget, each widget contained in a table is a separate stop in the page tab sequence. If the number of widgets is large, replacing the table with a grid can dramatically reduce the length of the page tab sequence because a grid is a composite widget that can contain other widgets.",
+  "aria_roles": [
+    "cell",
+    "columnheader",
+    "row",
+    "rowgroup",
+    "rowheader",
+    "table"
+  ],
+  "keyboard_interactions": [],
+  "examples": [
+    {
+      "name": "Table Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/"
+    },
+    {
+      "name": "Sortable Table Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/"
+    }
+  ]
+}

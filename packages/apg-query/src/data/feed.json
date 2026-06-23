@@ -1,0 +1,34 @@
+{
+  "role": "feed",
+  "name": "Feed",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+  "about_this_pattern": "A feed is a section of a page that automatically loads new sections of content as the user scrolls. The sections of content in a feed are presented in article elements. So, a feed can be thought of as a dynamic list of articles that often appears to scroll infinitely.\n\nThe feature that most distinguishes feed from other ARIA patterns that support loading data as users scroll, e.g., a grid, is that a feed is a structure, not a widget. Consequently, assistive technologies with a reading mode, such as screen readers, default to reading mode when interacting with feed content. However, unlike most other WAI-ARIA structures, a feed establishes an interoperability contract between the web page and assistive technologies. The contract governs scroll interactions so that assistive technology users can read articles, jump forward and backward by article, and reliably trigger new articles to load while in reading mode.\n\nFor example, a product page on a shopping site may have a related products section that displays five products at a time. As the user scrolls, more products are requested and loaded into the DOM. While a static design might include a next button for loading five more products, a dynamic implementation that automatically loads more data as the user scrolls simplifies the user experience and reduces the inertia associated with viewing more than the first five product suggestions. But, unfortunately when web pages load content dynamically based on scroll events, it can cause usability and interoperability difficulties for users of assistive technologies.\n\nThe feed pattern enables reliable assistive technology reading mode interaction by establishing the following interoperability agreement between the web page and assistive technologies:\n\nThus, implementing the feed pattern allows a screen reader to reliably read and trigger the loading of feed content while staying in its reading mode.\n\nAnother feature of the feed pattern is its ability to facilitate skim reading for assistive technology users. Web page authors may provide both an accessible name and description for each article. By identifying the elements inside of an article that provide the title and the primary content, assistive technologies can provide functions that enable users to jump from article to article and efficiently discern which articles may be worthy of more attention.",
+  "aria_roles": [
+    "article",
+    "feed"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Page Down",
+      "description": "Move focus to next article."
+    },
+    {
+      "key": "Page Up",
+      "description": "Move focus to previous article."
+    },
+    {
+      "key": "Control + End",
+      "description": "Move focus to the first focusable element after the feed."
+    },
+    {
+      "key": "Control + Home",
+      "description": "Move focus to the first focusable element before the feed."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Infinite Scrolling Feed Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/"
+    }
+  ]
+}

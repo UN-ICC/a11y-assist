@@ -1,0 +1,13 @@
+{
+  "id": "cf77f2",
+  "name": "Bypass Blocks of Repeated Content",
+  "rule_type": "composite",
+  "description": "This rule checks that each page has a mechanism to bypass repeated blocks of content.",
+  "wcag_sc_ids": [
+    "2.4.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [],
+  "applicability_text": "This rule applies to any [HTML web page][].",
+  "url": "https://act-rules.github.io/rules/cf77f2"
+}

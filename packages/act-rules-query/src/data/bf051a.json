@@ -1,0 +1,15 @@
+{
+  "id": "bf051a",
+  "name": "HTML page lang attribute has valid language tag",
+  "rule_type": "atomic",
+  "description": "This rule checks that the `lang` attribute of the root element of a non-embedded HTML page has a language tag with a known primary language subtag.",
+  "wcag_sc_ids": [
+    "3.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [document element](https://dom.spec.whatwg.org/#document-element) if it is an `html` element for which all the following are true:\n\n- has a `lang` attribute that is neither empty (\"\") nor only [ASCII whitespace](https://infra.spec.whatwg.org/#ascii-whitespace); and\n- is in a [top-level browsing context](https://html.spec.whatwg.org/#top-level-browsing-context); and\n- has a [node document](https://dom.spec.whatwg.org/#concept-node-document) with a [content type](https://dom.spec.whatwg.org/#concept-document-content-type) of `text/html`.",
+  "url": "https://act-rules.github.io/rules/bf051a"
+}

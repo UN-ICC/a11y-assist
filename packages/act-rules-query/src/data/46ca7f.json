@@ -1,0 +1,17 @@
+{
+  "id": "46ca7f",
+  "name": "Element marked as decorative is not exposed",
+  "rule_type": "atomic",
+  "description": "This rule checks that elements marked as decorative either are not included in the accessibility tree, or have a presentational role.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [
+    "1.1.1"
+  ],
+  "input_aspects": [
+    "Accessibility tree",
+    "CSS styling",
+    "DOM tree"
+  ],
+  "applicability_text": "This rule applies to any element which is [marked as decorative][].",
+  "url": "https://act-rules.github.io/rules/46ca7f"
+}

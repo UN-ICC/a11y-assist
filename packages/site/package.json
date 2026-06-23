@@ -1,0 +1,30 @@
+{
+  "name": "a11ycat-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "a11ycat — static GitHub Pages browser for the consolidated a11y dataset. Same data as the MCP server, rendered for humans.",
+  "type": "module",
+  "scripts": {
+    "build": "tsx tools/build-site.ts",
+    "build:audit-bundle": "esbuild tools/audit-button.ts --bundle --outfile=../../docs/assets/audit-button.js --platform=browser --format=iife --minify",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "a11y-core": "*",
+    "a11y-graph": "*",
+    "act-rules-query": "*",
+    "apg-query": "*",
+    "wcag-query": "*",
+    "axe-core": "^4.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  },
+  "license": "MIT"
+}

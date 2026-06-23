@@ -1,0 +1,17 @@
+{
+  "id": "73f2c2",
+  "name": "Autocomplete attribute has valid value",
+  "rule_type": "atomic",
+  "description": "This rule checks that the HTML `autocomplete` attribute has a correct value.",
+  "wcag_sc_ids": [
+    "1.3.5"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any [HTML][] `input`, `select` and `textarea` element with an `autocomplete` [attribute value][] that is neither empty (`\"\"`) nor only [ASCII whitespace][], except if one or more of the following is true:\n\n- <dfn id=\"73f2c2:toggle\">toggle</dfn>: the `autocomplete` attribute consists of a single token that is an [ASCII case-insensitive][] match for the string `off` or the string `on`; or\n- <dfn id=\"73f2c2:disabled\">disabled</dfn>: the element is a [disabled element]; or\n- <dfn id=\"73f2c2:fixed-value\">fixed value</dfn>: the element is an `input` element with a `type` [attribute value][] of `button`, `checkbox`, `file`, `image`, `radio`, `reset` or `submit`; or\n- <dfn id=\"73f2c2:hidden\">hidden</dfn>: the element is not [visible][], and not [included in the accessibility tree][]; or\n- <dfn id=\"73f2c2:static\">static</dfn>: the element is not part of [sequential focus navigation][] and has a [semantic role][] that is not a [widget role][].",
+  "url": "https://act-rules.github.io/rules/73f2c2"
+}

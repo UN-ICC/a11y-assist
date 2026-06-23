@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.5.2 Pointer Cancellation — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.5.2: Pointer Cancellation (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>2.5.2</code> Pointer Cancellation</h1></header>
+<section><h2>Success Criterion</h2><blockquote>For functionality that can be operated using a single pointer, at least one of the following is true: No Down-Event The down-event of the pointer is not used to execute any part of the function; Abort or Undo Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion; Up Reversal The up-event reverses any outcome of the preceding down-event; Essential Completing the function on the down-event is essential. Note 1 Functions that emulate a keyboard or numeric keypad key press are considered essential. Note 2 This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology).</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation" rel="noreferrer">Understanding 2.5.2 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G210" rel="noreferrer"><code>G210</code> Ensuring that drag-and-drop actions can be cancelled</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G212" rel="noreferrer"><code>G212</code> Using native controls to ensure functionality is triggered on the up-event.</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F101" rel="noreferrer"><code>F101</code> Failure of Success Criterion 2.5.2 due to activating a control on the down-event</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.5.2&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Pointer Cancellation&quot;,
+  &quot;short_text&quot;: &quot;For functionality that can be operated using a single pointer, at least one of the following is true: No Down-Event The down-event of the pointer is not used to execute any part of the function; Abort or Undo Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion; Up Reversal The up-event reverses any outcome of the preceding down-event; Essential Completing the function on the down-event is essential. Note 1 Functions that emulate a keyboard or numeric keypad key press are considered essential. Note 2 This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology).&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G210&quot;,
+    &quot;G212&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F101&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G210&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Ensuring that drag-and-drop actions can be cancelled&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.5.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G210&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G212&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using native controls to ensure functionality is triggered on the up-event.&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.5.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G212&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F101&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.5.2 due to activating a control on the down-event&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.5.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F101&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

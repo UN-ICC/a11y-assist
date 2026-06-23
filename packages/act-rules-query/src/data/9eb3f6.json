@@ -1,0 +1,18 @@
+{
+  "id": "9eb3f6",
+  "name": "Image filename is accessible name for image",
+  "rule_type": "atomic",
+  "description": "This rule checks that image elements that use their source filename as their accessible name do so without loss of information to the user.",
+  "wcag_sc_ids": [
+    "1.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] that is [included in the accessibility tree][] and has a non-empty (`\"\"`) [accessible name][], for which one of the following is true:\n\n- **img**: the element is an `img` with an [accessible name][] that is equivalent to the [filename][] of at least one of the [image sources][] in its [source set][]; or\n- **input image**: the element is an `input` element in the [Image Button][] state with an [accessible name][] that is equivalent to the [filename][] specified in its `src` attribute.\n\nWhen comparing [accessible name][] and [filename][], difference in letter casing, leading and trailing [whitespace][] should be ignored.",
+  "url": "https://act-rules.github.io/rules/9eb3f6"
+}

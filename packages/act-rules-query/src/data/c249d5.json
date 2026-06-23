@@ -1,0 +1,17 @@
+{
+  "id": "c249d5",
+  "name": "Device motion based changes to the content can be disabled",
+  "rule_type": "atomic",
+  "description": "This rule checks that it is possible to disable any changes to the content of the web page resulting from device motion based events.",
+  "wcag_sc_ids": [
+    "2.5.4"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Accessibility tree"
+  ],
+  "applicability_text": "This rule applies to an [HTML document][] with an associated [Window object][] that has an [event listener list][] with one or more [event listeners][event listener] for [device orientation events][device orientation] or [device motion events][device motion].",
+  "url": "https://act-rules.github.io/rules/c249d5"
+}

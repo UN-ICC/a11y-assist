@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.2.2 Pause, Stop, Hide — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.2.2: Pause, Stop, Hide (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>2.2.2</code> Pause, Stop, Hide</h1></header>
+<section><h2>Success Criterion</h2><blockquote>For moving, blinking, scrolling, or auto-updating information, all of the following are true: Moving, blinking, scrolling For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and Auto-updating For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential. Note 1 For requirements related to flickering or flashing content, refer to Guideline 2.3. Note 2 Since any content that does not meet this success criterion can interfere with a user&#39;s ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference. Note 3 Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so. Note 4 An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide" rel="noreferrer">Understanding 2.2.2 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G4" rel="noreferrer"><code>G4</code> Allowing the content to be paused and restarted from where it was paused</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR33" rel="noreferrer"><code>SCR33</code> Using script to scroll content, and providing a mechanism to pause it</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G11" rel="noreferrer"><code>G11</code> Creating content that blinks for less than 5 seconds</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G152" rel="noreferrer"><code>G152</code> Setting animated gif images to stop blinking after n cycles (within 5 seconds)</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR22" rel="noreferrer"><code>SCR22</code> Using scripts to control blinking and stop it in five seconds or less</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G186" rel="noreferrer"><code>G186</code> Using a control in the web page that stops moving, blinking, or auto-updating content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G191" rel="noreferrer"><code>G191</code> Providing a link, button, or other mechanism that reloads the page without any blinking content</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F16" rel="noreferrer"><code>F16</code> Failure of Success Criterion 2.2.2 due to including scrolling content where movement is not essential to the activity without also including a mechanism to pause and restart the content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F112" rel="noreferrer"><code>F112</code> Failure of Success Criterion 2.2.2 due to using blinking content that lasts for more than five seconds without a mechanism to stop it</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F50" rel="noreferrer"><code>F50</code> Failure of Success Criterion 2.2.2 due to a script that causes a blink effect without a mechanism to stop the blinking at 5 seconds or less</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F7" rel="noreferrer"><code>F7</code> Failure of Success Criterion 2.2.2 due to an object or applet … for more than five seconds</a></li>
+</ul></section>
+<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
+<li><a href="../pattern/carousel-web.html"><code>carousel</code></a></li>
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.2.2&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Pause, Stop, Hide&quot;,
+  &quot;short_text&quot;: &quot;For moving, blinking, scrolling, or auto-updating information, all of the following are true: Moving, blinking, scrolling For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and Auto-updating For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential. Note 1 For requirements related to flickering or flashing content, refer to Guideline 2.3. Note 2 Since any content that does not meet this success criterion can interfere with a user&#39;s ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference. Note 3 Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so. Note 4 An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G4&quot;,
+    &quot;SCR33&quot;,
+    &quot;G11&quot;,
+    &quot;G152&quot;,
+    &quot;SCR22&quot;,
+    &quot;G186&quot;,
+    &quot;G191&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F16&quot;,
+    &quot;F112&quot;,
+    &quot;F50&quot;,
+    &quot;F7&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G4&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Allowing the content to be paused and restarted from where it was paused&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.1&quot;,
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G4&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SCR33&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using script to scroll content, and providing a mechanism to pause it&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.1&quot;,
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR33&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G11&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Creating content that blinks for less than 5 seconds&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G11&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G152&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Setting animated gif images to stop blinking after n cycles (within 5 seconds)&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G152&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SCR22&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using scripts to control blinking and stop it in five seconds or less&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR22&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G186&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using a control in the web page that stops moving, blinking, or auto-updating content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G186&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G191&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a link, button, or other mechanism that reloads the page without any blinking content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G191&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F16&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.2.2 due to including scrolling content where movement is not essential to the activity without also including a mechanism to pause and restart the content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F16&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F112&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.2.2 due to using blinking content that lasts for more than five seconds without a mechanism to stop it&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F112&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F50&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.2.2 due to a script that causes a blink effect without a mechanism to stop the blinking at 5 seconds or less&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F50&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F7&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 2.2.2 due to an object or applet … for more than five seconds&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.2.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F7&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: [
+    &quot;carousel&quot;,
+    &quot;combobox&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

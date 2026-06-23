@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 3.3.5 Help — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 3.3.5: Help (Level AAA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AAA</p>
+<h1><code>3.3.5</code> Help</h1></header>
+<section><h2>Success Criterion</h2><blockquote>Context-sensitive help is available.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/help" rel="noreferrer">Understanding 3.3.5 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G71" rel="noreferrer"><code>G71</code> Providing a help link on every web page</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G193" rel="noreferrer"><code>G193</code> Providing help by an assistant in the web page</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G194" rel="noreferrer"><code>G194</code> Providing spell checking and suggestions for text input</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G184" rel="noreferrer"><code>G184</code> Providing text instructions at the beginning of a form or set of fields that describes the necessary input</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G89" rel="noreferrer"><code>G89</code> Providing expected data format and example</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;3.3.5&quot;,
+  &quot;level&quot;: &quot;AAA&quot;,
+  &quot;title&quot;: &quot;Help&quot;,
+  &quot;short_text&quot;: &quot;Context-sensitive help is available.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/help&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G71&quot;,
+    &quot;G193&quot;,
+    &quot;G194&quot;,
+    &quot;G184&quot;,
+    &quot;G89&quot;
+  ],
+  &quot;failure_ids&quot;: [],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G71&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a help link on every web page&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G71&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G193&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing help by an assistant in the web page&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.5&quot;,
+        &quot;4.1.3&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G193&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G194&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing spell checking and suggestions for text input&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.5&quot;,
+        &quot;4.1.3&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G194&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G184&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing text instructions at the beginning of a form or set of fields that describes the necessary input&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.2&quot;,
+        &quot;3.3.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G184&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G89&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing expected data format and example&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.2&quot;,
+        &quot;3.3.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G89&quot;
+    }
+  ],
+  &quot;failures&quot;: [],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

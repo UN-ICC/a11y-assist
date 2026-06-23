@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 1.1.1 Non-text Content — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 1.1.1: Non-text Content (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>1.1.1</code> Non-text Content</h1></header>
+<section><h2>Success Criterion</h2><blockquote>All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. Controls, Input If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Success Criterion 4.1.2 for additional requirements for controls and content that accepts user input.) Time-Based Media If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.) Test If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content. Sensory If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content. CAPTCHA If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities. Decoration, Formatting, Invisible If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content" rel="noreferrer">Understanding 1.1.1 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G94" rel="noreferrer"><code>G94</code> Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA6" rel="noreferrer"><code>ARIA6</code> Using aria-label to provide labels for objects</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA10" rel="noreferrer"><code>ARIA10</code> Using aria-labelledby to provide a text alternative for non-text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G196" rel="noreferrer"><code>G196</code> Using a text alternative on one item within a group of images that describes all items in the group</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H2" rel="noreferrer"><code>H2</code> Combining adjacent image and text links for the same resource</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H37" rel="noreferrer"><code>H37</code> Using alt attributes on img elements</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H53" rel="noreferrer"><code>H53</code> Using the body of the object element</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H86" rel="noreferrer"><code>H86</code> Providing text alternatives for emojis, emoticons, ASCII art, and leetspeak</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF1" rel="noreferrer"><code>PDF1</code> Applying text alternatives to images with the Alt entry in PDF documents</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G95" rel="noreferrer"><code>G95</code> Providing short text alternatives that provide a brief description of the non-text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA15" rel="noreferrer"><code>ARIA15</code> Using aria-describedby to provide descriptions of images</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G73" rel="noreferrer"><code>G73</code> Providing a long description in another location with a link to it that is immediately adjacent to the non-text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G74" rel="noreferrer"><code>G74</code> Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G92" rel="noreferrer"><code>G92</code> Providing long description for non-text content that serves the same purpose and presents the same information</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G82" rel="noreferrer"><code>G82</code> Providing a text alternative that identifies the purpose of interactive non-text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA9" rel="noreferrer"><code>ARIA9</code> Using aria-labelledby to concatenate a label from several text nodes</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H24" rel="noreferrer"><code>H24</code> Providing text alternatives for the area elements of image maps</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H30" rel="noreferrer"><code>H30</code> Providing link text that describes the purpose of a link for anchor elements</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H36" rel="noreferrer"><code>H36</code> Using alt attributes on images used as submit buttons</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H44" rel="noreferrer"><code>H44</code> Using label elements to associate text labels with form controls</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H65" rel="noreferrer"><code>H65</code> Using the title attribute to identify form controls when the label element cannot be used</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G68" rel="noreferrer"><code>G68</code> Providing a short text alternative that describes the purpose of live audio-only and live video-only content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G100" rel="noreferrer"><code>G100</code> Providing a short text alternative which is the accepted name or a descriptive name of the non-text content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G143" rel="noreferrer"><code>G143</code> Providing a text alternative that describes the purpose of the CAPTCHA</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G144" rel="noreferrer"><code>G144</code> Ensuring that the web page contains another CAPTCHA serving the same purpose using a different modality</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C9" rel="noreferrer"><code>C9</code> Using CSS to include decorative images</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H67" rel="noreferrer"><code>H67</code> Using null alt text and no title attribute on img elements for images that assistive technology should ignore</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF4" rel="noreferrer"><code>PDF4</code> Hiding decorative images with the Artifact tag in PDF documents</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F3" rel="noreferrer"><code>F3</code> Failure of Success Criterion 1.1.1 due to using CSS to include images that convey important information</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F13" rel="noreferrer"><code>F13</code> Failure of Success Criterion 1.1.1 and 1.4.1 due to having a text alternative that does not include information that is conveyed by color differences in the image</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F20" rel="noreferrer"><code>F20</code> Failure of Success Criterion 1.1.1 and 4.1.2 due to not updating text alternatives when changes to non-text content occur</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F30" rel="noreferrer"><code>F30</code> Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F38" rel="noreferrer"><code>F38</code> Failure of Success Criterion 1.1.1 due to not marking up decorative images in HTML in a way that allows assistive technology to ignore them</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F39" rel="noreferrer"><code>F39</code> Failure of Success Criterion 1.1.1 due to providing a text alternative that is not null (e.g., alt=&quot;spacer&quot; or alt=&quot;image&quot;) for images that should be ignored by assistive technology</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F65" rel="noreferrer"><code>F65</code> Failure of Success Criterion 1.1.1 due to omitting the alt attribute or text alternative on img elements, area elements, and input elements of type &quot;image&quot;</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F67" rel="noreferrer"><code>F67</code> Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F71" rel="noreferrer"><code>F71</code> Failure of Success Criterion 1.1.1 due to using text look-alikes to represent text without providing a text alternative</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F72" rel="noreferrer"><code>F72</code> Failure of Success Criterion 1.1.1 due to using ASCII art without providing a text alternative</a></li>
+</ul></section>
+<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/img-web.html"><code>img</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;1.1.1&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Non-text Content&quot;,
+  &quot;short_text&quot;: &quot;All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. Controls, Input If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Success Criterion 4.1.2 for additional requirements for controls and content that accepts user input.) Time-Based Media If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.) Test If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content. Sensory If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content. CAPTCHA If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities. Decoration, Formatting, Invisible If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/non-text-content&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G94&quot;,
+    &quot;ARIA6&quot;,
+    &quot;ARIA10&quot;,
+    &quot;G196&quot;,
+    &quot;H2&quot;,
+    &quot;H37&quot;,
+    &quot;H53&quot;,
+    &quot;H86&quot;,
+    &quot;PDF1&quot;,
+    &quot;G95&quot;,
+    &quot;ARIA15&quot;,
+    &quot;G73&quot;,
+    &quot;G74&quot;,
+    &quot;G92&quot;,
+    &quot;G82&quot;,
+    &quot;ARIA9&quot;,
+    &quot;H24&quot;,
+    &quot;H30&quot;,
+    &quot;H36&quot;,
+    &quot;H44&quot;,
+    &quot;H65&quot;,
+    &quot;G68&quot;,
+    &quot;G100&quot;,
+    &quot;G143&quot;,
+    &quot;G144&quot;,
+    &quot;C9&quot;,
+    &quot;H67&quot;,
+    &quot;PDF4&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F3&quot;,
+    &quot;F13&quot;,
+    &quot;F20&quot;,
+    &quot;F30&quot;,
+    &quot;F38&quot;,
+    &quot;F39&quot;,
+    &quot;F65&quot;,
+    &quot;F67&quot;,
+    &quot;F71&quot;,
+    &quot;F72&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G94&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G94&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ARIA6&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using aria-label to provide labels for objects&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA6&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ARIA10&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using aria-labelledby to provide a text alternative for non-text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA10&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G196&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using a text alternative on one item within a group of images that describes all items in the group&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G196&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H2&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Combining adjacent image and text links for the same resource&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H2&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H37&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using alt attributes on img elements&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H37&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H53&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using the body of the object element&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.2.3&quot;,
+        &quot;1.2.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H53&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H86&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing text alternatives for emojis, emoticons, ASCII art, and leetspeak&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H86&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF1&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Applying text alternatives to images with the Alt entry in PDF documents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF1&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G95&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing short text alternatives that provide a brief description of the non-text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G95&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ARIA15&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using aria-describedby to provide descriptions of images&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA15&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G73&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a long description in another location with a link to it that is immediately adjacent to the non-text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G73&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G74&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G74&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G92&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing long description for non-text content that serves the same purpose and presents the same information&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G92&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G82&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a text alternative that identifies the purpose of interactive non-text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G82&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ARIA9&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using aria-labelledby to concatenate a label from several text nodes&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;3.3.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA9&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H24&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing text alternatives for the area elements of image maps&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H24&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H30&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing link text that describes the purpose of a link for anchor elements&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;2.4.4&quot;,
+        &quot;2.4.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H30&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H36&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using alt attributes on images used as submit buttons&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H36&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H44&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using label elements to associate text labels with form controls&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.3.1&quot;,
+        &quot;3.3.2&quot;,
+        &quot;4.1.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H44&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H65&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using the title attribute to identify form controls when the label element cannot be used&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.3.1&quot;,
+        &quot;4.1.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H65&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G68&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a short text alternative that describes the purpose of live audio-only and live video-only content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G68&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G100&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a short text alternative which is the accepted name or a descriptive name of the non-text content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G100&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G143&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a text alternative that describes the purpose of the CAPTCHA&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G143&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G144&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Ensuring that the web page contains another CAPTCHA serving the same purpose using a different modality&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G144&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C9&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using CSS to include decorative images&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C9&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H67&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using null alt text and no title attribute on img elements for images that assistive technology should ignore&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H67&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF4&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Hiding decorative images with the Artifact tag in PDF documents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF4&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F3&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 due to using CSS to include images that convey important information&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F3&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F13&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.4.1 due to having a text alternative that does not include information that is conveyed by color differences in the image&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.4.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F13&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F20&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 4.1.2 due to not updating text alternatives when changes to non-text content occur&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;4.1.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F20&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F30&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.2.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F30&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F38&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 due to not marking up decorative images in HTML in a way that allows assistive technology to ignore them&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F38&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F39&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 due to providing a text alternative that is not null (e.g., alt=\&quot;spacer\&quot; or alt=\&quot;image\&quot;) for images that should be ignored by assistive technology&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F39&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F65&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 due to omitting the alt attribute or text alternative on img elements, area elements, and input elements of type \&quot;image\&quot;&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F65&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F67&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.2.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F67&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F71&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 due to using text look-alikes to represent text without providing a text alternative&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F71&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F72&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 due to using ASCII art without providing a text alternative&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F72&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: [
+    &quot;combobox&quot;,
+    &quot;img&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

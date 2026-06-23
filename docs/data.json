@@ -1,0 +1,1241 @@
+{
+  "patterns": [
+    {
+      "role": "accordion",
+      "name": "Accordion (HTML <button>)",
+      "type": "html_native"
+    },
+    {
+      "role": "alert",
+      "name": "Alert",
+      "type": "apg_pattern"
+    },
+    {
+      "role": "alertdialog",
+      "name": "Alert Dialog",
+      "type": "apg_pattern"
+    },
+    {
+      "role": "breadcrumb",
+      "name": "Breadcrumb",
+      "type": "apg_pattern"
+    },
+    {
+      "role": "button",
+      "name": "Button (HTML <button>)",
+      "type": "html_native"
+    },
+    {
+      "role": "button",
+      "name": "Button (RN Pressable)",
+      "type": "rn_primitive"
+    },
+    {
+      "role": "carousel",
+      "name": "Carousel (HTML <address>)",
+      "type": "html_native"
+    },
+    {
+      "role": "checkbox",
+      "name": "Checkbox (HTML <input>)",
+      "type": "html_native"
+    },
+    {
+      "role": "combobox",
+      "name": "Combobox (HTML <input>)",
+      "type": "html_native"
+    },
+    {
+      "role": "dialog",
+      "name": "Dialog (HTML <dialog>)",
+      "type": "html_native"
+    },
+    {
+      "role": "dialog",
+      "name": "Dialog (RN Modal)",
+      "type": "rn_primitive"
+    },
+    {
+      "role": "disclosure",
+      "name": "Disclosure (HTML <button>)",
+      "type": "html_native"
+    },
+    {
+      "role": "feed",
+      "name": "Feed (HTML <article>)",
+      "type": "html_native"
+    },
+    {
+      "role": "grid",
+      "name": "Grid (HTML <th>)",
+      "type": "html_native"
+    },
+    {
+      "role": "img",
+      "name": "Img (HTML <img>)",
+      "type": "html_native"
+    },
+    {
+      "role": "img",
+      "name": "Img (RN Image)",
+      "type": "rn_primitive"
+    },
+    {
+      "role": "link",
+      "name": "Link (HTML <a>)",
+      "type": "html_native"
+    },
+    {
+      "role": "listbox",
+      "name": "Listbox (HTML <datalist>)",
+      "type": "html_native"
+    },
+    {
+      "role": "menu",
+      "name": "Menu (HTML <hr>)",
+      "type": "html_native"
+    },
+    {
+      "role": "menubutton",
+      "name": "Menubutton (HTML <button>)",
+      "type": "html_native"
+    },
+    {
+      "role": "meter",
+      "name": "Meter (HTML <meter>)",
+      "type": "html_native"
+    },
+    {
+      "role": "radio",
+      "name": "Radio (HTML <input>)",
+      "type": "html_native"
+    },
+    {
+      "role": "slider",
+      "name": "Slider (HTML <input>)",
+      "type": "html_native"
+    },
+    {
+      "role": "slider-multithumb",
+      "name": "Slider-multithumb (HTML <input>)",
+      "type": "html_native"
+    },
+    {
+      "role": "spinbutton",
+      "name": "Spinbutton (HTML <input>)",
+      "type": "html_native"
+    },
+    {
+      "role": "switch",
+      "name": "Switch (HTML <address>)",
+      "type": "html_native"
+    },
+    {
+      "role": "switch",
+      "name": "Switch (RN Switch)",
+      "type": "rn_primitive"
+    },
+    {
+      "role": "table",
+      "name": "Table (HTML <table>)",
+      "type": "html_native"
+    },
+    {
+      "role": "tabs",
+      "name": "Tabs",
+      "type": "apg_pattern"
+    },
+    {
+      "role": "textbox",
+      "name": "Textbox (HTML <textarea>)",
+      "type": "html_native"
+    },
+    {
+      "role": "textbox",
+      "name": "Textbox (RN TextInput)",
+      "type": "rn_primitive"
+    },
+    {
+      "role": "toolbar",
+      "name": "Toolbar",
+      "type": "apg_pattern"
+    },
+    {
+      "role": "tooltip",
+      "name": "Tooltip",
+      "type": "apg_pattern"
+    },
+    {
+      "role": "treegrid",
+      "name": "Treegrid (HTML <th>)",
+      "type": "html_native"
+    },
+    {
+      "role": "treeview",
+      "name": "Treeview (HTML <address>)",
+      "type": "html_native"
+    }
+  ],
+  "scs": [
+    {
+      "id": "1.1.1",
+      "level": "A",
+      "title": "Non-text Content"
+    },
+    {
+      "id": "1.2.1",
+      "level": "A",
+      "title": "Audio-only and Video-only (Prerecorded)"
+    },
+    {
+      "id": "1.2.2",
+      "level": "A",
+      "title": "Captions (Prerecorded)"
+    },
+    {
+      "id": "1.2.3",
+      "level": "A",
+      "title": "Audio Description or Media Alternative (Prerecorded)"
+    },
+    {
+      "id": "1.2.4",
+      "level": "AA",
+      "title": "Captions (Live)"
+    },
+    {
+      "id": "1.2.5",
+      "level": "AA",
+      "title": "Audio Description (Prerecorded)"
+    },
+    {
+      "id": "1.2.6",
+      "level": "AAA",
+      "title": "Sign Language (Prerecorded)"
+    },
+    {
+      "id": "1.2.7",
+      "level": "AAA",
+      "title": "Extended Audio Description (Prerecorded)"
+    },
+    {
+      "id": "1.2.8",
+      "level": "AAA",
+      "title": "Media Alternative (Prerecorded)"
+    },
+    {
+      "id": "1.2.9",
+      "level": "AAA",
+      "title": "Audio-only (Live)"
+    },
+    {
+      "id": "1.3.1",
+      "level": "A",
+      "title": "Info and Relationships"
+    },
+    {
+      "id": "1.3.2",
+      "level": "A",
+      "title": "Meaningful Sequence"
+    },
+    {
+      "id": "1.3.3",
+      "level": "A",
+      "title": "Sensory Characteristics"
+    },
+    {
+      "id": "1.3.4",
+      "level": "AA",
+      "title": "Orientation"
+    },
+    {
+      "id": "1.3.5",
+      "level": "AA",
+      "title": "Identify Input Purpose"
+    },
+    {
+      "id": "1.3.6",
+      "level": "AAA",
+      "title": "Identify Purpose"
+    },
+    {
+      "id": "1.4.1",
+      "level": "A",
+      "title": "Use of Color"
+    },
+    {
+      "id": "1.4.2",
+      "level": "A",
+      "title": "Audio Control"
+    },
+    {
+      "id": "1.4.3",
+      "level": "AA",
+      "title": "Contrast (Minimum)"
+    },
+    {
+      "id": "1.4.4",
+      "level": "AA",
+      "title": "Resize Text"
+    },
+    {
+      "id": "1.4.5",
+      "level": "AA",
+      "title": "Images of Text"
+    },
+    {
+      "id": "1.4.6",
+      "level": "AAA",
+      "title": "Contrast (Enhanced)"
+    },
+    {
+      "id": "1.4.7",
+      "level": "AAA",
+      "title": "Low or No Background Audio"
+    },
+    {
+      "id": "1.4.8",
+      "level": "AAA",
+      "title": "Visual Presentation"
+    },
+    {
+      "id": "1.4.9",
+      "level": "AAA",
+      "title": "Images of Text (No Exception)"
+    },
+    {
+      "id": "1.4.10",
+      "level": "AA",
+      "title": "Reflow"
+    },
+    {
+      "id": "1.4.11",
+      "level": "AA",
+      "title": "Non-text Contrast"
+    },
+    {
+      "id": "1.4.12",
+      "level": "AA",
+      "title": "Text Spacing"
+    },
+    {
+      "id": "1.4.13",
+      "level": "AA",
+      "title": "Content on Hover or Focus"
+    },
+    {
+      "id": "2.1.1",
+      "level": "A",
+      "title": "Keyboard"
+    },
+    {
+      "id": "2.1.2",
+      "level": "A",
+      "title": "No Keyboard Trap"
+    },
+    {
+      "id": "2.1.3",
+      "level": "AAA",
+      "title": "Keyboard (No Exception)"
+    },
+    {
+      "id": "2.1.4",
+      "level": "A",
+      "title": "Character Key Shortcuts"
+    },
+    {
+      "id": "2.2.1",
+      "level": "A",
+      "title": "Timing Adjustable"
+    },
+    {
+      "id": "2.2.2",
+      "level": "A",
+      "title": "Pause, Stop, Hide"
+    },
+    {
+      "id": "2.2.3",
+      "level": "AAA",
+      "title": "No Timing"
+    },
+    {
+      "id": "2.2.4",
+      "level": "AAA",
+      "title": "Interruptions"
+    },
+    {
+      "id": "2.2.5",
+      "level": "AAA",
+      "title": "Re-authenticating"
+    },
+    {
+      "id": "2.2.6",
+      "level": "AAA",
+      "title": "Timeouts"
+    },
+    {
+      "id": "2.3.1",
+      "level": "A",
+      "title": "Three Flashes or Below Threshold"
+    },
+    {
+      "id": "2.3.2",
+      "level": "AAA",
+      "title": "Three Flashes"
+    },
+    {
+      "id": "2.3.3",
+      "level": "AAA",
+      "title": "Animation from Interactions"
+    },
+    {
+      "id": "2.4.1",
+      "level": "A",
+      "title": "Bypass Blocks"
+    },
+    {
+      "id": "2.4.2",
+      "level": "A",
+      "title": "Page Titled"
+    },
+    {
+      "id": "2.4.3",
+      "level": "A",
+      "title": "Focus Order"
+    },
+    {
+      "id": "2.4.4",
+      "level": "A",
+      "title": "Link Purpose (In Context)"
+    },
+    {
+      "id": "2.4.5",
+      "level": "AA",
+      "title": "Multiple Ways"
+    },
+    {
+      "id": "2.4.6",
+      "level": "AA",
+      "title": "Headings and Labels"
+    },
+    {
+      "id": "2.4.7",
+      "level": "AA",
+      "title": "Focus Visible"
+    },
+    {
+      "id": "2.4.8",
+      "level": "AAA",
+      "title": "Location"
+    },
+    {
+      "id": "2.4.9",
+      "level": "AAA",
+      "title": "Link Purpose (Link Only)"
+    },
+    {
+      "id": "2.4.10",
+      "level": "AAA",
+      "title": "Section Headings"
+    },
+    {
+      "id": "2.4.11",
+      "level": "AA",
+      "title": "Focus Not Obscured (Minimum)"
+    },
+    {
+      "id": "2.4.12",
+      "level": "AAA",
+      "title": "Focus Not Obscured (Enhanced)"
+    },
+    {
+      "id": "2.4.13",
+      "level": "AAA",
+      "title": "Focus Appearance"
+    },
+    {
+      "id": "2.5.1",
+      "level": "A",
+      "title": "Pointer Gestures"
+    },
+    {
+      "id": "2.5.2",
+      "level": "A",
+      "title": "Pointer Cancellation"
+    },
+    {
+      "id": "2.5.3",
+      "level": "A",
+      "title": "Label in Name"
+    },
+    {
+      "id": "2.5.4",
+      "level": "A",
+      "title": "Motion Actuation"
+    },
+    {
+      "id": "2.5.5",
+      "level": "AAA",
+      "title": "Target Size (Enhanced)"
+    },
+    {
+      "id": "2.5.6",
+      "level": "AAA",
+      "title": "Concurrent Input Mechanisms"
+    },
+    {
+      "id": "2.5.7",
+      "level": "AA",
+      "title": "Dragging Movements"
+    },
+    {
+      "id": "2.5.8",
+      "level": "AA",
+      "title": "Target Size (Minimum)"
+    },
+    {
+      "id": "3.1.1",
+      "level": "A",
+      "title": "Language of Page"
+    },
+    {
+      "id": "3.1.2",
+      "level": "AA",
+      "title": "Language of Parts"
+    },
+    {
+      "id": "3.1.3",
+      "level": "AAA",
+      "title": "Unusual Words"
+    },
+    {
+      "id": "3.1.4",
+      "level": "AAA",
+      "title": "Abbreviations"
+    },
+    {
+      "id": "3.1.5",
+      "level": "AAA",
+      "title": "Reading Level"
+    },
+    {
+      "id": "3.1.6",
+      "level": "AAA",
+      "title": "Pronunciation"
+    },
+    {
+      "id": "3.2.1",
+      "level": "A",
+      "title": "On Focus"
+    },
+    {
+      "id": "3.2.2",
+      "level": "A",
+      "title": "On Input"
+    },
+    {
+      "id": "3.2.3",
+      "level": "AA",
+      "title": "Consistent Navigation"
+    },
+    {
+      "id": "3.2.4",
+      "level": "AA",
+      "title": "Consistent Identification"
+    },
+    {
+      "id": "3.2.5",
+      "level": "AAA",
+      "title": "Change on Request"
+    },
+    {
+      "id": "3.2.6",
+      "level": "A",
+      "title": "Consistent Help"
+    },
+    {
+      "id": "3.3.1",
+      "level": "A",
+      "title": "Error Identification"
+    },
+    {
+      "id": "3.3.2",
+      "level": "A",
+      "title": "Labels or Instructions"
+    },
+    {
+      "id": "3.3.3",
+      "level": "AA",
+      "title": "Error Suggestion"
+    },
+    {
+      "id": "3.3.4",
+      "level": "AA",
+      "title": "Error Prevention (Legal, Financial, Data)"
+    },
+    {
+      "id": "3.3.5",
+      "level": "AAA",
+      "title": "Help"
+    },
+    {
+      "id": "3.3.6",
+      "level": "AAA",
+      "title": "Error Prevention (All)"
+    },
+    {
+      "id": "3.3.7",
+      "level": "A",
+      "title": "Redundant Entry"
+    },
+    {
+      "id": "3.3.8",
+      "level": "AA",
+      "title": "Accessible Authentication (Minimum)"
+    },
+    {
+      "id": "3.3.9",
+      "level": "AAA",
+      "title": "Accessible Authentication (Enhanced)"
+    },
+    {
+      "id": "4.1.2",
+      "level": "A",
+      "title": "Name, Role, Value"
+    },
+    {
+      "id": "4.1.3",
+      "level": "AA",
+      "title": "Status Messages"
+    }
+  ],
+  "acts": [
+    {
+      "id": "047fe0",
+      "name": "Document has heading for non-repeated content",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "09o5cg",
+      "name": "Text has enhanced contrast",
+      "wcag_sc_ids": [
+        "1.4.6"
+      ]
+    },
+    {
+      "id": "0ssw9k",
+      "name": "Scrollable content can be reached with sequential focus navigation",
+      "wcag_sc_ids": [
+        "2.1.1",
+        "2.1.3"
+      ]
+    },
+    {
+      "id": "0va7u6",
+      "name": "HTML images contain no text",
+      "wcag_sc_ids": [
+        "1.4.5",
+        "1.4.9"
+      ]
+    },
+    {
+      "id": "1a02b0",
+      "name": "Audio and visuals of video element have transcript",
+      "wcag_sc_ids": [
+        "1.2.8"
+      ]
+    },
+    {
+      "id": "1ea59c",
+      "name": "Video element visual content has audio description",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "1ec09b",
+      "name": "Video element visual content has strict accessible alternative",
+      "wcag_sc_ids": [
+        "1.2.5"
+      ]
+    },
+    {
+      "id": "23a2a8",
+      "name": "Image has non-empty accessible name",
+      "wcag_sc_ids": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "24afc2",
+      "name": "Important letter spacing in style attributes is wide enough",
+      "wcag_sc_ids": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "2779a5",
+      "name": "HTML page has non-empty title",
+      "wcag_sc_ids": [
+        "2.4.2"
+      ]
+    },
+    {
+      "id": "2eb176",
+      "name": "Audio element content has transcript",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "2ee8b8",
+      "name": "Visible label is part of accessible name",
+      "wcag_sc_ids": [
+        "2.5.3"
+      ]
+    },
+    {
+      "id": "2t702h",
+      "name": "Summary element has non-empty accessible name",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "307n5z",
+      "name": "Element with presentational children has no focusable content",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "36b590",
+      "name": "Error message describes invalid form field value",
+      "wcag_sc_ids": [
+        "3.3.1"
+      ]
+    },
+    {
+      "id": "3e12e1",
+      "name": "Block of repeated content is collapsible",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "3ea0c8",
+      "name": "Id attribute value is unique",
+      "wcag_sc_ids": [
+        "4.1.1"
+      ]
+    },
+    {
+      "id": "46ca7f",
+      "name": "Element marked as decorative is not exposed",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "4b1c6c",
+      "name": "Iframe elements with identical accessible names have equivalent purpose",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "4c31df",
+      "name": "Audio or video element that plays automatically has a control mechanism",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "4e8ab6",
+      "name": "Element with role attribute has required states and properties",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "59796f",
+      "name": "Image button has non-empty accessible name",
+      "wcag_sc_ids": [
+        "1.1.1",
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "59br37",
+      "name": "Zoomed text node is not clipped with CSS overflow",
+      "wcag_sc_ids": [
+        "1.4.4"
+      ]
+    },
+    {
+      "id": "5b7ae0",
+      "name": "HTML page lang and xml:lang attributes have matching values",
+      "wcag_sc_ids": [
+        "3.1.1"
+      ]
+    },
+    {
+      "id": "5c01ea",
+      "name": "ARIA state or property is permitted",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "5effbb",
+      "name": "Link in context is descriptive",
+      "wcag_sc_ids": [
+        "2.4.4"
+      ]
+    },
+    {
+      "id": "5f99a7",
+      "name": "ARIA attribute is defined in WAI-ARIA",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "674b10",
+      "name": "Role attribute has valid value",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "6a7281",
+      "name": "ARIA state or property has valid value",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "6cfa84",
+      "name": "Element with aria-hidden has no content in sequential focus navigation",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "73f2c2",
+      "name": "Autocomplete attribute has valid value",
+      "wcag_sc_ids": [
+        "1.3.5"
+      ]
+    },
+    {
+      "id": "7677a9",
+      "name": "Device motion based changes to the content can also be created from the user interface",
+      "wcag_sc_ids": [
+        "2.5.4"
+      ]
+    },
+    {
+      "id": "78fd32",
+      "name": "Important line height in style attributes is wide enough",
+      "wcag_sc_ids": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "7d6734",
+      "name": "SVG element with explicit role has non-empty accessible name",
+      "wcag_sc_ids": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "80af7b",
+      "name": "Focusable element has no keyboard trap",
+      "wcag_sc_ids": [
+        "2.1.2"
+      ]
+    },
+    {
+      "id": "80f0bf",
+      "name": "Audio or video element avoids automatically playing audio",
+      "wcag_sc_ids": [
+        "1.4.2"
+      ]
+    },
+    {
+      "id": "8fc3b6",
+      "name": "Object element rendering non-text content has non-empty accessible name",
+      "wcag_sc_ids": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "97a4e1",
+      "name": "Button has non-empty accessible name",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "9bd38c",
+      "name": "Content has alternative for visual reference",
+      "wcag_sc_ids": [
+        "1.3.3"
+      ]
+    },
+    {
+      "id": "9e45ec",
+      "name": "Important word spacing in style attributes is wide enough",
+      "wcag_sc_ids": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "9eb3f6",
+      "name": "Image filename is accessible name for image",
+      "wcag_sc_ids": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "a1b64e",
+      "name": "Focusable element has no keyboard trap via standard navigation",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "a25f45",
+      "name": "Headers attribute specified on a cell refers to cells in the same table element",
+      "wcag_sc_ids": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "aaa1bf",
+      "name": "Audio or video element that plays automatically has no audio that lasts more than 3 seconds",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "ab4d13",
+      "name": "Video element content is media alternative for text",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "ac7dc6",
+      "name": "Video element visual-only content has description track",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "afb423",
+      "name": "Audio element content is media alternative for text",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "afw4f7",
+      "name": "Text has minimum contrast",
+      "wcag_sc_ids": [
+        "1.4.3"
+      ]
+    },
+    {
+      "id": "aizyf1",
+      "name": "Link is descriptive",
+      "wcag_sc_ids": [
+        "2.4.9"
+      ]
+    },
+    {
+      "id": "akn7bn",
+      "name": "Iframe with interactive elements is not excluded from tab-order",
+      "wcag_sc_ids": [
+        "2.1.1",
+        "2.1.3"
+      ]
+    },
+    {
+      "id": "b20e66",
+      "name": "Links with identical accessible names have equivalent purpose",
+      "wcag_sc_ids": [
+        "2.4.9"
+      ]
+    },
+    {
+      "id": "b33eff",
+      "name": "Orientation of the page is not restricted using CSS transforms",
+      "wcag_sc_ids": [
+        "1.3.4"
+      ]
+    },
+    {
+      "id": "b40fd1",
+      "name": "Document has a landmark with non-repeated content",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "b49b2e",
+      "name": "Heading is descriptive",
+      "wcag_sc_ids": [
+        "2.4.6"
+      ]
+    },
+    {
+      "id": "b4f0c3",
+      "name": "Meta viewport allows for zoom",
+      "wcag_sc_ids": [
+        "1.4.4"
+      ]
+    },
+    {
+      "id": "b5c3f8",
+      "name": "HTML page has lang attribute",
+      "wcag_sc_ids": [
+        "3.1.1"
+      ]
+    },
+    {
+      "id": "bc4a75",
+      "name": "ARIA required owned elements",
+      "wcag_sc_ids": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "bc659a",
+      "name": "Meta element has no refresh delay",
+      "wcag_sc_ids": [
+        "2.2.1"
+      ]
+    },
+    {
+      "id": "bf051a",
+      "name": "HTML page lang attribute has valid language tag",
+      "wcag_sc_ids": [
+        "3.1.1"
+      ]
+    },
+    {
+      "id": "bisz58",
+      "name": "Meta element has no refresh delay (no exception)",
+      "wcag_sc_ids": [
+        "2.2.4",
+        "3.2.5"
+      ]
+    },
+    {
+      "id": "c249d5",
+      "name": "Device motion based changes to the content can be disabled",
+      "wcag_sc_ids": [
+        "2.5.4"
+      ]
+    },
+    {
+      "id": "c3232f",
+      "name": "Video element visual-only content has accessible alternative",
+      "wcag_sc_ids": [
+        "1.2.1"
+      ]
+    },
+    {
+      "id": "c487ae",
+      "name": "Link has non-empty accessible name",
+      "wcag_sc_ids": [
+        "2.4.4",
+        "2.4.9",
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "c4a8a4",
+      "name": "HTML page title is descriptive",
+      "wcag_sc_ids": [
+        "2.4.2"
+      ]
+    },
+    {
+      "id": "c5a4ea",
+      "name": "Video element visual content has accessible alternative",
+      "wcag_sc_ids": [
+        "1.2.3"
+      ]
+    },
+    {
+      "id": "cae760",
+      "name": "Iframe element has non-empty accessible name",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "cc0f0a",
+      "name": "Form field label is descriptive",
+      "wcag_sc_ids": [
+        "2.4.6"
+      ]
+    },
+    {
+      "id": "cf77f2",
+      "name": "Bypass Blocks of Repeated Content",
+      "wcag_sc_ids": [
+        "2.4.1"
+      ]
+    },
+    {
+      "id": "d0f69e",
+      "name": "Table header cell has assigned cells",
+      "wcag_sc_ids": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "d7ba54",
+      "name": "Video element visual-only content has audio track alternative",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "de46e4",
+      "name": "Element with lang attribute has valid language tag",
+      "wcag_sc_ids": [
+        "3.1.2"
+      ]
+    },
+    {
+      "id": "e086e5",
+      "name": "Form field has non-empty accessible name",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "e6952f",
+      "name": "Attribute is not duplicated",
+      "wcag_sc_ids": [
+        "4.1.1"
+      ]
+    },
+    {
+      "id": "e7aa44",
+      "name": "Audio element content has text alternative",
+      "wcag_sc_ids": [
+        "1.2.1"
+      ]
+    },
+    {
+      "id": "e88epe",
+      "name": "Image not in the accessibility tree is decorative",
+      "wcag_sc_ids": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "eac66b",
+      "name": "Video element auditory content has accessible alternative",
+      "wcag_sc_ids": [
+        "1.2.2"
+      ]
+    },
+    {
+      "id": "ebe86a",
+      "name": "Focusable element has no keyboard trap via non-standard navigation",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "ee13b5",
+      "name": "Video element visual-only content has transcript",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "efbfc7",
+      "name": "Text content that changes automatically can be paused, stopped or hidden",
+      "wcag_sc_ids": [
+        "2.2.2"
+      ]
+    },
+    {
+      "id": "f196ce",
+      "name": "Video element visual content has description track",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "f51b46",
+      "name": "Video element auditory content has captions",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "fd26cf",
+      "name": "Video element visual-only content is media alternative for text",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "fd3a94",
+      "name": "Links with identical accessible names and same context serve equivalent purpose",
+      "wcag_sc_ids": [
+        "2.4.4"
+      ]
+    },
+    {
+      "id": "ff89c9",
+      "name": "ARIA required context role",
+      "wcag_sc_ids": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "ffbc54",
+      "name": "No keyboard shortcut uses only printable characters",
+      "wcag_sc_ids": [
+        "2.1.4"
+      ]
+    },
+    {
+      "id": "ffd0e9",
+      "name": "Heading has non-empty accessible name",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "in6db8",
+      "name": "ARIA required ID references exist",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "kb1m8s",
+      "name": "ARIA global properties not used where prohibited",
+      "wcag_sc_ids": []
+    },
+    {
+      "id": "m6b1q3",
+      "name": "Menuitem has non-empty accessible name",
+      "wcag_sc_ids": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "off6ek",
+      "name": "HTML element language subtag matches language",
+      "wcag_sc_ids": [
+        "3.1.2"
+      ]
+    },
+    {
+      "id": "oj04fd",
+      "name": "Element in sequential focus order has visible focus",
+      "wcag_sc_ids": [
+        "2.4.7"
+      ]
+    },
+    {
+      "id": "qt1vmo",
+      "name": "Image accessible name is descriptive",
+      "wcag_sc_ids": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "ucwvc8",
+      "name": "HTML page language subtag matches default language",
+      "wcag_sc_ids": [
+        "3.1.1"
+      ]
+    },
+    {
+      "id": "ye5d6e",
+      "name": "Document has an instrument to move focus to non-repeated content",
+      "wcag_sc_ids": []
+    }
+  ],
+  "apg_snapshot": {
+    "date": "2026-05-07",
+    "apg_base": "https://www.w3.org/WAI/ARIA/apg/patterns",
+    "pattern_count": 28
+  },
+  "wcag_snapshot": {
+    "date": "2026-05-07",
+    "version": "2.2",
+    "sc_count": 86,
+    "technique_count": 316,
+    "failure_count": 89
+  },
+  "act_snapshot": {
+    "date": "2026-05-07",
+    "upstream_commit": "80e887e60c51a9aeeaa8ca55a730ab443b658d4e",
+    "rule_count": 94
+  }
+}

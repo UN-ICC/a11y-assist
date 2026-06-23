@@ -1,0 +1,29 @@
+{
+  "role": "grid",
+  "name": "Grid",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+  "about_this_pattern": "A grid widget is a container that enables users to navigate the information or interactive elements it contains using directional navigation keys, such as arrow keys, Home, and End. As a generic container widget that offers flexible keyboard navigation, it can serve a wide variety of needs. It can be used for purposes as simple as grouping a collection of checkboxes or navigation links or as complex as creating a full-featured spreadsheet application. While the words \"row\" and \"column\" are used in the names of WAI-ARIA attributes and by assistive technologies when describing and presenting the logical structure of elements with the grid role, using the grid role on an element does not necessarily imply that its visual presentation is tabular.\n\nWhen presenting content that is tabular, consider the following factors when choosing between implementing this grid pattern or the table pattern.\n\nUses of the grid pattern broadly fall into two categories: presenting tabular information (data grids) and grouping other widgets (layout grids). Even though both data grids and layout grids employ the same ARIA roles, states, and properties, differences in their content and purpose surface factors that are important to consider in keyboard interaction design. To address these factors, the following two sections describe separate keyboard interaction patterns for data and layout grids.",
+  "aria_roles": [
+    "columnheader",
+    "grid",
+    "gridcell",
+    "row",
+    "rowgroup",
+    "rowheader"
+  ],
+  "keyboard_interactions": [],
+  "examples": [
+    {
+      "name": "Layout Grid Examples",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/"
+    },
+    {
+      "name": "Data Grid Examples",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/"
+    },
+    {
+      "name": "Advanced Data Grid Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/advanced-data-grid/"
+    }
+  ]
+}

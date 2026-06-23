@@ -1,0 +1,61 @@
+{
+  "role": "slider",
+  "name": "Slider",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/",
+  "about_this_pattern": "A slider is an input where the user selects a value from within a given range. Sliders typically have a slider thumb that can be moved along a bar, rail, or track to change the value of the slider.",
+  "aria_roles": [
+    "slider"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Right Arrow",
+      "description": "Increase the value of the slider by one step."
+    },
+    {
+      "key": "Up Arrow",
+      "description": "Increase the value of the slider by one step."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "Decrease the value of the slider by one step."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Decrease the value of the slider by one step."
+    },
+    {
+      "key": "Home",
+      "description": "Set the slider to the first allowed value in its range."
+    },
+    {
+      "key": "End",
+      "description": "Set the slider to the last allowed value in its range."
+    },
+    {
+      "key": "Page Up (Optional)",
+      "description": "Increase the slider value by an amount larger than the step change made by Up Arrow."
+    },
+    {
+      "key": "Page Down (Optional)",
+      "description": "Decrease the slider value by an amount larger than the step change made by Down Arrow."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Color Viewer Slider Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/"
+    },
+    {
+      "name": "Vertical Temperature Slider Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/"
+    },
+    {
+      "name": "Rating Slider Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/"
+    },
+    {
+      "name": "Media Seek Slider Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/"
+    }
+  ]
+}

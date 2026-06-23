@@ -1,0 +1,94 @@
+# Accessibility guidance for Components/Button.
+#
+# This file is the authoring surface for the prose-heavy fields:
+#   figma_ref:    pointer to the relevant Figma annotation node
+#   fix_guidance: how a developer should remediate a failing check
+#
+# Top-level keys are rule IDs. They cover BOTH custom ds-* rules
+# (defined in button.ts) and standard axe / WCAG rules that apply
+# specifically to Button (e.g. button-name, color-contrast).
+#
+# Build-time validation:
+#   - every ds-* rule in button.ts must have a key here
+#   - every key here must reference a known rule (ds-* in this file or
+#     a recognised axe/WCAG rule id)
+#   - both fields must be present and non-empty
+
+# ─── DS rules (defined in button.ts) ────────────────────────────────
+
+ds-button-disabled-pattern:
+  figma_ref: "Button → States → Disabled"
+  fix_guidance: |
+    Use `aria-disabled="true"` instead of the `disabled` attribute.
+
+    Disabled buttons should remain focusable so screen reader users can
+    discover them and understand they exist but are temporarily
+    unavailable. The `disabled` attribute removes the element from the
+    focus order entirely, hiding it from keyboard and screen reader
+    users.
+
+    Handle click prevention in JavaScript (e.g. early return from the
+    click handler). `aria-disabled` does not block clicks on its own.
+
+ds-button-icon-text:
+  figma_ref: "Button → Variants → Icon Only"
+  fix_guidance: |
+    Add a visually hidden text label inside the button alongside the
+    icon:
+
+        <button class="btn-icon">
+          <svg aria-hidden="true">...</svg>
+          <span class="sr-only">Save changes</span>
+        </button>
+
+    `.sr-only` hides text visually but keeps it available to assistive
+    technology, so screen readers announce "Save changes, button" while
+    sighted users see only the icon. Mark the icon `aria-hidden="true"`
+    so it isn't announced.
+
+ds-button-loading-state:
+  figma_ref: "Button → States → Loading"
+  fix_guidance: |
+    Set `aria-busy="true"` on the button when entering the loading
+    state, and remove it when the action completes. This signals to
+    assistive tech that the control is temporarily processing while
+    keeping it focusable.
+
+    The visible spinner is decorative — mark it `aria-hidden="true"`
+    and rely on `aria-busy` for the announcement.
+
+# ─── Standard axe / WCAG rules with Button-specific guidance ────────
+
+button-name:
+  figma_ref: "Button → Accessibility → Labels"
+  fix_guidance: |
+    A visible text label is the preferred way to give a button an
+    accessible name. Use `aria-label` only when an icon-only button is
+    unavoidable (see ds-button-icon-text for that path).
+
+color-contrast:
+  figma_ref: "Button → Accessibility → Contrast"
+  fix_guidance: |
+    Use the design tokens (`btn-primary-text` on `btn-primary-bg`,
+    `btn-secondary-text` on `btn-secondary-bg`, etc.) — these are
+    pre-validated for WCAG AA contrast (4.5:1 for normal text).
+
+    Do not override token colours in component code. If a colour
+    combination is missing from the tokens, raise it as a token request
+    rather than fixing it locally.
+
+"2.4.11":
+  figma_ref: "Button → States → Focus"
+  fix_guidance: |
+    Apply the `ds-focus-ring` token to the button's `:focus-visible`
+    state. Never set `outline: none` without providing an equivalent
+    visible focus indicator — WCAG 2.4.11 requires the focused element
+    to be clearly distinguishable from non-focused elements.
+
+target-size:
+  figma_ref: "Button → Accessibility → Touch Target"
+  fix_guidance: |
+    Aim for a 44×44 px minimum touch target (AAA) by setting padding,
+    not fixed pixel heights. Small inline buttons inside dense UI may
+    fall back to the 24×24 px AA minimum, but coordinate with design
+    review before doing so.

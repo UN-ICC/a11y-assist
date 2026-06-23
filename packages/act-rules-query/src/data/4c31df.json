@@ -1,0 +1,16 @@
+{
+  "id": "4c31df",
+  "name": "Audio or video element that plays automatically has a control mechanism",
+  "rule_type": "atomic",
+  "description": "audio or video that plays automatically must have a control mechanism.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Audio output",
+    "Visual output"
+  ],
+  "applicability_text": "This rule applies to any `audio` or `video` element for which all the following are true:\n\n- (**autoplay**) the element has an `autoplay` [attribute value][] of `true`; and\n- (**not muted**) the element has a `muted` [attribute value][] of `false`; and\n- (**not paused**) the element has a `paused` [attribute value][] of `false`; and\n- (**duration**) the element has a [media resource][] lasting more than 3 seconds and that contains audio.",
+  "url": "https://act-rules.github.io/rules/4c31df"
+}

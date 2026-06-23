@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACT Rule d0f69e Table header cell has assigned cells — a11ycat</title>
+  <meta name="description" content="ACT Rule d0f69e: Table header cell has assigned cells. Covers WCAG 1.3.1.">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-act">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card act-card">
+<header>
+<p class="kicker">ACT Rule · atomic</p>
+<h1>Table header cell has assigned cells</h1>
+<p class="role-tag">id: <code>d0f69e</code></p>
+<p><a href="https://act-rules.github.io/rules/d0f69e" rel="noreferrer">https://act-rules.github.io/rules/d0f69e</a></p>
+</header>
+<section><h2>Description</h2><p>This rule checks that each table header has assigned cells in a table element.</p></section>
+<section><h2>WCAG Success Criteria covered</h2><ul class="sc-list">
+<li><a href="../wcag/1.3.1.html"><code>1.3.1</code></a></li>
+</ul></section>
+<section><h2>Applicability <span class="provenance-tag">verbatim from upstream</span></h2>
+<div class="applicability">This rule applies to any [HTML element][] with a [semantic][semantic role] [rowheader][] or [columnheader][] for which all of the following is true:<br><br>- the element is [visible][]; and<br>- the element is [included in the accessibility tree][]; and<br>- the element has at least one ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][]; and<br>- the element&#39;s closest ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][] is [included in the accessibility tree][].</div>
+</section>
+<section><h2>Patterns matched by this rule</h2><ul class="pattern-list">
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/grid-web.html"><code>grid</code></a></li>
+<li><a href="../pattern/table-web.html"><code>table</code></a></li>
+<li><a href="../pattern/treegrid-web.html"><code>treegrid</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this rule</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;d0f69e&quot;,
+  &quot;name&quot;: &quot;Table header cell has assigned cells&quot;,
+  &quot;rule_type&quot;: &quot;atomic&quot;,
+  &quot;description&quot;: &quot;This rule checks that each table header has assigned cells in a table element.&quot;,
+  &quot;wcag_sc_ids&quot;: [
+    &quot;1.3.1&quot;
+  ],
+  &quot;wcag_sc_ids_secondary&quot;: [],
+  &quot;input_aspects&quot;: [
+    &quot;Accessibility Tree&quot;,
+    &quot;CSS styling&quot;,
+    &quot;DOM Tree&quot;
+  ],
+  &quot;applicability_text&quot;: &quot;This rule applies to any [HTML element][] with a [semantic][semantic role] [rowheader][] or [columnheader][] for which all of the following is true:\n\n- the element is [visible][]; and\n- the element is [included in the accessibility tree][]; and\n- the element has at least one ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][]; and\n- the element&#39;s closest ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][] is [included in the accessibility tree][].&quot;,
+  &quot;url&quot;: &quot;https://act-rules.github.io/rules/d0f69e&quot;,
+  &quot;patterns_referencing&quot;: [
+    &quot;combobox&quot;,
+    &quot;grid&quot;,
+    &quot;table&quot;,
+    &quot;treegrid&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

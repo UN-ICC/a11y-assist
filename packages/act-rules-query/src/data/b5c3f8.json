@@ -1,0 +1,15 @@
+{
+  "id": "b5c3f8",
+  "name": "HTML page has lang attribute",
+  "rule_type": "atomic",
+  "description": "This rule checks that an HTML page has a non-empty `lang` attribute.",
+  "wcag_sc_ids": [
+    "3.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [document element](https://dom.spec.whatwg.org/#document-element) if it is an `html` element for which all the following are true:\n\n- is in a [top-level browsing context](https://html.spec.whatwg.org/#top-level-browsing-context); and\n- has a [node document](https://dom.spec.whatwg.org/#concept-node-document) with a [content type](https://dom.spec.whatwg.org/#concept-document-content-type) of `text/html`.\n\n**Note:** `html` elements within `iframe` and `object` elements are not applicable as `iframe` and `object` elements create [nested browsing contexts](https://html.spec.whatwg.org/#nested-browsing-context). However, as these elements are meant to provide a layer of isolation, the declared language of their [parent browsing context](https://html.spec.whatwg.org/#parent-browsing-context) will likely not be inherited, making it possible for empty `lang` attributes in [nested browsing contexts](https://html.spec.whatwg.org/#nested-browsing-context) to also cause accessibility issues.",
+  "url": "https://act-rules.github.io/rules/b5c3f8"
+}

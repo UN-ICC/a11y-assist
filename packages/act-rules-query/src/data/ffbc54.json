@@ -1,0 +1,15 @@
+{
+  "id": "ffbc54",
+  "name": "No keyboard shortcut uses only printable characters",
+  "rule_type": "atomic",
+  "description": "This rule checks that if keyboard shortcuts are implemented using only printable characters, then there is a mechanism to disable the shortcut, or to remap the shortcut to use one or more non-printable character keys, or the shortcut for a user interface component is only available when that component has focus.",
+  "wcag_sc_ids": [
+    "2.1.4"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [keyboard event][] for which all of the following is true:\n\n- the event's attribute `key` is a [printable character][] key; and\n- the event's method `getModifierState` returns `false` for each of the [valid modifier keys][]; and\n- the event causes [changes in the content][changes in content] of the [HTML document][].",
+  "url": "https://act-rules.github.io/rules/ffbc54"
+}

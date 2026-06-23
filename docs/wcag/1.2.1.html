@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 1.2.1 Audio-only and Video-only (Prerecorded) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 1.2.1: Audio-only and Video-only (Prerecorded) (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>1.2.1</code> Audio-only and Video-only (Prerecorded)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such: Prerecorded Audio-only An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content. Prerecorded Video-only Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded" rel="noreferrer">Understanding 1.2.1 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G158" rel="noreferrer"><code>G158</code> Providing an alternative for time-based media for audio-only content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G159" rel="noreferrer"><code>G159</code> Providing an alternative for time-based media for video-only content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G166" rel="noreferrer"><code>G166</code> Providing audio that describes the important video content and describing it as such</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F30" rel="noreferrer"><code>F30</code> Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F67" rel="noreferrer"><code>F67</code> Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information</a></li>
+</ul></section>
+<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
+<li><a href="../pattern/accordion-web.html"><code>accordion</code></a></li>
+<li><a href="../pattern/button-web.html"><code>button</code></a></li>
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/disclosure-web.html"><code>disclosure</code></a></li>
+<li><a href="../pattern/menubutton-web.html"><code>menubutton</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;1.2.1&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Audio-only and Video-only (Prerecorded)&quot;,
+  &quot;short_text&quot;: &quot;For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such: Prerecorded Audio-only An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content. Prerecorded Video-only Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G158&quot;,
+    &quot;G159&quot;,
+    &quot;G166&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F30&quot;,
+    &quot;F67&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G158&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing an alternative for time-based media for audio-only content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.2.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G158&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G159&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing an alternative for time-based media for video-only content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.2.1&quot;,
+        &quot;1.2.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G159&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G166&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing audio that describes the important video content and describing it as such&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.2.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G166&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F30&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.2.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F30&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F67&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.1.1&quot;,
+        &quot;1.2.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F67&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: [
+    &quot;accordion&quot;,
+    &quot;button&quot;,
+    &quot;combobox&quot;,
+    &quot;disclosure&quot;,
+    &quot;menubutton&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

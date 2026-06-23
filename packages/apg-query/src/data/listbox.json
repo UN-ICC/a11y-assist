@@ -1,0 +1,115 @@
+{
+  "role": "listbox",
+  "name": "Listbox",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/",
+  "about_this_pattern": "A listbox widget presents a list of options and allows a user to select one or more of them. A listbox that allows a single option to be chosen is a single-select listbox; one that allows multiple options to be selected is a multi-select listbox.\n\nWhen screen readers present a listbox, they may render the name, state, and position of each option in the list. The name of an option is a string calculated by the browser, typically from the content of the option element. As a flat string, the name does not contain any semantic information. Thus, if an option contains a semantic element, such as a heading, screen reader users will not have access to the semantics. In addition, the interaction model conveyed by the listbox role to assistive technologies does not support interacting with elements inside of an option. Because of these traits of the listbox widget, it does not provide an accessible way to present a list of interactive elements, such as links, buttons, or checkboxes. To present a list of interactive elements, see the Grid Pattern.\n\nAvoiding very long option names facilitates understandability and perceivability for screen reader users. The entire name of an option is spoken as a single unit of speech when the option is read. When too much information is spoken as the result of a single key press, it is difficult to understand. Long names inhibit perception by increasing the impact of interrupted speech because users typically have to re-read the entire option. And, if the user does not understand what is spoken, reading the name by character, word, or phrase may be a difficult operation for many screen reader users in the context of a listbox widget.\n\nSets of options where each option name starts with the same word or phrase can also significantly degrade usability for keyboard and screen reader users. Scrolling through the list to find a specific option becomes inordinately time consuming for a screen reader user who must listen to that word or phrase repeated before hearing what is unique about each option. For example, if a listbox for choosing a city were to contain options where each city name were preceded by a country name, and if many cities were listed for each country, a screen reader user would have to listen to the country name before hearing each city name. In such a scenario, it would be better to have 2 list boxes, one for country and one for city.",
+  "aria_roles": [
+    "group",
+    "listbox",
+    "option"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Down Arrow",
+      "description": "Moves focus to the next option. Optionally, in a single-select listbox, selection may also move with focus."
+    },
+    {
+      "key": "Up Arrow",
+      "description": "Moves focus to the previous option. Optionally, in a single-select listbox, selection may also move with focus."
+    },
+    {
+      "key": "Home (Optional)",
+      "description": "Moves focus to first option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options."
+    },
+    {
+      "key": "End (Optional)",
+      "description": "Moves focus to last option. Optionally, in a single-select listbox, selection may also move with focus. Supporting this key is strongly recommended for lists with more than five options."
+    },
+    {
+      "key": "Shift + Control",
+      "description": "Recommended selection model -- holding modifier keys is not necessary:"
+    },
+    {
+      "key": "Space",
+      "description": "changes the selection state of the focused option."
+    },
+    {
+      "key": "Shift + Down Arrow (Optional)",
+      "description": "Moves focus to and toggles the selected state of the next option."
+    },
+    {
+      "key": "Shift + Up Arrow (Optional)",
+      "description": "Moves focus to and toggles the selected state of the previous option."
+    },
+    {
+      "key": "Shift + Space (Optional)",
+      "description": "Selects contiguous items from the most recently selected item to the focused item."
+    },
+    {
+      "key": "Control + Shift + Home (Optional)",
+      "description": "Selects the focused option and all options up to the first option. Optionally, moves focus to the first option."
+    },
+    {
+      "key": "Control + Shift + End (Optional)",
+      "description": "Selects the focused option and all options down to the last option. Optionally, moves focus to the last option."
+    },
+    {
+      "key": "Control + A (Optional)",
+      "description": "Selects all options in the list. Optionally, if all options are selected, it may also unselect all options."
+    },
+    {
+      "key": "Shift + Control",
+      "description": "Alternative selection model -- moving focus without holding a Shift or Control modifier unselects all selected options except the focused option:"
+    },
+    {
+      "key": "Shift + Down Arrow",
+      "description": "Moves focus to and toggles the selection state of the next option."
+    },
+    {
+      "key": "Shift + Up Arrow",
+      "description": "Moves focus to and toggles the selection state of the previous option."
+    },
+    {
+      "key": "Control + Down Arrow",
+      "description": "Moves focus to the next option without changing its selection state."
+    },
+    {
+      "key": "Control + Up Arrow",
+      "description": "Moves focus to the previous option without changing its selection state."
+    },
+    {
+      "key": "Control / Space",
+      "description": "Control + Space Changes the selection state of the focused option."
+    },
+    {
+      "key": "Shift + Space (Optional)",
+      "description": "Selects contiguous items from the most recently selected item to the focused item."
+    },
+    {
+      "key": "Control + Shift + Home (Optional)",
+      "description": "Selects the focused option and all options up to the first option. Optionally, moves focus to the first option."
+    },
+    {
+      "key": "Control + Shift + End (Optional)",
+      "description": "Selects the focused option and all options down to the last option. Optionally, moves focus to the last option."
+    },
+    {
+      "key": "Control + A (Optional)",
+      "description": "Selects all options in the list. Optionally, if all options are selected, it may also unselect all options."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Scrollable Listbox Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/"
+    },
+    {
+      "name": "Example Listboxes with Rearrangeable Options",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/"
+    },
+    {
+      "name": "Listbox Example with Grouped Options",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/"
+    }
+  ]
+}

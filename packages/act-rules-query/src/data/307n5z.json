@@ -1,0 +1,16 @@
+{
+  "id": "307n5z",
+  "name": "Element with presentational children has no focusable content",
+  "rule_type": "atomic",
+  "description": "This rule checks that elements with a role that makes its children presentational do not contain focusable elements.",
+  "wcag_sc_ids": [
+    "4.1.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any [HTML or SVG element][] with a [semantic role][] that defines its [children][child] to be [presentational children][].",
+  "url": "https://act-rules.github.io/rules/307n5z"
+}

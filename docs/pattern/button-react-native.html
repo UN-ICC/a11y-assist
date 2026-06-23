@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Button (RN Pressable) (react-native) — a11ycat</title>
+  <meta name="description" content="Accessibility pattern for button on react-native — sourced from APG, WCAG, ACT, and aria-query.">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-pattern">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card pattern-card">
+<header>
+<p class="kicker">RN primitive · react-native</p>
+<h1>Button (RN Pressable)</h1>
+<p class="role-tag">role: <code>button</code></p>
+</header>
+<section><h2>ARIA roles</h2>
+<p>This pattern uses role <code>button</code>.</p>
+</section>
+<section><h2>ARIA contract <span class="provenance-tag">from aria-query</span></h2>
+<details open><summary><code>button</code></summary>
+<dl class="contract">
+<dt>Accessible name required</dt><dd>Yes</dd>
+<dt>Name from</dt><dd>author, contents</dd>
+<dt>Supported properties</dt><dd><code>aria-disabled</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>, <code>aria-pressed</code>, <code>aria-atomic</code>, <code>aria-busy</code>, <code>aria-controls</code>, <code>aria-current</code>, <code>aria-describedby</code>, <code>aria-details</code>, <code>aria-dropeffect</code>, <code>aria-flowto</code>, <code>aria-grabbed</code>, <code>aria-hidden</code>, <code>aria-keyshortcuts</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-live</code>, <code>aria-owns</code>, <code>aria-relevant</code>, <code>aria-roledescription</code></dd>
+<dt>Spec</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/#button" rel="noreferrer">https://www.w3.org/TR/wai-aria-1.2/#button</a></dd>
+</dl></details>
+</section>
+<section><h2>Applicable WCAG Success Criteria</h2><ul class="sc-list">
+<li><a href="../wcag/1.2.1.html"><code>1.2.1</code> Audio-only and Video-only (Prerecorded)</a> · <span class="level">A</span></li>
+<li><a href="../wcag/1.4.3.html"><code>1.4.3</code> Contrast (Minimum)</a> · <span class="level">AA</span></li>
+<li><a href="../wcag/2.1.1.html"><code>2.1.1</code> Keyboard</a> · <span class="level">A</span></li>
+<li><a href="../wcag/2.4.7.html"><code>2.4.7</code> Focus Visible</a> · <span class="level">AA</span></li>
+<li><a href="../wcag/2.5.5.html"><code>2.5.5</code> Target Size (Enhanced)</a> · <span class="level">AAA</span></li>
+<li><a href="../wcag/2.5.8.html"><code>2.5.8</code> Target Size (Minimum)</a> · <span class="level">AA</span></li>
+<li><a href="../wcag/4.1.2.html"><code>4.1.2</code> Name, Role, Value</a> · <span class="level">A</span></li>
+</ul></section>
+<section><h2>Applicable ACT rules</h2><ul class="act-list">
+<li><a href="../act/2eb176.html"><code>2eb176</code> Audio element content has transcript</a>
+</li>
+<li><a href="../act/2t702h.html"><code>2t702h</code> Summary element has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li><a href="../act/97a4e1.html"><code>97a4e1</code> Button has non-empty accessible name</a>
+ <span class="level">SCs 4.1.2</span>
+</li>
+<li><a href="../act/afb423.html"><code>afb423</code> Audio element content is media alternative for text</a>
+</li>
+<li><a href="../act/e7aa44.html"><code>e7aa44</code> Audio element content has text alternative</a>
+ <span class="level">SCs 1.2.1</span>
+</li>
+</ul></section>
+<section><h2>Platform binding</h2>
+<h3>Native HTML elements <span class="provenance-tag">from aria-query</span></h3>
+<p>Elements that natively carry one of this pattern's ARIA roles. Using these gives you the role for free — no <code>role="…"</code> attribute needed.</p>
+<ul class="element-list">
+<li><code>&lt;button&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=button]&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=image]&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=reset]&gt;</code> · implicit role <code>button</code></li>
+<li><code>&lt;input[type=submit]&gt;</code> · implicit role <code>button</code></li>
+</ul>
+<h3>React Native primitive</h3><dl class="contract">
+<dt>RN component</dt><dd><code>&lt;Pressable&gt;</code></dd>
+<dt>RN docs</dt><dd><a href="https://reactnative.dev/docs/pressable" rel="noreferrer">https://reactnative.dev/docs/pressable</a></dd>
+</dl>
+</section>
+<section class="agent-view"><h2>What the agent receives</h2>
+<p class="hint">Calling <code>get_a11y_pattern("button", "react-native")</code> over MCP returns this exact JSON:</p>
+<pre id="agent-json"><code>{
+  &quot;role&quot;: &quot;button&quot;,
+  &quot;platform&quot;: &quot;react-native&quot;,
+  &quot;aria_roles&quot;: [
+    &quot;button&quot;
+  ],
+  &quot;aria_contract&quot;: {
+    &quot;button&quot;: {
+      &quot;required_props&quot;: [],
+      &quot;supported_props&quot;: [
+        &quot;aria-disabled&quot;,
+        &quot;aria-expanded&quot;,
+        &quot;aria-haspopup&quot;,
+        &quot;aria-pressed&quot;,
+        &quot;aria-atomic&quot;,
+        &quot;aria-busy&quot;,
+        &quot;aria-controls&quot;,
+        &quot;aria-current&quot;,
+        &quot;aria-describedby&quot;,
+        &quot;aria-details&quot;,
+        &quot;aria-dropeffect&quot;,
+        &quot;aria-flowto&quot;,
+        &quot;aria-grabbed&quot;,
+        &quot;aria-hidden&quot;,
+        &quot;aria-keyshortcuts&quot;,
+        &quot;aria-label&quot;,
+        &quot;aria-labelledby&quot;,
+        &quot;aria-live&quot;,
+        &quot;aria-owns&quot;,
+        &quot;aria-relevant&quot;,
+        &quot;aria-roledescription&quot;
+      ],
+      &quot;required_owned_elements&quot;: [],
+      &quot;accessible_name_required&quot;: true,
+      &quot;name_from&quot;: [
+        &quot;author&quot;,
+        &quot;contents&quot;
+      ],
+      &quot;abstract&quot;: false,
+      &quot;spec_url&quot;: &quot;https://www.w3.org/TR/wai-aria-1.2/#button&quot;
+    }
+  },
+  &quot;wcag_applicable&quot;: [
+    {
+      &quot;id&quot;: &quot;1.2.1&quot;,
+      &quot;level&quot;: &quot;A&quot;,
+      &quot;title&quot;: &quot;Audio-only and Video-only (Prerecorded)&quot;,
+      &quot;short_text&quot;: &quot;For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such: Prerecorded Audio-only An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content. Prerecorded Video-only Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;G158&quot;,
+        &quot;G159&quot;,
+        &quot;G166&quot;
+      ],
+      &quot;failure_ids&quot;: [
+        &quot;F30&quot;,
+        &quot;F67&quot;
+      ],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;G158&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing an alternative for time-based media for audio-only content&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.2.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G158&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G159&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing an alternative for time-based media for video-only content&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.2.1&quot;,
+            &quot;1.2.8&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G159&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G166&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing audio that describes the important video content and describing it as such&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.2.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G166&quot;
+        }
+      ],
+      &quot;failures&quot;: [
+        {
+          &quot;id&quot;: &quot;F30&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.2.1 due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.1.1&quot;,
+            &quot;1.2.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F30&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F67&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 1.2.1 due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.1.1&quot;,
+            &quot;1.2.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F67&quot;
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;1.4.3&quot;,
+      &quot;level&quot;: &quot;AA&quot;,
+      &quot;title&quot;: &quot;Contrast (Minimum)&quot;,
+      &quot;short_text&quot;: &quot;The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: Large Text Large-scale text and images of large-scale text have a contrast ratio of at least 3:1; Incidental Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement. Logotypes Text that is part of a logo or brand name has no contrast requirement.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;G18&quot;,
+        &quot;G148&quot;,
+        &quot;G174&quot;,
+        &quot;G145&quot;
+      ],
+      &quot;failure_ids&quot;: [
+        &quot;F24&quot;,
+        &quot;F83&quot;
+      ],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;G18&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.3&quot;,
+            &quot;1.4.6&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G18&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G148&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Not specifying background color, not specifying text color, and not using technology features that change those defaults&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.3&quot;,
+            &quot;1.4.6&quot;,
+            &quot;1.4.8&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G148&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G174&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.3&quot;,
+            &quot;1.4.6&quot;,
+            &quot;1.4.11&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G174&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G145&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.3&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G145&quot;
+        }
+      ],
+      &quot;failures&quot;: [
+        {
+          &quot;id&quot;: &quot;F24&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.3&quot;,
+            &quot;1.4.6&quot;,
+            &quot;1.4.8&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F24&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F83&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 1.4.3 and 1.4.6 due to using background images that do not provide sufficient contrast with foreground text (or images of text)&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.3&quot;,
+            &quot;1.4.6&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F83&quot;
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;2.1.1&quot;,
+      &quot;level&quot;: &quot;A&quot;,
+      &quot;title&quot;: &quot;Keyboard&quot;,
+      &quot;short_text&quot;: &quot;All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user&#39;s movement and not just the endpoints. Note 1 This exception relates to the underlying function, not the input technique. For example, if using handwriting to enter text, the input technique (handwriting) requires path-dependent input but the underlying function (text input) does not. Note 2 This does not forbid and should not discourage providing mouse input or other input methods in addition to keyboard operation.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/keyboard&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;G202&quot;,
+        &quot;H91&quot;,
+        &quot;PDF3&quot;,
+        &quot;PDF11&quot;,
+        &quot;PDF23&quot;,
+        &quot;G90&quot;,
+        &quot;SCR20&quot;,
+        &quot;SCR35&quot;,
+        &quot;SCR2&quot;
+      ],
+      &quot;failure_ids&quot;: [
+        &quot;F54&quot;,
+        &quot;F55&quot;,
+        &quot;F42&quot;
+      ],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;G202&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Ensuring keyboard control for all functionality&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G202&quot;
+        },
+        {
+          &quot;id&quot;: &quot;H91&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using HTML form controls and links&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H91&quot;
+        },
+        {
+          &quot;id&quot;: &quot;PDF3&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Ensuring correct tab and reading order in PDF documents&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.2&quot;,
+            &quot;2.1.1&quot;,
+            &quot;2.4.3&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF3&quot;
+        },
+        {
+          &quot;id&quot;: &quot;PDF11&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing links and link text using the Link annotation and the /Link structure element in PDF documents&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;2.1.1&quot;,
+            &quot;2.4.4&quot;,
+            &quot;2.4.9&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF11&quot;
+        },
+        {
+          &quot;id&quot;: &quot;PDF23&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing interactive form controls in PDF documents&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF23&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G90&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing keyboard-triggered event handlers&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G90&quot;
+        },
+        {
+          &quot;id&quot;: &quot;SCR20&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using both keyboard and other device-specific functions&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR20&quot;
+        },
+        {
+          &quot;id&quot;: &quot;SCR35&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Making actions keyboard accessible by using the onclick event of anchors and buttons&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR35&quot;
+        },
+        {
+          &quot;id&quot;: &quot;SCR2&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using redundant keyboard and mouse event handlers&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR2&quot;
+        }
+      ],
+      &quot;failures&quot;: [
+        {
+          &quot;id&quot;: &quot;F54&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 2.1.1 due to using only pointing-device-specific event handlers (including gesture) for a function&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F54&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F55&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criteria 2.1.1, 2.4.7, 2.4.13, and 3.2.1 due to using script to remove focus when focus is received&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;,
+            &quot;2.4.7&quot;,
+            &quot;2.4.13&quot;,
+            &quot;3.2.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F55&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F42&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;2.1.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F42&quot;
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;2.4.7&quot;,
+      &quot;level&quot;: &quot;AA&quot;,
+      &quot;title&quot;: &quot;Focus Visible&quot;,
+      &quot;short_text&quot;: &quot;Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/focus-visible&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;G149&quot;,
+        &quot;C15&quot;,
+        &quot;G165&quot;,
+        &quot;G195&quot;,
+        &quot;C40&quot;,
+        &quot;C45&quot;,
+        &quot;SCR31&quot;
+      ],
+      &quot;failure_ids&quot;: [
+        &quot;F55&quot;,
+        &quot;F78&quot;
+      ],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;G149&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using user interface components that are highlighted by the user agent when they receive focus&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.7&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G149&quot;
+        },
+        {
+          &quot;id&quot;: &quot;C15&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using CSS to change the presentation of a user interface component when it receives focus&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.7&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C15&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G165&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using the default focus indicator for the platform so that high visibility default focus indicators will carry over&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.7&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G165&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G195&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using an author-supplied, visible focus indicator&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.11&quot;,
+            &quot;2.4.7&quot;,
+            &quot;2.4.13&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G195&quot;
+        },
+        {
+          &quot;id&quot;: &quot;C40&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Creating a two-color focus indicator to ensure sufficient contrast with all components&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.7&quot;,
+            &quot;2.4.13&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C40&quot;
+        },
+        {
+          &quot;id&quot;: &quot;C45&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using CSS :focus-visible to provide keyboard focus indication&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.7&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C45&quot;
+        },
+        {
+          &quot;id&quot;: &quot;SCR31&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using script to change the background color or border of the element with focus&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.7&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR31&quot;
+        }
+      ],
+      &quot;failures&quot;: [
+        {
+          &quot;id&quot;: &quot;F55&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criteria 2.1.1, 2.4.7, 2.4.13, and 3.2.1 due to using script to remove focus when focus is received&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;,
+            &quot;2.4.7&quot;,
+            &quot;2.4.13&quot;,
+            &quot;3.2.1&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F55&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F78&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 1.4.11, 2.4.7 and 2.4.13 due to styling element outlines and borders in a way that removes or renders non-visible the visual focus indicator&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.4.11&quot;,
+            &quot;2.4.7&quot;,
+            &quot;2.4.13&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F78&quot;
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;2.5.5&quot;,
+      &quot;level&quot;: &quot;AAA&quot;,
+      &quot;title&quot;: &quot;Target Size (Enhanced)&quot;,
+      &quot;short_text&quot;: &quot;The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when: Equivalent The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels; Inline The target is in a sentence or block of text; User Agent Control The size of the target is determined by the user agent and is not modified by the author; Essential A particular presentation of the target is essential to the information being conveyed.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;C44&quot;
+      ],
+      &quot;failure_ids&quot;: [],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;C44&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using CSS to ensure targets are at least 44 by 44 CSS pixels&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.5.5&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C44&quot;
+        }
+      ],
+      &quot;failures&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;2.5.8&quot;,
+      &quot;level&quot;: &quot;AA&quot;,
+      &quot;title&quot;: &quot;Target Size (Minimum)&quot;,
+      &quot;short_text&quot;: &quot;The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when: Spacing Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target; Equivalent The function can be achieved through a different control on the same page that meets this criterion; Inline The target is in a sentence or its size is otherwise constrained by the line-height of non-target text; User Agent Control The size of the target is determined by the user agent and is not modified by the author; Essential A particular presentation of the target is essential or is legally required for the information being conveyed. Note 1 Targets that allow for values to be selected spatially based on position within the target are considered one target for the purpose of the success criterion. Examples include sliders, color pickers displaying a gradient of colors, or editable areas where you position the cursor. Note 2 For inline targets the line-height should be interpreted as perpendicular to the flow of text. For example, in a language displayed vertically, the line-height would be horizontal.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;C42&quot;
+      ],
+      &quot;failure_ids&quot;: [],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;C42&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using min-height and min-width on target container to ensure sufficient target spacing&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.5.8&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C42&quot;
+        }
+      ],
+      &quot;failures&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;4.1.2&quot;,
+      &quot;level&quot;: &quot;A&quot;,
+      &quot;title&quot;: &quot;Name, Role, Value&quot;,
+      &quot;short_text&quot;: &quot;For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. Note This success criterion is primarily for web authors who develop or script their own user interface components. For example, standard HTML controls already meet this success criterion when used according to specification.&quot;,
+      &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/name-role-value&quot;,
+      &quot;technique_ids&quot;: [
+        &quot;ARIA14&quot;,
+        &quot;ARIA16&quot;,
+        &quot;G108&quot;,
+        &quot;H91&quot;,
+        &quot;H44&quot;,
+        &quot;H64&quot;,
+        &quot;H65&quot;,
+        &quot;H88&quot;,
+        &quot;G135&quot;,
+        &quot;PDF10&quot;,
+        &quot;PDF12&quot;,
+        &quot;G10&quot;,
+        &quot;ARIA4&quot;,
+        &quot;ARIA5&quot;
+      ],
+      &quot;failure_ids&quot;: [
+        &quot;F59&quot;,
+        &quot;F15&quot;,
+        &quot;F20&quot;,
+        &quot;F42&quot;,
+        &quot;F68&quot;,
+        &quot;F79&quot;,
+        &quot;F86&quot;,
+        &quot;F89&quot;,
+        &quot;F111&quot;
+      ],
+      &quot;techniques&quot;: [
+        {
+          &quot;id&quot;: &quot;ARIA14&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using aria-label to provide an accessible name where a visible label cannot be used&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA14&quot;
+        },
+        {
+          &quot;id&quot;: &quot;ARIA16&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using aria-labelledby to provide a name for user interface controls&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA16&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G108&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G108&quot;
+        },
+        {
+          &quot;id&quot;: &quot;H91&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using HTML form controls and links&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.1.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H91&quot;
+        },
+        {
+          &quot;id&quot;: &quot;H44&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using label elements to associate text labels with form controls&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.1.1&quot;,
+            &quot;1.3.1&quot;,
+            &quot;3.3.2&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H44&quot;
+        },
+        {
+          &quot;id&quot;: &quot;H64&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using the title attribute of the iframe element&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H64&quot;
+        },
+        {
+          &quot;id&quot;: &quot;H65&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using the title attribute to identify form controls when the label element cannot be used&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.1.1&quot;,
+            &quot;1.3.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H65&quot;
+        },
+        {
+          &quot;id&quot;: &quot;H88&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using HTML according to spec&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H88&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G135&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using the accessibility API features of a technology to expose names and … notification of changes&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G135&quot;
+        },
+        {
+          &quot;id&quot;: &quot;PDF10&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing labels for interactive form controls in PDF documents&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;3.3.2&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF10&quot;
+        },
+        {
+          &quot;id&quot;: &quot;PDF12&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Providing name, role, value information for form fields in PDF documents&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF12&quot;
+        },
+        {
+          &quot;id&quot;: &quot;G10&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Creating components using a technology that supports the accessibility … notification of changes&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G10&quot;
+        },
+        {
+          &quot;id&quot;: &quot;ARIA4&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using a WAI-ARIA role to expose the role of a user interface component&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA4&quot;
+        },
+        {
+          &quot;id&quot;: &quot;ARIA5&quot;,
+          &quot;kind&quot;: &quot;sufficient&quot;,
+          &quot;title&quot;: &quot;Using WAI-ARIA state and property attributes to expose the state of a user interface component&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA5&quot;
+        }
+      ],
+      &quot;failures&quot;: [
+        {
+          &quot;id&quot;: &quot;F59&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 4.1.2 due to using script to make div or span a user interface control in HTML without providing a role for the control&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F59&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F15&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 4.1.2 due to implementing custom controls that do not use an accessibility API for the technology, or do so incompletely&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F15&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F20&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 1.1.1 and 4.1.2 due to not updating text alternatives when changes to non-text content occur&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.1.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F20&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F42&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;2.1.1&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F42&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F68&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 4.1.2 due to a user interface control not having a programmatically determined name&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F68&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F79&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 4.1.2 due to the focus state of a user interface component not being programmatically determinable or no notification of change of focus state available&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F79&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F86&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criterion 4.1.2 due to not providing names for each part of a multi-part form field, such as a US telephone number&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F86&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F89&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;2.4.4&quot;,
+            &quot;2.4.9&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F89&quot;
+        },
+        {
+          &quot;id&quot;: &quot;F111&quot;,
+          &quot;kind&quot;: &quot;failure&quot;,
+          &quot;title&quot;: &quot;Failure of Success Criteria 1.3.1, 2.5.3, and 4.1.2 due to a control with visible label text but no accessible name&quot;,
+          &quot;applicable_sc_ids&quot;: [
+            &quot;1.3.1&quot;,
+            &quot;2.5.3&quot;,
+            &quot;4.1.2&quot;
+          ],
+          &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F111&quot;
+        }
+      ]
+    }
+  ],
+  &quot;act_rules_applicable&quot;: [
+    {
+      &quot;id&quot;: &quot;2eb176&quot;,
+      &quot;name&quot;: &quot;Audio element content has transcript&quot;,
+      &quot;rule_type&quot;: &quot;atomic&quot;,
+      &quot;description&quot;: &quot;This rule checks that `audio` elements have a transcript that includes all auditory information.&quot;,
+      &quot;wcag_sc_ids&quot;: [],
+      &quot;wcag_sc_ids_secondary&quot;: [],
+      &quot;input_aspects&quot;: [
+        &quot;DOM Tree&quot;,
+        &quot;CSS Styling&quot;,
+        &quot;Audio output&quot;,
+        &quot;Language&quot;
+      ],
+      &quot;applicability_text&quot;: &quot;This rule applies to every [non-streaming](#non-streaming-media-element) `audio` element that is:\n\n- playing; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree][].&quot;,
+      &quot;url&quot;: &quot;https://act-rules.github.io/rules/2eb176&quot;
+    },
+    {
+      &quot;id&quot;: &quot;2t702h&quot;,
+      &quot;name&quot;: &quot;Summary element has non-empty accessible name&quot;,
+      &quot;rule_type&quot;: &quot;atomic&quot;,
+      &quot;description&quot;: &quot;This rule checks that each `summary` element has a non-empty accessible name.&quot;,
+      &quot;wcag_sc_ids&quot;: [
+        &quot;4.1.2&quot;
+      ],
+      &quot;wcag_sc_ids_secondary&quot;: [],
+      &quot;input_aspects&quot;: [
+        &quot;Accessibility Tree&quot;,
+        &quot;DOM Tree&quot;,
+        &quot;CSS Styling&quot;
+      ],
+      &quot;applicability_text&quot;: &quot;This rule applies to HTML `summary` elements for which all the following are true:\n\n- the element is [included in the accessibility tree][]; and\n- the element works as the [summary button for its parent `details` element][details summary]; and\n- the element has no [explicit role][], or the [explicit role][] is ignored due to a [presentational role conflict][presentational roles conflict].&quot;,
+      &quot;url&quot;: &quot;https://act-rules.github.io/rules/2t702h&quot;
+    },
+    {
+      &quot;id&quot;: &quot;97a4e1&quot;,
+      &quot;name&quot;: &quot;Button has non-empty accessible name&quot;,
+      &quot;rule_type&quot;: &quot;atomic&quot;,
+      &quot;description&quot;: &quot;This rule checks that each `button` element has a non-empty accessible name.&quot;,
+      &quot;wcag_sc_ids&quot;: [
+        &quot;4.1.2&quot;
+      ],
+      &quot;wcag_sc_ids_secondary&quot;: [],
+      &quot;input_aspects&quot;: [
+        &quot;Accessibility Tree&quot;,
+        &quot;DOM Tree&quot;,
+        &quot;CSS Styling&quot;
+      ],
+      &quot;applicability_text&quot;: &quot;This rule applies to elements that are [included in the accessibility tree][] and have a [semantic role](#semantic-role) of `button`, except for `input` elements with a `type` [attribute value] of `image`.&quot;,
+      &quot;url&quot;: &quot;https://act-rules.github.io/rules/97a4e1&quot;
+    },
+    {
+      &quot;id&quot;: &quot;afb423&quot;,
+      &quot;name&quot;: &quot;Audio element content is media alternative for text&quot;,
+      &quot;rule_type&quot;: &quot;atomic&quot;,
+      &quot;description&quot;: &quot;This rule checks that the `audio` element is a media alternative for text on the page.&quot;,
+      &quot;wcag_sc_ids&quot;: [],
+      &quot;wcag_sc_ids_secondary&quot;: [],
+      &quot;input_aspects&quot;: [
+        &quot;DOM Tree&quot;,
+        &quot;CSS Styling&quot;,
+        &quot;Audio output&quot;,
+        &quot;Language&quot;
+      ],
+      &quot;applicability_text&quot;: &quot;This rule applies to every [non-streaming](#non-streaming-media-element) `audio` element that is:\n\n- playing; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree][].&quot;,
+      &quot;url&quot;: &quot;https://act-rules.github.io/rules/afb423&quot;
+    },
+    {
+      &quot;id&quot;: &quot;e7aa44&quot;,
+      &quot;name&quot;: &quot;Audio element content has text alternative&quot;,
+      &quot;rule_type&quot;: &quot;composite&quot;,
+      &quot;description&quot;: &quot;This rule checks that `audio` elements have a text alternative available.&quot;,
+      &quot;wcag_sc_ids&quot;: [
+        &quot;1.2.1&quot;
+      ],
+      &quot;wcag_sc_ids_secondary&quot;: [],
+      &quot;input_aspects&quot;: [],
+      &quot;applicability_text&quot;: &quot;This rule applies to any [non-streaming](#non-streaming-media-element) `audio` element for which at least one of the following is true:\n\n- has an `autoplay` [attribute value][] of true; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree](#included-in-the-accessibility-tree).&quot;,
+      &quot;url&quot;: &quot;https://act-rules.github.io/rules/e7aa44&quot;
+    }
+  ],
+  &quot;web_elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;button&quot;,
+      &quot;attributes&quot;: [],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;button&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;button&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=button]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;image&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=image]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;reset&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=reset]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;attributes&quot;: [
+        {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;value&quot;: &quot;submit&quot;
+        }
+      ],
+      &quot;constraints&quot;: [],
+      &quot;canonical_id&quot;: &quot;input[type=submit]&quot;,
+      &quot;implicit_role&quot;: &quot;button&quot;
+    }
+  ],
+  &quot;rn_primitive&quot;: {
+    &quot;rn_component&quot;: &quot;Pressable&quot;,
+    &quot;rn_doc_url&quot;: &quot;https://reactnative.dev/docs/pressable&quot;,
+    &quot;rn_a11y_doc_url&quot;: &quot;https://reactnative.dev/docs/accessibility#accessibilityrole&quot;
+  },
+  &quot;provenance&quot;: {
+    &quot;apg_query&quot;: {
+      &quot;date&quot;: &quot;2026-05-07&quot;,
+      &quot;apg_base&quot;: &quot;https://www.w3.org/WAI/ARIA/apg/patterns&quot;,
+      &quot;pattern_count&quot;: 28
+    },
+    &quot;wcag_query&quot;: {
+      &quot;date&quot;: &quot;2026-05-07&quot;,
+      &quot;version&quot;: &quot;2.2&quot;,
+      &quot;sc_count&quot;: 86,
+      &quot;technique_count&quot;: 316,
+      &quot;failure_count&quot;: 89
+    },
+    &quot;act_rules_query&quot;: {
+      &quot;date&quot;: &quot;2026-05-07&quot;,
+      &quot;upstream_commit&quot;: &quot;80e887e60c51a9aeeaa8ca55a730ab443b658d4e&quot;,
+      &quot;rule_count&quot;: 94
+    },
+    &quot;aria_query&quot;: &quot;aria-query npm package&quot;,
+    &quot;generated_at&quot;: &quot;2026-05-08T09:39:02.193Z&quot;
+  },
+  &quot;type&quot;: &quot;rn_primitive&quot;,
+  &quot;name&quot;: &quot;Button (RN Pressable)&quot;
+}</code></pre>
+</section>
+<footer class="card-footer"><dl class="provenance">
+<dt>apg-query</dt><dd>2026-05-07</dd>
+<dt>wcag-query</dt><dd>WCAG 2.2 @ 2026-05-07</dd>
+<dt>act-rules-query</dt><dd>80e887e @ 2026-05-07</dd>
+</dl></footer>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

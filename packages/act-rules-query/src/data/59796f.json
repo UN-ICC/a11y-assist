@@ -1,0 +1,17 @@
+{
+  "id": "59796f",
+  "name": "Image button has non-empty accessible name",
+  "rule_type": "atomic",
+  "description": "This rule checks that each image button element has a non-empty accessible name.",
+  "wcag_sc_ids": [
+    "1.1.1",
+    "4.1.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any `input` element with a `type` [attribute value][] of `image`, and that is [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/59796f"
+}

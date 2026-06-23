@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 1.4.8 Visual Presentation — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 1.4.8: Visual Presentation (Level AAA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AAA</p>
+<h1><code>1.4.8</code> Visual Presentation</h1></header>
+<section><h2>Success Criterion</h2><blockquote>For the visual presentation of blocks of text, a mechanism is available to achieve the following: Foreground and background colors can be selected by the user. Width is no more than 80 characters or glyphs (40 if CJK). Text is not justified (aligned to both the left and the right margins). Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing. Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window. Note 1 Content is not required to use these values. The requirement is that a mechanism is available for users to change these presentation aspects. The mechanism can be provided by the browser or other user agent. Content is not required to provide the mechanism. Note 2 Writing systems for some languages use different presentation aspects to improve readability and legibility. If a presentation aspect in this success criterion is not used in a writing system, content in that writing system does not need to use that presentation setting and can conform without it. Authors are encouraged to follow guidance for improving readability and legibility of text in their writing system.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation" rel="noreferrer">Understanding 1.4.8 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C23" rel="noreferrer"><code>C23</code> Specifying text and background colors of secondary content such as banners, features and navigation in CSS while not specifying text and background colors of the main content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C25" rel="noreferrer"><code>C25</code> Specifying borders and layout in CSS to delineate areas of a web page while not specifying text and text-background colors</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G156" rel="noreferrer"><code>G156</code> Using a technology that has commonly-available user agents that can change the foreground and background of blocks of text</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G148" rel="noreferrer"><code>G148</code> Not specifying background color, not specifying text color, and not using technology features that change those defaults</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G175" rel="noreferrer"><code>G175</code> Providing a multi color selection tool on the page for foreground and background colors</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G204" rel="noreferrer"><code>G204</code> Not interfering with the user agent&#39;s reflow of text as the viewing window is narrowed</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C20" rel="noreferrer"><code>C20</code> Using relative measurements to set column widths so that lines can average 80 characters or less when the browser is resized</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C19" rel="noreferrer"><code>C19</code> Specifying alignment either to the left or right in CSS</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G172" rel="noreferrer"><code>G172</code> Providing a mechanism to remove full justification of text</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G169" rel="noreferrer"><code>G169</code> Aligning text on only one side</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G188" rel="noreferrer"><code>G188</code> Providing a button on the page to increase line spaces and paragraph spaces</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C21" rel="noreferrer"><code>C21</code> Specifying line spacing in CSS</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G146" rel="noreferrer"><code>G146</code> Using liquid layout</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C12" rel="noreferrer"><code>C12</code> Using percent for font sizes</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C13" rel="noreferrer"><code>C13</code> Using named font sizes</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C14" rel="noreferrer"><code>C14</code> Using em units for font sizes</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/css/C24" rel="noreferrer"><code>C24</code> Using percentage values in CSS for container sizes</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR34" rel="noreferrer"><code>SCR34</code> Calculating size and position in a way that scales with text size</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G206" rel="noreferrer"><code>G206</code> Providing options within the content to switch to a layout that does not require the user to scroll horizontally to read a line of text</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F24" rel="noreferrer"><code>F24</code> Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F88" rel="noreferrer"><code>F88</code> Failure of Success Criterion 1.4.8 due to using text that is justified (aligned to both the left and the right margins)</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;1.4.8&quot;,
+  &quot;level&quot;: &quot;AAA&quot;,
+  &quot;title&quot;: &quot;Visual Presentation&quot;,
+  &quot;short_text&quot;: &quot;For the visual presentation of blocks of text, a mechanism is available to achieve the following: Foreground and background colors can be selected by the user. Width is no more than 80 characters or glyphs (40 if CJK). Text is not justified (aligned to both the left and the right margins). Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing. Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window. Note 1 Content is not required to use these values. The requirement is that a mechanism is available for users to change these presentation aspects. The mechanism can be provided by the browser or other user agent. Content is not required to provide the mechanism. Note 2 Writing systems for some languages use different presentation aspects to improve readability and legibility. If a presentation aspect in this success criterion is not used in a writing system, content in that writing system does not need to use that presentation setting and can conform without it. Authors are encouraged to follow guidance for improving readability and legibility of text in their writing system.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;C23&quot;,
+    &quot;C25&quot;,
+    &quot;G156&quot;,
+    &quot;G148&quot;,
+    &quot;G175&quot;,
+    &quot;G204&quot;,
+    &quot;C20&quot;,
+    &quot;C19&quot;,
+    &quot;G172&quot;,
+    &quot;G169&quot;,
+    &quot;G188&quot;,
+    &quot;C21&quot;,
+    &quot;G146&quot;,
+    &quot;C12&quot;,
+    &quot;C13&quot;,
+    &quot;C14&quot;,
+    &quot;C24&quot;,
+    &quot;SCR34&quot;,
+    &quot;G206&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F24&quot;,
+    &quot;F88&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;C23&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Specifying text and background colors of secondary content such as banners, features and navigation in CSS while not specifying text and background colors of the main content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C23&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C25&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Specifying borders and layout in CSS to delineate areas of a web page while not specifying text and text-background colors&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G156&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using a technology that has commonly-available user agents that can change the foreground and background of blocks of text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G156&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G148&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Not specifying background color, not specifying text color, and not using technology features that change those defaults&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.3&quot;,
+        &quot;1.4.6&quot;,
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G148&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G175&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a multi color selection tool on the page for foreground and background colors&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G175&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G204&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Not interfering with the user agent&#39;s reflow of text as the viewing window is narrowed&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G204&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C20&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using relative measurements to set column widths so that lines can average 80 characters or less when the browser is resized&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C20&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C19&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Specifying alignment either to the left or right in CSS&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C19&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G172&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a mechanism to remove full justification of text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G172&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G169&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Aligning text on only one side&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G169&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G188&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a button on the page to increase line spaces and paragraph spaces&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G188&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C21&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Specifying line spacing in CSS&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C21&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G146&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using liquid layout&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.4&quot;,
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G146&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C12&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using percent for font sizes&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.4&quot;,
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C12&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C13&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using named font sizes&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.4&quot;,
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C13&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C14&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using em units for font sizes&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.4&quot;,
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C14&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C24&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using percentage values in CSS for container sizes&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/css/C24&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SCR34&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Calculating size and position in a way that scales with text size&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.4&quot;,
+        &quot;1.4.8&quot;,
+        &quot;1.4.10&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/client-side-script/SCR34&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G206&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing options within the content to switch to a layout that does not require the user to scroll horizontally to read a line of text&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;,
+        &quot;1.4.10&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G206&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F24&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.3&quot;,
+        &quot;1.4.6&quot;,
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F24&quot;
+    },
+    {
+      &quot;id&quot;: &quot;F88&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 1.4.8 due to using text that is justified (aligned to both the left and the right margins)&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F88&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

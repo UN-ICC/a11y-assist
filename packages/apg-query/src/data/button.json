@@ -1,0 +1,33 @@
+{
+  "role": "button",
+  "name": "Button",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+  "about_this_pattern": "A button is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation. A common convention for informing users that a button launches a dialog is to append \"…\" (ellipsis) to the button label, e.g., \"Save as…\".\n\nIn addition to the ordinary button widget, WAI-ARIA supports 2 other types of buttons:",
+  "aria_roles": [
+    "button"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Space",
+      "description": "Activates the button."
+    },
+    {
+      "key": "Enter",
+      "description": "Activates the button."
+    },
+    {
+      "key": "Alt / U / Alt / U",
+      "description": "Following button activation, focus is set depending on the type of action the button performs. For example — If the button is activated with a shortcut key, the focus usually remains in the context from which the shortcut key was activated. For example, if Alt + U were assigned to an \"Up\" button that moves the currently focused item in a list one position higher in the list, pressing Alt + U when the focus is in the list would not move the focus from the list."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Button Examples",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/"
+    },
+    {
+      "name": "Button Examples (IDL)",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/"
+    }
+  ]
+}

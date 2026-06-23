@@ -1,0 +1,17 @@
+{
+  "id": "d0f69e",
+  "name": "Table header cell has assigned cells",
+  "rule_type": "atomic",
+  "description": "This rule checks that each table header has assigned cells in a table element.",
+  "wcag_sc_ids": [
+    "1.3.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS styling",
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] with a [semantic][semantic role] [rowheader][] or [columnheader][] for which all of the following is true:\n\n- the element is [visible][]; and\n- the element is [included in the accessibility tree][]; and\n- the element has at least one ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][]; and\n- the element's closest ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][] is [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/d0f69e"
+}

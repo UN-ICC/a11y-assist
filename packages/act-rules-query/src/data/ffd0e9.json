@@ -1,0 +1,15 @@
+{
+  "id": "ffd0e9",
+  "name": "Heading has non-empty accessible name",
+  "rule_type": "atomic",
+  "description": "This rule checks that each heading has a non-empty accessible name.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] that is a [semantic][semantic role] `heading`, [included in the accessibility tree][].",
+  "url": "https://act-rules.github.io/rules/ffd0e9"
+}

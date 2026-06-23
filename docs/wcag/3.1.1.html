@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 3.1.1 Language of Page — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 3.1.1: Language of Page (Level A).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level A</p>
+<h1><code>3.1.1</code> Language of Page</h1></header>
+<section><h2>Success Criterion</h2><blockquote>The default human language of each web page can be programmatically determined.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-page" rel="noreferrer">Understanding 3.1.1 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H57" rel="noreferrer"><code>H57</code> Using the language attribute on the HTML element</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF16" rel="noreferrer"><code>PDF16</code> Setting the default language using the /Lang entry in the document catalog of a PDF document</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF19" rel="noreferrer"><code>PDF19</code> Specifying the language for a passage or phrase with the Lang entry in PDF documents</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;3.1.1&quot;,
+  &quot;level&quot;: &quot;A&quot;,
+  &quot;title&quot;: &quot;Language of Page&quot;,
+  &quot;short_text&quot;: &quot;The default human language of each web page can be programmatically determined.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/language-of-page&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;H57&quot;,
+    &quot;PDF16&quot;,
+    &quot;PDF19&quot;
+  ],
+  &quot;failure_ids&quot;: [],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;H57&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Using the language attribute on the HTML element&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H57&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF16&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Setting the default language using the /Lang entry in the document catalog of a PDF document&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.1.1&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF16&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PDF19&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Specifying the language for a passage or phrase with the Lang entry in PDF documents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.1.1&quot;,
+        &quot;3.1.2&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/pdf/PDF19&quot;
+    }
+  ],
+  &quot;failures&quot;: [],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

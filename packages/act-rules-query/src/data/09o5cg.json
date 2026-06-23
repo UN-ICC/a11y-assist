@@ -1,0 +1,20 @@
+{
+  "id": "09o5cg",
+  "name": "Text has enhanced contrast",
+  "rule_type": "atomic",
+  "description": "This rule checks that the highest possible contrast of every text character with its background meets the enhanced contrast requirement.",
+  "wcag_sc_ids": [
+    "1.4.6"
+  ],
+  "wcag_sc_ids_secondary": [
+    "1.4.3"
+  ],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [visible][] character in a [text node][] that is a [child][] in the [flat tree][] of an [HTML element][], except if the [text node][] has an [ancestor][] in the [flat tree][] for which at least one of the following is true:\n\n- **disabled ancestor**: the ancestor is an [inheriting semantic][] `group` or `widget` that is [disabled][]; or\n- **disabled label**: the ancestor is used in the [accessible name][] of an [inheriting semantic][] `widget` that is [disabled][].",
+  "url": "https://act-rules.github.io/rules/09o5cg"
+}

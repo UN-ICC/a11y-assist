@@ -1,0 +1,41 @@
+{
+  "role": "spinbutton",
+  "name": "Spinbutton",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/",
+  "about_this_pattern": "A spinbutton is an input widget that restricts its value to a set or range of discrete values. For example, in a widget that enables users to set an alarm, a spinbutton could allow users to select a number from 0 to 59 for the minute of an hour.\n\nSpinbuttons often have three components, including a text field that displays the current value, an increase button, and a decrease button. The text field is usually the only focusable component because the increase and decrease functions are keyboard accessible via arrow keys. Typically, the text field also allows users to directly edit the value.\n\nIf the range is large, a spinbutton may support changing the value in both small and large steps. For instance, in the alarm example, the user may be able to move by 1 minute with Up Arrow and Down Arrow and by 10 minutes with Page Up and Page Down.",
+  "aria_roles": [
+    "spinbutton"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Up Arrow",
+      "description": "Increases the value."
+    },
+    {
+      "key": "Down Arrow",
+      "description": "Decreases the value."
+    },
+    {
+      "key": "Home",
+      "description": "If the spinbutton has a minimum value, sets the value to its minimum."
+    },
+    {
+      "key": "End",
+      "description": "If the spinbutton has a maximum value, sets the value to its maximum."
+    },
+    {
+      "key": "Page Up (Optional)",
+      "description": "Increases the value by a larger step than Up Arrow."
+    },
+    {
+      "key": "Page Down (Optional)",
+      "description": "Decreases the value by a larger step than Down Arrow."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Quantity Spin Button Example:",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/"
+    }
+  ]
+}

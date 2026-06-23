@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 1.2.9 Audio-only (Live) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 1.2.9: Audio-only (Live) (Level AAA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AAA</p>
+<h1><code>1.2.9</code> Audio-only (Live)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>An alternative for time-based media that presents equivalent information for live audio-only content is provided.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live" rel="noreferrer">Understanding 1.2.9 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G151" rel="noreferrer"><code>G151</code> Providing a link to a text transcript of a prepared statement or script if the script is followed</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G150" rel="noreferrer"><code>G150</code> Providing text based alternatives for live audio-only content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G157" rel="noreferrer"><code>G157</code> Incorporating a live audio captioning service into a web page</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;1.2.9&quot;,
+  &quot;level&quot;: &quot;AAA&quot;,
+  &quot;title&quot;: &quot;Audio-only (Live)&quot;,
+  &quot;short_text&quot;: &quot;An alternative for time-based media that presents equivalent information for live audio-only content is provided.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G151&quot;,
+    &quot;G150&quot;,
+    &quot;G157&quot;
+  ],
+  &quot;failure_ids&quot;: [],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G151&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a link to a text transcript of a prepared statement or script if the script is followed&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.2.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G151&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G150&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing text based alternatives for live audio-only content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.2.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G150&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G157&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Incorporating a live audio captioning service into a web page&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;1.2.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G157&quot;
+    }
+  ],
+  &quot;failures&quot;: [],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

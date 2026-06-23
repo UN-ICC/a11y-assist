@@ -1,0 +1,19 @@
+{
+  "id": "fd3a94",
+  "name": "Links with identical accessible names and same context serve equivalent purpose",
+  "rule_type": "atomic",
+  "description": "This rule checks that links with identical accessible names in the same context resolve to the same or equivalent resources.",
+  "wcag_sc_ids": [
+    "2.4.4"
+  ],
+  "wcag_sc_ids_secondary": [
+    "2.4.9"
+  ],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any set of two or more [HTML or SVG elements][] for which all the following are true:\n\n- the elements are [inheriting semantic][] `link` nodes; and\n- the elements are in the same [web page (HTML)][]; and\n- the elements are [included in the accessibility tree][included in the accessibility tree]; and\n- the elements have [matching][] [accessible names][accessible name] that are not empty (`\"\"`); and\n- the elements have the same [programmatically determined link context][].\n\n**Note:** The test target for this rule is the full set of link elements that share the same [matching][] [accessible name][] and [programmatically determined link context][].",
+  "url": "https://act-rules.github.io/rules/fd3a94"
+}

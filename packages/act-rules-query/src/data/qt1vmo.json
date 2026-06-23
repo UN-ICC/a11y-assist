@@ -1,0 +1,18 @@
+{
+  "id": "qt1vmo",
+  "name": "Image accessible name is descriptive",
+  "rule_type": "atomic",
+  "description": "This rule checks that the accessible names of images serve an equivalent purpose to the image.",
+  "wcag_sc_ids": [
+    "1.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any `img`, `canvas` or `svg` element that is [visible][] and has a non-empty [accessible name][], except if one or more of the following is true:\n\n- The element has an [ancestor][] in the [flat tree][] that is [named from author][]; or\n- The element is an `img` element where the [current request][]'s [state][image request state] is not [completely available][].",
+  "url": "https://act-rules.github.io/rules/qt1vmo"
+}

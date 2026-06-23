@@ -1,0 +1,22 @@
+{
+  "role": "carousel",
+  "name": "Carousel",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/",
+  "about_this_pattern": "A carousel presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides. Typically, one slide is displayed at a time, and users can activate a next or previous slide control that hides the current slide and \"rotates\" the next or previous slide into view. In some implementations, rotation automatically starts when the page loads, and it may also automatically stop once all the slides have been displayed. While a slide may contain any type of content, image carousels where each slide contains nothing more than a single image are common.\n\nEnsuring all users can easily control and are not adversely affected by slide rotation is an essential aspect of making carousels accessible. For instance, the screen reader experience can be confusing and disorienting if slides that are not visible on screen are incorrectly hidden, e.g., displayed off-screen. Similarly, if slides rotate automatically and a screen reader user is not aware of the rotation, the user may read an element on slide 1, execute the screen reader command for next element, and, instead of hearing the next element on slide 1, hear an element from slide 2 without any knowledge that the element just announced is from an entirely new context.\n\nFeatures needed to provide sufficient rotation control include:",
+  "aria_roles": [
+    "group",
+    "region",
+    "tabpanel"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Tab and Shift + Tab",
+      "description": "Move focus through the interactive elements of the carousel as specified by the page tab sequence -- scripting for Tab is not necessary."
+    },
+    {
+      "key": "Tab",
+      "description": "If present, the rotation control is the first element in the Tab sequence inside the carousel. It is essential that it precede the rotating content so it can be easily located."
+    }
+  ],
+  "examples": []
+}

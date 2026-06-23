@@ -1,0 +1,16 @@
+{
+  "id": "4e8ab6",
+  "name": "Element with role attribute has required states and properties",
+  "rule_type": "atomic",
+  "description": "This rule checks that elements that have an explicit role also specify all required states and properties.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [
+    "1.3.1",
+    "4.1.2"
+  ],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [HTML or SVG element][] that is [included in the accessibility tree][] and has an [explicit semantic role][], except if the element has an [implicit semantic role][] that is identical to the [explicit semantic role][].",
+  "url": "https://act-rules.github.io/rules/4e8ab6"
+}

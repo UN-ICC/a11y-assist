@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACT Rule e7aa44 Audio element content has text alternative — a11ycat</title>
+  <meta name="description" content="ACT Rule e7aa44: Audio element content has text alternative. Covers WCAG 1.2.1.">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-act">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card act-card">
+<header>
+<p class="kicker">ACT Rule · composite</p>
+<h1>Audio element content has text alternative</h1>
+<p class="role-tag">id: <code>e7aa44</code></p>
+<p><a href="https://act-rules.github.io/rules/e7aa44" rel="noreferrer">https://act-rules.github.io/rules/e7aa44</a></p>
+</header>
+<section><h2>Description</h2><p>This rule checks that `audio` elements have a text alternative available.</p></section>
+<section><h2>WCAG Success Criteria covered</h2><ul class="sc-list">
+<li><a href="../wcag/1.2.1.html"><code>1.2.1</code></a></li>
+</ul></section>
+<section><h2>Applicability <span class="provenance-tag">verbatim from upstream</span></h2>
+<div class="applicability">This rule applies to any [non-streaming](#non-streaming-media-element) `audio` element for which at least one of the following is true:<br><br>- has an `autoplay` [attribute value][] of true; or,<br>- has a [play button][] that is [visible][] and [included in the accessibility tree](#included-in-the-accessibility-tree).</div>
+</section>
+<section><h2>Patterns matched by this rule</h2><ul class="pattern-list">
+<li><a href="../pattern/accordion-web.html"><code>accordion</code></a></li>
+<li><a href="../pattern/button-web.html"><code>button</code></a></li>
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/disclosure-web.html"><code>disclosure</code></a></li>
+<li><a href="../pattern/menubutton-web.html"><code>menubutton</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this rule</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;e7aa44&quot;,
+  &quot;name&quot;: &quot;Audio element content has text alternative&quot;,
+  &quot;rule_type&quot;: &quot;composite&quot;,
+  &quot;description&quot;: &quot;This rule checks that `audio` elements have a text alternative available.&quot;,
+  &quot;wcag_sc_ids&quot;: [
+    &quot;1.2.1&quot;
+  ],
+  &quot;wcag_sc_ids_secondary&quot;: [],
+  &quot;input_aspects&quot;: [],
+  &quot;applicability_text&quot;: &quot;This rule applies to any [non-streaming](#non-streaming-media-element) `audio` element for which at least one of the following is true:\n\n- has an `autoplay` [attribute value][] of true; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree](#included-in-the-accessibility-tree).&quot;,
+  &quot;url&quot;: &quot;https://act-rules.github.io/rules/e7aa44&quot;,
+  &quot;patterns_referencing&quot;: [
+    &quot;accordion&quot;,
+    &quot;button&quot;,
+    &quot;combobox&quot;,
+    &quot;disclosure&quot;,
+    &quot;menubutton&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

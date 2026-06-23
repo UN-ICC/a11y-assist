@@ -1,0 +1,17 @@
+{
+  "id": "akn7bn",
+  "name": "Iframe with interactive elements is not excluded from tab-order",
+  "rule_type": "atomic",
+  "description": "This rule checks that `iframe` elements which contain keyboard focusable elements are not excluded from sequential focus navigation.",
+  "wcag_sc_ids": [
+    "2.1.1",
+    "2.1.3"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any `iframe` element that is not [inert][] and that [contains](#akn7bn:contain) at least one element for which all the following are true:\n\n- the element is [visible][]; and\n- the element is part of the [sequential focus navigation order][] of the `iframe`'s [document][].\n\nAn element is <dfn id=\"akn7bn:contain\">contained</dfn> in a [nested browsing context][] if its [owner document][] is the [container document][] of the [nested browsing context][].",
+  "url": "https://act-rules.github.io/rules/akn7bn"
+}

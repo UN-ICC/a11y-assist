@@ -1,0 +1,16 @@
+{
+  "id": "a25f45",
+  "name": "Headers attribute specified on a cell refers to cells in the same table element",
+  "rule_type": "atomic",
+  "description": "This rule checks that the `headers` attribute on a cell refer to other cells in the same `table` element.",
+  "wcag_sc_ids": [
+    "1.3.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling"
+  ],
+  "applicability_text": "This rule applies to any `headers` attribute specified on a [`cell`][] within a [`table`][] element, where all of the following is true for the [`table`][] element:\n\n- The `table` is [visible][]; and\n- The `table` is [included in the accessibility tree][]; and\n- The `table` has a [semantic role][] of `table`, `grid` or `treegrid`.",
+  "url": "https://act-rules.github.io/rules/a25f45"
+}

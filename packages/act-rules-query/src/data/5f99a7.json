@@ -1,0 +1,16 @@
+{
+  "id": "5f99a7",
+  "name": "ARIA attribute is defined in WAI-ARIA",
+  "rule_type": "atomic",
+  "description": "This rule checks that each `aria-` attribute specified is defined in ARIA 1.2.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [
+    "1.3.1",
+    "4.1.2"
+  ],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any attribute that starts with `aria-`.",
+  "url": "https://act-rules.github.io/rules/5f99a7"
+}

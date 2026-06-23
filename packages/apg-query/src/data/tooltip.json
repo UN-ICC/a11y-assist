@@ -1,0 +1,16 @@
+{
+  "role": "tooltip",
+  "name": "Tooltip",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/",
+  "about_this_pattern": "NOTE: This design pattern is work in progress; it does not yet have task force consensus. Progress and discussions are captured in issue 128.\n\nA tooltip is a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it. It typically appears after a small delay and disappears when Escape is pressed or on mouse out.\n\nTooltip widgets do not receive focus. A hover that contains focusable elements can be made using a non-modal dialog.",
+  "aria_roles": [
+    "tooltip"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Escape",
+      "description": "Dismisses the Tooltip."
+    }
+  ],
+  "examples": []
+}

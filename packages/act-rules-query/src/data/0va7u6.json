@@ -1,0 +1,18 @@
+{
+  "id": "0va7u6",
+  "name": "HTML images contain no text",
+  "rule_type": "atomic",
+  "description": "This rule checks that images of text are not used",
+  "wcag_sc_ids": [
+    "1.4.5",
+    "1.4.9"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [image resources][rendered image resources] rendered in a [web page][].",
+  "url": "https://act-rules.github.io/rules/0va7u6"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "5b7ae0",
+  "name": "HTML page lang and xml:lang attributes have matching values",
+  "rule_type": "atomic",
+  "description": "This rule checks that both `lang` and `xml:lang` attributes on the root element of a non-embedded HTML page, have the same primary language subtag.",
+  "wcag_sc_ids": [
+    "3.1.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [document element](https://dom.spec.whatwg.org/#document-element) if it is an `html` element for which all the following are true:\n\n- is in a [top-level browsing context][]; and\n- has a [node document](https://dom.spec.whatwg.org/#concept-node-document) with a [content type][] of `text/html`; and\n- has a `lang` attribute with a [known primary language tag][]; and\n- has a non-empty `xml:lang` attribute.",
+  "url": "https://act-rules.github.io/rules/5b7ae0"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "a11y-core",
+  "version": "0.1.0",
+  "description": "Pure-logic accessibility core: pattern aggregation (apg-query + wcag-query + act-rules-query + aria-query + role-bindings) and audit response shaping. No I/O, no MCP, no Playwright.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/data/*.json"
+  ],
+  "scripts": {
+    "build": "tsc && mkdir -p dist/data && cp src/data/*.json dist/data/",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "act-rules-query": "*",
+    "apg-query": "*",
+    "wcag-query": "*",
+    "aria-query": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/aria-query": "^5.0.4",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  },
+  "license": "MIT"
+}

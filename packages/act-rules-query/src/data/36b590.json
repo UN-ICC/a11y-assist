@@ -1,0 +1,17 @@
+{
+  "id": "36b590",
+  "name": "Error message describes invalid form field value",
+  "rule_type": "atomic",
+  "description": "This rule checks that text error messages provided when the user completes a form field with invalid values or using an invalid format, identify the cause of the error or how to fix the error.",
+  "wcag_sc_ids": [
+    "3.3.1"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to each [HTML element][] that has one of the following [semantic roles][semantic role]:\n\n- `checkbox`,\n- `combobox`,\n- `listbox`,\n- `menuitemcheckbox`,\n- `menuitemradio`,\n- `radio`,\n- `searchbox`,\n- `slider`,\n- `spinbutton`,\n- `switch` or\n- `textbox`.",
+  "url": "https://act-rules.github.io/rules/36b590"
+}

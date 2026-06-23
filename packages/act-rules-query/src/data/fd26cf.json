@@ -1,0 +1,16 @@
+{
+  "id": "fd26cf",
+  "name": "Video element visual-only content is media alternative for text",
+  "rule_type": "atomic",
+  "description": "This rule checks non-streaming silent `video` is a media alternative for text on the page.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Audio output",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio.",
+  "url": "https://act-rules.github.io/rules/fd26cf"
+}

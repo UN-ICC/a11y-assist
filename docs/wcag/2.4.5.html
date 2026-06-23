@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 2.4.5 Multiple Ways — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 2.4.5: Multiple Ways (Level AA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AA</p>
+<h1><code>2.4.5</code> Multiple Ways</h1></header>
+<section><h2>Success Criterion</h2><blockquote>More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways" rel="noreferrer">Understanding 2.4.5 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G125" rel="noreferrer"><code>G125</code> Providing links to navigate to related web pages</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G64" rel="noreferrer"><code>G64</code> Providing a Table of Contents</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G63" rel="noreferrer"><code>G63</code> Providing a site map</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G161" rel="noreferrer"><code>G161</code> Providing a search function to help users find content</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G126" rel="noreferrer"><code>G126</code> Providing a list of links to all other web pages</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G185" rel="noreferrer"><code>G185</code> Linking to all of the pages on the site from the home page</a></li>
+</ul></section>
+<section><h2>Patterns referencing this SC</h2><ul class="pattern-list">
+<li><a href="../pattern/breadcrumb-web.html"><code>breadcrumb</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2.4.5&quot;,
+  &quot;level&quot;: &quot;AA&quot;,
+  &quot;title&quot;: &quot;Multiple Ways&quot;,
+  &quot;short_text&quot;: &quot;More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G125&quot;,
+    &quot;G64&quot;,
+    &quot;G63&quot;,
+    &quot;G161&quot;,
+    &quot;G126&quot;,
+    &quot;G185&quot;
+  ],
+  &quot;failure_ids&quot;: [],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G125&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing links to navigate to related web pages&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G125&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G64&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a Table of Contents&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G64&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G63&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a site map&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.5&quot;,
+        &quot;2.4.8&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G63&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G161&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a search function to help users find content&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G161&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G126&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing a list of links to all other web pages&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G126&quot;
+    },
+    {
+      &quot;id&quot;: &quot;G185&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Linking to all of the pages on the site from the home page&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;2.4.5&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G185&quot;
+    }
+  ],
+  &quot;failures&quot;: [],
+  &quot;patterns_referencing&quot;: [
+    &quot;breadcrumb&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "c4a8a4",
+  "name": "HTML page title is descriptive",
+  "rule_type": "atomic",
+  "description": "This rule checks that the first title in an HTML web page describes the topic or purpose of that page.",
+  "wcag_sc_ids": [
+    "2.4.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to the [document title][] of each [html web page][], except if one of the following is true:\n\n- The [html web page][] has no [document title][]; or\n- The [document title][] contains only [whitespace](#whitespace) [text nodes](https://dom.spec.whatwg.org/#text).",
+  "url": "https://act-rules.github.io/rules/c4a8a4"
+}

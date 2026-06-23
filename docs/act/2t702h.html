@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACT Rule 2t702h Summary element has non-empty accessible name — a11ycat</title>
+  <meta name="description" content="ACT Rule 2t702h: Summary element has non-empty accessible name. Covers WCAG 4.1.2.">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-act">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card act-card">
+<header>
+<p class="kicker">ACT Rule · atomic</p>
+<h1>Summary element has non-empty accessible name</h1>
+<p class="role-tag">id: <code>2t702h</code></p>
+<p><a href="https://act-rules.github.io/rules/2t702h" rel="noreferrer">https://act-rules.github.io/rules/2t702h</a></p>
+</header>
+<section><h2>Description</h2><p>This rule checks that each `summary` element has a non-empty accessible name.</p></section>
+<section><h2>WCAG Success Criteria covered</h2><ul class="sc-list">
+<li><a href="../wcag/4.1.2.html"><code>4.1.2</code></a></li>
+</ul></section>
+<section><h2>Applicability <span class="provenance-tag">verbatim from upstream</span></h2>
+<div class="applicability">This rule applies to HTML `summary` elements for which all the following are true:<br><br>- the element is [included in the accessibility tree][]; and<br>- the element works as the [summary button for its parent `details` element][details summary]; and<br>- the element has no [explicit role][], or the [explicit role][] is ignored due to a [presentational role conflict][presentational roles conflict].</div>
+</section>
+<section><h2>Patterns matched by this rule</h2><ul class="pattern-list">
+<li><a href="../pattern/accordion-web.html"><code>accordion</code></a></li>
+<li><a href="../pattern/button-web.html"><code>button</code></a></li>
+<li><a href="../pattern/combobox-web.html"><code>combobox</code></a></li>
+<li><a href="../pattern/disclosure-web.html"><code>disclosure</code></a></li>
+<li><a href="../pattern/menubutton-web.html"><code>menubutton</code></a></li>
+<li><a href="../pattern/treeview-web.html"><code>treeview</code></a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this rule</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;2t702h&quot;,
+  &quot;name&quot;: &quot;Summary element has non-empty accessible name&quot;,
+  &quot;rule_type&quot;: &quot;atomic&quot;,
+  &quot;description&quot;: &quot;This rule checks that each `summary` element has a non-empty accessible name.&quot;,
+  &quot;wcag_sc_ids&quot;: [
+    &quot;4.1.2&quot;
+  ],
+  &quot;wcag_sc_ids_secondary&quot;: [],
+  &quot;input_aspects&quot;: [
+    &quot;Accessibility Tree&quot;,
+    &quot;DOM Tree&quot;,
+    &quot;CSS Styling&quot;
+  ],
+  &quot;applicability_text&quot;: &quot;This rule applies to HTML `summary` elements for which all the following are true:\n\n- the element is [included in the accessibility tree][]; and\n- the element works as the [summary button for its parent `details` element][details summary]; and\n- the element has no [explicit role][], or the [explicit role][] is ignored due to a [presentational role conflict][presentational roles conflict].&quot;,
+  &quot;url&quot;: &quot;https://act-rules.github.io/rules/2t702h&quot;,
+  &quot;patterns_referencing&quot;: [
+    &quot;accordion&quot;,
+    &quot;button&quot;,
+    &quot;combobox&quot;,
+    &quot;disclosure&quot;,
+    &quot;menubutton&quot;,
+    &quot;treeview&quot;
+  ]
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

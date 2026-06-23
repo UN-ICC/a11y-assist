@@ -1,0 +1,18 @@
+{
+  "id": "b49b2e",
+  "name": "Heading is descriptive",
+  "rule_type": "atomic",
+  "description": "This rule checks that headings describe the topic or purpose of the content.",
+  "wcag_sc_ids": [
+    "2.4.6"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "DOM Tree",
+    "CSS Styling",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [semantic][semantic role] `heading` element that is [included in the accessibility tree][] and has a non-empty (`””`) [accessible name][].",
+  "url": "https://act-rules.github.io/rules/b49b2e"
+}

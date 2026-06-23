@@ -1,0 +1,17 @@
+{
+  "id": "de46e4",
+  "name": "Element with lang attribute has valid language tag",
+  "rule_type": "atomic",
+  "description": "This rule checks that a non-empty `lang` attribute of an element in the page has a language tag with a known primary language subtag.",
+  "wcag_sc_ids": [
+    "3.1.2"
+  ],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS Styling",
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [HTML element][] with a `lang` [attribute value][] that is not empty (`\"\"`) and for which all of the following is true:\n\n- **descendant**: the element is an [inclusive descendant][] in the [flat tree][] of a `body` element; and\n- **content type**: the element has an associated [node document][] with a [content type][] of `text/html`; and\n- **text**: there is some [text inheriting its programmatic language][] from the element which is neither empty nor only [whitespace][].",
+  "url": "https://act-rules.github.io/rules/de46e4"
+}

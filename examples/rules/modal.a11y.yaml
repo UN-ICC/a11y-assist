@@ -1,0 +1,79 @@
+# Accessibility guidance for Components/Modal.
+#
+# Modals are one of the highest-risk components for a11y: focus
+# management, background isolation, escape behaviour, and announcement
+# timing all matter. Guidance here is denser than usual.
+
+# ─── DS rules (defined in modal.ts) ────────────────────────────────
+
+ds-modal-has-dialog-role:
+  figma_ref: "Modal → Structure → Container"
+  fix_guidance: |
+    Use `role="dialog"` for general modals (informational, form-bearing).
+    Use `role="alertdialog"` only when the modal demands an immediate
+    user response and blocks the rest of the experience — typically
+    destructive-action confirmations.
+
+    Both roles trigger assistive-tech behaviour: focus moves into the
+    dialog, surrounding content is treated as inert. Without one of
+    these roles a modal is just a styled `<div>` from the perspective
+    of screen readers.
+
+ds-modal-has-label:
+  figma_ref: "Modal → Accessibility → Title"
+  fix_guidance: |
+    Every modal must have an accessible name. The standard pattern is
+    to point `aria-labelledby` at the visible modal heading:
+
+        <div role="dialog" aria-labelledby="dialog-title" aria-modal="true">
+          <h2 id="dialog-title">Confirm deletion</h2>
+          ...
+        </div>
+
+    `aria-label` (a literal string) is acceptable for modals without a
+    visible heading, but visible headings are nearly always preferable
+    for cognitive accessibility — they orient the user immediately on
+    focus move.
+
+ds-modal-aria-modal-attr:
+  figma_ref: "Modal → Accessibility → Background isolation"
+  fix_guidance: |
+    Set `aria-modal="true"` on the dialog. This hides the rest of the
+    page from screen reader navigation while the modal is open, so
+    users don't accidentally tab into background content.
+
+    `aria-modal` does NOT replace JavaScript-based focus trapping —
+    you still need to keep keyboard focus within the modal manually.
+    `audit_url` will catch focus escapes; `audit_component` cannot.
+
+ds-modal-close-control:
+  figma_ref: "Modal → Anatomy → Close button"
+  fix_guidance: |
+    Every modal must include a labelled close (or dismiss) button.
+    Acceptable labels: "Close", "Dismiss", "Close dialog".
+
+    Always provide a close button even when the modal can also be
+    dismissed via Escape or background click — keyboard users without
+    screen readers, screen reader users, and users unfamiliar with
+    the Escape convention all need a visible exit.
+
+# ─── Standard axe / WCAG rules with Modal-specific guidance ────────
+
+"2.4.3":
+  figma_ref: "Modal → Behaviour → Focus order"
+  fix_guidance: |
+    When the modal opens, move focus into it (typically to the close
+    button or the modal's primary input). When it closes, restore
+    focus to the element that originally triggered it.
+
+    Both behaviours require JavaScript and CANNOT be evaluated by
+    `audit_component` — they're checked via `audit_url` against a
+    real running modal, or manually with keyboard + screen reader.
+
+color-contrast:
+  figma_ref: "Modal → Accessibility → Contrast"
+  fix_guidance: |
+    Modal background, text, and the dimming overlay all have contrast
+    requirements. The dimming overlay specifically must NOT reduce
+    contrast of the modal content visible above it — avoid translucent
+    overlays that bleed under modal content.

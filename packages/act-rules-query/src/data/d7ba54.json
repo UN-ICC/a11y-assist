@@ -1,0 +1,17 @@
+{
+  "id": "d7ba54",
+  "name": "Video element visual-only content has audio track alternative",
+  "rule_type": "atomic",
+  "description": "Non-streaming `video` elements without audio must have an audio alternative.",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "DOM Tree",
+    "CSS Styling",
+    "Audio output",
+    "Visual output",
+    "Language"
+  ],
+  "applicability_text": "This rule applies to any [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio.",
+  "url": "https://act-rules.github.io/rules/d7ba54"
+}

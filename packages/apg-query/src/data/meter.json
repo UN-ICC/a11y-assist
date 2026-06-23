@@ -1,0 +1,16 @@
+{
+  "role": "meter",
+  "name": "Meter",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/",
+  "about_this_pattern": "A meter is a graphical display of a numeric value that varies within a defined range. For example, a meter could be used to depict a device's current battery percentage or a car's fuel level.",
+  "aria_roles": [
+    "meter"
+  ],
+  "keyboard_interactions": [],
+  "examples": [
+    {
+      "name": "Meter Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/"
+    }
+  ]
+}

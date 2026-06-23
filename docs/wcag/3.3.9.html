@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WCAG 3.3.9 Accessible Authentication (Enhanced) — a11ycat</title>
+  <meta name="description" content="WCAG 2.2 Success Criterion 3.3.9: Accessible Authentication (Enhanced) (Level AAA).">
+  <link rel="stylesheet" href="../assets/a11ycat.css">
+</head>
+<body class="page-sc">
+  <header class="site-header">
+    <a href="../index.html" class="brand">
+      <span aria-hidden="true">🐈</span>
+      <span class="brand-name">a11ycat</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#patterns">Patterns</a>
+      <a href="../index.html#wcag">WCAG</a>
+      <a href="../index.html#act">ACT</a>
+      <a href="../ontology.html">Ontology</a>
+      <a href="../provenance.html">Provenance</a>
+    </nav>
+    <button type="button" id="audit-button" aria-controls="audit-panel" aria-expanded="false">
+      Audit this page
+    </button>
+  </header>
+  <section id="audit-panel" hidden aria-live="polite">
+    <h2>Audit results</h2>
+    <div id="audit-output" tabindex="-1"></div>
+  </section>
+  <main>
+<article class="card sc-card">
+<header><p class="kicker">WCAG 2.2 · Level AAA</p>
+<h1><code>3.3.9</code> Accessible Authentication (Enhanced)</h1></header>
+<section><h2>Success Criterion</h2><blockquote>A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following: Alternative Another authentication method that does not rely on a cognitive function test. Mechanism A mechanism is available to assist the user in completing the cognitive function test.</blockquote>
+<p><a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced" rel="noreferrer">Understanding 3.3.9 on W3C</a></p></section>
+<section><h2>Sufficient techniques</h2><ul class="techniques">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G218" rel="noreferrer"><code>G218</code> Email link authentication</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/html/H100" rel="noreferrer"><code>H100</code> Providing properly marked up email and password inputs</a></li>
+</ul></section>
+<section><h2>Documented failures <span class="provenance-tag">anti-patterns</span></h2><ul class="failures">
+<li><a href="https://www.w3.org/WAI/WCAG22/Techniques/failures/F109" rel="noreferrer"><code>F109</code> Failure of Success Criterion 3.3.8 and 3.3.9 due to preventing password or code re-entry in the same format</a></li>
+</ul></section>
+<section class="agent-view"><h2>What the agent receives for this SC</h2>
+<pre><code>{
+  &quot;id&quot;: &quot;3.3.9&quot;,
+  &quot;level&quot;: &quot;AAA&quot;,
+  &quot;title&quot;: &quot;Accessible Authentication (Enhanced)&quot;,
+  &quot;short_text&quot;: &quot;A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following: Alternative Another authentication method that does not rely on a cognitive function test. Mechanism A mechanism is available to assist the user in completing the cognitive function test.&quot;,
+  &quot;understanding_url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced&quot;,
+  &quot;technique_ids&quot;: [
+    &quot;G218&quot;,
+    &quot;H100&quot;
+  ],
+  &quot;failure_ids&quot;: [
+    &quot;F109&quot;
+  ],
+  &quot;techniques&quot;: [
+    {
+      &quot;id&quot;: &quot;G218&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Email link authentication&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.8&quot;,
+        &quot;3.3.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/general/G218&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H100&quot;,
+      &quot;kind&quot;: &quot;sufficient&quot;,
+      &quot;title&quot;: &quot;Providing properly marked up email and password inputs&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.8&quot;,
+        &quot;3.3.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/html/H100&quot;
+    }
+  ],
+  &quot;failures&quot;: [
+    {
+      &quot;id&quot;: &quot;F109&quot;,
+      &quot;kind&quot;: &quot;failure&quot;,
+      &quot;title&quot;: &quot;Failure of Success Criterion 3.3.8 and 3.3.9 due to preventing password or code re-entry in the same format&quot;,
+      &quot;applicable_sc_ids&quot;: [
+        &quot;3.3.8&quot;,
+        &quot;3.3.9&quot;
+      ],
+      &quot;url&quot;: &quot;https://www.w3.org/WAI/WCAG22/Techniques/failures/F109&quot;
+    }
+  ],
+  &quot;patterns_referencing&quot;: []
+}</code></pre></section>
+</article>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <strong>a11ycat</strong> — accessibility for the prowler.
+      <span>Humans browse, agents query — same data, every claim sourced.</span>
+    </p>
+    <p>
+      Sourced from W3C WAI-ARIA, APG, WCAG 2.2, and ACT Rules.
+      <a href="../provenance.html">See provenance</a>.
+    </p>
+  </footer>
+  <script src="../assets/audit-button.js" defer></script>
+</body>
+</html>

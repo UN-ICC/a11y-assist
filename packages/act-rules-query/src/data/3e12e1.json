@@ -1,0 +1,15 @@
+{
+  "id": "3e12e1",
+  "name": "Block of repeated content is collapsible",
+  "rule_type": "atomic",
+  "description": "This rule checks that repeated blocks of content are collapsible",
+  "wcag_sc_ids": [],
+  "wcag_sc_ids_secondary": [],
+  "input_aspects": [
+    "Accessibility Tree",
+    "CSS Styling",
+    "DOM Tree"
+  ],
+  "applicability_text": "This rule applies to any [HTML web page][].",
+  "url": "https://act-rules.github.io/rules/3e12e1"
+}

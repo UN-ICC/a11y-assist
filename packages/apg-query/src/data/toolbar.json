@@ -1,0 +1,41 @@
+{
+  "role": "toolbar",
+  "name": "Toolbar",
+  "apg_url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/",
+  "about_this_pattern": "A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.\n\nWhen a set of controls is visually presented as a group, the toolbar role can be used to communicate the presence and purpose of the grouping to screen reader users. Grouping controls into toolbars can also be an effective way of reducing the number of tab stops in the keyboard interface.\n\nTo optimize the benefit of toolbar widgets:",
+  "aria_roles": [
+    "toolbar"
+  ],
+  "keyboard_interactions": [
+    {
+      "key": "Tab + Shift + Tab",
+      "description": "If focus is moving into the toolbar for the first time, focus is set on the first control that is not disabled."
+    },
+    {
+      "key": "Tab + Shift + Tab",
+      "description": "If the toolbar has previously contained focus, focus is optionally set on the control that last had focus. Otherwise, it is set on the first control that is not disabled."
+    },
+    {
+      "key": "Left Arrow",
+      "description": "For a horizontal toolbar (the default) — Moves focus to the previous control. Optionally, focus movement may wrap from the first element to the last element."
+    },
+    {
+      "key": "Right Arrow",
+      "description": "For a horizontal toolbar (the default) — Moves focus to the next control. Optionally, focus movement may wrap from the last element to the first element."
+    },
+    {
+      "key": "Home (Optional)",
+      "description": "Moves focus to first element."
+    },
+    {
+      "key": "End (Optional)",
+      "description": "Moves focus to last element."
+    }
+  ],
+  "examples": [
+    {
+      "name": "Toolbar Example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/"
+    }
+  ]
+}
