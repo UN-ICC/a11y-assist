@@ -2,7 +2,7 @@
 
 The pure, mechanical composition layer of a11y-assist. Given an entry — an APG pattern or an ARIA role — it assembles a small response from the query packages ([`apg-query`](../apg-query), [`wcag-query`](../wcag-query), [`act-rules-query`](../act-rules-query)) plus [`aria-query`](https://www.npmjs.com/package/aria-query): the verbatim recipe, the ARIA contract for the involved roles, the native HTML elements that carry them, and a deterministic list of drill-down queries the agent can run next.
 
-**No I/O, no MCP, no Playwright, and no editorial data.** It asserts nothing about "which WCAG SCs apply" — associations are reached by running the suggested ACT searches. The only mechanical cross-corpus link is ACT-rule → WCAG-SC, surfaced by `searchAct`. Both surfaces — the [`a11y-mcp`](../mcp) server and the [`a11y-assist-site`](../site) website — depend on it, so they can't drift.
+**No I/O, no MCP, no Playwright, and no editorial data.** It asserts nothing about "which WCAG SCs apply" — associations are reached by running the suggested ACT searches. The only mechanical cross-corpus link is ACT-rule → WCAG-SC, surfaced by `searchAct`. Both surfaces — the [`a11y-mcp`](../mcp) server and the [`a11y-assist-web`](../web) website — depend on it, so they can't drift.
 
 ## API
 

@@ -20,8 +20,8 @@ packages/
 │  surfaces (same data, two audiences)
 ├── mcp/   (a11y-mcp)  — the MCP server: the agent's view. Wraps a11y-core as MCP tools and runs
 │                        Playwright + axe-core for web validation. This is what AI agents connect to.
-└── site/  (a11y-assist-site) — static GitHub Pages browser: the developer's view. The same data
-                            composeApgPattern serves to agents, rendered as browsable pages.
+└── web/   (a11y-assist-web) — single-file SPA browser: the developer's view. The same data
+                            composeApgPattern serves to agents, deployed to GitHub Pages.
 ```
 
 The two surfaces read the **same** `a11y-core`, so an agent (via MCP) and a developer (via the website) see the same guidance — they can't drift.

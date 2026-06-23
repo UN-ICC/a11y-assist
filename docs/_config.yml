@@ -1,0 +1,26 @@
+title: a11y-assist
+description: Source-traceable web accessibility guidance for AI agents and developers.
+
+# Served at https://un-icc.github.io/a11y-assist/
+url: https://un-icc.github.io
+baseurl: /a11y-assist
+
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+
+# just-the-docs options
+search_enabled: true
+color_scheme: light
+
+# Persistent header links (rendered top-right on every page).
+# aux_links are literal — include the baseurl for the in-site app link.
+aux_links:
+  "Open the app ↗":
+    - "/a11y-assist/app/"
+  "GitHub ↗":
+    - "https://github.com/UN-ICC/a11y-assist"
+aux_links_new_tab: true
+
+# Note: docs/app/index.html has no front matter, so Jekyll copies it verbatim
+# (no Liquid processing, not added to nav/search) — exactly what we want.
