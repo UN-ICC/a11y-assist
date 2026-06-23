@@ -54,7 +54,8 @@ function record(pkg) {
   const base = resolve('packages', pkg)
   const version = JSON.parse(readFileSync(resolve(base, 'package.json'), 'utf8')).version
   const snapshot = JSON.parse(readFileSync(resolve(base, 'src/data/_snapshot.json'), 'utf8'))
-  const readmePath = resolve(base, 'README.md')
+  // Provenance table lives in the canonical docs page, not the (thin) README.
+  const readmePath = resolve('docs/packages', `${pkg}.md`)
   let readme = readFileSync(readmePath, 'utf8')
 
   const newRow = cfg.row(version, snapshot)

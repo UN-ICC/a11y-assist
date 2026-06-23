@@ -1,30 +1,40 @@
 ---
-title: Home
+title: Overview
 nav_order: 1
 ---
 
 # a11y-assist
 {: .fs-9 }
 
-Source-traceable web accessibility — APG, WCAG, ACT, and ARIA, plus axe verification. One source of truth, served two ways: to **AI agents** through an MCP server, and to **developers** through this browser. Every claim traces back to a versioned W3C document.
+Source-traceable web accessibility — APG, WCAG, ACT, and ARIA, plus axe verification. One source of truth, served two ways: to **developers** through a browsable app, and to **AI agents** through an MCP server. Every claim traces back to a versioned W3C document.
 {: .fs-6 .fw-300 }
 
-[Open the app]({{ '/app/' | relative_url }}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[Architecture]({{ '/architecture/' | relative_url }}){: .btn .fs-5 .mb-4 .mb-md-0 }
+[For humans → open the app]({{ '/app/' | relative_url }}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[For agents → set it up]({{ '/agents/' | relative_url }}){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
 ## What it is
 
-The **app** lets you browse the same data the agent uses — APG patterns and native ARIA primitives, each with its ARIA contract, native HTML elements, and drill-down to the WCAG criteria and ACT rules that apply, gated to your conformance level (A / AA / AAA). The **Verify** tab runs axe-core in your browser on a pasted HTML snippet.
+a11y-assist turns the W3C accessibility corpus into something you can *query* instead of *read*:
 
-## How it's built
+- **The app** (for humans) lets you browse APG patterns and native ARIA primitives — each with its ARIA contract, native HTML elements, and drill-down to the WCAG criteria and ACT rules that apply, gated to your conformance level (A / AA / AAA). A **Verify** tab runs axe-core in the browser on a pasted snippet.
+- **The MCP server** (for agents) exposes the same data as tools an AI coding agent calls while building or auditing UI, ending every task with a checklist of what it verified vs. what a human still must.
 
-Three verbatim W3C data libraries feed one aggregator, which is exposed two ways:
+## How it works
 
-- **Agents** connect to the `a11y-assist-mcp` server and get planning + verification tools.
-- **Developers** use this site.
+Three verbatim-W3C data libraries → one aggregator → two surfaces:
 
-Nothing is editorialised: the system hands over verbatim recipes plus *queries to run*, and the agent (or you) does the synthesis. The one honest caveat — automation covers roughly half of WCAG — is built into how the tool reports, so what a human still needs to verify is always made explicit.
+```
+apg-query ┐
+wcag-query ├─→ a11y-assist-core ─┬─→ a11y-assist-mcp   (agents)
+act-rules-query ┘  (+ aria-query) └─→ the app           (humans)
+```
 
-See the [Architecture]({{ '/architecture/' | relative_url }}) and the [Agent guide]({{ '/agent-guide/' | relative_url }}) for details.
+Nothing is editorialised. The system hands over verbatim recipes plus *queries to run*; the agent (or you) does the synthesis. The one mechanical cross-corpus link is ACT rule → WCAG SC, taken straight from ACT front-matter. See [Architecture]({{ '/architecture/' | relative_url }}) for the full model.
+
+## Why it's useful
+
+- **Trustworthy** — every recommendation cites a versioned upstream source; no LLM-paraphrased "best practices" that drift from the spec.
+- **Honest about its limits** — automation covers ~50% of WCAG, and the tool says so: it makes explicit what only a human can verify (screen-reader output, focus visibility, meaningful labels).
+- **Reusable** — the query packages are independently useful (eslint plugins, doc generators, other MCP servers) and published on npm. See [Packages]({{ '/packages/' | relative_url }}).

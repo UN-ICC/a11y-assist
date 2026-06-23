@@ -1,11 +1,12 @@
 ---
 title: Architecture
-nav_order: 2
+nav_order: 3
+permalink: /architecture/
 ---
 
 # Architecture
 
-How a11y-assist is put together: the accessibility model it encodes, the sources it draws from, and the discipline that keeps every claim traceable. For a quick overview and setup, see the [README](./README.md); for the MCP tool contract, see [`packages/mcp/README.md`](./packages/mcp/README.md); for the full design of the entry-point + drill-down model, see [`REDESIGN.md`](./REDESIGN.md).
+How a11y-assist is put together: the accessibility model it encodes, the sources it draws from, and the discipline that keeps every claim traceable. For setup, see [For agents]({{ '/agents/' | relative_url }}); for the tools, the [a11y-assist-mcp package]({{ '/packages/a11y-assist-mcp/' | relative_url }}).
 
 ## The principle
 
@@ -36,15 +37,15 @@ The recipe layer (APG / HTML primitives) splits in two because APG only covers *
 
 | Source | Authority | Role | Access |
 |---|---|---|---|
-| **WCAG 2.2** | Normative | The requirements: Success Criteria + Sufficient Techniques + documented Failures | [`wcag-query`](./packages/wcag-query) |
+| **WCAG 2.2** | Normative | The requirements: Success Criteria + Sufficient Techniques + documented Failures | [`wcag-query`](/a11y-assist/packages/wcag-query/) |
 | **WAI-ARIA** | Normative | The vocabulary: roles, states, properties | [`aria-query`](https://www.npmjs.com/package/aria-query) (npm) |
-| **APG** | Informative | Recipes for custom / composite components | [`apg-query`](./packages/apg-query) |
+| **APG** | Informative | Recipes for custom / composite components | [`apg-query`](/a11y-assist/packages/apg-query/) |
 | **ARIA in HTML** | Normative | Maps native HTML elements to implicit ARIA roles | via `aria-query`'s element/role maps |
-| **ACT Rules** | Informative | Conformance tests; each maps to the WCAG SCs it covers | [`act-rules-query`](./packages/act-rules-query) |
+| **ACT Rules** | Informative | Conformance tests; each maps to the WCAG SCs it covers | [`act-rules-query`](/a11y-assist/packages/act-rules-query/) |
 
 APG and ARIA-in-HTML sit at the same conceptual altitude — APG for custom components, HTML primitives for native ones. The decision tree: is there a native element? Use it. Augmenting one? Apply the matching APG pattern. Building from scratch? Use the APG pattern plus ARIA roles and keyboard handling. Nothing fits? It's novel — combine primitives and apply WCAG general principles, and expect heavier manual testing.
 
-> **Platform scope.** Today a11y-assist is **web only**. React Native is a reserved future recipe surface (a peer to APG, sourced from RN docs) — see [`REDESIGN.md`](./REDESIGN.md). It is not implemented; nothing in the current system asserts RN guidance.
+> **Platform scope.** Today a11y-assist is **web only**. React Native is a reserved future recipe surface (a peer to APG, sourced from RN docs) — see [For agents](/a11y-assist/agents/). It is not implemented; nothing in the current system asserts RN guidance.
 
 ## The pipeline
 
@@ -67,7 +68,7 @@ The composition does not assert "which SCs apply." Instead:
 2. **`suggested_queries`** are `search_act` calls derived deterministically from the entry's structured fields (role names, required ARIA props, native element tags, and a focus/keyboard seed when a keyboard table exists), stamped with the conformance `level`.
 3. **Drill-down** — the agent runs a suggested query: `searchAct(query, level)` returns ACT rules whose covered WCAG SCs are gated to the level (the one mechanical ACT→SC bridge); then `getSC(id)` expands a criterion into techniques + failures.
 
-The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-assist-core` joins ACT to WCAG levels, because the extractor packages stay single-source. See [`REDESIGN.md`](./REDESIGN.md) for the full tool surface and workflow.
+The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-assist-core` joins ACT to WCAG levels, because the extractor packages stay single-source. See [For agents](/a11y-assist/agents/) for the full tool surface and workflow.
 
 ## Snapshot discipline
 
