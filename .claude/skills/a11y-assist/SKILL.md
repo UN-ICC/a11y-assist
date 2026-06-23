@@ -23,7 +23,7 @@ Before looking anything up, establish the conformance target — **A, AA, or AAA
 3. **React Native** → not supported yet (web only).
 4. **Verifying your output** → `audit_html(html)` or `audit_url(url)`.
 
-Don't mix scenarios — each is scoped. Set `level` (`A` | `AA` | `AAA`, cumulative, default `AA`) at the entry; it's stamped into the suggested queries.
+Don't mix scenarios — each is scoped. Set `level` (`A` | `AA` | `AAA`, cumulative, default `AA`) at the entry; it's stamped into the suggested queries .
 
 ## The workflow
 

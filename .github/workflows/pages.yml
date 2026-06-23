@@ -1,0 +1,54 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permissions the GitHub Pages deploy needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deploy at a time; newer pushes supersede older runs.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # --- MOCK: a one-file placeholder to verify the pipeline works. ---
+      # Once this deploys cleanly we replace this step with the real SPA build:
+      #   - uses: actions/setup-node@v4 (node 22, cache: npm)
+      #   - run: npm ci
+      #   - run: npm run build && npm run build:web
+      #   - upload path: packages/web/dist
+      - name: Build mock page
+        run: |
+          mkdir -p _site
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en"><head><meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>a11y-assist</title>
+          <style>body{font:16px/1.6 system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem}</style>
+          </head><body>
+          <h1>a11y-assist — Pages is live ✅</h1>
+          <p>The deploy pipeline works. The full app will replace this placeholder next.</p>
+          </body></html>
+          HTML
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
