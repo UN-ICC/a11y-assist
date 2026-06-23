@@ -56,7 +56,7 @@ interface Technique {
 
 ## Coverage
 
-v0 ships **20 Success Criteria** (the ones touched by the 10 APG patterns in `apg-query` plus a few near-universal ones), **148 techniques**, and **45 failures**. Expanding to all WCAG 2.2 A + AA (~50 SCs) is mechanical — add the (id, slug, level) tuple to the extractor's `SCS` list and re-run.
+Ships **all 86 WCAG 2.2 Success Criteria** (WCAG 2.2 removed 4.1.1 Parsing, leaving 86), **316 techniques**, and **89 failures**. Refreshing against upstream errata is mechanical — re-run the extractor.
 
 ## Methodology
 

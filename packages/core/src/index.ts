@@ -1,6 +1,6 @@
 /**
  * a11y-core — pure logic shared by the MCP server (a11y-mcp) and the
- * a11ycat website (a11ycat-site). No I/O, no Playwright, no MCP protocol.
+ * a11y-assist website (a11y-assist-site). No I/O, no Playwright, no MCP protocol.
  *
  * Two responsibility areas:
  *   1. Pattern aggregation — composes apg-query + wcag-query + act-rules-query

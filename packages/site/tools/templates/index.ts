@@ -16,7 +16,7 @@ function indexBody(data: IndexData): string {
   const parts: string[] = []
 
   parts.push(`<section class="hero">`)
-  parts.push(`<p class="hero-tagline">accessibility for the prowler</p>`)
+  parts.push(`<p class="hero-tagline">accessibility guidance, traceable to source</p>`)
   parts.push(`<p class="hero-blurb">Humans browse, agents query — same data, every claim sourced. ` +
     `<a href="provenance.html">See provenance</a>.</p>`)
   parts.push(`<input type="search" id="filter" placeholder="Filter patterns, SCs, rules…" aria-label="Filter">`)
@@ -69,7 +69,7 @@ function indexBody(data: IndexData): string {
 export function renderIndexPage(data: IndexData): string {
   return baseLayout({
     title: 'Index',
-    description: 'a11ycat — browse W3C accessibility patterns, WCAG criteria, and ACT rules. Same dataset the MCP server serves to AI agents.',
+    description: 'a11y-assist — browse W3C accessibility patterns, WCAG criteria, and ACT rules. Same dataset the MCP server serves to AI agents.',
     rootHref: '.',
     bodyClass: 'page-index',
     content: indexBody(data),

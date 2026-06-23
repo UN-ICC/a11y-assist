@@ -18,7 +18,7 @@ function body(p: ProvenanceData): string {
   <p class="kicker">every claim, traceable</p></header>
 
   <section><h2>Data sources</h2>
-  <p>Each piece of data on a11ycat is extracted from a versioned upstream source. No editorial paraphrase. The MCP server consumes the same packages.</p>
+  <p>Each piece of data on a11y-assist is extracted from a versioned upstream source. No editorial paraphrase. The MCP server consumes the same packages.</p>
   <dl class="contract">
     <dt><code>apg-query</code></dt>
     <dd>${esc(p.apg.pattern_count)} patterns extracted from W3C APG · snapshot ${esc(p.apg.date)} · base URL <a href="${esc(p.apg.apg_base)}" rel="noreferrer">${esc(p.apg.apg_base)}</a></dd>
@@ -70,7 +70,7 @@ function body(p: ProvenanceData): string {
 export function renderProvenancePage(data: ProvenanceData): string {
   return baseLayout({
     title: 'Provenance',
-    description: 'a11ycat data sources, editorial residue, and methodology.',
+    description: 'a11y-assist data sources, editorial residue, and methodology.',
     rootHref: '.',
     bodyClass: 'page-provenance',
     content: body(data),

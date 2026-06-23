@@ -45,15 +45,14 @@ export function baseLayout(opts: BaseLayoutOpts): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(title)} — a11ycat</title>
+  <title>${esc(title)} — a11y-assist</title>
   ${description ? `<meta name="description" content="${esc(description)}">` : ''}
-  <link rel="stylesheet" href="${rootHref}/assets/a11ycat.css">
+  <link rel="stylesheet" href="${rootHref}/assets/a11y-assist.css">
 </head>
 <body${bodyClass ? ` class="${esc(bodyClass)}"` : ''}>
   <header class="site-header">
     <a href="${rootHref}/index.html" class="brand">
-      <span aria-hidden="true">🐈</span>
-      <span class="brand-name">a11ycat</span>
+      <span class="brand-name">a11y-assist</span>
     </a>
     <nav class="site-nav" aria-label="Main">
       <a href="${rootHref}/index.html#patterns">Patterns</a>
@@ -74,7 +73,7 @@ ${content}
   </main>
   <footer class="site-footer">
     <p>
-      <strong>a11ycat</strong> — accessibility for the prowler.
+      <strong>a11y-assist</strong> — accessibility guidance, traceable to source.
       <span>Humans browse, agents query — same data, every claim sourced.</span>
     </p>
     <p>

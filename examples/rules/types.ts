@@ -38,8 +38,8 @@ export interface ComponentMeta {
   component: string         // e.g. "Button"
   storybook_title: string   // exact Storybook title path: "Components/<Name>"
 
-  // Classification — exactly one must be present. See framework.md and
-  // extension-spec.md for the full discussion.
+  // Classification — exactly one must be present. See ARCHITECTURE.md and
+  // packages/mcp/extension-spec.md for the full discussion.
   apg_patterns?: string[]               // APG-aligned (1:1 or composition)
   primitive?: {                          // Native HTML element wrapper
     html_element: string                 // e.g. 'input', 'a', 'img'

@@ -1,8 +1,8 @@
 {
-  "name": "a11ycat-site",
+  "name": "a11y-assist-site",
   "version": "0.1.0",
   "private": true,
-  "description": "a11ycat — static GitHub Pages browser for the consolidated a11y dataset. Same data as the MCP server, rendered for humans.",
+  "description": "a11y-assist — static GitHub Pages browser for the consolidated a11y dataset. Same data as the MCP server, rendered for humans.",
   "type": "module",
   "scripts": {
     "build": "tsx tools/build-site.ts",

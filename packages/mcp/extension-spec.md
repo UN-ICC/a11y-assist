@@ -1,6 +1,6 @@
 # A11y MCP Server — DS Extension Authoring Guide
 
-This guide describes how to write a DS extension that plugs into the core a11y MCP server. The core is described in `specs.md`; this document assumes you've read it.
+This guide describes how to write a DS extension that plugs into the a11y-assist MCP server. The server is described in [`README.md`](./README.md); this document assumes you've read it.
 
 A DS extension is **optional** and **additive**. Without one, the core runs WCAG audits against any HTML or URL using axe-core's built-in ruleset. An extension layers on:
 
@@ -11,7 +11,7 @@ A DS extension is **optional** and **additive**. Without one, the core runs WCAG
 - Optional generated documentation (Confluence, Storybook MDX) from a single source.
 - Optional component-level tools (e.g. `get_ds_guidelines`).
 
-**Version:** 1.0 (matches core ≥ 5.0)
+**Version:** 1.0 (matches a11y-mcp ≥ 6.0)
 
 ---
 
@@ -95,7 +95,7 @@ my-ds-a11y-extension/
 ```typescript
 // src/index.ts
 import path from 'path'
-import type { DSExtension } from 'a11y-mcp-core/extensions/types'
+import type { DSExtension } from 'a11y-mcp/extensions/types'
 import { mapViolationsToGuidelines } from './enrich/load-guidelines'
 import { getDsGuidelinesTool } from './tools/get-ds-guidelines'
 
@@ -408,7 +408,7 @@ This is **the extension's responsibility**, not the core's. The core ships nothi
     "build": "npm run build:bundle && npm run build:node"
   },
   "peerDependencies": {
-    "a11y-mcp-core": "^5.0.0"
+    "a11y-mcp": "^6.0.0"
   },
   "dependencies": {
     "axe-core": "^4.10.0",
@@ -422,7 +422,7 @@ To install for a developer:
 
 ```bash
 # install both
-npm install -g a11y-mcp-core @acme/a11y-mcp-extension
+npm install -g a11y-mcp @acme/a11y-mcp-extension
 
 # tell the core where the extension is
 export A11Y_MCP_EXTENSION=$(node -e "console.log(require.resolve('@acme/a11y-mcp-extension'))")
@@ -436,7 +436,7 @@ Or via the MCP client config:
   "mcpServers": {
     "a11y": {
       "command": "node",
-      "args": ["/path/to/a11y-mcp-core/dist/server.js"],
+      "args": ["/path/to/a11y-assist/packages/mcp/dist/server.js"],
       "env": {
         "A11Y_MCP_EXTENSION": "/path/to/extension/dist/index.js",
         "A11Y_MCP_REFERENCE_STORYBOOK": "https://design.yourcompany.com"

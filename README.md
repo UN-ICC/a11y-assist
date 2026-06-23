@@ -1,6 +1,6 @@
-# a11y-mcp
+# a11y-assist
 
-A monorepo of accessibility tooling for AI coding agents and the broader a11y ecosystem.
+Accessibility tooling that aggregates authoritative W3C sources into one core and serves it two ways: to **AI coding agents** through an MCP server, and to **developers** through a browsable website. Same data, every claim traceable to its source.
 
 ## What's here
 
@@ -20,7 +20,7 @@ packages/
 │  surfaces (same data, two audiences)
 ├── mcp/   (a11y-mcp)  — the MCP server: the agent's view. Wraps a11y-core as MCP tools and runs
 │                        Playwright + axe-core for web validation. This is what AI agents connect to.
-└── site/  (a11ycat-site) — static GitHub Pages browser: the developer's view. The same data
+└── site/  (a11y-assist-site) — static GitHub Pages browser: the developer's view. The same data
                             loadPattern serves to agents, rendered as browsable pages.
 ```
 
@@ -28,15 +28,11 @@ The two surfaces read the **same** `a11y-core`, so an agent (via MCP) and a deve
 
 The three query packages mirror the precedent set by [`aria-query`](https://www.npmjs.com/package/aria-query) (which we use for ARIA spec data). They are independently useful — eslint plugins, Storybook addons, doc generators, other MCP servers can all consume them without our MCP server.
 
-## The vision
+## Why
 
-Most accessibility tools either (a) embed editorial paraphrase that drifts from the W3C source, or (b) point users at the W3C site and leave the synthesis to humans. Both fail at scale.
+Most accessibility tools either embed editorial paraphrase that drifts from the W3C source, or point you at the W3C site and leave the synthesis to you. a11y-assist takes a different stance: **every claim is traceable to a versioned upstream document.** Paraphrase is replaced by aggregation — the system composes authoritative data at request time, and the agent (Claude or any LLM) does the synthesis by reasoning over the structured inputs.
 
-This project takes a different stance: **every claim the system makes is traceable to a versioned upstream document**. Editorial paraphrase is replaced by aggregation. The MCP server pulls authoritative data from the three query packages at request time and returns it to the agent. The agent — Claude or any other LLM — does the synthesis (recommendations, code, fixes) by reasoning over the structured inputs.
-
-For the layered conceptual model — WCAG, APG, ARIA, AT — see [`framework.md`](./framework.md).
-
-For the algorithmic methodology that keeps this honest — pinned snapshots, extractors, no editorial residue beyond a small primitive-mapping table — see [`methodology.md`](./methodology.md).
+For the full picture — the accessibility model, the W3C sources, the data pipeline, and the snapshot discipline that keeps it honest — see [`ARCHITECTURE.md`](./ARCHITECTURE.md).
 
 ## Quick start (MCP server)
 
@@ -67,12 +63,20 @@ const sc = getSC('2.4.7')                     // SC + technique + failure IDs
 const f78 = getFailure('F78')                 // verbatim W3C failure title + URL
 ```
 
+## Quick start (website)
+
+```sh
+npm run build:site   # regenerates the static site into docs/
+```
+
+The site is served from `docs/` as GitHub Pages — pattern, WCAG, and ACT pages built from the same data the MCP server returns.
+
 ## Honest scope
 
 - **Web validation** (audit_html / audit_url): supported via axe-core + Playwright.
 - **React Native validation**: not directly supported. axe is a DOM tool. RN audits require lint (`eslint-plugin-react-native-a11y`), simulator-based testing (Detox/Maestro), or HTML approximation.
 - **Web + React Native planning** (get_a11y_pattern, list_a11y_patterns): supported. Both platforms get aria_contract, WCAG SCs, and platform-specific bindings.
-- **Manual screen reader, keyboard, and cognitive review**: still required. axe catches roughly 50% of WCAG; the other 50% is human work. See `framework.md` "What this server cannot tell you."
+- **Manual screen reader, keyboard, and cognitive review**: still required. axe catches roughly 50% of WCAG; the other 50% is human work. See [`ARCHITECTURE.md`](./ARCHITECTURE.md) "Honest scope."
 
 ## Provenance
 

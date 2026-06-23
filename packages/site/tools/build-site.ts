@@ -1,5 +1,5 @@
 /**
- * Build script for a11ycat — turns the consolidated a11y dataset into a
+ * Build script for a11y-assist — turns the consolidated a11y dataset into a
  * static GitHub Pages site. Same data the MCP server serves to agents.
  *
  * Pipeline:
@@ -96,7 +96,7 @@ async function main() {
       }
     }
   }
-  console.error(`[a11ycat] wrote ${allLoadedPatterns.length} pattern pages`)
+  console.error(`[a11y-assist] wrote ${allLoadedPatterns.length} pattern pages`)
 
   // WCAG SC pages
   const indexSCs: IndexData['scs'] = []
@@ -110,7 +110,7 @@ async function main() {
     write(resolve(DOCS, 'wcag', `${id}.html`), renderSCPage(expansion, '..'))
     indexSCs.push({ id: sc.id, level: sc.level, title: sc.title })
   }
-  console.error(`[a11ycat] wrote ${indexSCs.length} WCAG SC pages`)
+  console.error(`[a11y-assist] wrote ${indexSCs.length} WCAG SC pages`)
 
   // ACT rule pages
   const indexACTs: IndexData['acts'] = []
@@ -122,7 +122,7 @@ async function main() {
     write(resolve(DOCS, 'act', `${id}.html`), renderACTPage(expansion, '..'))
     indexACTs.push({ id: rule.id, name: rule.name, wcag_sc_ids: rule.wcag_sc_ids })
   }
-  console.error(`[a11ycat] wrote ${indexACTs.length} ACT rule pages`)
+  console.error(`[a11y-assist] wrote ${indexACTs.length} ACT rule pages`)
 
   // Index + provenance
   const indexData: IndexData = {
@@ -147,10 +147,10 @@ async function main() {
   // Copy assets
   copyDir(ASSETS_SRC, ASSETS_DST)
 
-  console.error(`[a11ycat] build complete → ${relative(REPO_ROOT, DOCS)}/`)
+  console.error(`[a11y-assist] build complete → ${relative(REPO_ROOT, DOCS)}/`)
 }
 
 main().catch((err) => {
-  console.error('[a11ycat] build failed:', err)
+  console.error('[a11y-assist] build failed:', err)
   process.exit(1)
 })

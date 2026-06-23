@@ -27,11 +27,11 @@ console.log(button.keyboard_interactions)
 //   ]
 
 console.log(listPatterns())
-// → ['accordion', 'alert', 'button', 'checkbox', 'dialog', 'disclosure',
-//    'listbox', 'radio', 'tabs', 'tooltip']
+// → ['accordion', 'alert', 'alertdialog', 'breadcrumb', 'button', 'carousel',
+//    'checkbox', 'combobox', 'dialog', ... 28 in total]
 
 console.log(APG_SNAPSHOT)
-// → { date: '2026-05-07', apg_base: 'https://www.w3.org/WAI/ARIA/apg/patterns', pattern_count: 10 }
+// → { date: '2026-05-07', apg_base: 'https://www.w3.org/WAI/ARIA/apg/patterns', pattern_count: 28 }
 ```
 
 ## Data shape
@@ -52,7 +52,7 @@ Every string field is **verbatim from the APG HTML** — never paraphrased or su
 
 ## Coverage
 
-Currently 10 patterns: accordion, alert, button, checkbox, dialog, disclosure, listbox, radio, tabs, tooltip. APG defines ~25 patterns; expanding coverage is a matter of adding entries to the extractor's pattern list.
+28 patterns: accordion, alert, alertdialog, breadcrumb, button, carousel, checkbox, combobox, dialog, disclosure, feed, grid, link, listbox, menu, menubutton, meter, radio, slider, slider-multithumb, spinbutton, switch, table, tabs, toolbar, tooltip, treegrid, treeview. Expanding coverage is a matter of adding entries to the extractor's pattern list and re-running.
 
 ## Methodology
 
