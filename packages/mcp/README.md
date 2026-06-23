@@ -1,6 +1,6 @@
-# a11y-mcp
+# a11y-assist-mcp
 
-The **a11y-assist MCP server** — the agent-facing surface. It exposes the tested query packages ([`apg-query`](../apg-query), [`wcag-query`](../wcag-query), [`act-rules-query`](../act-rules-query), `aria-query`) through scoped tools, composes them via [`a11y-core`](../core), and runs axe-core via Playwright for verification.
+The **a11y-assist MCP server** — the agent-facing surface. It exposes the tested query packages ([`apg-query`](../apg-query), [`wcag-query`](../wcag-query), [`act-rules-query`](../act-rules-query), `aria-query`) through scoped tools, composes them via [`a11y-assist-core`](../core), and runs axe-core via Playwright for verification.
 
 It asserts nothing about "which SCs apply." Each response is verbatim data, mechanically-derived data, or a runnable next query. See [`../../REDESIGN.md`](../../REDESIGN.md) for the model.
 
@@ -73,9 +73,9 @@ npx playwright install chromium   # required for audit tools (~150 MB)
 node dist/server.js < /dev/null 2>&1 | head -4
 ```
 ```
-[a11y-mcp] axe tags: wcag2a, wcag2aa, wcag21a, wcag21aa
-[a11y-mcp] tools: get_apg_pattern, get_aria_role, get_element_roles, list_apg_patterns, search_act, get_act_rule, search_wcag, get_wcag_sc, audit_html, audit_url
-[a11y-mcp] data: apg-query (28 patterns @ …), wcag-query (WCAG 2.2, 86 SCs), act-rules-query (94 rules @ …)
+[a11y-assist-mcp] axe tags: wcag2a, wcag2aa, wcag21a, wcag21aa
+[a11y-assist-mcp] tools: get_apg_pattern, get_aria_role, get_element_roles, list_apg_patterns, search_act, get_act_rule, search_wcag, get_wcag_sc, audit_html, audit_url
+[a11y-assist-mcp] data: apg-query (28 patterns @ …), wcag-query (WCAG 2.2, 86 SCs), act-rules-query (94 rules @ …)
 ```
 
 ## Honest scope

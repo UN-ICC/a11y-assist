@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { getRolesForElement } from 'a11y-core'
+import { getRolesForElement } from 'a11y-assist-core'
 
 const parameters = z.object({
   tag: z.string().describe('HTML tag name, e.g. "input", "a", "button", "img".'),

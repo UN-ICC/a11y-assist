@@ -1,5 +1,5 @@
 /**
- * a11y-core — pure, mechanical composition shared by the MCP server (a11y-mcp)
+ * a11y-assist-core — pure, mechanical composition shared by the MCP server (a11y-assist-mcp)
  * and the a11y-assist website (a11y-assist-web). No I/O, no Playwright, no MCP
  * protocol, and no editorial assertions.
  *

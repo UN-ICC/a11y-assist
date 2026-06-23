@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { composeApgPattern, listApgPatterns } from 'a11y-core'
+import { composeApgPattern, listApgPatterns } from 'a11y-assist-core'
 
 const parameters = z.object({
   name: z.string().describe(

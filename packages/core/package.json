@@ -1,5 +1,5 @@
 {
-  "name": "a11y-core",
+  "name": "a11y-assist-core",
   "version": "0.1.0",
   "description": "Pure, mechanical accessibility composition: assembles APG/ARIA recipes + ARIA contract + native elements + drill-down queries (apg-query + wcag-query + act-rules-query + aria-query) and shapes audit responses. No I/O, no MCP, no Playwright, no editorial data.",
   "type": "module",
@@ -12,15 +12,16 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test test/*.test.ts",
-    "test:types": "tsc -p test"
+    "test:types": "tsc -p test",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=22.0.0"
   },
   "dependencies": {
-    "act-rules-query": "*",
-    "apg-query": "*",
-    "wcag-query": "*",
+    "act-rules-query": "^0.1.0",
+    "apg-query": "^0.1.0",
+    "wcag-query": "^0.1.0",
     "aria-query": "^5.3.2"
   },
   "devDependencies": {
@@ -29,5 +30,12 @@
     "tsx": "^4.7.0",
     "typescript": "^5.4.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UN-ICC/a11y-assist.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/UN-ICC/a11y-assist#readme",
+  "bugs": "https://github.com/UN-ICC/a11y-assist/issues"
 }

@@ -74,3 +74,15 @@ The data files contain content extracted from W3C ARIA Authoring Practices Guide
 
 - [`aria-query`](https://www.npmjs.com/package/aria-query) — the WAI-ARIA spec extraction (roles, properties, element-role mapping)
 - [`wcag-query`](../wcag-query) — WCAG 2.2 success criteria, techniques, and failures
+
+## Data versions
+
+Each published version ↔ the upstream snapshot it was built from.
+
+<!-- provenance:start -->
+
+| Version | Scraped | Patterns |
+| --- | --- | --- |
+| 0.1.0 | 2026-05-07 | 28 |
+
+<!-- provenance:end -->

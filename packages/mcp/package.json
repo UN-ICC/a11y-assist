@@ -1,11 +1,11 @@
 {
-  "name": "a11y-mcp",
-  "version": "6.0.0",
+  "name": "a11y-assist-mcp",
+  "version": "0.1.0",
   "description": "Design-system-agnostic accessibility MCP server for AI agents: scoped entry points (APG patterns, ARIA roles) with ACT/WCAG drill-down, plus Playwright + axe-core verification.",
   "type": "module",
   "main": "dist/server.js",
   "bin": {
-    "a11y-mcp": "dist/server.js"
+    "a11y-assist-mcp": "dist/server.js"
   },
   "files": [
     "dist"
@@ -14,25 +14,33 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "tsx src/server.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=22.0.0"
   },
   "dependencies": {
-    "a11y-core": "*",
-    "act-rules-query": "*",
-    "apg-query": "*",
-    "wcag-query": "*",
+    "act-rules-query": "^0.1.0",
+    "apg-query": "^0.1.0",
+    "wcag-query": "^0.1.0",
     "axe-core": "^4.10.0",
     "fastmcp": "^4.0.1",
     "playwright": "^1.44.0",
-    "zod": "^3.23.0"
+    "zod": "^3.23.0",
+    "a11y-assist-core": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
     "tsx": "^4.7.0",
     "typescript": "^5.4.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UN-ICC/a11y-assist.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://github.com/UN-ICC/a11y-assist#readme",
+  "bugs": "https://github.com/UN-ICC/a11y-assist/issues"
 }

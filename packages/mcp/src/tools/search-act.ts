@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { searchAct } from 'a11y-core'
+import { searchAct } from 'a11y-assist-core'
 
 const parameters = z.object({
   query: z.string().describe('A term to match against ACT rule names and applicability text — typically a role name, ARIA attribute, or element from a suggested_query.'),

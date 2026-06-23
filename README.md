@@ -14,17 +14,17 @@ packages/
 ├── act-rules-query/  — programmatic access to W3C ACT Rules (loaded from snapshotted YAML/MD)
 │
 │  aggregator (pure logic)
-├── core/  (a11y-core) — composes the three query packages (+ aria-query) into recipe + ARIA
+├── core/  (a11y-assist-core) — composes the three query packages (+ aria-query) into recipe + ARIA
 │                        contract + drill-down queries, and shapes audit responses. No editorial data.
 │
 │  surfaces (same data, two audiences)
-├── mcp/   (a11y-mcp)  — the MCP server: the agent's view. Wraps a11y-core as MCP tools and runs
+├── mcp/   (a11y-assist-mcp)  — the MCP server: the agent's view. Wraps a11y-assist-core as MCP tools and runs
 │                        Playwright + axe-core for web validation. This is what AI agents connect to.
 └── web/   (a11y-assist-web) — single-file SPA browser: the developer's view. The same data
                             composeApgPattern serves to agents, deployed to GitHub Pages.
 ```
 
-The two surfaces read the **same** `a11y-core`, so an agent (via MCP) and a developer (via the website) see the same guidance — they can't drift.
+The two surfaces read the **same** `a11y-assist-core`, so an agent (via MCP) and a developer (via the website) see the same guidance — they can't drift.
 
 The three query packages mirror the precedent set by [`aria-query`](https://www.npmjs.com/package/aria-query) (which we use for ARIA spec data). They are independently useful — eslint plugins, Storybook addons, doc generators, other MCP servers can all consume them without our MCP server.
 
@@ -66,10 +66,10 @@ const f78 = getFailure('F78')                 // verbatim W3C failure title + UR
 ## Quick start (website)
 
 ```sh
-npm run build:site   # regenerates the static site into docs/
+npm run web          # build the single-file app and open it locally
 ```
 
-The site is served from `docs/` as GitHub Pages — pattern, WCAG, and ACT pages built from the same data the MCP server returns.
+The docs site (just-the-docs) and the app both live in `docs/` and deploy to GitHub Pages. The app is a single self-contained `docs/app/index.html`; refresh it after app changes with `npm run docs:app`.
 
 ## Honest scope
 

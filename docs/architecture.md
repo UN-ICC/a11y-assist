@@ -49,7 +49,7 @@ APG and ARIA-in-HTML sit at the same conceptual altitude — APG for custom comp
 ## The pipeline
 
 ```
-Upstream                  Extractor / Loader               Query package           Compose (a11y-core)
+Upstream                  Extractor / Loader               Query package           Compose (a11y-assist-core)
 ─────────────────────────────────────────────────────────────────────────────────────────────────────
 W3C APG HTML        →  apg-query/tools/extract.ts      →  apg-query/src/data/*   ┐
 W3C WCAG HTML       →  wcag-query/tools/extract.ts     →  wcag-query/src/data/*  ├→  composeApgPattern
@@ -59,7 +59,7 @@ WAI-ARIA (npm)      →  [no extraction — aria-query]    →  aria-query      
                                                                               response to consumer
 ```
 
-Each query package owns exactly one upstream source. `a11y-core` knows nothing about scraping HTML or parsing YAML — it imports `getPattern`, `getSC`, `search`, etc. and composes them, with **no data of its own**.
+Each query package owns exactly one upstream source. `a11y-assist-core` knows nothing about scraping HTML or parsing YAML — it imports `getPattern`, `getSC`, `search`, etc. and composes them, with **no data of its own**.
 
 The composition does not assert "which SCs apply." Instead:
 
@@ -67,7 +67,7 @@ The composition does not assert "which SCs apply." Instead:
 2. **`suggested_queries`** are `search_act` calls derived deterministically from the entry's structured fields (role names, required ARIA props, native element tags, and a focus/keyboard seed when a keyboard table exists), stamped with the conformance `level`.
 3. **Drill-down** — the agent runs a suggested query: `searchAct(query, level)` returns ACT rules whose covered WCAG SCs are gated to the level (the one mechanical ACT→SC bridge); then `getSC(id)` expands a criterion into techniques + failures.
 
-The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-core` joins ACT to WCAG levels, because the extractor packages stay single-source. See [`REDESIGN.md`](./REDESIGN.md) for the full tool surface and workflow.
+The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-assist-core` joins ACT to WCAG levels, because the extractor packages stay single-source. See [`REDESIGN.md`](./REDESIGN.md) for the full tool surface and workflow.
 
 ## Snapshot discipline
 
@@ -86,7 +86,7 @@ npm run extract --workspace=wcag-query -- --refresh
 
 ## No editorial residue
 
-There is no hand-maintained applicability data. `a11y-core` ships **no data of its own**: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` query the agent runs itself. The role→SC question that used to require an editorial table is now answered by the agent drilling down through `search_act` → the mechanical ACT→SC bridge.
+There is no hand-maintained applicability data. `a11y-assist-core` ships **no data of its own**: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` query the agent runs itself. The role→SC question that used to require an editorial table is now answered by the agent drilling down through `search_act` → the mechanical ACT→SC bridge.
 
 The cost of this honesty is a known blind spot: ACT publishes no rules for several visual/perceptual SCs (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` won't surface them. They are caught by **axe at verification** (contrast, target size) and by manual review — never asserted per-pattern.
 

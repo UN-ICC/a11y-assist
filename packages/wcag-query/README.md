@@ -81,3 +81,15 @@ Data is derived from W3C WCAG 2.2 Understanding pages, licensed under the [W3C D
 
 - [`aria-query`](https://www.npmjs.com/package/aria-query) — WAI-ARIA roles, properties, element-role mappings
 - [`apg-query`](../apg-query) — APG patterns (button, dialog, tabs, ...)
+
+## Data versions
+
+Each published version ↔ the upstream snapshot it was built from.
+
+<!-- provenance:start -->
+
+| Version | Scraped | WCAG |
+| --- | --- | --- |
+| 0.1.0 | 2026-05-07 | 2.2 |
+
+<!-- provenance:end -->

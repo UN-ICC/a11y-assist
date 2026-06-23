@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { composeAriaRole } from 'a11y-core'
+import { composeAriaRole } from 'a11y-assist-core'
 
 const parameters = z.object({
   role: z.string().describe(

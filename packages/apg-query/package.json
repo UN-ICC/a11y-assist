@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test test/*.test.ts",
     "test:types": "tsc -p test",
-    "extract": "tsx tools/extract.ts"
+    "extract": "tsx tools/extract.ts",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -26,5 +27,19 @@
     "typescript": "^5.4.0"
   },
   "license": "MIT",
-  "keywords": ["accessibility", "a11y", "aria", "apg", "wai-aria", "authoring-practices"]
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "aria",
+    "apg",
+    "wai-aria",
+    "authoring-practices"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UN-ICC/a11y-assist.git",
+    "directory": "packages/apg-query"
+  },
+  "homepage": "https://github.com/UN-ICC/a11y-assist#readme",
+  "bugs": "https://github.com/UN-ICC/a11y-assist/issues"
 }

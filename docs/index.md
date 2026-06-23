@@ -22,7 +22,7 @@ The **app** lets you browse the same data the agent uses — APG patterns and na
 
 Three verbatim W3C data libraries feed one aggregator, which is exposed two ways:
 
-- **Agents** connect to the `a11y-mcp` server and get planning + verification tools.
+- **Agents** connect to the `a11y-assist-mcp` server and get planning + verification tools.
 - **Developers** use this site.
 
 Nothing is editorialised: the system hands over verbatim recipes plus *queries to run*, and the agent (or you) does the synthesis. The one honest caveat — automation covers roughly half of WCAG — is built into how the tool reports, so what a human still needs to verify is always made explicit.

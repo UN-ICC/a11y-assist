@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { z } from 'zod'
-import { wrapAuditResponse } from 'a11y-core'
+import { wrapAuditResponse } from 'a11y-assist-core'
 import { withPage } from '../browser/pool.js'
 import { runAxe } from '../browser/audit.js'
 
@@ -52,6 +52,6 @@ function readStyle(stylesheetPath: string): string {
     return `<style>${css}</style>`
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err)
-    return `<!-- a11y-mcp: failed to read stylesheet at ${stylesheetPath}: ${message} -->`
+    return `<!-- a11y-assist-mcp: failed to read stylesheet at ${stylesheetPath}: ${message} -->`
   }
 }

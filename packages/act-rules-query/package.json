@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test test/*.test.ts",
     "test:types": "tsc -p test",
-    "load": "tsx tools/load-yaml.ts"
+    "load": "tsx tools/load-yaml.ts",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -26,5 +27,19 @@
     "typescript": "^5.4.0"
   },
   "license": "MIT",
-  "keywords": ["accessibility", "a11y", "act", "act-rules", "wcag", "conformance"]
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "act",
+    "act-rules",
+    "wcag",
+    "conformance"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UN-ICC/a11y-assist.git",
+    "directory": "packages/act-rules-query"
+  },
+  "homepage": "https://github.com/UN-ICC/a11y-assist#readme",
+  "bugs": "https://github.com/UN-ICC/a11y-assist/issues"
 }

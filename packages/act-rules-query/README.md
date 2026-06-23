@@ -76,3 +76,15 @@ Data is derived from the [act-rules.github.io](https://github.com/act-rules/act-
 - [`aria-query`](https://www.npmjs.com/package/aria-query) — WAI-ARIA roles, properties, element-role mappings
 - [`apg-query`](../apg-query) — APG patterns
 - [`wcag-query`](../wcag-query) — WCAG 2.2 SCs + Techniques + Failures
+
+## Data versions
+
+Each published version ↔ the upstream snapshot it was built from.
+
+<!-- provenance:start -->
+
+| Version | Scraped | Upstream commit |
+| --- | --- | --- |
+| 0.1.0 | 2026-05-07 | `80e887e` |
+
+<!-- provenance:end -->

@@ -25,8 +25,8 @@ const TOOL_NAMES = [
 
 async function main(): Promise<void> {
   const server = new FastMCP({
-    name: 'a11y-mcp',
-    version: '6.0.0',
+    name: 'a11y-assist-mcp',
+    version: '0.1.0',
   })
 
   server.addTool(getApgPatternTool)
@@ -41,10 +41,10 @@ async function main(): Promise<void> {
   server.addTool(auditUrlTool)
 
   // Log to stderr so the stdio transport stays clean for MCP traffic.
-  console.error(`[a11y-mcp] axe tags: ${CONFIG.axeTags.join(', ')}`)
-  console.error(`[a11y-mcp] tools: ${TOOL_NAMES.join(', ')}`)
+  console.error(`[a11y-assist-mcp] axe tags: ${CONFIG.axeTags.join(', ')}`)
+  console.error(`[a11y-assist-mcp] tools: ${TOOL_NAMES.join(', ')}`)
   console.error(
-    `[a11y-mcp] data: apg-query (${APG_SNAPSHOT.pattern_count} patterns @ ${APG_SNAPSHOT.date}), ` +
+    `[a11y-assist-mcp] data: apg-query (${APG_SNAPSHOT.pattern_count} patterns @ ${APG_SNAPSHOT.date}), ` +
     `wcag-query (WCAG ${WCAG_SNAPSHOT.version}, ${WCAG_SNAPSHOT.sc_count} SCs), ` +
     `act-rules-query (${ACT_SNAPSHOT.rule_count} rules @ ${ACT_SNAPSHOT.upstream_commit.slice(0, 7)})`,
   )
@@ -56,6 +56,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((err: unknown) => {
-  console.error('[a11y-mcp] fatal:', err)
+  console.error('[a11y-assist-mcp] fatal:', err)
   process.exit(1)
 })

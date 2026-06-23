@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { wrapAuditResponse } from 'a11y-core'
+import { wrapAuditResponse } from 'a11y-assist-core'
 import { withPage } from '../browser/pool.js'
 import { runAxe } from '../browser/audit.js'
 

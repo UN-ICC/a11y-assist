@@ -1,6 +1,6 @@
 /**
  * Builds the prototype into ONE self-contained file: packages/web/dist/index.html.
- * Inlines the dataset (composed from a11y-core + the query packages), the app
+ * Inlines the dataset (composed from a11y-assist-core + the query packages), the app
  * JS, the CSS, and axe-core — so the file works offline by double-click.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
@@ -8,7 +8,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 
-import { composeApgPattern, composeAriaRole, listApgPatterns } from 'a11y-core'
+import { composeApgPattern, composeAriaRole, listApgPatterns } from 'a11y-assist-core'
 import { successCriteria, getTechnique, getFailure } from 'wcag-query'
 import { rules as actRules } from 'act-rules-query'
 import { roles as ariaRoles } from 'aria-query'
