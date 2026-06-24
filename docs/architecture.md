@@ -82,10 +82,10 @@ Each query package owns exactly one upstream source. `a11y-assist-core` knows no
 The composition does not assert "which SCs apply." Instead:
 
 1. **Entry** — `composeApgPattern(name, level)` (composite components) or `composeAriaRole(role, level)` (native primitives). Each returns the verbatim recipe + the ARIA contract for its roles + the native HTML elements that carry them (all mechanical) + `suggested_queries`.
-2. **`suggested_queries`** are `search_act` calls derived deterministically from the entry's structured fields (role names, required ARIA props, native element tags, and a focus/keyboard seed when a keyboard table exists), stamped with the conformance `level`.
-3. **Drill-down** — the agent runs a suggested query: `searchAct(query, level)` returns ACT rules whose covered WCAG SCs are gated to the level (the one mechanical ACT→SC bridge); then `getSC(id)` expands a criterion into techniques + failures.
+2. **`suggested_queries`** are derived deterministically from the entry's structured fields and seed two paths, each stamped with the conformance `level`: `search_act` seeds (role names, required ARIA props, native element tags, a focus/keyboard seed when a keyboard table exists) and `search_wcag` seeds (role names, a keyboard/focus seed, a name/label seed when the role requires an accessible name). The second path reaches WCAG directly, so the drill-down is never empty for components ACT's sparser text index would miss.
+3. **Drill-down** — the agent runs a suggested query. `searchAct(query, level)` returns ACT rules whose covered WCAG SCs are gated to the level (the one mechanical ACT→SC bridge); `searchWcag(query, level)` returns matching criteria directly. Either way, `getWcagSc(id)` then expands a criterion into techniques + failures, and `actRulesForSc(id)` walks the same ACT→SC link in reverse (the rules that cover a given criterion).
 
-The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-assist-core` joins ACT to WCAG levels, because the extractor packages stay single-source. See [For agents](/a11y-assist/agents/) for the full tool surface and workflow.
+The level gate (`A`/`AA`/`AAA`, cumulative) is the only place `a11y-assist-core` joins ACT to WCAG levels, because the extractor packages stay single-source. The same query functions (`searchWcag`, `getWcagSc`, `searchAct`, `getActRule`, `actRulesForSc`, …) are the read surface both the MCP server and the website call, so the two consumers cannot drift. See [For agents](/a11y-assist/agents/) for the full tool surface and workflow.
 
 ## Snapshot discipline
 
@@ -104,9 +104,9 @@ npm run extract --workspace=wcag-query -- --refresh
 
 ## Editorial content
 
-`a11y-assist-core` contains no hand-maintained applicability data and ships no data of its own: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` query. Which Success Criteria apply to a component is determined by the agent through `search_act` and the ACT-rule-to-Success-Criterion mapping, not by an editorial table.
+`a11y-assist-core` contains no hand-maintained applicability data and ships no data of its own: every field is verbatim from a query package or `aria-query`, mechanically derived from one (the ARIA contract, native elements), or a `search_act` / `search_wcag` query. Which Success Criteria apply to a component is determined by the agent through those searches and the ACT-rule-to-Success-Criterion mapping, not by an editorial table.
 
-This has a known limitation: ACT publishes no rules for several visual or perceptual Success Criteria (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` does not surface them. These are covered by axe-core at verification (contrast, target size) and by human review; they are not asserted per pattern.
+This has a known limitation: ACT publishes no rules for several visual or perceptual Success Criteria (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` does not surface them. The `search_wcag` path recovers some by matching the criteria directly; the rest are covered by axe-core at verification (contrast, target size) and by human review. None are asserted per pattern.
 
 ## Limitations of automated checks
 

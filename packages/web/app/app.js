@@ -5,7 +5,7 @@
   var scLevel = {}
   Object.keys(D.scs).forEach(function (id) { scLevel[id] = D.scs[id].level })
 
-  var state = { tab: 'apg', level: 'AA', apgRole: null, htmlRole: null }
+  var state = { tab: 'apg', level: 'AA', apgRole: null, htmlRole: null, scId: null, actId: null }
   var main = document.getElementById('main')
 
   function esc(s) {
@@ -61,10 +61,32 @@
       + list.map(function (k) { return '<tr><td><code>' + esc(k.key) + '</code></td><td>' + esc(k.description) + '</td></tr>' }).join('')
       + '</tbody></table>'
   }
+  // Client mirror of core.searchWcag: substring over id+title+statement, level-gated.
+  function searchWcag(query, level) {
+    var q = String(query).toLowerCase().trim()
+    if (!q) return []
+    var max = ORDER[level]
+    return Object.keys(D.scs).map(function (id) { return D.scs[id] })
+      .filter(function (sc) {
+        return ORDER[sc.level] <= max && (
+          sc.id.indexOf(q) >= 0 ||
+          sc.title.toLowerCase().indexOf(q) >= 0 ||
+          (sc.short_text || '').toLowerCase().indexOf(q) >= 0
+        )
+      })
+      .sort(function (a, b) { return a.id.localeCompare(b.id, undefined, { numeric: true }) })
+  }
+
   function chipsHtml(c) {
-    return '<div class="chips">' + c.suggested_queries.map(function (q) {
-      return '<button class="chip" data-q="' + esc(q.query) + '">search_act("' + esc(q.query) + '")</button>'
-    }).join('') + '</div>'
+    var act = c.suggested_queries.filter(function (q) { return q.tool === 'search_act' })
+    var wcag = c.suggested_queries.filter(function (q) { return q.tool === 'search_wcag' })
+    function group(label, items) {
+      if (!items.length) return ''
+      return '<p class="chips-label">' + esc(label) + '</p><div class="chips">' + items.map(function (q) {
+        return '<button class="chip" data-tool="' + esc(q.tool) + '" data-q="' + esc(q.query) + '" title="' + esc(q.why) + '">' + esc(q.query) + '</button>'
+      }).join('') + '</div>'
+    }
+    return group('Search ACT rules', act) + group('Search WCAG criteria', wcag)
   }
 
   // Wraps a detail body in Human / Agent sub-tabs. Agent tab shows the exact
@@ -89,17 +111,24 @@
       })
     })
     d.querySelectorAll('.chip').forEach(function (ch) {
-      ch.addEventListener('click', function () { drill(ch.getAttribute('data-q')) })
+      ch.addEventListener('click', function () { drill(ch.getAttribute('data-tool') || 'search_act', ch.getAttribute('data-q')) })
     })
   }
 
-  function drill(query) {
+  function drill(tool, query) {
     var el = document.getElementById('drill')
     if (!el) return
+    el.innerHTML = (tool === 'search_wcag' ? drillWcagHtml(query) : drillActHtml(query))
+    el.querySelectorAll('.sc-chip').forEach(function (b) {
+      b.addEventListener('click', function () { showSC(b.getAttribute('data-sc')) })
+    })
+  }
+
+  function drillActHtml(query) {
     var rules = searchAct(query, state.level)
     var html = '<h3>ACT rules for &ldquo;' + esc(query) + '&rdquo; &middot; level ' + esc(state.level) + ' (' + rules.length + ')</h3>'
     if (!rules.length) {
-      html += '<p class="note">No ACT rules match at this level. Some concerns (contrast, target size) are checked in the Verify tab, not via ACT.</p>'
+      html += '<p class="note">No ACT rules match at this level &mdash; try the WCAG criteria above, or check the Verify tab (contrast, target size are not covered by ACT).</p>'
     } else {
       html += '<ul class="rules">' + rules.map(function (r) {
         return '<li><strong>' + esc(r.id) + '</strong> ' + esc(r.name) + ' <a href="' + esc(r.url) + '" target="_blank" rel="noreferrer">&#8599;</a><br>'
@@ -107,15 +136,24 @@
           + '</li>'
       }).join('') + '</ul>'
     }
-    el.innerHTML = html
-    el.querySelectorAll('.sc-chip').forEach(function (b) {
-      b.addEventListener('click', function () { showSC(b.getAttribute('data-sc')) })
-    })
+    return html
   }
 
-  function showSC(id) {
-    var sc = D.scs[id]
-    if (!sc) return
+  function drillWcagHtml(query) {
+    var scs = searchWcag(query, state.level)
+    var html = '<h3>WCAG criteria matching &ldquo;' + esc(query) + '&rdquo; &middot; level ' + esc(state.level) + ' (' + scs.length + ')</h3>'
+    if (!scs.length) {
+      html += '<p class="note">No WCAG criteria match this term at the selected level.</p>'
+    } else {
+      html += '<ul class="rules">' + scs.map(function (sc) {
+        return '<li><button class="sc-chip" data-sc="' + esc(sc.id) + '">' + esc(sc.id) + '</button> '
+          + esc(sc.title) + ' <span class="role">' + esc(sc.level) + '</span></li>'
+      }).join('') + '</ul>'
+    }
+    return html
+  }
+
+  function scDetailHtml(sc) {
     var html = '<h2>' + esc(sc.id) + ' ' + esc(sc.title) + ' <span class="role">' + esc(sc.level) + '</span></h2>'
       + '<blockquote>' + esc(sc.short_text) + '</blockquote>'
       + '<p><a href="' + esc(sc.understanding_url) + '" target="_blank" rel="noreferrer">Understanding ' + esc(sc.id) + ' &#8599;</a></p>'
@@ -129,7 +167,35 @@
         return '<li><a href="' + esc(f.url) + '" target="_blank" rel="noreferrer"><code>' + esc(f.id) + '</code> ' + esc(f.title) + '</a></li>'
       }).join('') + '</ul>'
     }
-    openModal(html)
+    // Related ACT rules — the mechanical SC→rule cross-link, not level-gated.
+    var rules = D.act.filter(function (r) { return r.wcag_sc_ids.indexOf(sc.id) >= 0 })
+      .sort(function (a, b) { return a.id.localeCompare(b.id) })
+    if (rules.length) {
+      html += '<h3>ACT rules covering this criterion (' + rules.length + ')</h3><div class="chips">'
+        + rules.map(function (r) {
+          return '<button class="act-chip" data-act="' + esc(r.id) + '" title="' + esc(r.name) + '">' + esc(r.id) + ' ' + esc(r.name) + '</button>'
+        }).join('') + '</div>'
+    }
+    return html
+  }
+  // Wire ACT-rule pills inside any container: jump to the ACT browser on that rule.
+  function wireActChips(container) {
+    container.querySelectorAll('.act-chip').forEach(function (b) {
+      b.addEventListener('click', function () { openAct(b.getAttribute('data-act')) })
+    })
+  }
+  function openAct(id) {
+    modal.hidden = true
+    state.tab = 'act'
+    state.actId = id
+    syncTabs()
+    render()
+  }
+  function showSC(id) {
+    var sc = D.scs[id]
+    if (!sc) return
+    openModal(scDetailHtml(sc))
+    wireActChips(modalBody)
   }
 
   // --- list/detail tabs ---
@@ -187,6 +253,90 @@
       + '<div id="drill"></div>'
     d.innerHTML = detailShell(header, human, c)
     wireDetail(d)
+  }
+
+  // --- knowledge-base browsers ---
+  // Generic list/detail browser, mirroring renderList but corpus-agnostic.
+  function renderBrowser(intro, items, cfg) {
+    main.innerHTML = (intro || '')
+      + '<div class="split"><div class="list-col">'
+      + '<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">'
+      + '<p class="list-count"></p><ul class="list"></ul></div>'
+      + '<div class="detail" id="detail"><p class="note">Select an item from the list.</p></div></div>'
+    var ul = main.querySelector('.list')
+    var filter = main.querySelector('.filter')
+    var count = main.querySelector('.list-count')
+    function select(it) {
+      state[cfg.selectedKey] = cfg.idOf(it)
+      var d = document.getElementById('detail')
+      d.innerHTML = cfg.detailHtml(it)
+      if (cfg.onWire) cfg.onWire(d)
+    }
+    function paint(q) {
+      var query = (q || '').toLowerCase()
+      ul.innerHTML = ''
+      var shown = 0
+      items.forEach(function (it) {
+        if (query && !cfg.matches(it, query)) return
+        shown++
+        var li = document.createElement('li')
+        li.innerHTML = '<button class="link">' + cfg.labelHtml(it) + '</button>'
+        li.querySelector('button').addEventListener('click', function () { select(it) })
+        ul.appendChild(li)
+      })
+      count.textContent = query ? (shown + ' of ' + items.length) : (items.length + ' total — scroll the list')
+    }
+    filter.addEventListener('input', function () { paint(filter.value) })
+    paint('')
+    if (state[cfg.selectedKey]) {
+      var cur = items.filter(function (i) { return cfg.idOf(i) === state[cfg.selectedKey] })[0]
+      if (cur) select(cur)
+    }
+  }
+
+  function renderWcagBrowser() {
+    var items = Object.keys(D.scs).map(function (id) { return D.scs[id] })
+      .filter(function (sc) { return ORDER[sc.level] <= ORDER[state.level] })
+      .sort(function (a, b) { return a.id.localeCompare(b.id, undefined, { numeric: true }) })
+    renderBrowser(INTRO.wcag.replace('{n}', items.length), items, {
+      selectedKey: 'scId',
+      idOf: function (sc) { return sc.id },
+      labelHtml: function (sc) { return '<code>' + esc(sc.id) + '</code> ' + esc(sc.title) + ' <span class="role">' + esc(sc.level) + '</span>' },
+      matches: function (sc, q) { return (sc.id + ' ' + sc.title + ' ' + (sc.short_text || '')).toLowerCase().indexOf(q) >= 0 },
+      detailHtml: function (sc) { return scDetailHtml(sc) },
+      onWire: function (d) { wireActChips(d) },
+    })
+  }
+
+  function actCoveredScs(r) {
+    return r.wcag_sc_ids.filter(function (id) { return scLevel[id] && ORDER[scLevel[id]] <= ORDER[state.level] })
+  }
+  function renderActBrowser() {
+    var items = D.act.slice()
+      .filter(function (r) { return actCoveredScs(r).length > 0 })
+      .sort(function (a, b) { return a.id.localeCompare(b.id) })
+    renderBrowser(INTRO.act.replace('{n}', items.length), items, {
+      selectedKey: 'actId',
+      idOf: function (r) { return r.id },
+      labelHtml: function (r) { return '<code>' + esc(r.id) + '</code> ' + esc(r.name) },
+      matches: function (r, q) { return (r.id + ' ' + r.name + ' ' + (r.applicability_text || '')).toLowerCase().indexOf(q) >= 0 },
+      detailHtml: function (r) {
+        var scs = actCoveredScs(r)
+        return '<h2>' + esc(r.name) + ' <span class="role">' + esc(r.id) + '</span></h2>'
+          + '<p><a href="' + esc(r.url) + '" target="_blank" rel="noreferrer">ACT rule reference &#8599;</a></p>'
+          + '<h3>Applicability</h3><p>' + nl(r.applicability_text) + '</p>'
+          + '<h3>Covered WCAG criteria &middot; level ' + esc(state.level) + ' (' + scs.length + ')</h3>'
+          + '<ul class="rules">' + scs.map(function (id) {
+            var sc = D.scs[id]
+            return '<li><button class="sc-chip" data-sc="' + esc(id) + '">' + esc(id) + '</button> ' + esc(sc ? sc.title : '') + '</li>'
+          }).join('') + '</ul>'
+      },
+      onWire: function (d) {
+        d.querySelectorAll('.sc-chip').forEach(function (b) {
+          b.addEventListener('click', function () { showSC(b.getAttribute('data-sc')) })
+        })
+      },
+    })
   }
 
   // --- verify tab ---
@@ -254,6 +404,10 @@
       + '<p>The <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noreferrer">ARIA Authoring Practices Guide</a> is a W3C collection of recipes for building common composite components — dialogs, tabs, comboboxes, menus, and so on — accessibly with ARIA. Browse or filter the patterns below, then open one to see its ARIA contract, the native HTML elements that carry its roles, and suggested queries for drilling down to the applicable ACT rules and WCAG Success Criteria.</p></section>',
     html: '<section class="tab-intro"><h2>Native primitives</h2>'
       + '<p>Native HTML elements carry implicit ARIA roles, defined by <a href="https://www.w3.org/TR/html-aria/" target="_blank" rel="noreferrer">ARIA in HTML</a> and <a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank" rel="noreferrer">WAI-ARIA</a>. These primitives — text inputs, links, images, buttons, and so on — are the building blocks to prefer before adding custom ARIA. Browse or filter the roles below, then open one to see its ARIA contract, the native elements that provide it, and drill down to the applicable ACT rules and WCAG Success Criteria.</p></section>',
+    wcag: '<section class="tab-intro"><h2>WCAG Success Criteria</h2>'
+      + '<p>The complete set of <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noreferrer">WCAG 2.2</a> Success Criteria — the testable requirements behind every check in this tool — sourced verbatim from the W3C. The list is gated to the selected conformance level ({n} at this level); open a criterion for its normative statement, sufficient techniques, and documented failures. This is reference, not the guided flow: the APG and HTML tabs reach these same criteria from a component.</p></section>',
+    act: '<section class="tab-intro"><h2>ACT rules</h2>'
+      + '<p>The <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/" target="_blank" rel="noreferrer">ACT rules</a> are W3C-maintained, machine-testable procedures, each mapped to the WCAG criteria it covers. The list is limited to rules touching criteria within the selected level ({n} at this level); open a rule for its applicability text and the criteria it covers. This is reference, not the guided flow: the APG and HTML tabs reach these rules from a component.</p></section>',
   }
 
   function render() {
@@ -262,6 +416,8 @@
     else if (state.tab === 'rn') main.innerHTML = '<section class="tab-intro"><h2>React Native</h2>'
       + '<p>Not implemented yet. a11y-assist currently covers the web. React Native is a planned future surface — a peer to the APG recipes, sourced from React Native documentation.</p></section>'
     else if (state.tab === 'verify') renderVerify()
+    else if (state.tab === 'wcag') renderWcagBrowser()
+    else if (state.tab === 'act') renderActBrowser()
   }
   document.querySelectorAll('.tab').forEach(function (b) {
     b.addEventListener('click', function () { state.tab = b.getAttribute('data-tab'); syncTabs(); render() })

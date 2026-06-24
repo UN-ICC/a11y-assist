@@ -55,8 +55,8 @@ Work proceeds as a staged sequence: the agent begins at an entry point and refin
 
 For example, to implement a modal dialog at level AA:
 
-1. `get_apg_pattern("dialog", "AA")` returns the APG recipe (description, keyboard-interaction table, examples), the ARIA contract for the dialog role, the native HTML elements that carry it, and a set of suggested `search_act` queries.
-2. The agent runs a suggested query — for example `search_act("focus", "AA")` — which returns the ACT rules matching that term together with the WCAG Success Criteria they cover, filtered to AA.
+1. `get_apg_pattern("dialog", "AA")` returns the APG recipe (description, keyboard-interaction table, examples), the ARIA contract for the dialog role, the native HTML elements that carry it, and a set of suggested queries seeding two drill-down paths — `search_act` (via ACT rules) and `search_wcag` (criteria directly).
+2. The agent runs a suggested query — for example `search_act("focus", "AA")`, which returns the ACT rules matching that term together with the WCAG Success Criteria they cover, filtered to AA; or `search_wcag("focus", "AA")` to reach the criteria directly, which is the path to take when a component has no matching ACT rules.
 3. `get_wcag_sc("2.4.3")` returns that Success Criterion in full, with its sufficient techniques and documented failures.
 
 For native primitives (text inputs, links, images) the agent enters through `get_aria_role` instead — or `get_element_roles` to resolve existing markup to a role first. The drill-down from that point is identical.

@@ -25,19 +25,28 @@ test('composeApgPattern returns verbatim card + mechanical fields', () => {
   assert.ok(c.suggested_queries.length > 0)
 })
 
-test('suggested_queries are deterministic, deduped, search_act, level-stamped', () => {
+test('suggested_queries are deterministic, deduped (by tool+query), level-stamped', () => {
   const c = composeApgPattern('dialog', 'AA')
   assert.ok(c)
-  const queries = c.suggested_queries.map((q) => q.query)
-  assert.equal(new Set(queries).size, queries.length, 'no duplicate queries')
+  const keys = c.suggested_queries.map((q) => `${q.tool}|${q.query}`)
+  assert.equal(new Set(keys).size, keys.length, 'no duplicate (tool, query) pairs')
   for (const q of c.suggested_queries) {
-    assert.equal(q.tool, 'search_act')
+    assert.ok(q.tool === 'search_act' || q.tool === 'search_wcag', `unexpected tool ${q.tool}`)
     assert.equal(q.level, 'AA')
     assert.ok(q.why.length > 0, 'each seed records its structural source')
   }
-  // Golden: role name seed + keyboard signal (dialog has a keyboard table).
-  assert.ok(queries.includes('dialog'), 'seeds the role name')
-  assert.ok(queries.includes('focus') && queries.includes('keyboard'), 'seeds focus/keyboard')
+  // Golden: role name + keyboard signal (dialog has a keyboard table).
+  const actQ = c.suggested_queries.filter((q) => q.tool === 'search_act').map((q) => q.query)
+  assert.ok(actQ.includes('dialog'), 'seeds the role name for ACT')
+  assert.ok(actQ.includes('focus') && actQ.includes('keyboard'), 'seeds focus/keyboard for ACT')
+})
+
+test('suggested_queries include both ACT and WCAG searches', () => {
+  const c = composeApgPattern('dialog', 'AA')
+  assert.ok(c)
+  const tools = new Set(c.suggested_queries.map((q) => q.tool))
+  assert.ok(tools.has('search_act'), 'expected search_act seeds')
+  assert.ok(tools.has('search_wcag'), 'expected search_wcag seeds')
 })
 
 test('level is stamped through to the seeds', () => {

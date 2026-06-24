@@ -48,7 +48,7 @@ const ALIASES: Record<string, string> = {
 const LEVEL_ORDER: Record<WCAGLevel, number> = { A: 1, AA: 2, AAA: 3 }
 
 export interface SuggestedQuery {
-  tool: 'search_act'
+  tool: 'search_act' | 'search_wcag'
   query: string
   /** The structural field this seed was derived from (traceability). */
   why: string
@@ -88,26 +88,44 @@ function collectWebElements(roles: string[]): ElementSpec[] {
 }
 
 /**
- * Deterministic drill-down seeds for the ACT corpus, derived only from
- * structured fields: role names, their required ARIA properties, and the native
- * element tags that carry them — plus a `focus`/`keyboard` seed when the entry
- * has a keyboard-interaction table. Deduped by query; unranked, uncapped.
+ * Deterministic drill-down seeds, derived only from structured fields. Both
+ * corpora are searched, so the drill-down is not limited to the (sparse) ACT
+ * text match:
+ *   - ACT: role names, their required ARIA properties, native element tags, and
+ *     a `focus`/`keyboard` seed when there is a keyboard-interaction table.
+ *   - WCAG: role names plus concept terms implied by structure — `keyboard` /
+ *     `focus` when keyboard interactions exist, `name` / `label` when an
+ *     accessible name is required.
+ * Deduped by (tool, query); unranked, uncapped.
  */
-function actSeeds(roles: string[], hasKeyboard: boolean, level: WCAGLevel): SuggestedQuery[] {
+function deriveQueries(
+  roles: string[],
+  hasKeyboard: boolean,
+  nameRequired: boolean,
+  level: WCAGLevel,
+): SuggestedQuery[] {
   const out = new Map<string, SuggestedQuery>()
-  const add = (query: string, why: string) => {
+  const add = (tool: SuggestedQuery['tool'], query: string, why: string) => {
     const q = query.toLowerCase()
-    if (q && !out.has(q)) out.set(q, { tool: 'search_act', query: q, why, level })
+    const key = `${tool}|${q}`
+    if (q && !out.has(key)) out.set(key, { tool, query: q, why, level })
   }
   for (const role of roles) {
-    add(role, `ARIA role "${role}"`)
+    add('search_act', role, `ARIA role "${role}"`)
+    add('search_wcag', role, `ARIA role "${role}"`)
     const contract = deriveAriaContract(role)
-    for (const prop of contract?.required_props ?? []) add(prop, `required ARIA property of "${role}"`)
-    for (const el of getElementsForRole(role)) add(el.tag, `native element for "${role}"`)
+    for (const prop of contract?.required_props ?? []) add('search_act', prop, `required ARIA property of "${role}"`)
+    for (const el of getElementsForRole(role)) add('search_act', el.tag, `native element for "${role}"`)
   }
   if (hasKeyboard) {
-    add('focus', 'pattern defines keyboard interactions')
-    add('keyboard', 'pattern defines keyboard interactions')
+    add('search_act', 'focus', 'pattern defines keyboard interactions')
+    add('search_act', 'keyboard', 'pattern defines keyboard interactions')
+    add('search_wcag', 'keyboard', 'pattern defines keyboard interactions')
+    add('search_wcag', 'focus', 'pattern defines keyboard interactions')
+  }
+  if (nameRequired) {
+    add('search_wcag', 'name', 'an accessible name is required')
+    add('search_wcag', 'label', 'an accessible name is required')
   }
   return Array.from(out.values())
 }
@@ -125,12 +143,14 @@ export function composeApgPattern(name: string, level: WCAGLevel = 'AA'): Compos
   const apg = getAPG(canonical(name))
   if (!apg) return null
   const roles = apg.aria_roles
+  const aria_contract = deriveContracts(roles)
+  const nameRequired = Object.values(aria_contract).some((c) => c.accessible_name_required)
   return {
     apg,
     role: apg.role,
-    aria_contract: deriveContracts(roles),
+    aria_contract,
     native_elements: collectWebElements(roles),
-    suggested_queries: actSeeds(roles, apg.keyboard_interactions.length > 0, level),
+    suggested_queries: deriveQueries(roles, apg.keyboard_interactions.length > 0, nameRequired, level),
   }
 }
 
@@ -142,11 +162,13 @@ export function composeAriaRole(role: string, level: WCAGLevel = 'AA'): Composed
   const key = canonical(role)
   if (!deriveAriaContract(key)) return null
   const roles = [key]
+  const aria_contract = deriveContracts(roles)
+  const nameRequired = Object.values(aria_contract).some((c) => c.accessible_name_required)
   return {
     role: key,
-    aria_contract: deriveContracts(roles),
+    aria_contract,
     native_elements: collectWebElements(roles),
-    suggested_queries: actSeeds(roles, false, level),
+    suggested_queries: deriveQueries(roles, false, nameRequired, level),
   }
 }
 

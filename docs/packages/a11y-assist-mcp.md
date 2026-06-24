@@ -22,21 +22,25 @@ flowchart LR
   end
   subgraph drill [Drill-down]
     D1[search_act]
-    D2[get_wcag_sc]
     D3[search_wcag]
     D4[get_act_rule]
+    D2[get_wcag_sc]
   end
   subgraph verify [Verify]
     V1[audit_html]
     V2[audit_url]
   end
   E1 --> D1
+  E1 --> D3
   E2 --> D1
+  E2 --> D3
+  D1 --> D4
   D1 --> D2
+  D3 --> D2
   drill --> verify
 ```
 
-Both entry points return the same shape (`aria_contract` + `native_elements` + `suggested_queries`; APG adds the verbatim `apg` card) and converge on the same drill-down. The only mechanical cross-corpus link is **ACT rule → WCAG SC**, surfaced level-gated by `search_act`.
+Both entry points return the same shape (`aria_contract` + `native_elements` + `suggested_queries`; APG adds the verbatim `apg` card) and converge on the same drill-down. The `suggested_queries` seed **two paths** so the drill-down is never empty: `search_act` (ACT rules → the WCAG SCs they cover, the mechanical **ACT rule → WCAG SC** link) and `search_wcag` (WCAG criteria directly, for components ACT's text index would miss). Both land on `get_wcag_sc`.
 
 ## Tools
 
@@ -59,14 +63,20 @@ Both entry points return the same shape (`aria_contract` + `native_elements` + `
 
 ```
 get_apg_pattern("dialog", "AA")          # or get_aria_role("textbox","AA") for a primitive
-   → suggested_queries: search_act("dialog"|"focus"|"keyboard", AA)
-search_act("focus", "AA")                # run the suggestions; the agent picks
+   → suggested_queries:
+        search_act("dialog"|"focus"|"keyboard", AA)
+        search_wcag("dialog"|"focus"|"keyboard"|"name", AA)
+search_act("focus", "AA")                # run a suggestion; the agent picks the path
    → ACT rules + their in-scope SC ids → suggests get_wcag_sc(...)
-get_wcag_sc("2.1.2")                      # full SC + techniques + failures
+search_wcag("focus", "AA")               # or reach WCAG directly (larger corpus)
+   → SC ids → get_wcag_sc(...)
+get_wcag_sc("2.4.3")                      # full SC + techniques + failures
 audit_html("<dialog>…</dialog>")          # verify (axe covers contrast, target size, etc.)
 ```
 
-Each call returns a small payload; the agent decides how far to drill.
+Each call returns a small payload; the agent decides which path and how far to drill.
+
+The tool layer is thin: `search_act`, `search_wcag`, `get_wcag_sc`, `get_act_rule`, and the composition tools all delegate to [`a11y-assist-core`](/a11y-assist/packages/a11y-assist-core/), so the server and the website query the same surface.
 
 ## Install
 

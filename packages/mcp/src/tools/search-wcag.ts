@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { search } from 'wcag-query'
+import { searchWcag } from 'a11y-assist-core'
 
 const parameters = z.object({
   query: z.string().describe('Term to match against SC id, title, and statement, e.g. "focus", "contrast", "name".'),
@@ -19,7 +19,7 @@ export const searchWcagTool = {
     '(Most drill-down flows reach SCs via search_act; use this for direct keyword lookups.)',
   parameters,
   execute: async ({ query, level }: Args): Promise<string> => {
-    const results = search(query, { level })
+    const results = searchWcag(query, level)
     return JSON.stringify({
       query,
       level,

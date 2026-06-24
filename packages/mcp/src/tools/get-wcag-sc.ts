@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { getSC, getTechnique, getFailure } from 'wcag-query'
+import { getWcagSc } from 'a11y-assist-core'
 
 const parameters = z.object({
   id: z.string().describe('WCAG 2.2 Success Criterion id, e.g. "4.1.2". From a search_act / search_wcag result.'),
@@ -15,12 +15,8 @@ export const getWcagScTool = {
     'Explicit by-id fetch — not level-gated.',
   parameters,
   execute: async ({ id }: Args): Promise<string> => {
-    const sc = getSC(id)
+    const sc = getWcagSc(id)
     if (!sc) return JSON.stringify({ error: `No WCAG Success Criterion with id "${id}".` })
-    return JSON.stringify({
-      ...sc,
-      techniques: sc.technique_ids.map((t) => getTechnique(t)).filter(Boolean),
-      failures: sc.failure_ids.map((f) => getFailure(f)).filter(Boolean),
-    })
+    return JSON.stringify(sc)
   },
 }

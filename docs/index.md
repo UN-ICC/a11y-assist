@@ -10,6 +10,8 @@ a11y-assist provides programmatic, source-traceable access to W3C web-accessibil
 [Open the web application]({{ '/app/' | relative_url }}){: .btn .btn-primary .mr-2 }
 [Set up for AI agents]({{ '/agents/' | relative_url }}){: .btn }
 
+The two surfaces share one query layer, so they return the same data. The web application mirrors the agent's tools: enter from an APG pattern or a native HTML role and drill down to the applicable ACT rules and WCAG criteria, or paste markup into the Verify tab to run axe-core in the browser. It also exposes the underlying knowledge base directly — WCAG and ACT browsers, cross-linked in both directions (each criterion lists the ACT rules that cover it; each rule lists the criteria it covers) — for reference outside the guided flow.
+
 ## Purpose
 
 a11y-assist addresses two practical problems in applying web-accessibility standards.
