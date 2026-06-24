@@ -8,7 +8,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 
-import { composeApgPattern, composeAriaRole, listApgPatterns } from 'a11y-assist-core'
+import { composeApgPattern, composeAriaRole, listApgPatterns, applicability } from 'a11y-assist-core'
 import { successCriteria, getTechnique, getFailure } from 'wcag-query'
 import { rules as actRules } from 'act-rules-query'
 import { roles as ariaRoles } from 'aria-query'
@@ -52,7 +52,29 @@ const act = [...actRules.values()].map((r) => ({
   applicability_text: r.applicability_text,
 }))
 
-const DATA = { apg, primitives, scs, act }
+// --- applicability engine (experimental): precompute each component's `auto`
+// predicate truth here (server-side, via core), inline the facet tree +
+// expressions + definitions; the browser runs only a tiny evaluator. ---
+const autoTrue = (c: { aria_contract: Record<string, { accessible_name_required: boolean }>; native_elements: { canonical_id: string }[]; apg?: { keyboard_interactions: unknown[] } }) => {
+  const a = applicability.deriveAuto(applicability.factsFromComposition(c))
+  return Object.keys(a).filter((k) => a[k as keyof typeof a])
+}
+for (const c of apg) (c as Record<string, unknown>).auto_applicability = autoTrue(c)
+for (const c of primitives) (c as Record<string, unknown>).auto_applicability = autoTrue(c)
+
+const applData = {
+  facets: applicability.FACETS,
+  exprs: applicability.APPL_EXPR,
+  def: Object.fromEntries(
+    Object.entries(applicability.APPL_META).map(([k, v]) => [k, v.definition]),
+  ),
+  verifExprs: applicability.VERIF_EXPR,
+  verifMeta: Object.fromEntries(
+    Object.entries(applicability.VERIF_META).map(([k, v]) => [k, { tier: v.tier, definition: v.definition, axeRules: v.axeRules }]),
+  ),
+}
+
+const DATA = { apg, primitives, scs, act, applicability: applData }
 
 // --- assemble single file ---
 const axeMin = readFileSync(resolve(dirname(require.resolve('axe-core')), 'axe.min.js'), 'utf8')

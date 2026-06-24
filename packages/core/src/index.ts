@@ -68,3 +68,10 @@ export {
   type ElementSpec,
   type AttributeConstraint,
 } from './element-roles.js'
+
+/**
+ * Experimental applicability + verification engine. Namespaced because it is a
+ * work-in-progress surface; data is generated from classify/*.json. See
+ * the Classifier docs (/classifier/).
+ */
+export * as applicability from './applicability/index.js'

@@ -198,6 +198,223 @@
     wireActChips(modalBody)
   }
 
+  // --- applicability walkthrough (experimental) ---
+  // Three-valued evaluator mirroring a11y-assist-core's evaluate.ts. Here the
+  // assignment is total (selected/auto → true, everything else → false), so it
+  // reduces to boolean; the SCs whose expression is true are the applicable set.
+  // `look(token)` returns 'T' | 'F' | 'U'.
+  function evalExpr(expr, look) {
+    var t = expr.replace(/\(/g, ' ( ').replace(/\)/g, ' ) ').split(/\s+/).filter(Boolean)
+    var i = 0
+    function pk() { return t[i] }
+    function nx() { return t[i++] }
+    function N(v) { return v === 'T' ? 'F' : v === 'F' ? 'T' : 'U' }
+    function AND(a, b) { return a === 'F' || b === 'F' ? 'F' : a === 'U' || b === 'U' ? 'U' : 'T' }
+    function OR(a, b) { return a === 'T' || b === 'T' ? 'T' : a === 'U' || b === 'U' ? 'U' : 'F' }
+    function fa() {
+      if (pk() === 'NOT') { nx(); return N(fa()) }
+      if (pk() === '(') { nx(); var v = ex(); nx(); return v }
+      var x = nx(); return x === 'true' ? 'T' : look(x)
+    }
+    function te() { var v = fa(); while (pk() === 'AND') { nx(); v = AND(v, fa()) } return v }
+    function ex() { var v = te(); while (pk() === 'OR') { nx(); v = OR(v, te()) } return v }
+    return ex()
+  }
+  function applicableSCs(autoTrueList, selectedList) {
+    var truthy = {}
+    ;(autoTrueList || []).forEach(function (p) { truthy[p] = 1 })
+    ;(selectedList || []).forEach(function (p) { truthy[p] = 1 })
+    var look = function (p) { return truthy[p] ? 'T' : 'F' } // total: everything else false
+    var E = (D.applicability || {}).exprs || {}
+    return Object.keys(E)
+      .filter(function (sc) { return evalExpr(E[sc], look) === 'T' })
+      .sort(function (a, b) { return a.localeCompare(b, undefined, { numeric: true }) })
+  }
+  var EXPR_OPS = { AND: 1, OR: 1, NOT: 1, '(': 1, ')': 1, 'true': 1 }
+  function predsIn(expr) {
+    return Array.from(new Set(expr.replace(/\(/g, ' ( ').replace(/\)/g, ' ) ')
+      .split(/\s+/).filter(function (t) { return t && !EXPR_OPS[t] })))
+  }
+  // Union of verification postconditions across the applicable SCs, by tier.
+  function verificationPlan(scs) {
+    var VE = (D.applicability || {}).verifExprs || {}, VM = (D.applicability || {}).verifMeta || {}
+    var seen = {}, out = { axe: [], agent: [], human: [] }
+    scs.forEach(function (sc) {
+      if (!VE[sc]) return
+      predsIn(VE[sc]).forEach(function (p) {
+        if (seen[p]) return
+        seen[p] = 1
+        var tier = (VM[p] || {}).tier
+        ;(out[tier] || out.human).push(p)
+      })
+    })
+    return out
+  }
+
+  function renderApplicable(c) {
+    var host = document.getElementById('appl')
+    if (!host || !D.applicability) return
+    var F = D.applicability.facets, DEF = D.applicability.def
+    var keys = Object.keys(F)
+    var st = { step: 1, facets: [], subs: {}, leaves: [] }
+    function cb(kind, val, label, checked) {
+      return '<label class="appl-cb"><input type="checkbox" data-k="' + kind + '" value="' + esc(val) + '"' + (checked ? ' checked' : '') + '> ' + esc(label) + '</label>'
+    }
+    function collect(kind) {
+      return Array.prototype.slice.call(host.querySelectorAll('input[data-k="' + kind + '"]:checked')).map(function (x) { return x.value })
+    }
+    function paint() {
+      var h = '<div class="appl-block"><h3>Applicable SCs <span class="exp">experimental</span></h3>'
+      if (st.step < 4) {
+        h += '<p class="note">A few yes/no rounds compute which WCAG criteria apply to this <code>' + esc(c.role) + '</code>. The structural ones are already fixed by the component; answer only what its content/context adds.</p>'
+      }
+      if (st.step === 1) {
+        h += '<p class="appl-q">1 / 3 &middot; Which of these does this component involve?</p>'
+        keys.forEach(function (k) { h += cb('f', k, F[k].gate) })
+        h += '<p><button class="primary appl-next" data-next="2">Next</button></p>'
+      } else if (st.step === 2) {
+        h += '<p class="appl-q">2 / 3 &middot; Narrow down:</p>'
+        if (!st.facets.length) h += '<p class="note">Nothing selected — the applicable set is the structural floor.</p>'
+        st.facets.forEach(function (k) {
+          F[k].subgates.forEach(function (s, i) { h += cb('s', k + '|' + i, s.question) })
+        })
+        h += '<p><button class="ghost appl-back" data-back="1">Back</button> <button class="primary appl-next" data-next="3">Next</button></p>'
+      } else if (st.step === 3) {
+        h += '<p class="appl-q">3 / 3 &middot; Confirm specifics — uncheck anything that doesn&rsquo;t apply:</p>'
+        var any = false
+        st.facets.forEach(function (k) {
+          F[k].subgates.forEach(function (s, i) {
+            if (st.subs[k + '|' + i]) s.predicates.forEach(function (p) { any = true; h += cb('p', p, DEF[p] || p, true) })
+          })
+        })
+        if (!any) h += '<p class="note">Nothing to confirm.</p>'
+        h += '<p><button class="ghost appl-back" data-back="2">Back</button> <button class="primary appl-go">Show applicable SCs</button></p>'
+      } else if (st.step === 4) {
+        var scs = applicableSCs(c.auto_applicability, st.leaves)
+        h += '<h4>' + scs.length + ' Success Criteria apply</h4>'
+        h += '<ul class="rules">' + scs.map(function (id) {
+          var sc = D.scs[id]
+          return '<li><button class="sc-chip" data-sc="' + esc(id) + '">' + esc(id) + '</button> ' + esc(sc ? sc.title : '') + ' <span class="role">' + esc(sc ? sc.level : '') + '</span></li>'
+        }).join('') + '</ul>'
+        h += '<p class="note">Derived from the component (auto) + your answers. Conservative: it over-includes rather than miss.</p>'
+        h += '<p><button class="primary appl-verify">Verification checklist &rarr;</button> <button class="ghost appl-back" data-back="1">Start over</button></p>'
+      } else {
+        st.appl = applicableSCs(c.auto_applicability, st.leaves)
+        st.plan = verificationPlan(st.appl)
+        h += '<h4>Verification checklist</h4>'
+        h += '<p class="note">Mark each check across the ' + st.appl.length + ' applicable criteria. Unanswered stays <strong>?</strong>, so the verdict is honest — it never reports conformance for what was not checked.</p>'
+        h += vGroupCtl('Automated &mdash; axe-core', st.plan.axe, true)
+        h += vGroupCtl('Agent can verify &mdash; inspect the built markup', st.plan.agent, false)
+        h += vGroupCtl('Needs human judgment', st.plan.human, false)
+        h += '<div id="appl-verdict"></div>'
+        h += '<p><button class="ghost appl-back" data-back="4">&larr; Back to SCs</button> <button class="ghost appl-back" data-back="1">Start over</button></p>'
+      }
+      h += '</div>'
+      host.innerHTML = h
+      wire()
+    }
+    // --- verification-checklist helpers ---
+    function vItem(p) {
+      var def = (D.applicability.verifMeta[p] || {}).definition || p
+      return '<li class="vrow"><span class="vdef">' + esc(def) + '</span><span class="vctl">'
+        + '<label><input type="radio" name="v_' + esc(p) + '" value="t"> pass</label>'
+        + '<label><input type="radio" name="v_' + esc(p) + '" value="f"> fail</label>'
+        + '<label><input type="radio" name="v_' + esc(p) + '" value="u" checked> ?</label>'
+        + '</span></li>'
+    }
+    function vGroupCtl(label, list, isAxe) {
+      if (!list.length) return ''
+      var h = '<p class="appl-q">' + label + ' (' + list.length + ')</p>'
+      if (isAxe) {
+        h += '<details class="appl-axe"><summary>Run axe on a markup snippet to fill these</summary>'
+          + '<textarea id="appl-axe-html" rows="4" placeholder="&lt;dialog&gt;…&lt;/dialog&gt;"></textarea>'
+          + '<p><button class="ghost appl-axe-run">Run axe (WCAG ' + esc(state.level) + ')</button></p>'
+          + '<div id="appl-axe-out"></div></details>'
+      }
+      return h + '<ul class="vlist">' + list.map(vItem).join('') + '</ul>'
+    }
+    function readVVals() {
+      var v = {}
+      ;[].concat(st.plan.axe, st.plan.agent, st.plan.human).forEach(function (p) {
+        var el = host.querySelector('input[name="v_' + p + '"]:checked')
+        var val = el ? el.value : 'u'
+        v[p] = val === 't' ? true : val === 'f' ? false : undefined
+      })
+      return v
+    }
+    function updateVerdict() {
+      var vv = readVVals()
+      var look = function (p) { return vv[p] === true ? 'T' : vv[p] === false ? 'F' : 'U' }
+      var VE = D.applicability.verifExprs
+      var pass = 0, fail = 0, unv = 0, rows = ''
+      st.appl.forEach(function (sc) {
+        var r = VE[sc] ? evalExpr(VE[sc], look) : 'U'
+        var status = r === 'T' ? 'pass' : r === 'F' ? 'fail' : 'unverified'
+        if (status === 'pass') pass++; else if (status === 'fail') fail++; else unv++
+        rows += '<li><button class="sc-chip" data-sc="' + esc(sc) + '">' + esc(sc) + '</button> '
+          + esc((D.scs[sc] || {}).title || '') + ' <span class="vstat v-' + status + '">' + status + '</span></li>'
+      })
+      var el = document.getElementById('appl-verdict')
+      if (!el) return
+      el.innerHTML = '<p class="appl-q">Verdict &middot; ' + pass + ' pass &middot; ' + fail + ' fail &middot; ' + unv + ' unverified</p>'
+        + '<ul class="rules">' + rows + '</ul>'
+        + '<p class="note">Not a conformance claim. &ldquo;unverified&rdquo; means not yet checked, never assumed-pass.</p>'
+      el.querySelectorAll('.sc-chip').forEach(function (b) { b.addEventListener('click', function () { showSC(b.getAttribute('data-sc')) }) })
+    }
+    function runAxe() {
+      var ta = document.getElementById('appl-axe-html'), out = document.getElementById('appl-axe-out')
+      if (!ta || !out) return
+      out.innerHTML = '<p class="note">Running…</p>'
+      var h2 = document.createElement('div')
+      h2.style.position = 'absolute'; h2.style.left = '-9999px'; h2.innerHTML = ta.value
+      document.body.appendChild(h2)
+      window.axe.run(h2, { runOnly: { type: 'tag', values: levelTags(state.level) } }).then(function (res) {
+        var viol = {}, pas = {}
+        res.violations.forEach(function (v) { viol[v.id] = 1 })
+        res.passes.forEach(function (v) { pas[v.id] = 1 })
+        var VM = D.applicability.verifMeta, set = 0
+        st.plan.axe.forEach(function (p) {
+          var rules = (VM[p] || {}).axeRules || []
+          var sv = rules.some(function (r) { return viol[r] }) ? 'f' : rules.some(function (r) { return pas[r] }) ? 't' : null
+          if (sv) { var el = host.querySelector('input[name="v_' + p + '"][value="' + sv + '"]'); if (el) { el.checked = true; set++ } }
+        })
+        out.innerHTML = '<p class="note">axe: ' + res.violations.length + ' violation(s); auto-set ' + set + ' of ' + st.plan.axe.length + ' axe-tier checks.</p>'
+        updateVerdict()
+      }).catch(function (e) {
+        out.innerHTML = '<p class="fail">axe error: ' + esc(e && e.message ? e.message : e) + '</p>'
+      }).then(function () { h2.remove() })
+    }
+    function wire() {
+      host.querySelectorAll('.appl-next').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (st.step === 1) st.facets = collect('f')
+          if (st.step === 2) { st.subs = {}; collect('s').forEach(function (v) { st.subs[v] = 1 }) }
+          st.step = parseInt(b.getAttribute('data-next'), 10)
+          paint()
+        })
+      })
+      host.querySelectorAll('.appl-back').forEach(function (b) {
+        b.addEventListener('click', function () {
+          st.step = parseInt(b.getAttribute('data-back'), 10)
+          if (st.step === 1) { st.facets = []; st.subs = {}; st.leaves = [] }
+          paint()
+        })
+      })
+      var go = host.querySelector('.appl-go')
+      if (go) go.addEventListener('click', function () { st.leaves = collect('p'); st.step = 4; paint() })
+      var v = host.querySelector('.appl-verify')
+      if (v) v.addEventListener('click', function () { st.step = 5; paint() })
+      host.querySelectorAll('.vctl input').forEach(function (r) { r.addEventListener('change', updateVerdict) })
+      var ax = host.querySelector('.appl-axe-run')
+      if (ax) ax.addEventListener('click', runAxe)
+      if (host.querySelector('#appl-verdict')) updateVerdict()
+      host.querySelectorAll('.sc-chip').forEach(function (b) {
+        b.addEventListener('click', function () { showSC(b.getAttribute('data-sc')) })
+      })
+    }
+    paint()
+  }
+
   // --- list/detail tabs ---
   function renderList(items, key, detailFn, intro) {
     main.innerHTML = (intro || '')
@@ -241,8 +458,10 @@
       + contractHtml(c) + nativeHtml(c)
       + '<h3>Suggested searches</h3>' + chipsHtml(c)
       + '<div id="drill"></div>'
+      + '<div id="appl"></div>'
     d.innerHTML = detailShell(header, human, c)
     wireDetail(d)
+    renderApplicable(c)
   }
 
   function renderPrimitiveDetail(c) {
@@ -251,8 +470,10 @@
     var human = contractHtml(c) + nativeHtml(c)
       + '<h3>Suggested searches</h3>' + chipsHtml(c)
       + '<div id="drill"></div>'
+      + '<div id="appl"></div>'
     d.innerHTML = detailShell(header, human, c)
     wireDetail(d)
+    renderApplicable(c)
   }
 
   // --- knowledge-base browsers ---

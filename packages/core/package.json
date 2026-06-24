@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "gen:applicability": "node scripts/gen-applicability.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test test/*.test.ts",
     "test:types": "tsc -p test",
