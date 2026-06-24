@@ -1,0 +1,634 @@
+{
+  "covered_scs": [
+    "1.1.1",
+    "1.2.1",
+    "1.2.2",
+    "1.2.3",
+    "1.2.5",
+    "1.2.8",
+    "1.3.1",
+    "1.3.3",
+    "1.3.4",
+    "1.3.5",
+    "1.4.2",
+    "1.4.3",
+    "1.4.4",
+    "1.4.5",
+    "1.4.6",
+    "1.4.9",
+    "1.4.12",
+    "2.1.1",
+    "2.1.2",
+    "2.1.3",
+    "2.1.4",
+    "2.2.1",
+    "2.2.2",
+    "2.2.4",
+    "2.4.1",
+    "2.4.2",
+    "2.4.4",
+    "2.4.6",
+    "2.4.7",
+    "2.4.9",
+    "2.5.3",
+    "2.5.4",
+    "3.1.1",
+    "3.1.2",
+    "3.2.5",
+    "3.3.1",
+    "4.1.1",
+    "4.1.2"
+  ],
+  "verification_predicates": [
+    {
+      "id": "name-describes-purpose",
+      "sc_count": 5,
+      "scs": [
+        "1.1.1",
+        "2.4.2",
+        "2.4.4",
+        "2.4.6",
+        "2.4.9"
+      ]
+    },
+    {
+      "id": "accessible-name-non-empty",
+      "sc_count": 4,
+      "scs": [
+        "1.1.1",
+        "2.4.4",
+        "2.4.9",
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "no-meta-refresh-delay",
+      "sc_count": 3,
+      "scs": [
+        "2.2.1",
+        "2.2.4",
+        "3.2.5"
+      ]
+    },
+    {
+      "id": "iframe-not-excluded-from-sequential-focus-navigation",
+      "sc_count": 2,
+      "scs": [
+        "2.1.1",
+        "2.1.3"
+      ]
+    },
+    {
+      "id": "images-of-text-not-used",
+      "sc_count": 2,
+      "scs": [
+        "1.4.5",
+        "1.4.9"
+      ]
+    },
+    {
+      "id": "keyboard-scrollable-content",
+      "sc_count": 2,
+      "scs": [
+        "2.1.1",
+        "2.1.3"
+      ]
+    },
+    {
+      "id": "lang-attribute-present",
+      "sc_count": 2,
+      "scs": [
+        "3.1.1",
+        "3.1.2"
+      ]
+    },
+    {
+      "id": "lang-matches-default-language",
+      "sc_count": 2,
+      "scs": [
+        "3.1.1",
+        "3.1.2"
+      ]
+    },
+    {
+      "id": "lang-valid-primary-subtag",
+      "sc_count": 2,
+      "scs": [
+        "3.1.1",
+        "3.1.2"
+      ]
+    },
+    {
+      "id": "same-name-links-resolve-equivalent",
+      "sc_count": 2,
+      "scs": [
+        "2.4.4",
+        "2.4.9"
+      ]
+    },
+    {
+      "id": "aria-hidden-contains-no-focusable-sequential-content",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "attributes-not-duplicated",
+      "sc_count": 1,
+      "scs": [
+        "4.1.1"
+      ]
+    },
+    {
+      "id": "audio-control-mechanism-to-stop-or-mute-present",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ]
+    },
+    {
+      "id": "audio-description-present",
+      "sc_count": 1,
+      "scs": [
+        "1.2.5"
+      ]
+    },
+    {
+      "id": "audio-has-text-alternative-available",
+      "sc_count": 1,
+      "scs": [
+        "1.2.1"
+      ]
+    },
+    {
+      "id": "autocomplete-attribute-value-correct",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ]
+    },
+    {
+      "id": "autoplay-audio-not-longer-than-3-seconds",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ]
+    },
+    {
+      "id": "device-motion-changes-can-be-disabled",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ]
+    },
+    {
+      "id": "element-inside-required-context-role",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "embed-equivalent-resources",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "embed-same-resource",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "error-message-identifies-cause-of-error",
+      "sc_count": 1,
+      "scs": [
+        "3.3.1"
+      ]
+    },
+    {
+      "id": "error-message-identifies-how-to-fix-error",
+      "sc_count": 1,
+      "scs": [
+        "3.3.1"
+      ]
+    },
+    {
+      "id": "headers-attribute-refers-to-cells",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "id-attribute-values-unique",
+      "sc_count": 1,
+      "scs": [
+        "4.1.1"
+      ]
+    },
+    {
+      "id": "image-ignored-by-assistive-technologies-is-decorative",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "image-marked-up-as-decorative",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ]
+    },
+    {
+      "id": "important-line-height-at-least-1-5-times-font-size",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "instrument-to-control-changing-frequency-present",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ]
+    },
+    {
+      "id": "instrument-to-pause-stop-or-hide-present",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ]
+    },
+    {
+      "id": "letter-spacing-at-least-0.12-times-font-size",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "letter-spacing-not-locked-with-important",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "mechanism-to-bypass-repeated-blocks-present",
+      "sc_count": 1,
+      "scs": [
+        "2.4.1"
+      ]
+    },
+    {
+      "id": "mechanism-to-disable-shortcut-present",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ]
+    },
+    {
+      "id": "mechanism-to-remap-shortcut-to-non-printable-keys-present",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ]
+    },
+    {
+      "id": "meta-viewport-allows-zoom",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ]
+    },
+    {
+      "id": "motion-based-content-changes-also-creatable-from-ui",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ]
+    },
+    {
+      "id": "no-focusable-elements-in-presentational-children",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "no-keyboard-trap",
+      "sc_count": 1,
+      "scs": [
+        "2.1.2"
+      ]
+    },
+    {
+      "id": "non-visual-reference-identifies-same-content",
+      "sc_count": 1,
+      "scs": [
+        "1.3.3"
+      ]
+    },
+    {
+      "id": "non-visual-reference-present",
+      "sc_count": 1,
+      "scs": [
+        "1.3.3"
+      ]
+    },
+    {
+      "id": "orientation-not-restricted-by-css-transforms",
+      "sc_count": 1,
+      "scs": [
+        "1.3.4"
+      ]
+    },
+    {
+      "id": "owns-only-permitted-elements",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "page-title-non-empty",
+      "sc_count": 1,
+      "scs": [
+        "2.4.2"
+      ]
+    },
+    {
+      "id": "referenced-cells-in-same-table",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "shortcut-only-available-on-component-focus",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ]
+    },
+    {
+      "id": "table-header-has-assigned-cells",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ]
+    },
+    {
+      "id": "text-contrast-meets-enhanced-requirement",
+      "sc_count": 1,
+      "scs": [
+        "1.4.6"
+      ]
+    },
+    {
+      "id": "text-contrast-meets-minimum",
+      "sc_count": 1,
+      "scs": [
+        "1.4.3"
+      ]
+    },
+    {
+      "id": "text-not-clipped-by-overflow",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ]
+    },
+    {
+      "id": "transcript-covers-audio-information",
+      "sc_count": 1,
+      "scs": [
+        "1.2.8"
+      ]
+    },
+    {
+      "id": "transcript-covers-visual-information",
+      "sc_count": 1,
+      "scs": [
+        "1.2.8"
+      ]
+    },
+    {
+      "id": "transcript-present",
+      "sc_count": 1,
+      "scs": [
+        "1.2.8"
+      ]
+    },
+    {
+      "id": "video-auditory-content-has-alternative",
+      "sc_count": 1,
+      "scs": [
+        "1.2.2"
+      ]
+    },
+    {
+      "id": "video-content-has-audio-or-text-alternative",
+      "sc_count": 1,
+      "scs": [
+        "1.2.3"
+      ]
+    },
+    {
+      "id": "video-without-audio-has-alternative-available",
+      "sc_count": 1,
+      "scs": [
+        "1.2.1"
+      ]
+    },
+    {
+      "id": "visible-focus-indication-present",
+      "sc_count": 1,
+      "scs": [
+        "2.4.7"
+      ]
+    },
+    {
+      "id": "visible-label-part-of-accessible-name",
+      "sc_count": 1,
+      "scs": [
+        "2.5.3"
+      ]
+    },
+    {
+      "id": "word-spacing-at-least-0.16-times-font-size",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ]
+    },
+    {
+      "id": "word-spacing-not-prevented-from-adjusting",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ]
+    }
+  ],
+  "sc_to_v": {
+    "1.4.6": [
+      "text-contrast-meets-enhanced-requirement"
+    ],
+    "2.1.1": [
+      "iframe-not-excluded-from-sequential-focus-navigation",
+      "keyboard-scrollable-content"
+    ],
+    "2.1.3": [
+      "iframe-not-excluded-from-sequential-focus-navigation",
+      "keyboard-scrollable-content"
+    ],
+    "1.4.5": [
+      "images-of-text-not-used"
+    ],
+    "1.4.9": [
+      "images-of-text-not-used"
+    ],
+    "1.2.8": [
+      "transcript-covers-audio-information",
+      "transcript-covers-visual-information",
+      "transcript-present"
+    ],
+    "1.2.5": [
+      "audio-description-present"
+    ],
+    "1.1.1": [
+      "accessible-name-non-empty",
+      "image-ignored-by-assistive-technologies-is-decorative",
+      "image-marked-up-as-decorative",
+      "name-describes-purpose"
+    ],
+    "1.4.12": [
+      "important-line-height-at-least-1-5-times-font-size",
+      "letter-spacing-at-least-0.12-times-font-size",
+      "letter-spacing-not-locked-with-important",
+      "word-spacing-at-least-0.16-times-font-size",
+      "word-spacing-not-prevented-from-adjusting"
+    ],
+    "2.4.2": [
+      "name-describes-purpose",
+      "page-title-non-empty"
+    ],
+    "2.5.3": [
+      "visible-label-part-of-accessible-name"
+    ],
+    "4.1.2": [
+      "accessible-name-non-empty",
+      "aria-hidden-contains-no-focusable-sequential-content",
+      "embed-equivalent-resources",
+      "embed-same-resource",
+      "no-focusable-elements-in-presentational-children"
+    ],
+    "3.3.1": [
+      "error-message-identifies-cause-of-error",
+      "error-message-identifies-how-to-fix-error"
+    ],
+    "4.1.1": [
+      "attributes-not-duplicated",
+      "id-attribute-values-unique"
+    ],
+    "1.4.4": [
+      "meta-viewport-allows-zoom",
+      "text-not-clipped-by-overflow"
+    ],
+    "3.1.1": [
+      "lang-attribute-present",
+      "lang-matches-default-language",
+      "lang-valid-primary-subtag"
+    ],
+    "2.4.4": [
+      "accessible-name-non-empty",
+      "name-describes-purpose",
+      "same-name-links-resolve-equivalent"
+    ],
+    "1.3.5": [
+      "autocomplete-attribute-value-correct"
+    ],
+    "2.5.4": [
+      "device-motion-changes-can-be-disabled",
+      "motion-based-content-changes-also-creatable-from-ui"
+    ],
+    "2.1.2": [
+      "no-keyboard-trap"
+    ],
+    "1.4.2": [
+      "audio-control-mechanism-to-stop-or-mute-present",
+      "autoplay-audio-not-longer-than-3-seconds"
+    ],
+    "1.3.3": [
+      "non-visual-reference-identifies-same-content",
+      "non-visual-reference-present"
+    ],
+    "1.3.1": [
+      "element-inside-required-context-role",
+      "headers-attribute-refers-to-cells",
+      "owns-only-permitted-elements",
+      "referenced-cells-in-same-table",
+      "table-header-has-assigned-cells"
+    ],
+    "1.4.3": [
+      "text-contrast-meets-minimum"
+    ],
+    "2.4.9": [
+      "accessible-name-non-empty",
+      "name-describes-purpose",
+      "same-name-links-resolve-equivalent"
+    ],
+    "1.3.4": [
+      "orientation-not-restricted-by-css-transforms"
+    ],
+    "2.4.6": [
+      "name-describes-purpose"
+    ],
+    "2.2.1": [
+      "no-meta-refresh-delay"
+    ],
+    "2.2.4": [
+      "no-meta-refresh-delay"
+    ],
+    "3.2.5": [
+      "no-meta-refresh-delay"
+    ],
+    "1.2.1": [
+      "audio-has-text-alternative-available",
+      "video-without-audio-has-alternative-available"
+    ],
+    "1.2.3": [
+      "video-content-has-audio-or-text-alternative"
+    ],
+    "2.4.1": [
+      "mechanism-to-bypass-repeated-blocks-present"
+    ],
+    "3.1.2": [
+      "lang-attribute-present",
+      "lang-matches-default-language",
+      "lang-valid-primary-subtag"
+    ],
+    "1.2.2": [
+      "video-auditory-content-has-alternative"
+    ],
+    "2.2.2": [
+      "instrument-to-control-changing-frequency-present",
+      "instrument-to-pause-stop-or-hide-present"
+    ],
+    "2.1.4": [
+      "mechanism-to-disable-shortcut-present",
+      "mechanism-to-remap-shortcut-to-non-printable-keys-present",
+      "shortcut-only-available-on-component-focus"
+    ],
+    "2.4.7": [
+      "visible-focus-indication-present"
+    ]
+  }
+}

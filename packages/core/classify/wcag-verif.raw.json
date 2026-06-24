@@ -1,0 +1,1198 @@
+[
+  {
+    "sc_id": "1.1.1",
+    "verification_expression": "(text-alternative-present AND text-alternative-serves-equivalent-purpose) OR name-describes-purpose OR text-alternative-provides-descriptive-identification OR (captcha-text-alternative-describes-purpose AND captcha-alternative-sensory-forms-provided) OR can-be-ignored-by-assistive-technology",
+    "postconditions": [
+      {
+        "name": "text-alternative-present",
+        "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+      },
+      {
+        "name": "text-alternative-serves-equivalent-purpose",
+        "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+      },
+      {
+        "name": "name-describes-purpose",
+        "evidence": "If non-text content is a control or accepts user input, then it has a name that describes its purpose."
+      },
+      {
+        "name": "text-alternative-provides-descriptive-identification",
+        "evidence": "text alternatives at least provide descriptive identification of the non-text content"
+      },
+      {
+        "name": "captcha-text-alternative-describes-purpose",
+        "evidence": "text alternatives that identify and describe the purpose of the non-text content are provided"
+      },
+      {
+        "name": "captcha-alternative-sensory-forms-provided",
+        "evidence": "alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities"
+      },
+      {
+        "name": "can-be-ignored-by-assistive-technology",
+        "evidence": "it is implemented in a way that it can be ignored by assistive technology"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.1",
+    "verification_expression": "alternative-for-time-based-media-presents-equivalent-information OR audio-track-presents-equivalent-information",
+    "postconditions": [
+      {
+        "name": "alternative-for-time-based-media-presents-equivalent-information",
+        "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
+      },
+      {
+        "name": "audio-track-presents-equivalent-information",
+        "evidence": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.2",
+    "verification_expression": "captions-provided",
+    "postconditions": [
+      {
+        "name": "captions-provided",
+        "evidence": "Captions are provided for all prerecorded audio content in synchronized media"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.3",
+    "verification_expression": "alternative-for-time-based-media-provided OR audio-description-provided",
+    "postconditions": [
+      {
+        "name": "alternative-for-time-based-media-provided",
+        "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+      },
+      {
+        "name": "audio-description-provided",
+        "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.4",
+    "verification_expression": "captions-provided",
+    "postconditions": [
+      {
+        "name": "captions-provided",
+        "evidence": "Captions are provided for all live audio content in synchronized media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.5",
+    "verification_expression": "audio-description-provided",
+    "postconditions": [
+      {
+        "name": "audio-description-provided",
+        "evidence": "Audio description is provided for all prerecorded video content in synchronized media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.6",
+    "verification_expression": "sign-language-interpretation-provided",
+    "postconditions": [
+      {
+        "name": "sign-language-interpretation-provided",
+        "evidence": "Sign language interpretation is provided for all prerecorded audio content in synchronized media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.7",
+    "verification_expression": "extended-audio-description-provided",
+    "postconditions": [
+      {
+        "name": "extended-audio-description-provided",
+        "evidence": "extended audio description is provided for all prerecorded video content in synchronized media"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.8",
+    "verification_expression": "alternative-for-time-based-media-provided",
+    "postconditions": [
+      {
+        "name": "alternative-for-time-based-media-provided",
+        "evidence": "An alternative for time-based media is provided for all prerecorded synchronized media and for all prerecorded video-only media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.9",
+    "verification_expression": "alternative-for-time-based-media-presents-equivalent-information",
+    "postconditions": [
+      {
+        "name": "alternative-for-time-based-media-presents-equivalent-information",
+        "evidence": "An alternative for time-based media that presents equivalent information for live audio-only content is provided."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.1",
+    "verification_expression": "info-structure-relationships-programmatically-determinable OR info-structure-relationships-available-in-text",
+    "postconditions": [
+      {
+        "name": "info-structure-relationships-programmatically-determinable",
+        "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined"
+      },
+      {
+        "name": "info-structure-relationships-available-in-text",
+        "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.2",
+    "verification_expression": "correct-reading-sequence-programmatically-determinable",
+    "postconditions": [
+      {
+        "name": "correct-reading-sequence-programmatically-determinable",
+        "evidence": "a correct reading sequence can be programmatically determined"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.3",
+    "verification_expression": "instructions-understandable-without-relying-solely-on-sensory-characteristics",
+    "postconditions": [
+      {
+        "name": "instructions-understandable-without-relying-solely-on-sensory-characteristics",
+        "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.4",
+    "verification_expression": "view-and-operation-not-restricted-to-single-display-orientation",
+    "postconditions": [
+      {
+        "name": "view-and-operation-not-restricted-to-single-display-orientation",
+        "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.5",
+    "verification_expression": "input-purpose-programmatically-determinable",
+    "postconditions": [
+      {
+        "name": "input-purpose-programmatically-determinable",
+        "evidence": "The purpose of each input field collecting information about the user can be programmatically determined"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.6",
+    "verification_expression": "purpose-of-components-icons-regions-programmatically-determinable",
+    "postconditions": [
+      {
+        "name": "purpose-of-components-icons-regions-programmatically-determinable",
+        "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.1",
+    "verification_expression": "information-conveyed-by-means-other-than-color",
+    "postconditions": [
+      {
+        "name": "information-conveyed-by-means-other-than-color",
+        "evidence": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.2",
+    "verification_expression": "mechanism-to-pause-or-stop-audio-available OR mechanism-to-control-audio-volume-independently-available",
+    "postconditions": [
+      {
+        "name": "mechanism-to-pause-or-stop-audio-available",
+        "evidence": "either a mechanism is available to pause or stop the audio"
+      },
+      {
+        "name": "mechanism-to-control-audio-volume-independently-available",
+        "evidence": "a mechanism is available to control audio volume independently from the overall system volume level"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.3",
+    "verification_expression": "text-contrast-ratio-at-least-4.5-to-1 OR large-text-contrast-ratio-at-least-3-to-1",
+    "postconditions": [
+      {
+        "name": "text-contrast-ratio-at-least-4.5-to-1",
+        "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1"
+      },
+      {
+        "name": "large-text-contrast-ratio-at-least-3-to-1",
+        "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 3:1"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.4",
+    "verification_expression": "text-resizable-up-to-200-percent-without-assistive-technology AND no-loss-of-content-or-functionality",
+    "postconditions": [
+      {
+        "name": "text-resizable-up-to-200-percent-without-assistive-technology",
+        "evidence": "text can be resized without assistive technology up to 200 percent"
+      },
+      {
+        "name": "no-loss-of-content-or-functionality",
+        "evidence": "up to 200 percent without loss of content or functionality"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.5",
+    "verification_expression": "information-conveyed-by-text-rather-than-images-of-text OR image-of-text-visually-customizable OR text-presentation-essential",
+    "postconditions": [
+      {
+        "name": "information-conveyed-by-text-rather-than-images-of-text",
+        "evidence": "text is used to convey information rather than images of text"
+      },
+      {
+        "name": "image-of-text-visually-customizable",
+        "evidence": "The image of text can be visually customized to the user's requirements"
+      },
+      {
+        "name": "text-presentation-essential",
+        "evidence": "A particular presentation of text is essential to the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.6",
+    "verification_expression": "text-contrast-ratio-at-least-7-to-1 OR large-text-contrast-ratio-at-least-4-5-to-1",
+    "postconditions": [
+      {
+        "name": "text-contrast-ratio-at-least-7-to-1",
+        "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 7:1"
+      },
+      {
+        "name": "large-text-contrast-ratio-at-least-4-5-to-1",
+        "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.7",
+    "verification_expression": "no-background-sounds OR background-sounds-can-be-turned-off OR background-sounds-at-least-20db-lower-than-foreground",
+    "postconditions": [
+      {
+        "name": "no-background-sounds",
+        "evidence": "No Background The audio does not contain background sounds"
+      },
+      {
+        "name": "background-sounds-can-be-turned-off",
+        "evidence": "Turn Off The background sounds can be turned off"
+      },
+      {
+        "name": "background-sounds-at-least-20db-lower-than-foreground",
+        "evidence": "20 dB The background sounds are at least 20 decibels lower than the foreground speech content"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.8",
+    "verification_expression": "foreground-and-background-colors-user-selectable AND width-no-more-than-80-characters AND text-not-justified AND line-and-paragraph-spacing-sufficient AND text-resizable-to-200-percent-without-horizontal-scrolling",
+    "postconditions": [
+      {
+        "name": "foreground-and-background-colors-user-selectable",
+        "evidence": "Foreground and background colors can be selected by the user"
+      },
+      {
+        "name": "width-no-more-than-80-characters",
+        "evidence": "Width is no more than 80 characters or glyphs (40 if CJK)"
+      },
+      {
+        "name": "text-not-justified",
+        "evidence": "Text is not justified (aligned to both the left and the right margins)"
+      },
+      {
+        "name": "line-and-paragraph-spacing-sufficient",
+        "evidence": "Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing"
+      },
+      {
+        "name": "text-resizable-to-200-percent-without-horizontal-scrolling",
+        "evidence": "Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.9",
+    "verification_expression": "image-of-text-used-only-for-pure-decoration OR text-presentation-essential",
+    "postconditions": [
+      {
+        "name": "image-of-text-used-only-for-pure-decoration",
+        "evidence": "Images of text are only used for pure decoration"
+      },
+      {
+        "name": "text-presentation-essential",
+        "evidence": "where a particular presentation of text is essential to the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.10",
+    "verification_expression": "no-loss-of-information-or-functionality AND no-scrolling-in-two-dimensions",
+    "postconditions": [
+      {
+        "name": "no-loss-of-information-or-functionality",
+        "evidence": "Content can be presented without loss of information or functionality"
+      },
+      {
+        "name": "no-scrolling-in-two-dimensions",
+        "evidence": "without requiring scrolling in two dimensions for: Vertical scrolling content at a width equivalent to 320 CSS pixels; Horizontal scrolling content at a height equivalent to 256 CSS pixels"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.11",
+    "verification_expression": "ui-component-visual-information-contrast-ratio-at-least-3-to-1 AND graphical-object-contrast-ratio-at-least-3-to-1",
+    "postconditions": [
+      {
+        "name": "ui-component-visual-information-contrast-ratio-at-least-3-to-1",
+        "evidence": "User Interface Components Visual information required to identify user interface components and states ... have a contrast ratio of at least 3:1 against adjacent color(s)"
+      },
+      {
+        "name": "graphical-object-contrast-ratio-at-least-3-to-1",
+        "evidence": "Graphical Objects Parts of graphics required to understand the content ... have a contrast ratio of at least 3:1 against adjacent color(s)"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.12",
+    "verification_expression": "no-loss-of-content-or-functionality-when-text-spacing-properties-overridden",
+    "postconditions": [
+      {
+        "name": "no-loss-of-content-or-functionality-when-text-spacing-properties-overridden",
+        "evidence": "no loss of content or functionality occurs by setting all of the following and by changing no other style property: Line height (line spacing) to at least 1.5 times the font size; Spacing following paragraphs to at least 2 times the font size; Letter spacing (tracking) to at least 0.12 times the font size; Word spacing to at least 0.16 times the font size"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.13",
+    "verification_expression": "additional-content-dismissible-without-moving-pointer-or-focus AND additional-content-hoverable-without-disappearing AND additional-content-persistent-until-trigger-removed",
+    "postconditions": [
+      {
+        "name": "additional-content-dismissible-without-moving-pointer-or-focus",
+        "evidence": "Dismissible A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus"
+      },
+      {
+        "name": "additional-content-hoverable-without-disappearing",
+        "evidence": "Hoverable If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing"
+      },
+      {
+        "name": "additional-content-persistent-until-trigger-removed",
+        "evidence": "Persistent The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.1",
+    "verification_expression": "all-functionality-operable-through-keyboard-interface AND no-specific-timing-required-for-individual-keystrokes",
+    "postconditions": [
+      {
+        "name": "all-functionality-operable-through-keyboard-interface",
+        "evidence": "All functionality of the content is operable through a keyboard interface"
+      },
+      {
+        "name": "no-specific-timing-required-for-individual-keystrokes",
+        "evidence": "without requiring specific timings for individual keystrokes"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.2",
+    "verification_expression": "focus-can-be-moved-away-using-keyboard AND (standard-exit-methods-sufficient OR nonstandard-exit-method-advised-to-user)",
+    "postconditions": [
+      {
+        "name": "focus-can-be-moved-away-using-keyboard",
+        "evidence": "then focus can be moved away from that component using only a keyboard interface"
+      },
+      {
+        "name": "standard-exit-methods-sufficient",
+        "evidence": "if it requires more than unmodified arrow or tab keys or other standard exit methods"
+      },
+      {
+        "name": "nonstandard-exit-method-advised-to-user",
+        "evidence": "the user is advised of the method for moving focus away"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.3",
+    "verification_expression": "all-functionality-keyboard-operable AND no-specific-keystroke-timing-required",
+    "postconditions": [
+      {
+        "name": "all-functionality-keyboard-operable",
+        "evidence": "All functionality of the content is operable through a keyboard interface"
+      },
+      {
+        "name": "no-specific-keystroke-timing-required",
+        "evidence": "without requiring specific timings for individual keystrokes"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.4",
+    "verification_expression": "shortcut-can-be-turned-off OR shortcut-can-be-remapped-to-non-printable-keys OR shortcut-active-only-on-component-focus",
+    "postconditions": [
+      {
+        "name": "shortcut-can-be-turned-off",
+        "evidence": "Turn off A mechanism is available to turn the shortcut off"
+      },
+      {
+        "name": "shortcut-can-be-remapped-to-non-printable-keys",
+        "evidence": "Remap A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt)"
+      },
+      {
+        "name": "shortcut-active-only-on-component-focus",
+        "evidence": "Active only on focus The keyboard shortcut for a user interface component is only active when that component has focus"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.1",
+    "verification_expression": "time-limit-can-be-turned-off OR time-limit-can-be-adjusted OR time-limit-can-be-extended OR time-limit-required-for-real-time-event OR time-limit-essential-to-activity OR time-limit-longer-than-twenty-hours",
+    "postconditions": [
+      {
+        "name": "time-limit-can-be-turned-off",
+        "evidence": "Turn off The user is allowed to turn off the time limit before encountering it"
+      },
+      {
+        "name": "time-limit-can-be-adjusted",
+        "evidence": "Adjust The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting"
+      },
+      {
+        "name": "time-limit-can-be-extended",
+        "evidence": "Extend The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action"
+      },
+      {
+        "name": "time-limit-required-for-real-time-event",
+        "evidence": "Real-time Exception The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible"
+      },
+      {
+        "name": "time-limit-essential-to-activity",
+        "evidence": "Essential Exception The time limit is essential and extending it would invalidate the activity"
+      },
+      {
+        "name": "time-limit-longer-than-twenty-hours",
+        "evidence": "20 Hour Exception The time limit is longer than 20 hours"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.2",
+    "verification_expression": "(moving-blinking-scrolling-can-be-paused-stopped-or-hidden OR moving-blinking-scrolling-essential-to-activity) AND (auto-updating-can-be-paused-stopped-hidden-or-frequency-controlled OR auto-updating-essential-to-activity)",
+    "postconditions": [
+      {
+        "name": "moving-blinking-scrolling-can-be-paused-stopped-or-hidden",
+        "evidence": "there is a mechanism for the user to pause, stop, or hide it"
+      },
+      {
+        "name": "moving-blinking-scrolling-essential-to-activity",
+        "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential"
+      },
+      {
+        "name": "auto-updating-can-be-paused-stopped-hidden-or-frequency-controlled",
+        "evidence": "there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update"
+      },
+      {
+        "name": "auto-updating-essential-to-activity",
+        "evidence": "unless the auto-updating is part of an activity where it is essential"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.3",
+    "verification_expression": "timing-not-essential-to-activity",
+    "postconditions": [
+      {
+        "name": "timing-not-essential-to-activity",
+        "evidence": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.4",
+    "verification_expression": "interruptions-can-be-postponed OR interruptions-can-be-suppressed",
+    "postconditions": [
+      {
+        "name": "interruptions-can-be-postponed",
+        "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency"
+      },
+      {
+        "name": "interruptions-can-be-suppressed",
+        "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.5",
+    "verification_expression": "activity-can-continue-without-data-loss-after-reauthentication",
+    "postconditions": [
+      {
+        "name": "activity-can-continue-without-data-loss-after-reauthentication",
+        "evidence": "the user can continue the activity without loss of data after re-authenticating"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.6",
+    "verification_expression": "inactivity-duration-causing-data-loss-warned-to-user OR data-preserved-beyond-twenty-hours",
+    "postconditions": [
+      {
+        "name": "inactivity-duration-causing-data-loss-warned-to-user",
+        "evidence": "Users are warned of the duration of any user inactivity that could cause data loss"
+      },
+      {
+        "name": "data-preserved-beyond-twenty-hours",
+        "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.3.1",
+    "verification_expression": "no-more-than-three-flashes-in-any-one-second OR flash-below-general-and-red-flash-thresholds",
+    "postconditions": [
+      {
+        "name": "no-more-than-three-flashes-in-any-one-second",
+        "evidence": "Web pages do not contain anything that flashes more than three times in any one second period"
+      },
+      {
+        "name": "flash-below-general-and-red-flash-thresholds",
+        "evidence": "or the flash is below the general flash and red flash thresholds"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.3.2",
+    "verification_expression": "content-does-not-flash-more-than-three-times-per-second",
+    "postconditions": [
+      {
+        "name": "content-does-not-flash-more-than-three-times-per-second",
+        "evidence": "Web pages do not contain anything that flashes more than three times in any one second period."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.3.3",
+    "verification_expression": "interaction-triggered-motion-animation-can-be-disabled",
+    "postconditions": [
+      {
+        "name": "interaction-triggered-motion-animation-can-be-disabled",
+        "evidence": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.1",
+    "verification_expression": "mechanism-to-bypass-repeated-blocks-available",
+    "postconditions": [
+      {
+        "name": "mechanism-to-bypass-repeated-blocks-available",
+        "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.2",
+    "verification_expression": "title-present AND title-describes-topic-or-purpose",
+    "postconditions": [
+      {
+        "name": "title-present",
+        "evidence": "Web pages have titles"
+      },
+      {
+        "name": "title-describes-topic-or-purpose",
+        "evidence": "have titles that describe topic or purpose"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.3",
+    "verification_expression": "focus-order-preserves-meaning AND focus-order-preserves-operability",
+    "postconditions": [
+      {
+        "name": "focus-order-preserves-meaning",
+        "evidence": "focusable components receive focus in an order that preserves meaning and operability"
+      },
+      {
+        "name": "focus-order-preserves-operability",
+        "evidence": "focusable components receive focus in an order that preserves meaning and operability"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.4",
+    "verification_expression": "link-purpose-determinable-from-link-text-alone OR link-purpose-determinable-from-link-text-with-programmatic-context",
+    "postconditions": [
+      {
+        "name": "link-purpose-determinable-from-link-text-alone",
+        "evidence": "The purpose of each link can be determined from the link text alone"
+      },
+      {
+        "name": "link-purpose-determinable-from-link-text-with-programmatic-context",
+        "evidence": "or from the link text together with its programmatically determined link context"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.5",
+    "verification_expression": "multiple-ways-to-locate-page-available",
+    "postconditions": [
+      {
+        "name": "multiple-ways-to-locate-page-available",
+        "evidence": "More than one way is available to locate a web page within a set of web pages"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.6",
+    "verification_expression": "headings-describe-topic-or-purpose AND labels-describe-topic-or-purpose",
+    "postconditions": [
+      {
+        "name": "headings-describe-topic-or-purpose",
+        "evidence": "Headings and labels describe topic or purpose."
+      },
+      {
+        "name": "labels-describe-topic-or-purpose",
+        "evidence": "Headings and labels describe topic or purpose."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.7",
+    "verification_expression": "keyboard-focus-indicator-visible",
+    "postconditions": [
+      {
+        "name": "keyboard-focus-indicator-visible",
+        "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.8",
+    "verification_expression": "location-within-page-set-information-available",
+    "postconditions": [
+      {
+        "name": "location-within-page-set-information-available",
+        "evidence": "Information about the user's location within a set of web pages is available."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.9",
+    "verification_expression": "mechanism-available-to-identify-link-purpose-from-link-text-alone",
+    "postconditions": [
+      {
+        "name": "mechanism-available-to-identify-link-purpose-from-link-text-alone",
+        "evidence": "A mechanism is available to allow the purpose of each link to be identified from link text alone"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.10",
+    "verification_expression": "section-headings-used-to-organize-content",
+    "postconditions": [
+      {
+        "name": "section-headings-used-to-organize-content",
+        "evidence": "Section headings are used to organize the content."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.11",
+    "verification_expression": "focused-component-not-entirely-hidden-by-author-content",
+    "postconditions": [
+      {
+        "name": "focused-component-not-entirely-hidden-by-author-content",
+        "evidence": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.12",
+    "verification_expression": "focused-component-no-part-hidden-by-author-content",
+    "postconditions": [
+      {
+        "name": "focused-component-no-part-hidden-by-author-content",
+        "evidence": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.13",
+    "verification_expression": "focus-indicator-area-at-least-2-css-pixel-perimeter AND focus-indicator-contrast-ratio-at-least-3-to-1-between-focused-and-unfocused-states",
+    "postconditions": [
+      {
+        "name": "focus-indicator-area-at-least-2-css-pixel-perimeter",
+        "evidence": "is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component"
+      },
+      {
+        "name": "focus-indicator-contrast-ratio-at-least-3-to-1-between-focused-and-unfocused-states",
+        "evidence": "has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.1",
+    "verification_expression": "operable-with-single-pointer-without-path-based-gesture",
+    "postconditions": [
+      {
+        "name": "operable-with-single-pointer-without-path-based-gesture",
+        "evidence": "can be operated with a single pointer without a path-based gesture"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.2",
+    "verification_expression": "down-event-not-used-to-execute-function OR (completion-on-up-event AND (mechanism-available-to-abort-before-completion OR mechanism-available-to-undo-after-completion)) OR up-event-reverses-down-event-outcome",
+    "postconditions": [
+      {
+        "name": "down-event-not-used-to-execute-function",
+        "evidence": "No Down-Event The down-event of the pointer is not used to execute any part of the function"
+      },
+      {
+        "name": "completion-on-up-event",
+        "evidence": "Abort or Undo Completion of the function is on the up-event"
+      },
+      {
+        "name": "mechanism-available-to-abort-before-completion",
+        "evidence": "a mechanism is available to abort the function before completion"
+      },
+      {
+        "name": "mechanism-available-to-undo-after-completion",
+        "evidence": "to undo the function after completion"
+      },
+      {
+        "name": "up-event-reverses-down-event-outcome",
+        "evidence": "Up Reversal The up-event reverses any outcome of the preceding down-event"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.3",
+    "verification_expression": "name-contains-visually-presented-label-text",
+    "postconditions": [
+      {
+        "name": "name-contains-visually-presented-label-text",
+        "evidence": "the name contains the text that is presented visually"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.4",
+    "verification_expression": "operable-by-user-interface-components AND motion-response-can-be-disabled",
+    "postconditions": [
+      {
+        "name": "operable-by-user-interface-components",
+        "evidence": "can also be operated by user interface components"
+      },
+      {
+        "name": "motion-response-can-be-disabled",
+        "evidence": "responding to the motion can be disabled to prevent accidental actuation"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.5",
+    "verification_expression": "target-at-least-44-by-44-css-pixels OR equivalent-control-at-least-44-by-44-css-pixels-available",
+    "postconditions": [
+      {
+        "name": "target-at-least-44-by-44-css-pixels",
+        "evidence": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels"
+      },
+      {
+        "name": "equivalent-control-at-least-44-by-44-css-pixels-available",
+        "evidence": "Equivalent The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.6",
+    "verification_expression": "input-modalities-not-restricted",
+    "postconditions": [
+      {
+        "name": "input-modalities-not-restricted",
+        "evidence": "Web content does not restrict use of input modalities available on a platform"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.7",
+    "verification_expression": "functionality-achievable-by-single-pointer-without-dragging",
+    "postconditions": [
+      {
+        "name": "functionality-achievable-by-single-pointer-without-dragging",
+        "evidence": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.8",
+    "verification_expression": "target-size-at-least-24-by-24-css-pixels OR undersized-targets-spaced-so-24-css-pixel-circles-do-not-intersect OR function-achievable-through-different-conforming-control OR target-inline-in-text OR target-size-determined-by-user-agent OR particular-target-presentation-essential",
+    "postconditions": [
+      {
+        "name": "target-size-at-least-24-by-24-css-pixels",
+        "evidence": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels"
+      },
+      {
+        "name": "undersized-targets-spaced-so-24-css-pixel-circles-do-not-intersect",
+        "evidence": "Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target"
+      },
+      {
+        "name": "function-achievable-through-different-conforming-control",
+        "evidence": "The function can be achieved through a different control on the same page that meets this criterion"
+      },
+      {
+        "name": "target-inline-in-text",
+        "evidence": "The target is in a sentence or its size is otherwise constrained by the line-height of non-target text"
+      },
+      {
+        "name": "target-size-determined-by-user-agent",
+        "evidence": "The size of the target is determined by the user agent and is not modified by the author"
+      },
+      {
+        "name": "particular-target-presentation-essential",
+        "evidence": "A particular presentation of the target is essential or is legally required for the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.1",
+    "verification_expression": "default-language-programmatically-determinable",
+    "postconditions": [
+      {
+        "name": "default-language-programmatically-determinable",
+        "evidence": "The default human language of each web page can be programmatically determined"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.2",
+    "verification_expression": "passage-or-phrase-language-programmatically-determinable",
+    "postconditions": [
+      {
+        "name": "passage-or-phrase-language-programmatically-determinable",
+        "evidence": "The human language of each passage or phrase in the content can be programmatically determined"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.3",
+    "verification_expression": "mechanism-available-to-identify-definitions",
+    "postconditions": [
+      {
+        "name": "mechanism-available-to-identify-definitions",
+        "evidence": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.4",
+    "verification_expression": "mechanism-available-to-identify-expanded-form-or-meaning",
+    "postconditions": [
+      {
+        "name": "mechanism-available-to-identify-expanded-form-or-meaning",
+        "evidence": "A mechanism for identifying the expanded form or meaning of abbreviations is available"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.5",
+    "verification_expression": "supplemental-content-available OR simplified-version-not-requiring-advanced-reading-available",
+    "postconditions": [
+      {
+        "name": "supplemental-content-available",
+        "evidence": "supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available"
+      },
+      {
+        "name": "simplified-version-not-requiring-advanced-reading-available",
+        "evidence": "a version that does not require reading ability more advanced than the lower secondary education level, is available"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.6",
+    "verification_expression": "mechanism-available-to-identify-pronunciation",
+    "postconditions": [
+      {
+        "name": "mechanism-available-to-identify-pronunciation",
+        "evidence": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.1",
+    "verification_expression": "focus-does-not-initiate-change-of-context",
+    "postconditions": [
+      {
+        "name": "focus-does-not-initiate-change-of-context",
+        "evidence": "When any user interface component receives focus, it does not initiate a change of context"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.2",
+    "verification_expression": "setting-change-does-not-cause-change-of-context OR user-advised-of-behavior-before-use",
+    "postconditions": [
+      {
+        "name": "setting-change-does-not-cause-change-of-context",
+        "evidence": "Changing the setting of any user interface component does not automatically cause a change of context"
+      },
+      {
+        "name": "user-advised-of-behavior-before-use",
+        "evidence": "unless the user has been advised of the behavior before using the component"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.3",
+    "verification_expression": "repeated-navigation-occurs-in-same-relative-order OR change-initiated-by-user",
+    "postconditions": [
+      {
+        "name": "repeated-navigation-occurs-in-same-relative-order",
+        "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated"
+      },
+      {
+        "name": "change-initiated-by-user",
+        "evidence": "unless a change is initiated by the user"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.4",
+    "verification_expression": "same-functionality-components-identified-consistently",
+    "postconditions": [
+      {
+        "name": "same-functionality-components-identified-consistently",
+        "evidence": "Components that have the same functionality within a set of web pages are identified consistently"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.5",
+    "verification_expression": "changes-of-context-initiated-only-by-user-request OR mechanism-to-turn-off-changes-available",
+    "postconditions": [
+      {
+        "name": "changes-of-context-initiated-only-by-user-request",
+        "evidence": "Changes of context are initiated only by user request"
+      },
+      {
+        "name": "mechanism-to-turn-off-changes-available",
+        "evidence": "or a mechanism is available to turn off such changes"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.6",
+    "verification_expression": "repeated-help-mechanisms-occur-in-same-relative-order OR change-initiated-by-user",
+    "postconditions": [
+      {
+        "name": "repeated-help-mechanisms-occur-in-same-relative-order",
+        "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages, they occur in the same order relative to other page content"
+      },
+      {
+        "name": "change-initiated-by-user",
+        "evidence": "unless a change is initiated by the user"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.1",
+    "verification_expression": "erroneous-item-identified AND error-described-to-user-in-text",
+    "postconditions": [
+      {
+        "name": "erroneous-item-identified",
+        "evidence": "the item that is in error is identified"
+      },
+      {
+        "name": "error-described-to-user-in-text",
+        "evidence": "the error is described to the user in text"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.2",
+    "verification_expression": "labels-provided OR instructions-provided",
+    "postconditions": [
+      {
+        "name": "labels-provided",
+        "evidence": "Labels or instructions are provided when content requires user input"
+      },
+      {
+        "name": "instructions-provided",
+        "evidence": "Labels or instructions are provided when content requires user input"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.3",
+    "verification_expression": "correction-suggestions-provided OR providing-suggestions-would-jeopardize-security-or-purpose",
+    "postconditions": [
+      {
+        "name": "correction-suggestions-provided",
+        "evidence": "the suggestions are provided to the user"
+      },
+      {
+        "name": "providing-suggestions-would-jeopardize-security-or-purpose",
+        "evidence": "unless it would jeopardize the security or purpose of the content"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.4",
+    "verification_expression": "submissions-reversible OR (data-checked-for-input-errors AND correction-opportunity-provided) OR mechanism-to-review-confirm-correct-before-finalizing",
+    "postconditions": [
+      {
+        "name": "submissions-reversible",
+        "evidence": "ReversibleSubmissions are reversible"
+      },
+      {
+        "name": "data-checked-for-input-errors",
+        "evidence": "CheckedData entered by the user is checked for input errors"
+      },
+      {
+        "name": "correction-opportunity-provided",
+        "evidence": "the user is provided an opportunity to correct them"
+      },
+      {
+        "name": "mechanism-to-review-confirm-correct-before-finalizing",
+        "evidence": "ConfirmedA mechanism is available for reviewing, confirming, and correcting information before finalizing the submission"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.5",
+    "verification_expression": "context-sensitive-help-available",
+    "postconditions": [
+      {
+        "name": "context-sensitive-help-available",
+        "evidence": "Context-sensitive help is available"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.6",
+    "verification_expression": "submissions-reversible OR (data-checked-for-input-errors AND opportunity-to-correct-provided) OR mechanism-for-review-confirm-correct-before-finalizing",
+    "postconditions": [
+      {
+        "name": "submissions-reversible",
+        "evidence": "Submissions are reversible."
+      },
+      {
+        "name": "data-checked-for-input-errors",
+        "evidence": "Data entered by the user is checked for input errors"
+      },
+      {
+        "name": "opportunity-to-correct-provided",
+        "evidence": "the user is provided an opportunity to correct them"
+      },
+      {
+        "name": "mechanism-for-review-confirm-correct-before-finalizing",
+        "evidence": "A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission."
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.7",
+    "verification_expression": "information-auto-populated OR information-available-to-select",
+    "postconditions": [
+      {
+        "name": "information-auto-populated",
+        "evidence": "is either: auto-populated"
+      },
+      {
+        "name": "information-available-to-select",
+        "evidence": "available for the user to select"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.8",
+    "verification_expression": "cognitive-function-test-not-required OR alternative-authentication-method-available OR mechanism-to-assist-completing-test-available OR test-is-object-recognition OR test-is-personal-content-identification",
+    "postconditions": [
+      {
+        "name": "cognitive-function-test-not-required",
+        "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+      },
+      {
+        "name": "alternative-authentication-method-available",
+        "evidence": "Another authentication method that does not rely on a cognitive function test."
+      },
+      {
+        "name": "mechanism-to-assist-completing-test-available",
+        "evidence": "A mechanism is available to assist the user in completing the cognitive function test."
+      },
+      {
+        "name": "test-is-object-recognition",
+        "evidence": "The cognitive function test is to recognize objects."
+      },
+      {
+        "name": "test-is-personal-content-identification",
+        "evidence": "The cognitive function test is to identify non-text content the user provided to the website."
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.9",
+    "verification_expression": "cognitive-function-test-not-required OR alternative-authentication-method-available OR mechanism-to-assist-completing-test-available",
+    "postconditions": [
+      {
+        "name": "cognitive-function-test-not-required",
+        "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+      },
+      {
+        "name": "alternative-authentication-method-available",
+        "evidence": "Another authentication method that does not rely on a cognitive function test."
+      },
+      {
+        "name": "mechanism-to-assist-completing-test-available",
+        "evidence": "A mechanism is available to assist the user in completing the cognitive function test."
+      }
+    ]
+  },
+  {
+    "sc_id": "4.1.2",
+    "verification_expression": "name-programmatically-determinable AND role-programmatically-determinable AND user-settable-states-properties-values-programmatically-settable AND changes-notified-to-user-agents",
+    "postconditions": [
+      {
+        "name": "name-programmatically-determinable",
+        "evidence": "the name and role can be programmatically determined"
+      },
+      {
+        "name": "role-programmatically-determinable",
+        "evidence": "the name and role can be programmatically determined"
+      },
+      {
+        "name": "user-settable-states-properties-values-programmatically-settable",
+        "evidence": "states, properties, and values that can be set by the user can be programmatically set"
+      },
+      {
+        "name": "changes-notified-to-user-agents",
+        "evidence": "notification of changes to these items is available to user agents, including assistive technologies"
+      }
+    ]
+  },
+  {
+    "sc_id": "4.1.3",
+    "verification_expression": "status-messages-programmatically-determinable-through-role-or-properties AND presentable-by-assistive-technologies-without-receiving-focus",
+    "postconditions": [
+      {
+        "name": "status-messages-programmatically-determinable-through-role-or-properties",
+        "evidence": "status messages can be programmatically determined through role or properties"
+      },
+      {
+        "name": "presentable-by-assistive-technologies-without-receiving-focus",
+        "evidence": "they can be presented to the user by assistive technologies without receiving focus"
+      }
+    ]
+  }
+]

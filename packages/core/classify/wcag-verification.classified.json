@@ -1,0 +1,2529 @@
+{
+  "predicates": [
+    {
+      "id": "alternative-for-time-based-media-provided",
+      "class": "human",
+      "scope": "component",
+      "definition": "Confirm a text/alternative for the time-based media exists and conveys information equivalent to the original audio or video content.",
+      "sc_count": 4,
+      "scs": [
+        "1.2.1",
+        "1.2.3",
+        "1.2.8",
+        "1.2.9"
+      ],
+      "merged_from": [
+        "alternative-for-time-based-media-presents-equivalent-information",
+        "audio-track-presents-equivalent-information"
+      ],
+      "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
+    },
+    {
+      "id": "describes-topic-or-purpose",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the name, title, heading, or label accurately describes the topic or purpose of the element it identifies.",
+      "sc_count": 3,
+      "scs": [
+        "1.1.1",
+        "2.4.2",
+        "2.4.6"
+      ],
+      "merged_from": [
+        "name-describes-purpose",
+        "title-describes-topic-or-purpose",
+        "headings-describe-topic-or-purpose",
+        "labels-describe-topic-or-purpose"
+      ],
+      "evidence": "If non-text content is a control or accepts user input, then it has a name that describes its purpose."
+    },
+    {
+      "id": "all-functionality-keyboard-operable",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm every interactive function can be operated through a keyboard interface.",
+      "sc_count": 2,
+      "scs": [
+        "2.1.1",
+        "2.1.3"
+      ],
+      "merged_from": [
+        "all-functionality-operable-through-keyboard-interface"
+      ],
+      "evidence": "All functionality of the content is operable through a keyboard interface"
+    },
+    {
+      "id": "alternative-authentication-method-available",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the authentication flow to confirm an alternative method exists that does not rely on a cognitive function test.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "merged_from": [],
+      "evidence": "Another authentication method that does not rely on a cognitive function test."
+    },
+    {
+      "id": "audio-description-provided",
+      "class": "human",
+      "scope": "component",
+      "definition": "Confirm an audio description is present and adequately conveys the meaningful visual content of the synchronized video.",
+      "sc_count": 2,
+      "scs": [
+        "1.2.3",
+        "1.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+    },
+    {
+      "id": "captions-provided",
+      "class": "human",
+      "scope": "component",
+      "definition": "Confirm synchronized captions are present and accurately cover all prerecorded audio content.",
+      "sc_count": 2,
+      "scs": [
+        "1.2.2",
+        "1.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Captions are provided for all prerecorded audio content in synchronized media"
+    },
+    {
+      "id": "change-initiated-by-user",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm the change occurs only as a result of an explicit user action.",
+      "sc_count": 2,
+      "scs": [
+        "3.2.3",
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "unless a change is initiated by the user"
+    },
+    {
+      "id": "cognitive-function-test-not-required",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the authentication steps to confirm none require a cognitive function test such as recalling a password or solving a puzzle.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "merged_from": [],
+      "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+    },
+    {
+      "id": "correction-opportunity-provided",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the submission flow to confirm the user is given an opportunity to correct detected input errors.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.4",
+        "3.3.6"
+      ],
+      "merged_from": [
+        "opportunity-to-correct-provided"
+      ],
+      "evidence": "the user is provided an opportunity to correct them"
+    },
+    {
+      "id": "data-checked-for-input-errors",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the implementation to confirm user-entered data is validated for input errors.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.4",
+        "3.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "CheckedData entered by the user is checked for input errors"
+    },
+    {
+      "id": "link-purpose-determinable",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the link's purpose can be understood from its link text alone or together with its programmatically associated context.",
+      "sc_count": 2,
+      "scs": [
+        "2.4.4",
+        "2.4.9"
+      ],
+      "merged_from": [
+        "link-purpose-determinable-from-link-text-alone",
+        "link-purpose-determinable-from-link-text-with-programmatic-context",
+        "mechanism-available-to-identify-link-purpose-from-link-text-alone"
+      ],
+      "evidence": "The purpose of each link can be determined from the link text alone"
+    },
+    {
+      "id": "mechanism-to-assist-completing-test-available",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the authentication flow to confirm a mechanism exists to help the user complete the cognitive function test.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism is available to assist the user in completing the cognitive function test."
+    },
+    {
+      "id": "no-specific-keystroke-timing-required",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm keyboard operation does not depend on specific timings for individual keystrokes.",
+      "sc_count": 2,
+      "scs": [
+        "2.1.1",
+        "2.1.3"
+      ],
+      "merged_from": [
+        "no-specific-timing-required-for-individual-keystrokes"
+      ],
+      "evidence": "without requiring specific timings for individual keystrokes"
+    },
+    {
+      "id": "review-confirm-correct-before-finalizing",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the submission flow to confirm a mechanism lets the user review, confirm, and correct information before finalizing.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.4",
+        "3.3.6"
+      ],
+      "merged_from": [
+        "mechanism-to-review-confirm-correct-before-finalizing",
+        "mechanism-for-review-confirm-correct-before-finalizing"
+      ],
+      "evidence": "ConfirmedA mechanism is available for reviewing, confirming, and correcting information before finalizing the submission"
+    },
+    {
+      "id": "submissions-reversible",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the submission flow to confirm a completed submission can be reversed.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.4",
+        "3.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "ReversibleSubmissions are reversible"
+    },
+    {
+      "id": "text-presentation-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge whether the particular visual presentation of the text is essential to the information being conveyed.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.5",
+        "1.4.9"
+      ],
+      "merged_from": [],
+      "evidence": "A particular presentation of text is essential to the information being conveyed"
+    },
+    {
+      "id": "activity-can-continue-without-data-loss-after-reauthentication",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the re-authentication flow to confirm the user can resume the activity without loss of previously entered data.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "the user can continue the activity without loss of data after re-authenticating"
+    },
+    {
+      "id": "additional-content-dismissible-without-moving-pointer-or-focus",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm a mechanism dismisses the additional content without requiring the pointer or keyboard focus to move.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Dismissible A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus"
+    },
+    {
+      "id": "additional-content-hoverable-without-disappearing",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect/test that the pointer can be moved onto hover-triggered additional content without it disappearing.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Hoverable If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing"
+    },
+    {
+      "id": "additional-content-persistent-until-trigger-removed",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect/test that the additional content stays visible until the trigger is removed, the user dismisses it, or its information becomes invalid.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Persistent The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid"
+    },
+    {
+      "id": "auto-updating-can-be-paused-stopped-hidden-or-frequency-controlled",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm a mechanism lets the user pause, stop, hide, or control the frequency of the auto-updating content.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update"
+    },
+    {
+      "id": "auto-updating-essential-to-activity",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge whether the auto-updating is part of an activity for which it is essential.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "unless the auto-updating is part of an activity where it is essential"
+    },
+    {
+      "id": "background-sounds-at-least-20db-lower-than-foreground",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Measure the audio to confirm background sounds are at least 20 decibels below the foreground speech.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "20 dB The background sounds are at least 20 decibels lower than the foreground speech content"
+    },
+    {
+      "id": "background-sounds-can-be-turned-off",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm a mechanism exists to turn the background sounds off.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "Turn Off The background sounds can be turned off"
+    },
+    {
+      "id": "can-be-ignored-by-assistive-technology",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Check the markup confirms the decorative non-text content is implemented so assistive technology ignores it (e.g., empty alt, role=presentation, or aria-hidden).",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "it is implemented in a way that it can be ignored by assistive technology"
+    },
+    {
+      "id": "captcha-alternative-sensory-forms-provided",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm alternative CAPTCHA forms using different sensory modalities are provided.",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities"
+    },
+    {
+      "id": "captcha-text-alternative-describes-purpose",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the CAPTCHA's text alternative identifies and describes its purpose.",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "text alternatives that identify and describe the purpose of the non-text content are provided"
+    },
+    {
+      "id": "changes-notified-to-user-agents",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm changes to name, role, or value are exposed as notifications to user agents and assistive technologies.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "notification of changes to these items is available to user agents, including assistive technologies"
+    },
+    {
+      "id": "changes-of-context-initiated-only-by-user-request",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm changes of context occur only in response to an explicit user request.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "Changes of context are initiated only by user request"
+    },
+    {
+      "id": "completion-on-up-event",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the event handling to confirm the function completes on the pointer up-event rather than the down-event.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "Abort or Undo Completion of the function is on the up-event"
+    },
+    {
+      "id": "content-does-not-flash-more-than-three-times-per-second",
+      "class": "auto",
+      "scope": "page",
+      "definition": "Computationally verify that no content on the page flashes more than three times within any one-second period.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period."
+    },
+    {
+      "id": "context-sensitive-help-available",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm context-sensitive help is provided for the content requiring user input.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "Context-sensitive help is available"
+    },
+    {
+      "id": "correct-reading-sequence-programmatically-determinable",
+      "class": "human",
+      "scope": "page",
+      "definition": "Judge that the programmatically determined sequence of content matches the correct meaningful reading order.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "a correct reading sequence can be programmatically determined"
+    },
+    {
+      "id": "correction-suggestions-provided",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm correction suggestions are presented to the user when an input error is detected and suggestions are known.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "the suggestions are provided to the user"
+    },
+    {
+      "id": "data-preserved-beyond-twenty-hours",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the implementation to confirm user-entered data is preserved for more than 20 hours of inactivity.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions"
+    },
+    {
+      "id": "default-language-programmatically-determinable",
+      "class": "auto",
+      "scope": "page",
+      "definition": "Check that the page declares a valid default human language (e.g. a lang attribute on the html element).",
+      "sc_count": 1,
+      "scs": [
+        "3.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "The default human language of each web page can be programmatically determined"
+    },
+    {
+      "id": "down-event-not-used-to-execute-function",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the event handling to confirm no part of the function is executed on the pointer down-event.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "No Down-Event The down-event of the pointer is not used to execute any part of the function"
+    },
+    {
+      "id": "equivalent-control-at-least-44-by-44-css-pixels-available",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the page to confirm an equivalent control achieving the same function exists and measures at least 44 by 44 CSS pixels.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.5"
+      ],
+      "merged_from": [],
+      "evidence": "Equivalent The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels"
+    },
+    {
+      "id": "erroneous-item-identified",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm the specific item in error is identified to the user when an input error is detected.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "the item that is in error is identified"
+    },
+    {
+      "id": "error-described-to-user-in-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm the detected error is conveyed to the user as text rather than by non-text means alone.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "the error is described to the user in text"
+    },
+    {
+      "id": "extended-audio-description-provided",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that extended audio description is provided and adequately conveys the essential visual information for the prerecorded video.",
+      "sc_count": 1,
+      "scs": [
+        "1.2.7"
+      ],
+      "merged_from": [],
+      "evidence": "extended audio description is provided for all prerecorded video content in synchronized media"
+    },
+    {
+      "id": "flash-below-general-and-red-flash-thresholds",
+      "class": "auto",
+      "scope": "page",
+      "definition": "Computationally verify that any flashing content stays below the general flash and red flash thresholds.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "or the flash is below the general flash and red flash thresholds"
+    },
+    {
+      "id": "focus-can-be-moved-away-using-keyboard",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm keyboard focus can be moved away from the component using only the keyboard (no keyboard trap).",
+      "sc_count": 1,
+      "scs": [
+        "2.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "then focus can be moved away from that component using only a keyboard interface"
+    },
+    {
+      "id": "focus-does-not-initiate-change-of-context",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the focus event handling to confirm receiving focus does not initiate a change of context.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "When any user interface component receives focus, it does not initiate a change of context"
+    },
+    {
+      "id": "focus-indicator-area-at-least-2-css-pixel-perimeter",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Measure that the focus indicator area is at least as large as a 2 CSS pixel thick perimeter of the component.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component"
+    },
+    {
+      "id": "focus-indicator-contrast-ratio-at-least-3-to-1-between-focused-and-unfocused-states",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Measure that the contrast ratio of the changed pixels between focused and unfocused states is at least 3:1.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states"
+    },
+    {
+      "id": "focus-order-preserves-meaning",
+      "class": "human",
+      "scope": "page",
+      "definition": "Judge that the order in which focusable components receive focus preserves the meaning of the content.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "focusable components receive focus in an order that preserves meaning and operability"
+    },
+    {
+      "id": "focus-order-preserves-operability",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the focus order to confirm focusable components can still be operated in that sequence.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "focusable components receive focus in an order that preserves meaning and operability"
+    },
+    {
+      "id": "focused-component-no-part-hidden-by-author-content",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm no part of a component is hidden by author-created content when it receives keyboard focus.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content."
+    },
+    {
+      "id": "focused-component-not-entirely-hidden-by-author-content",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm a component is not entirely hidden by author-created content when it receives keyboard focus.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content."
+    },
+    {
+      "id": "foreground-and-background-colors-user-selectable",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm a mechanism lets the user select foreground and background colors for text.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "Foreground and background colors can be selected by the user"
+    },
+    {
+      "id": "function-achievable-through-different-conforming-control",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the page to confirm the same function can be achieved through a different control that meets the criterion.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "The function can be achieved through a different control on the same page that meets this criterion"
+    },
+    {
+      "id": "functionality-achievable-by-single-pointer-without-dragging",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm any dragging-based functionality can also be operated by a single pointer without dragging.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging"
+    },
+    {
+      "id": "graphical-object-contrast-ratio-at-least-3-to-1",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge which graphical parts are required to understand the content and verify they have at least 3:1 contrast against adjacent colors.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "Graphical Objects Parts of graphics required to understand the content ... have a contrast ratio of at least 3:1 against adjacent color(s)"
+    },
+    {
+      "id": "image-of-text-used-only-for-pure-decoration",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that any image of text serves only pure decoration and conveys no information to the user.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.9"
+      ],
+      "merged_from": [],
+      "evidence": "Images of text are only used for pure decoration"
+    },
+    {
+      "id": "image-of-text-visually-customizable",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the implementation to confirm the image of text can be visually customized to the user's requirements.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "The image of text can be visually customized to the user's requirements"
+    },
+    {
+      "id": "inactivity-duration-causing-data-loss-warned-to-user",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Inspect the implementation to confirm the user is warned of the inactivity duration that could cause data loss.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Users are warned of the duration of any user inactivity that could cause data loss"
+    },
+    {
+      "id": "info-structure-relationships-available-in-text",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the information, structure, and relationships conveyed visually are equivalently available in text.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+    },
+    {
+      "id": "info-structure-relationships-programmatically-determinable",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the markup to confirm the information, structure, and relationships conveyed through presentation are programmatically determinable via semantic markup.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined"
+    },
+    {
+      "id": "information-auto-populated",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Information the user previously entered (or that the system has about them) is auto-populated, so it need not be re-entered in the same process.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "is either: auto-populated"
+    },
+    {
+      "id": "information-available-to-select",
+      "class": "instance",
+      "scope": "process",
+      "definition": "Confirm that information the user previously entered in the same process is offered for selection (or auto-populated) rather than requiring manual re-entry.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "available for the user to select"
+    },
+    {
+      "id": "information-conveyed-by-means-other-than-color",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that any information, action, or distinction signaled by color is also conveyed through a non-color visual means such as text, shape, or pattern.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element."
+    },
+    {
+      "id": "information-conveyed-by-text-rather-than-images-of-text",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that informational text is rendered as real text rather than as an image of text, except where the presentation is customizable or essential.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "text is used to convey information rather than images of text"
+    },
+    {
+      "id": "input-modalities-not-restricted",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the content and code to confirm it does not block or restrict input modalities (keyboard, mouse, touch, voice) available on the platform.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.6"
+      ],
+      "merged_from": [],
+      "evidence": "Web content does not restrict use of input modalities available on a platform"
+    },
+    {
+      "id": "input-purpose-programmatically-determinable",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Check that input fields collecting information about the user expose a valid programmatic purpose, such as a correct autocomplete token.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The purpose of each input field collecting information about the user can be programmatically determined"
+    },
+    {
+      "id": "instructions-provided",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the form or control to confirm instructions are present wherever content requires user input.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "Labels or instructions are provided when content requires user input"
+    },
+    {
+      "id": "instructions-understandable-without-relying-solely-on-sensory-characteristics",
+      "class": "human",
+      "scope": "page",
+      "definition": "Judge that instructions for understanding and operating content do not rely solely on sensory characteristics such as shape, color, size, visual location, orientation, or sound.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound."
+    },
+    {
+      "id": "interaction-triggered-motion-animation-can-be-disabled",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm motion animation triggered by interaction can be disabled, for example by honoring prefers-reduced-motion or a user control.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed."
+    },
+    {
+      "id": "interruptions-can-be-postponed",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm non-emergency interruptions can be postponed by the user.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency"
+    },
+    {
+      "id": "interruptions-can-be-suppressed",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm non-emergency interruptions can be suppressed by the user.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency"
+    },
+    {
+      "id": "keyboard-focus-indicator-visible",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the component's styles to confirm a visible keyboard focus indicator is present in at least one mode of operation.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
+    },
+    {
+      "id": "labels-provided",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Check that controls requiring user input have an associated programmatic label.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "Labels or instructions are provided when content requires user input"
+    },
+    {
+      "id": "large-text-contrast-ratio-at-least-3-to-1",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute that large-scale text and images of large-scale text have a contrast ratio of at least 3:1 against the background.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 3:1"
+    },
+    {
+      "id": "large-text-contrast-ratio-at-least-4-5-to-1",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute that large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1 against the background.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1"
+    },
+    {
+      "id": "line-and-paragraph-spacing-sufficient",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute that line spacing is at least 1.5 times within paragraphs and paragraph spacing is at least 1.5 times the line spacing.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing"
+    },
+    {
+      "id": "location-within-page-set-information-available",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the page for a mechanism such as a breadcrumb, current-page indicator, or sitemap that conveys the user's location within the set of pages.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "Information about the user's location within a set of web pages is available."
+    },
+    {
+      "id": "mechanism-available-to-abort-before-completion",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the pointer-operated control to confirm a mechanism exists to abort the function before completion.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "a mechanism is available to abort the function before completion"
+    },
+    {
+      "id": "mechanism-available-to-identify-definitions",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the content for a mechanism such as a glossary, inline definition, or link that identifies definitions of words or phrases used in an unusual or restricted way.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon"
+    },
+    {
+      "id": "mechanism-available-to-identify-expanded-form-or-meaning",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the content for a mechanism that identifies the expanded form or meaning of abbreviations.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism for identifying the expanded form or meaning of abbreviations is available"
+    },
+    {
+      "id": "mechanism-available-to-identify-pronunciation",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the content for a mechanism that identifies the pronunciation of words whose meaning is ambiguous without it.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.6"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation"
+    },
+    {
+      "id": "mechanism-available-to-undo-after-completion",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the pointer-operated control to confirm a mechanism exists to undo the function after completion.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "to undo the function after completion"
+    },
+    {
+      "id": "mechanism-to-bypass-repeated-blocks-available",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the page for a mechanism such as a skip link, landmarks, or headings that bypasses blocks of content repeated across pages.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages."
+    },
+    {
+      "id": "mechanism-to-control-audio-volume-independently-available",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the audio control to confirm volume can be adjusted independently from the overall system volume.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "a mechanism is available to control audio volume independently from the overall system volume level"
+    },
+    {
+      "id": "mechanism-to-pause-or-stop-audio-available",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect auto-playing audio that lasts more than three seconds to confirm a mechanism is available to pause or stop it.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "either a mechanism is available to pause or stop the audio"
+    },
+    {
+      "id": "mechanism-to-turn-off-changes-available",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Inspect the implementation to confirm a mechanism is available to turn off automatically initiated changes of context.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "or a mechanism is available to turn off such changes"
+    },
+    {
+      "id": "motion-response-can-be-disabled",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect the device-motion-operated functionality to confirm response to motion can be disabled to prevent accidental actuation.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "responding to the motion can be disabled to prevent accidental actuation"
+    },
+    {
+      "id": "moving-blinking-scrolling-can-be-paused-stopped-or-hidden",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Inspect moving, blinking, or scrolling content that lasts more than five seconds to confirm a mechanism to pause, stop, or hide it is available.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "there is a mechanism for the user to pause, stop, or hide it"
+    },
+    {
+      "id": "moving-blinking-scrolling-essential-to-activity",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge whether the moving, blinking, or scrolling is part of an activity where it is essential, qualifying for the exception.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential"
+    },
+    {
+      "id": "multiple-ways-to-locate-page-available",
+      "class": "instance",
+      "scope": "site",
+      "definition": "Inspect the site to confirm more than one way (e.g. navigation menu, search, sitemap) is available to locate a page within the set of pages.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "More than one way is available to locate a web page within a set of web pages"
+    },
+    {
+      "id": "name-contains-visually-presented-label-text",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Check that a control's accessible name contains the text presented to it visually as its label.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.3"
+      ],
+      "merged_from": [],
+      "evidence": "the name contains the text that is presented visually"
+    },
+    {
+      "id": "name-programmatically-determinable",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Confirm the component exposes an accessible name to the accessibility API that can be programmatically read.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "the name and role can be programmatically determined"
+    },
+    {
+      "id": "no-background-sounds",
+      "class": "human",
+      "scope": "component",
+      "definition": "Listen to the audio and confirm it contains no background sounds behind the foreground speech.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "No Background The audio does not contain background sounds"
+    },
+    {
+      "id": "no-loss-of-content-or-functionality",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Resize text up to 200 percent and confirm no content is clipped and all functionality still works.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ],
+      "merged_from": [],
+      "evidence": "up to 200 percent without loss of content or functionality"
+    },
+    {
+      "id": "no-loss-of-content-or-functionality-when-text-spacing-properties-overridden",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Apply the WCAG text-spacing overrides (line, paragraph, letter, word spacing) and confirm no content or functionality is lost.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "no loss of content or functionality occurs by setting all of the following and by changing no other style property: Line height (line spacing) to at least 1.5 times the font size; Spacing following paragraphs to at least 2 times the font size; Letter spacing (tracking) to at least 0.12 times the font size; Word spacing to at least 0.16 times the font size"
+    },
+    {
+      "id": "no-loss-of-information-or-functionality",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Reflow the content to a narrow viewport and confirm no information or functionality is lost.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "Content can be presented without loss of information or functionality"
+    },
+    {
+      "id": "no-more-than-three-flashes-in-any-one-second",
+      "class": "auto",
+      "scope": "page",
+      "definition": "Analyze the content and confirm nothing flashes more than three times in any one-second period.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period"
+    },
+    {
+      "id": "no-scrolling-in-two-dimensions",
+      "class": "auto",
+      "scope": "page",
+      "definition": "Measure scroll dimensions at 320 CSS pixels wide and confirm content does not require scrolling in two dimensions.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "without requiring scrolling in two dimensions for: Vertical scrolling content at a width equivalent to 320 CSS pixels; Horizontal scrolling content at a height equivalent to 256 CSS pixels"
+    },
+    {
+      "id": "nonstandard-exit-method-advised-to-user",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm that when exiting requires non-standard keys, the markup or content advises the user of the method to move focus away.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "the user is advised of the method for moving focus away"
+    },
+    {
+      "id": "operable-by-user-interface-components",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the device-motion function can also be operated through conventional user interface controls.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "can also be operated by user interface components"
+    },
+    {
+      "id": "operable-with-single-pointer-without-path-based-gesture",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the function can be operated with a single pointer without requiring a path-based or multipoint gesture.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "can be operated with a single pointer without a path-based gesture"
+    },
+    {
+      "id": "particular-target-presentation-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge whether the specific presentation of the target is essential or legally required for the information conveyed.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "A particular presentation of the target is essential or is legally required for the information being conveyed"
+    },
+    {
+      "id": "passage-or-phrase-language-programmatically-determinable",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Confirm passages or phrases in another language carry a valid lang attribute so their language is programmatically determinable.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "The human language of each passage or phrase in the content can be programmatically determined"
+    },
+    {
+      "id": "presentable-by-assistive-technologies-without-receiving-focus",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm status content is marked up (e.g. live region) so assistive technologies can present it without it receiving focus.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "they can be presented to the user by assistive technologies without receiving focus"
+    },
+    {
+      "id": "providing-suggestions-would-jeopardize-security-or-purpose",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge whether providing error-correction suggestions would jeopardize the security or purpose of the content.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless it would jeopardize the security or purpose of the content"
+    },
+    {
+      "id": "purpose-of-components-icons-regions-programmatically-determinable",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge whether the purpose of user interface components, icons, and regions is conveyed through semantics that capture that meaning.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "repeated-help-mechanisms-occur-in-same-relative-order",
+      "class": "instance",
+      "scope": "site",
+      "definition": "Compare help mechanisms across the page set and confirm they appear in the same order relative to other page content.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages, they occur in the same order relative to other page content"
+    },
+    {
+      "id": "repeated-navigation-occurs-in-same-relative-order",
+      "class": "instance",
+      "scope": "site",
+      "definition": "Compare repeated navigation across the page set and confirm it occurs in the same relative order each time.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated"
+    },
+    {
+      "id": "role-programmatically-determinable",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Confirm the component exposes a role to the accessibility API that can be programmatically read.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "the name and role can be programmatically determined"
+    },
+    {
+      "id": "same-functionality-components-identified-consistently",
+      "class": "human",
+      "scope": "site",
+      "definition": "Judge whether components with the same functionality across the page set are labeled and identified consistently.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Components that have the same functionality within a set of web pages are identified consistently"
+    },
+    {
+      "id": "section-headings-used-to-organize-content",
+      "class": "human",
+      "scope": "page",
+      "definition": "Judge whether section headings are used to appropriately organize the page's content.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "Section headings are used to organize the content."
+    },
+    {
+      "id": "setting-change-does-not-cause-change-of-context",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm changing the component's setting does not automatically trigger a change of context.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "Changing the setting of any user interface component does not automatically cause a change of context"
+    },
+    {
+      "id": "shortcut-active-only-on-component-focus",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the keyboard shortcut is active only when its associated component has focus.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "Active only on focus The keyboard shortcut for a user interface component is only active when that component has focus"
+    },
+    {
+      "id": "shortcut-can-be-remapped-to-non-printable-keys",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm a mechanism exists to remap the single-character shortcut to include one or more non-printable keys.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "Remap A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt)"
+    },
+    {
+      "id": "shortcut-can-be-turned-off",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm a mechanism is available to turn the single-character keyboard shortcut off.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "Turn off A mechanism is available to turn the shortcut off"
+    },
+    {
+      "id": "sign-language-interpretation-provided",
+      "class": "human",
+      "scope": "component",
+      "definition": "Confirm sign language interpretation is provided for the prerecorded audio in the synchronized media.",
+      "sc_count": 1,
+      "scs": [
+        "1.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Sign language interpretation is provided for all prerecorded audio content in synchronized media."
+    },
+    {
+      "id": "simplified-version-not-requiring-advanced-reading-available",
+      "class": "human",
+      "scope": "page",
+      "definition": "Judge whether a version is available that does not require reading ability beyond the lower secondary education level.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.5"
+      ],
+      "merged_from": [],
+      "evidence": "a version that does not require reading ability more advanced than the lower secondary education level, is available"
+    },
+    {
+      "id": "standard-exit-methods-sufficient",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm focus can be moved away from the component using only standard exit methods such as Tab or arrow keys.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "if it requires more than unmodified arrow or tab keys or other standard exit methods"
+    },
+    {
+      "id": "status-messages-programmatically-determinable-through-role-or-properties",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm status messages are exposed through appropriate role or properties so they can be programmatically determined without focus.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "status messages can be programmatically determined through role or properties"
+    },
+    {
+      "id": "supplemental-content-available",
+      "class": "human",
+      "scope": "page",
+      "definition": "Judge whether supplemental content is available that aids comprehension of text requiring advanced reading ability.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.5"
+      ],
+      "merged_from": [],
+      "evidence": "supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available"
+    },
+    {
+      "id": "target-at-least-44-by-44-css-pixels",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Measure the pointer target and confirm it is at least 44 by 44 CSS pixels.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.5"
+      ],
+      "merged_from": [],
+      "evidence": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels"
+    },
+    {
+      "id": "target-inline-in-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the target sits within a sentence or its size is otherwise constrained by the line-height of surrounding non-target text.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "The target is in a sentence or its size is otherwise constrained by the line-height of non-target text"
+    },
+    {
+      "id": "target-size-at-least-24-by-24-css-pixels",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute the pointer target's bounding box and confirm it is at least 24 by 24 CSS pixels.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels"
+    },
+    {
+      "id": "target-size-determined-by-user-agent",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the target's size is the user-agent default and is not modified by author styling.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "The size of the target is determined by the user agent and is not modified by the author"
+    },
+    {
+      "id": "test-is-object-recognition",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the authentication cognitive-function test only requires the user to recognize objects.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.8"
+      ],
+      "merged_from": [],
+      "evidence": "The cognitive function test is to recognize objects."
+    },
+    {
+      "id": "test-is-personal-content-identification",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the authentication cognitive-function test only requires identifying non-text content the user previously provided to the site.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.8"
+      ],
+      "merged_from": [],
+      "evidence": "The cognitive function test is to identify non-text content the user provided to the website."
+    },
+    {
+      "id": "text-alternative-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Confirm every non-text content element has an associated text alternative (e.g., alt, aria-label, or accessible name).",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+    },
+    {
+      "id": "text-alternative-provides-descriptive-identification",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the text alternative at least descriptively identifies the non-text content.",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "text alternatives at least provide descriptive identification of the non-text content"
+    },
+    {
+      "id": "text-alternative-serves-equivalent-purpose",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the text alternative conveys the same purpose and information as the non-text content it replaces.",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+    },
+    {
+      "id": "text-contrast-ratio-at-least-4.5-to-1",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute the contrast ratio between the text and its background and confirm it is at least 4.5:1.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1"
+    },
+    {
+      "id": "text-contrast-ratio-at-least-7-to-1",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute the contrast ratio between the text and its background and confirm it is at least 7:1.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 7:1"
+    },
+    {
+      "id": "text-not-justified",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Confirm the text block is not justified to both margins (computed text-align is not 'justify').",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "Text is not justified (aligned to both the left and the right margins)"
+    },
+    {
+      "id": "text-resizable-to-200-percent-without-horizontal-scrolling",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm text can be enlarged to 200% without assistive technology and without requiring horizontal scrolling to read a line on a full-screen window.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window"
+    },
+    {
+      "id": "text-resizable-up-to-200-percent-without-assistive-technology",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm text can be resized up to 200% without assistive technology and without loss of content or functionality.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ],
+      "merged_from": [],
+      "evidence": "text can be resized without assistive technology up to 200 percent"
+    },
+    {
+      "id": "time-limit-can-be-adjusted",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm a mechanism lets the user adjust the time limit before encountering it over a range at least ten times the default setting.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "Adjust The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting"
+    },
+    {
+      "id": "time-limit-can-be-extended",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the user is warned before the time limit expires and can extend it with a simple action giving at least 20 seconds.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "Extend The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action"
+    },
+    {
+      "id": "time-limit-can-be-turned-off",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm a mechanism lets the user turn off the time limit before encountering it.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "Turn off The user is allowed to turn off the time limit before encountering it"
+    },
+    {
+      "id": "time-limit-essential-to-activity",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the time limit is essential and that extending it would invalidate the activity.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "Essential Exception The time limit is essential and extending it would invalidate the activity"
+    },
+    {
+      "id": "time-limit-longer-than-twenty-hours",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the configured time limit is longer than 20 hours.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "20 Hour Exception The time limit is longer than 20 hours"
+    },
+    {
+      "id": "time-limit-required-for-real-time-event",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that the time limit is a required part of a real-time event with no possible alternative.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "Real-time Exception The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible"
+    },
+    {
+      "id": "timing-not-essential-to-activity",
+      "class": "human",
+      "scope": "component",
+      "definition": "Judge that timing is not an essential part of the activity, excluding non-interactive synchronized media and real-time events.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events"
+    },
+    {
+      "id": "title-present",
+      "class": "auto",
+      "scope": "page",
+      "definition": "Confirm the page has a non-empty title element.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "Web pages have titles"
+    },
+    {
+      "id": "ui-component-visual-information-contrast-ratio-at-least-3-to-1",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Compute the contrast of visual information needed to identify UI components and states and confirm it is at least 3:1 against adjacent colors.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "User Interface Components Visual information required to identify user interface components and states ... have a contrast ratio of at least 3:1 against adjacent color(s)"
+    },
+    {
+      "id": "undersized-targets-spaced-so-24-css-pixel-circles-do-not-intersect",
+      "class": "auto",
+      "scope": "component",
+      "definition": "Confirm that 24 CSS pixel diameter circles centered on undersized targets do not intersect another target or another such circle.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target"
+    },
+    {
+      "id": "up-event-reverses-down-event-outcome",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the pointer up-event reverses any outcome produced by the preceding down-event.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "Up Reversal The up-event reverses any outcome of the preceding down-event"
+    },
+    {
+      "id": "user-advised-of-behavior-before-use",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm the user is informed of the component's context-changing behavior before they use it.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "unless the user has been advised of the behavior before using the component"
+    },
+    {
+      "id": "user-settable-states-properties-values-programmatically-settable",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm states, properties, and values the user can set are also programmatically settable.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "states, properties, and values that can be set by the user can be programmatically set"
+    },
+    {
+      "id": "view-and-operation-not-restricted-to-single-display-orientation",
+      "class": "instance",
+      "scope": "page",
+      "definition": "Confirm the content does not lock its view and operation to a single display orientation unless a specific orientation is essential.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential."
+    },
+    {
+      "id": "width-no-more-than-80-characters",
+      "class": "instance",
+      "scope": "component",
+      "definition": "Confirm blocks of text are no wider than 80 characters per line (40 for CJK).",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "Width is no more than 80 characters or glyphs (40 if CJK)"
+    }
+  ],
+  "criteria": [
+    {
+      "sc_id": "1.1.1",
+      "verification_expression": "(text-alternative-present AND text-alternative-serves-equivalent-purpose) OR describes-topic-or-purpose OR text-alternative-provides-descriptive-identification OR (captcha-text-alternative-describes-purpose AND captcha-alternative-sensory-forms-provided) OR can-be-ignored-by-assistive-technology",
+      "classes": [
+        "auto",
+        "human",
+        "instance"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.1",
+      "verification_expression": "alternative-for-time-based-media-provided OR alternative-for-time-based-media-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.2",
+      "verification_expression": "captions-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.3",
+      "verification_expression": "alternative-for-time-based-media-provided OR audio-description-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.4",
+      "verification_expression": "captions-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.5",
+      "verification_expression": "audio-description-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.6",
+      "verification_expression": "sign-language-interpretation-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.7",
+      "verification_expression": "extended-audio-description-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.8",
+      "verification_expression": "alternative-for-time-based-media-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.9",
+      "verification_expression": "alternative-for-time-based-media-provided",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.1",
+      "verification_expression": "info-structure-relationships-programmatically-determinable OR info-structure-relationships-available-in-text",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.2",
+      "verification_expression": "correct-reading-sequence-programmatically-determinable",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.3",
+      "verification_expression": "instructions-understandable-without-relying-solely-on-sensory-characteristics",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.4",
+      "verification_expression": "view-and-operation-not-restricted-to-single-display-orientation",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.3.5",
+      "verification_expression": "input-purpose-programmatically-determinable",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "1.3.6",
+      "verification_expression": "purpose-of-components-icons-regions-programmatically-determinable",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.1",
+      "verification_expression": "information-conveyed-by-means-other-than-color",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.2",
+      "verification_expression": "mechanism-to-pause-or-stop-audio-available OR mechanism-to-control-audio-volume-independently-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.3",
+      "verification_expression": "text-contrast-ratio-at-least-4.5-to-1 OR large-text-contrast-ratio-at-least-3-to-1",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "1.4.4",
+      "verification_expression": "text-resizable-up-to-200-percent-without-assistive-technology AND no-loss-of-content-or-functionality",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.5",
+      "verification_expression": "information-conveyed-by-text-rather-than-images-of-text OR image-of-text-visually-customizable OR text-presentation-essential",
+      "classes": [
+        "human",
+        "instance"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.6",
+      "verification_expression": "text-contrast-ratio-at-least-7-to-1 OR large-text-contrast-ratio-at-least-4-5-to-1",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "1.4.7",
+      "verification_expression": "no-background-sounds OR background-sounds-can-be-turned-off OR background-sounds-at-least-20db-lower-than-foreground",
+      "classes": [
+        "human",
+        "instance",
+        "auto"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.8",
+      "verification_expression": "foreground-and-background-colors-user-selectable AND width-no-more-than-80-characters AND text-not-justified AND line-and-paragraph-spacing-sufficient AND text-resizable-to-200-percent-without-horizontal-scrolling",
+      "classes": [
+        "instance",
+        "auto"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.9",
+      "verification_expression": "image-of-text-used-only-for-pure-decoration OR text-presentation-essential",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.10",
+      "verification_expression": "no-loss-of-information-or-functionality AND no-scrolling-in-two-dimensions",
+      "classes": [
+        "instance",
+        "auto"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.11",
+      "verification_expression": "ui-component-visual-information-contrast-ratio-at-least-3-to-1 AND graphical-object-contrast-ratio-at-least-3-to-1",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.12",
+      "verification_expression": "no-loss-of-content-or-functionality-when-text-spacing-properties-overridden",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.13",
+      "verification_expression": "additional-content-dismissible-without-moving-pointer-or-focus AND additional-content-hoverable-without-disappearing AND additional-content-persistent-until-trigger-removed",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.1.1",
+      "verification_expression": "all-functionality-keyboard-operable AND no-specific-keystroke-timing-required",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.1.2",
+      "verification_expression": "focus-can-be-moved-away-using-keyboard AND (standard-exit-methods-sufficient OR nonstandard-exit-method-advised-to-user)",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.1.3",
+      "verification_expression": "all-functionality-keyboard-operable AND no-specific-keystroke-timing-required",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.1.4",
+      "verification_expression": "shortcut-can-be-turned-off OR shortcut-can-be-remapped-to-non-printable-keys OR shortcut-active-only-on-component-focus",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.1",
+      "verification_expression": "time-limit-can-be-turned-off OR time-limit-can-be-adjusted OR time-limit-can-be-extended OR time-limit-required-for-real-time-event OR time-limit-essential-to-activity OR time-limit-longer-than-twenty-hours",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.2.2",
+      "verification_expression": "(moving-blinking-scrolling-can-be-paused-stopped-or-hidden OR moving-blinking-scrolling-essential-to-activity) AND (auto-updating-can-be-paused-stopped-hidden-or-frequency-controlled OR auto-updating-essential-to-activity)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.2.3",
+      "verification_expression": "timing-not-essential-to-activity",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.2.4",
+      "verification_expression": "interruptions-can-be-postponed OR interruptions-can-be-suppressed",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.5",
+      "verification_expression": "activity-can-continue-without-data-loss-after-reauthentication",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.6",
+      "verification_expression": "inactivity-duration-causing-data-loss-warned-to-user OR data-preserved-beyond-twenty-hours",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.3.1",
+      "verification_expression": "no-more-than-three-flashes-in-any-one-second OR flash-below-general-and-red-flash-thresholds",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.3.2",
+      "verification_expression": "content-does-not-flash-more-than-three-times-per-second",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.3.3",
+      "verification_expression": "interaction-triggered-motion-animation-can-be-disabled",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.1",
+      "verification_expression": "mechanism-to-bypass-repeated-blocks-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.2",
+      "verification_expression": "title-present AND describes-topic-or-purpose",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.3",
+      "verification_expression": "focus-order-preserves-meaning AND focus-order-preserves-operability",
+      "classes": [
+        "human",
+        "instance"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.4",
+      "verification_expression": "link-purpose-determinable OR link-purpose-determinable",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.5",
+      "verification_expression": "multiple-ways-to-locate-page-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.6",
+      "verification_expression": "describes-topic-or-purpose AND describes-topic-or-purpose",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.7",
+      "verification_expression": "keyboard-focus-indicator-visible",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.8",
+      "verification_expression": "location-within-page-set-information-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.9",
+      "verification_expression": "link-purpose-determinable",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.10",
+      "verification_expression": "section-headings-used-to-organize-content",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.11",
+      "verification_expression": "focused-component-not-entirely-hidden-by-author-content",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.12",
+      "verification_expression": "focused-component-no-part-hidden-by-author-content",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.13",
+      "verification_expression": "focus-indicator-area-at-least-2-css-pixel-perimeter AND focus-indicator-contrast-ratio-at-least-3-to-1-between-focused-and-unfocused-states",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.5.1",
+      "verification_expression": "operable-with-single-pointer-without-path-based-gesture",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.2",
+      "verification_expression": "down-event-not-used-to-execute-function OR (completion-on-up-event AND (mechanism-available-to-abort-before-completion OR mechanism-available-to-undo-after-completion)) OR up-event-reverses-down-event-outcome",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.3",
+      "verification_expression": "name-contains-visually-presented-label-text",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.5.4",
+      "verification_expression": "operable-by-user-interface-components AND motion-response-can-be-disabled",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.5",
+      "verification_expression": "target-at-least-44-by-44-css-pixels OR equivalent-control-at-least-44-by-44-css-pixels-available",
+      "classes": [
+        "auto",
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.6",
+      "verification_expression": "input-modalities-not-restricted",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.7",
+      "verification_expression": "functionality-achievable-by-single-pointer-without-dragging",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.8",
+      "verification_expression": "target-size-at-least-24-by-24-css-pixels OR undersized-targets-spaced-so-24-css-pixel-circles-do-not-intersect OR function-achievable-through-different-conforming-control OR target-inline-in-text OR target-size-determined-by-user-agent OR particular-target-presentation-essential",
+      "classes": [
+        "auto",
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.1.1",
+      "verification_expression": "default-language-programmatically-determinable",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "3.1.2",
+      "verification_expression": "passage-or-phrase-language-programmatically-determinable",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "3.1.3",
+      "verification_expression": "mechanism-available-to-identify-definitions",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.1.4",
+      "verification_expression": "mechanism-available-to-identify-expanded-form-or-meaning",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.1.5",
+      "verification_expression": "supplemental-content-available OR simplified-version-not-requiring-advanced-reading-available",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.1.6",
+      "verification_expression": "mechanism-available-to-identify-pronunciation",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.1",
+      "verification_expression": "focus-does-not-initiate-change-of-context",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.2",
+      "verification_expression": "setting-change-does-not-cause-change-of-context OR user-advised-of-behavior-before-use",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.3",
+      "verification_expression": "repeated-navigation-occurs-in-same-relative-order OR change-initiated-by-user",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.4",
+      "verification_expression": "same-functionality-components-identified-consistently",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.2.5",
+      "verification_expression": "changes-of-context-initiated-only-by-user-request OR mechanism-to-turn-off-changes-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.6",
+      "verification_expression": "repeated-help-mechanisms-occur-in-same-relative-order OR change-initiated-by-user",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.1",
+      "verification_expression": "erroneous-item-identified AND error-described-to-user-in-text",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.2",
+      "verification_expression": "labels-provided OR instructions-provided",
+      "classes": [
+        "auto",
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.3",
+      "verification_expression": "correction-suggestions-provided OR providing-suggestions-would-jeopardize-security-or-purpose",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.3.4",
+      "verification_expression": "submissions-reversible OR (data-checked-for-input-errors AND correction-opportunity-provided) OR review-confirm-correct-before-finalizing",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.5",
+      "verification_expression": "context-sensitive-help-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.6",
+      "verification_expression": "submissions-reversible OR (data-checked-for-input-errors AND correction-opportunity-provided) OR review-confirm-correct-before-finalizing",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.7",
+      "verification_expression": "information-auto-populated OR information-available-to-select",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.8",
+      "verification_expression": "cognitive-function-test-not-required OR alternative-authentication-method-available OR mechanism-to-assist-completing-test-available OR test-is-object-recognition OR test-is-personal-content-identification",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.9",
+      "verification_expression": "cognitive-function-test-not-required OR alternative-authentication-method-available OR mechanism-to-assist-completing-test-available",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "4.1.2",
+      "verification_expression": "name-programmatically-determinable AND role-programmatically-determinable AND user-settable-states-properties-values-programmatically-settable AND changes-notified-to-user-agents",
+      "classes": [
+        "auto",
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "4.1.3",
+      "verification_expression": "status-messages-programmatically-determinable-through-role-or-properties AND presentable-by-assistive-technologies-without-receiving-focus",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    }
+  ]
+}
