@@ -1,0 +1,1272 @@
+[
+  {
+    "sc_id": "1.1.1",
+    "expression": "non-text-content-present",
+    "predicates": [
+      {
+        "name": "non-text-content-present",
+        "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.1",
+    "expression": "(prerecorded-audio-only-media-present OR prerecorded-video-only-media-present) AND NOT media-alternative-for-text-clearly-labeled",
+    "predicates": [
+      {
+        "name": "prerecorded-audio-only-media-present",
+        "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
+      },
+      {
+        "name": "prerecorded-video-only-media-present",
+        "evidence": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content."
+      },
+      {
+        "name": "media-alternative-for-text-clearly-labeled",
+        "evidence": "except when the audio or video is a media alternative for text and is clearly labeled as such"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.2",
+    "expression": "prerecorded-audio-in-synchronized-media AND NOT media-alternative-for-text-clearly-labeled",
+    "predicates": [
+      {
+        "name": "prerecorded-audio-in-synchronized-media",
+        "evidence": "Captions are provided for all prerecorded audio content in synchronized media"
+      },
+      {
+        "name": "media-alternative-for-text-clearly-labeled",
+        "evidence": "except when the media is a media alternative for text and is clearly labeled as such"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.3",
+    "expression": "prerecorded-video-in-synchronized-media AND NOT media-alternative-for-text-clearly-labeled",
+    "predicates": [
+      {
+        "name": "prerecorded-video-in-synchronized-media",
+        "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+      },
+      {
+        "name": "media-alternative-for-text-clearly-labeled",
+        "evidence": "except when the media is a media alternative for text and is clearly labeled as such"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.4",
+    "expression": "live-audio-in-synchronized-media",
+    "predicates": [
+      {
+        "name": "live-audio-in-synchronized-media",
+        "evidence": "Captions are provided for all live audio content in synchronized media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.5",
+    "expression": "prerecorded-video-in-synchronized-media",
+    "predicates": [
+      {
+        "name": "prerecorded-video-in-synchronized-media",
+        "evidence": "Audio description is provided for all prerecorded video content in synchronized media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.6",
+    "expression": "prerecorded-audio-in-synchronized-media",
+    "predicates": [
+      {
+        "name": "prerecorded-audio-in-synchronized-media",
+        "evidence": "Sign language interpretation is provided for all prerecorded audio content in synchronized media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.7",
+    "expression": "prerecorded-video-in-synchronized-media AND pauses-in-foreground-audio-insufficient",
+    "predicates": [
+      {
+        "name": "prerecorded-video-in-synchronized-media",
+        "evidence": "extended audio description is provided for all prerecorded video content in synchronized media"
+      },
+      {
+        "name": "pauses-in-foreground-audio-insufficient",
+        "evidence": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.8",
+    "expression": "prerecorded-synchronized-media-present OR prerecorded-video-only-media-present",
+    "predicates": [
+      {
+        "name": "prerecorded-synchronized-media-present",
+        "evidence": "An alternative for time-based media is provided for all prerecorded synchronized media"
+      },
+      {
+        "name": "prerecorded-video-only-media-present",
+        "evidence": "and for all prerecorded video-only media."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.2.9",
+    "expression": "live-audio-only-content-present",
+    "predicates": [
+      {
+        "name": "live-audio-only-content-present",
+        "evidence": "An alternative for time-based media that presents equivalent information for live audio-only content is provided."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.1",
+    "expression": "information-structure-or-relationships-conveyed-through-presentation",
+    "predicates": [
+      {
+        "name": "information-structure-or-relationships-conveyed-through-presentation",
+        "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.2",
+    "expression": "content-sequence-affects-meaning",
+    "predicates": [
+      {
+        "name": "content-sequence-affects-meaning",
+        "evidence": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.3",
+    "expression": "instructions-for-understanding-and-operating-content-present",
+    "predicates": [
+      {
+        "name": "instructions-for-understanding-and-operating-content-present",
+        "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.4",
+    "expression": "content-with-view-and-operation-present AND NOT display-orientation-essential",
+    "predicates": [
+      {
+        "name": "content-with-view-and-operation-present",
+        "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape"
+      },
+      {
+        "name": "display-orientation-essential",
+        "evidence": "unless a specific display orientation is essential"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.5",
+    "expression": "input-field-collecting-information-about-the-user AND input-field-serves-identified-input-purpose AND implemented-with-technology-supporting-input-purpose-identification",
+    "predicates": [
+      {
+        "name": "input-field-collecting-information-about-the-user",
+        "evidence": "The purpose of each input field collecting information about the user can be programmatically determined"
+      },
+      {
+        "name": "input-field-serves-identified-input-purpose",
+        "evidence": "The input field serves a purpose identified in the Input Purposes for user interface components section"
+      },
+      {
+        "name": "implemented-with-technology-supporting-input-purpose-identification",
+        "evidence": "The content is implemented using technologies with support for identifying the expected meaning for form input data."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.3.6",
+    "expression": "content-implemented-using-markup-languages AND (ui-component-present OR icon-present OR region-present)",
+    "predicates": [
+      {
+        "name": "content-implemented-using-markup-languages",
+        "evidence": "In content implemented using markup languages, the purpose of user interface components, icons, and regions can be programmatically determined."
+      },
+      {
+        "name": "ui-component-present",
+        "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+      },
+      {
+        "name": "icon-present",
+        "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+      },
+      {
+        "name": "region-present",
+        "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.1",
+    "expression": "color-conveys-information OR color-indicates-action OR color-prompts-response OR color-distinguishes-visual-element",
+    "predicates": [
+      {
+        "name": "color-conveys-information",
+        "evidence": "Color is not used as the only visual means of conveying information"
+      },
+      {
+        "name": "color-indicates-action",
+        "evidence": "indicating an action"
+      },
+      {
+        "name": "color-prompts-response",
+        "evidence": "prompting a response"
+      },
+      {
+        "name": "color-distinguishes-visual-element",
+        "evidence": "or distinguishing a visual element"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.2",
+    "expression": "audio-plays-automatically AND audio-lasts-more-than-3-seconds",
+    "predicates": [
+      {
+        "name": "audio-plays-automatically",
+        "evidence": "If any audio on a web page plays automatically for more than 3 seconds"
+      },
+      {
+        "name": "audio-lasts-more-than-3-seconds",
+        "evidence": "If any audio on a web page plays automatically for more than 3 seconds"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.3",
+    "expression": "text-or-image-of-text-present AND NOT (inactive-ui-component-text OR decorative-text OR not-visible-text OR text-part-of-picture OR logotype)",
+    "predicates": [
+      {
+        "name": "text-or-image-of-text-present",
+        "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1"
+      },
+      {
+        "name": "inactive-ui-component-text",
+        "evidence": "Text or images of text that are part of an inactive user interface component"
+      },
+      {
+        "name": "decorative-text",
+        "evidence": "that are pure decoration"
+      },
+      {
+        "name": "not-visible-text",
+        "evidence": "that are not visible to anyone"
+      },
+      {
+        "name": "text-part-of-picture",
+        "evidence": "that are part of a picture that contains significant other visual content"
+      },
+      {
+        "name": "logotype",
+        "evidence": "Logotypes Text that is part of a logo or brand name has no contrast requirement."
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.4",
+    "expression": "text-present AND NOT (captions OR image-of-text)",
+    "predicates": [
+      {
+        "name": "text-present",
+        "evidence": "text can be resized without assistive technology up to 200 percent without loss of content or functionality"
+      },
+      {
+        "name": "captions",
+        "evidence": "Except for captions and images of text"
+      },
+      {
+        "name": "image-of-text",
+        "evidence": "Except for captions and images of text"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.5",
+    "expression": "image-of-text-present AND technology-can-achieve-visual-presentation AND NOT (image-of-text-customizable OR particular-presentation-essential)",
+    "predicates": [
+      {
+        "name": "image-of-text-present",
+        "evidence": "text is used to convey information rather than images of text"
+      },
+      {
+        "name": "technology-can-achieve-visual-presentation",
+        "evidence": "If the technologies being used can achieve the visual presentation"
+      },
+      {
+        "name": "image-of-text-customizable",
+        "evidence": "Customizable The image of text can be visually customized to the user's requirements"
+      },
+      {
+        "name": "particular-presentation-essential",
+        "evidence": "Essential A particular presentation of text is essential to the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.6",
+    "expression": "text-or-image-of-text-present AND NOT (inactive-ui-component-text OR decorative-text OR not-visible-text OR text-part-of-picture OR logotype)",
+    "predicates": [
+      {
+        "name": "text-or-image-of-text-present",
+        "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 7:1"
+      },
+      {
+        "name": "inactive-ui-component-text",
+        "evidence": "Text or images of text that are part of an inactive user interface component"
+      },
+      {
+        "name": "decorative-text",
+        "evidence": "that are pure decoration"
+      },
+      {
+        "name": "not-visible-text",
+        "evidence": "that are not visible to anyone"
+      },
+      {
+        "name": "text-part-of-picture",
+        "evidence": "that are part of a picture that contains significant other visual content"
+      },
+      {
+        "name": "logotype",
+        "evidence": "Logotypes Text that is part of a logo or brand name has no contrast requirement"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.7",
+    "expression": "prerecorded-audio-only-content AND foreground-speech-primary AND NOT (audio-captcha OR audio-logo OR musical-vocalization)",
+    "predicates": [
+      {
+        "name": "prerecorded-audio-only-content",
+        "evidence": "For prerecorded audio-only content"
+      },
+      {
+        "name": "foreground-speech-primary",
+        "evidence": "contains primarily speech in the foreground"
+      },
+      {
+        "name": "audio-captcha",
+        "evidence": "is not an audio CAPTCHA or audio logo"
+      },
+      {
+        "name": "audio-logo",
+        "evidence": "is not an audio CAPTCHA or audio logo"
+      },
+      {
+        "name": "musical-vocalization",
+        "evidence": "is not vocalization intended to be primarily musical expression such as singing or rapping"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.8",
+    "expression": "blocks-of-text-present",
+    "predicates": [
+      {
+        "name": "blocks-of-text-present",
+        "evidence": "For the visual presentation of blocks of text"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.9",
+    "expression": "image-of-text-present",
+    "predicates": [
+      {
+        "name": "image-of-text-present",
+        "evidence": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.10",
+    "expression": "content-present AND NOT two-dimensional-layout-essential",
+    "predicates": [
+      {
+        "name": "content-present",
+        "evidence": "Content can be presented without loss of information or functionality"
+      },
+      {
+        "name": "two-dimensional-layout-essential",
+        "evidence": "Except for parts of the content which require two-dimensional layout for usage or meaning"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.11",
+    "expression": "(ui-component-visual-information-present AND NOT (inactive-ui-component OR ui-component-appearance-user-agent-determined)) OR (graphical-object-required-to-understand-present AND NOT graphics-presentation-essential)",
+    "predicates": [
+      {
+        "name": "ui-component-visual-information-present",
+        "evidence": "Visual information required to identify user interface components and states"
+      },
+      {
+        "name": "inactive-ui-component",
+        "evidence": "except for inactive components"
+      },
+      {
+        "name": "ui-component-appearance-user-agent-determined",
+        "evidence": "where the appearance of the component is determined by the user agent and not modified by the author"
+      },
+      {
+        "name": "graphical-object-required-to-understand-present",
+        "evidence": "Parts of graphics required to understand the content"
+      },
+      {
+        "name": "graphics-presentation-essential",
+        "evidence": "except when a particular presentation of graphics is essential to the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.12",
+    "expression": "content-using-markup-supporting-text-style-properties AND NOT language-script-without-text-style-properties",
+    "predicates": [
+      {
+        "name": "content-using-markup-supporting-text-style-properties",
+        "evidence": "In content implemented using markup languages that support the following text style properties"
+      },
+      {
+        "name": "language-script-without-text-style-properties",
+        "evidence": "Human languages and scripts that do not make use of one or more of these text style properties in written text"
+      }
+    ]
+  },
+  {
+    "sc_id": "1.4.13",
+    "expression": "(hover-triggers-additional-content OR focus-triggers-additional-content) AND NOT additional-content-user-agent-controlled",
+    "predicates": [
+      {
+        "name": "hover-triggers-additional-content",
+        "evidence": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden"
+      },
+      {
+        "name": "focus-triggers-additional-content",
+        "evidence": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden"
+      },
+      {
+        "name": "additional-content-user-agent-controlled",
+        "evidence": "The visual presentation of the additional content is controlled by the user agent and is not modified by the author"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.1",
+    "expression": "functionality-present AND NOT path-dependent-input-essential",
+    "predicates": [
+      {
+        "name": "functionality-present",
+        "evidence": "All functionality of the content is operable through a keyboard interface"
+      },
+      {
+        "name": "path-dependent-input-essential",
+        "evidence": "except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.2",
+    "expression": "keyboard-focus-can-be-moved-to-component",
+    "predicates": [
+      {
+        "name": "keyboard-focus-can-be-moved-to-component",
+        "evidence": "If keyboard focus can be moved to a component of the page using a keyboard interface"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.3",
+    "expression": "functionality-present",
+    "predicates": [
+      {
+        "name": "functionality-present",
+        "evidence": "All functionality of the content is operable through a keyboard interface"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.1.4",
+    "expression": "character-key-shortcut-implemented",
+    "predicates": [
+      {
+        "name": "character-key-shortcut-implemented",
+        "evidence": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.1",
+    "expression": "time-limit-set-by-content",
+    "predicates": [
+      {
+        "name": "time-limit-set-by-content",
+        "evidence": "For each time limit that is set by the content"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.2",
+    "expression": "(moving-blinking-or-scrolling-information-present AND starts-automatically AND lasts-more-than-five-seconds AND presented-in-parallel-with-other-content AND NOT part-of-essential-activity) OR (auto-updating-information-present AND starts-automatically AND presented-in-parallel-with-other-content AND NOT part-of-essential-activity)",
+    "predicates": [
+      {
+        "name": "moving-blinking-or-scrolling-information-present",
+        "evidence": "For any moving, blinking or scrolling information"
+      },
+      {
+        "name": "starts-automatically",
+        "evidence": "(1) starts automatically"
+      },
+      {
+        "name": "lasts-more-than-five-seconds",
+        "evidence": "(2) lasts more than five seconds"
+      },
+      {
+        "name": "presented-in-parallel-with-other-content",
+        "evidence": "is presented in parallel with other content"
+      },
+      {
+        "name": "part-of-essential-activity",
+        "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential"
+      },
+      {
+        "name": "auto-updating-information-present",
+        "evidence": "For any auto-updating information"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.3",
+    "expression": "event-or-activity-present AND NOT (non-interactive-synchronized-media OR real-time-event)",
+    "predicates": [
+      {
+        "name": "event-or-activity-present",
+        "evidence": "the event or activity presented by the content"
+      },
+      {
+        "name": "non-interactive-synchronized-media",
+        "evidence": "except for non-interactive synchronized media and real-time events"
+      },
+      {
+        "name": "real-time-event",
+        "evidence": "except for non-interactive synchronized media and real-time events"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.4",
+    "expression": "interruptions-present AND NOT emergency-interruption",
+    "predicates": [
+      {
+        "name": "interruptions-present",
+        "evidence": "Interruptions can be postponed or suppressed by the user"
+      },
+      {
+        "name": "emergency-interruption",
+        "evidence": "except interruptions involving an emergency"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.5",
+    "expression": "authenticated-session-expires",
+    "predicates": [
+      {
+        "name": "authenticated-session-expires",
+        "evidence": "When an authenticated session expires"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.2.6",
+    "expression": "user-inactivity-could-cause-data-loss AND NOT data-preserved-more-than-twenty-hours",
+    "predicates": [
+      {
+        "name": "user-inactivity-could-cause-data-loss",
+        "evidence": "the duration of any user inactivity that could cause data loss"
+      },
+      {
+        "name": "data-preserved-more-than-twenty-hours",
+        "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.3.1",
+    "expression": "flashing-content-present",
+    "predicates": [
+      {
+        "name": "flashing-content-present",
+        "evidence": "Web pages do not contain anything that flashes more than three times in any one second period"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.3.2",
+    "expression": "content-that-flashes-present",
+    "predicates": [
+      {
+        "name": "content-that-flashes-present",
+        "evidence": "Web pages do not contain anything that flashes more than three times in any one second period."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.3.3",
+    "expression": "motion-animation-triggered-by-interaction-present AND NOT (animation-essential-to-functionality OR animation-essential-to-information-conveyed)",
+    "predicates": [
+      {
+        "name": "motion-animation-triggered-by-interaction-present",
+        "evidence": "Motion animation triggered by interaction can be disabled"
+      },
+      {
+        "name": "animation-essential-to-functionality",
+        "evidence": "unless the animation is essential to the functionality"
+      },
+      {
+        "name": "animation-essential-to-information-conveyed",
+        "evidence": "unless the animation is essential to the functionality or the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.1",
+    "expression": "blocks-of-content-repeated-on-multiple-web-pages",
+    "predicates": [
+      {
+        "name": "blocks-of-content-repeated-on-multiple-web-pages",
+        "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.2",
+    "expression": "true",
+    "predicates": []
+  },
+  {
+    "sc_id": "2.4.3",
+    "expression": "web-page-navigable-sequentially AND (navigation-sequence-affects-meaning OR navigation-sequence-affects-operation)",
+    "predicates": [
+      {
+        "name": "web-page-navigable-sequentially",
+        "evidence": "If a web page can be navigated sequentially"
+      },
+      {
+        "name": "navigation-sequence-affects-meaning",
+        "evidence": "and the navigation sequences affect meaning or operation"
+      },
+      {
+        "name": "navigation-sequence-affects-operation",
+        "evidence": "and the navigation sequences affect meaning or operation"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.4",
+    "expression": "link-present AND NOT link-purpose-ambiguous-to-users-in-general",
+    "predicates": [
+      {
+        "name": "link-present",
+        "evidence": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context"
+      },
+      {
+        "name": "link-purpose-ambiguous-to-users-in-general",
+        "evidence": "except where the purpose of the link would be ambiguous to users in general"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.5",
+    "expression": "web-page-within-set-of-web-pages AND NOT (web-page-is-result-of-process OR web-page-is-step-in-process)",
+    "predicates": [
+      {
+        "name": "web-page-within-set-of-web-pages",
+        "evidence": "More than one way is available to locate a web page within a set of web pages"
+      },
+      {
+        "name": "web-page-is-result-of-process",
+        "evidence": "except where the web page is the result of, or a step in, a process"
+      },
+      {
+        "name": "web-page-is-step-in-process",
+        "evidence": "except where the web page is the result of, or a step in, a process"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.6",
+    "expression": "heading-present OR label-present",
+    "predicates": [
+      {
+        "name": "heading-present",
+        "evidence": "Headings and labels describe topic or purpose."
+      },
+      {
+        "name": "label-present",
+        "evidence": "Headings and labels describe topic or purpose."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.7",
+    "expression": "keyboard-operable-user-interface-present",
+    "predicates": [
+      {
+        "name": "keyboard-operable-user-interface-present",
+        "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.8",
+    "expression": "web-page-within-set-of-web-pages",
+    "predicates": [
+      {
+        "name": "web-page-within-set-of-web-pages",
+        "evidence": "Information about the user's location within a set of web pages is available."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.9",
+    "expression": "link-present AND NOT link-purpose-ambiguous-to-users-in-general",
+    "predicates": [
+      {
+        "name": "link-present",
+        "evidence": "allow the purpose of each link to be identified from link text alone"
+      },
+      {
+        "name": "link-purpose-ambiguous-to-users-in-general",
+        "evidence": "except where the purpose of the link would be ambiguous to users in general"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.10",
+    "expression": "content-present AND NOT user-interface-component",
+    "predicates": [
+      {
+        "name": "content-present",
+        "evidence": "Section headings are used to organize the content."
+      },
+      {
+        "name": "user-interface-component",
+        "evidence": "This success criterion covers sections within writing, not user interface components."
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.11",
+    "expression": "ui-component-receives-keyboard-focus AND author-created-content-present",
+    "predicates": [
+      {
+        "name": "ui-component-receives-keyboard-focus",
+        "evidence": "When a user interface component receives keyboard focus"
+      },
+      {
+        "name": "author-created-content-present",
+        "evidence": "the component is not entirely hidden due to author-created content"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.12",
+    "expression": "ui-component-receives-keyboard-focus AND author-created-content-present",
+    "predicates": [
+      {
+        "name": "ui-component-receives-keyboard-focus",
+        "evidence": "When a user interface component receives keyboard focus"
+      },
+      {
+        "name": "author-created-content-present",
+        "evidence": "no part of the component is hidden by author-created content"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.4.13",
+    "expression": "keyboard-focus-indicator-visible AND NOT (focus-indicator-determined-by-user-agent OR focus-indicator-not-modified-by-author)",
+    "predicates": [
+      {
+        "name": "keyboard-focus-indicator-visible",
+        "evidence": "When the keyboard focus indicator is visible"
+      },
+      {
+        "name": "focus-indicator-determined-by-user-agent",
+        "evidence": "The focus indicator is determined by the user agent and cannot be adjusted by the author"
+      },
+      {
+        "name": "focus-indicator-not-modified-by-author",
+        "evidence": "The focus indicator and the indicator's background color are not modified by the author"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.1",
+    "expression": "(functionality-uses-multipoint-gesture OR functionality-uses-path-based-gesture) AND NOT gesture-essential AND NOT operates-user-agent-or-assistive-technology",
+    "predicates": [
+      {
+        "name": "functionality-uses-multipoint-gesture",
+        "evidence": "All functionality that uses multipoint or path-based gestures for operation"
+      },
+      {
+        "name": "functionality-uses-path-based-gesture",
+        "evidence": "All functionality that uses multipoint or path-based gestures for operation"
+      },
+      {
+        "name": "gesture-essential",
+        "evidence": "unless a multipoint or path-based gesture is essential"
+      },
+      {
+        "name": "operates-user-agent-or-assistive-technology",
+        "evidence": "this does not apply to actions that are required to operate the user agent or assistive technology"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.2",
+    "expression": "functionality-operated-with-single-pointer AND NOT operates-user-agent-or-assistive-technology",
+    "predicates": [
+      {
+        "name": "functionality-operated-with-single-pointer",
+        "evidence": "For functionality that can be operated using a single pointer"
+      },
+      {
+        "name": "operates-user-agent-or-assistive-technology",
+        "evidence": "this does not apply to actions that are required to operate the user agent or assistive technology"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.3",
+    "expression": "ui-component-has-label-with-text OR ui-component-has-label-with-image-of-text",
+    "predicates": [
+      {
+        "name": "ui-component-has-label-with-text",
+        "evidence": "For user interface components with labels that include text or images of text"
+      },
+      {
+        "name": "ui-component-has-label-with-image-of-text",
+        "evidence": "For user interface components with labels that include text or images of text"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.4",
+    "expression": "(functionality-operated-by-device-motion OR functionality-operated-by-user-motion) AND NOT (motion-operated-through-accessibility-supported-interface OR motion-essential)",
+    "predicates": [
+      {
+        "name": "functionality-operated-by-device-motion",
+        "evidence": "Functionality that can be operated by device motion or user motion"
+      },
+      {
+        "name": "functionality-operated-by-user-motion",
+        "evidence": "Functionality that can be operated by device motion or user motion"
+      },
+      {
+        "name": "motion-operated-through-accessibility-supported-interface",
+        "evidence": "The motion is used to operate functionality through an accessibility supported interface"
+      },
+      {
+        "name": "motion-essential",
+        "evidence": "The motion is essential for the function and doing so would invalidate the activity"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.5",
+    "expression": "target-for-pointer-input-present AND NOT (equivalent-target-available OR target-inline-in-text OR target-size-determined-by-user-agent OR target-presentation-essential)",
+    "predicates": [
+      {
+        "name": "target-for-pointer-input-present",
+        "evidence": "The size of the target for pointer inputs"
+      },
+      {
+        "name": "equivalent-target-available",
+        "evidence": "The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels"
+      },
+      {
+        "name": "target-inline-in-text",
+        "evidence": "Inline The target is in a sentence or block of text"
+      },
+      {
+        "name": "target-size-determined-by-user-agent",
+        "evidence": "The size of the target is determined by the user agent and is not modified by the author"
+      },
+      {
+        "name": "target-presentation-essential",
+        "evidence": "A particular presentation of the target is essential to the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.6",
+    "expression": "input-modality-available-on-platform",
+    "predicates": [
+      {
+        "name": "input-modality-available-on-platform",
+        "evidence": "Web content does not restrict use of input modalities available on a platform"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.7",
+    "expression": "functionality-using-dragging-movement-present AND NOT (dragging-essential OR functionality-determined-by-user-agent-not-modified-by-author)",
+    "predicates": [
+      {
+        "name": "functionality-using-dragging-movement-present",
+        "evidence": "All functionality that uses a dragging movement for operation"
+      },
+      {
+        "name": "dragging-essential",
+        "evidence": "unless dragging is essential"
+      },
+      {
+        "name": "functionality-determined-by-user-agent-not-modified-by-author",
+        "evidence": "the functionality is determined by the user agent and not modified by the author"
+      }
+    ]
+  },
+  {
+    "sc_id": "2.5.8",
+    "expression": "target-for-pointer-input-present AND NOT (target-inline-in-text OR target-size-determined-by-user-agent-not-modified-by-author OR target-presentation-essential-or-legally-required)",
+    "predicates": [
+      {
+        "name": "target-for-pointer-input-present",
+        "evidence": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels"
+      },
+      {
+        "name": "target-inline-in-text",
+        "evidence": "Inline The target is in a sentence or its size is otherwise constrained by the line-height of non-target text"
+      },
+      {
+        "name": "target-size-determined-by-user-agent-not-modified-by-author",
+        "evidence": "User Agent Control The size of the target is determined by the user agent and is not modified by the author"
+      },
+      {
+        "name": "target-presentation-essential-or-legally-required",
+        "evidence": "Essential A particular presentation of the target is essential or is legally required for the information being conveyed"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.1",
+    "expression": "web-page-present",
+    "predicates": [
+      {
+        "name": "web-page-present",
+        "evidence": "The default human language of each web page can be programmatically determined."
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.2",
+    "expression": "passage-or-phrase-in-content AND NOT (proper-name OR technical-term OR word-of-indeterminate-language OR word-part-of-vernacular-of-surrounding-text)",
+    "predicates": [
+      {
+        "name": "passage-or-phrase-in-content",
+        "evidence": "The human language of each passage or phrase in the content can be programmatically determined"
+      },
+      {
+        "name": "proper-name",
+        "evidence": "except for proper names"
+      },
+      {
+        "name": "technical-term",
+        "evidence": "technical terms"
+      },
+      {
+        "name": "word-of-indeterminate-language",
+        "evidence": "words of indeterminate language"
+      },
+      {
+        "name": "word-part-of-vernacular-of-surrounding-text",
+        "evidence": "words or phrases that have become part of the vernacular of the immediately surrounding text"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.3",
+    "expression": "word-or-phrase-used-in-unusual-or-restricted-way OR idiom-present OR jargon-present",
+    "predicates": [
+      {
+        "name": "word-or-phrase-used-in-unusual-or-restricted-way",
+        "evidence": "identifying specific definitions of words or phrases used in an unusual or restricted way"
+      },
+      {
+        "name": "idiom-present",
+        "evidence": "including idioms and jargon"
+      },
+      {
+        "name": "jargon-present",
+        "evidence": "including idioms and jargon"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.4",
+    "expression": "abbreviation-present",
+    "predicates": [
+      {
+        "name": "abbreviation-present",
+        "evidence": "identifying the expanded form or meaning of abbreviations"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.5",
+    "expression": "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+    "predicates": [
+      {
+        "name": "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+        "evidence": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.1.6",
+    "expression": "word-meaning-ambiguous-without-pronunciation",
+    "predicates": [
+      {
+        "name": "word-meaning-ambiguous-without-pronunciation",
+        "evidence": "identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.1",
+    "expression": "ui-component-receives-focus",
+    "predicates": [
+      {
+        "name": "ui-component-receives-focus",
+        "evidence": "When any user interface component receives focus"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.2",
+    "expression": "ui-component-setting-can-be-changed",
+    "predicates": [
+      {
+        "name": "ui-component-setting-can-be-changed",
+        "evidence": "Changing the setting of any user interface component does not automatically cause a change of context"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.3",
+    "expression": "navigational-mechanism-repeated-on-multiple-pages-in-set",
+    "predicates": [
+      {
+        "name": "navigational-mechanism-repeated-on-multiple-pages-in-set",
+        "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.4",
+    "expression": "components-with-same-functionality-within-set-present",
+    "predicates": [
+      {
+        "name": "components-with-same-functionality-within-set-present",
+        "evidence": "Components that have the same functionality within a set of web pages"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.5",
+    "expression": "change-of-context-present",
+    "predicates": [
+      {
+        "name": "change-of-context-present",
+        "evidence": "Changes of context are initiated only by user request"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.2.6",
+    "expression": "(human-contact-details-present OR human-contact-mechanism-present OR self-help-option-present OR fully-automated-contact-mechanism-present) AND help-mechanism-repeated-on-multiple-pages-in-set",
+    "predicates": [
+      {
+        "name": "human-contact-details-present",
+        "evidence": "Human contact details"
+      },
+      {
+        "name": "human-contact-mechanism-present",
+        "evidence": "Human contact mechanism"
+      },
+      {
+        "name": "self-help-option-present",
+        "evidence": "Self-help option"
+      },
+      {
+        "name": "fully-automated-contact-mechanism-present",
+        "evidence": "A fully automated contact mechanism"
+      },
+      {
+        "name": "help-mechanism-repeated-on-multiple-pages-in-set",
+        "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.1",
+    "expression": "input-error-automatically-detected",
+    "predicates": [
+      {
+        "name": "input-error-automatically-detected",
+        "evidence": "If an input error is automatically detected"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.2",
+    "expression": "content-requires-user-input",
+    "predicates": [
+      {
+        "name": "content-requires-user-input",
+        "evidence": "Labels or instructions are provided when content requires user input"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.3",
+    "expression": "input-error-automatically-detected AND correction-suggestions-known AND NOT providing-suggestions-jeopardizes-security-or-purpose",
+    "predicates": [
+      {
+        "name": "input-error-automatically-detected",
+        "evidence": "If an input error is automatically detected"
+      },
+      {
+        "name": "correction-suggestions-known",
+        "evidence": "suggestions for correction are known"
+      },
+      {
+        "name": "providing-suggestions-jeopardizes-security-or-purpose",
+        "evidence": "unless it would jeopardize the security or purpose of the content"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.4",
+    "expression": "legal-commitment-caused OR financial-transaction-caused OR user-controllable-data-modified-or-deleted OR user-test-responses-submitted",
+    "predicates": [
+      {
+        "name": "legal-commitment-caused",
+        "evidence": "For web pages that cause legal commitments"
+      },
+      {
+        "name": "financial-transaction-caused",
+        "evidence": "financial transactions for the user to occur"
+      },
+      {
+        "name": "user-controllable-data-modified-or-deleted",
+        "evidence": "that modify or delete user-controllable data in data storage systems"
+      },
+      {
+        "name": "user-test-responses-submitted",
+        "evidence": "that submit user test responses"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.5",
+    "expression": "true",
+    "predicates": []
+  },
+  {
+    "sc_id": "3.3.6",
+    "expression": "user-submits-information",
+    "predicates": [
+      {
+        "name": "user-submits-information",
+        "evidence": "For web pages that require the user to submit information"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.7",
+    "expression": "information-previously-entered-required-again-in-same-process AND NOT (re-entering-information-essential OR information-required-for-security OR previously-entered-information-no-longer-valid)",
+    "predicates": [
+      {
+        "name": "information-previously-entered-required-again-in-same-process",
+        "evidence": "Information previously entered by or provided to the user that is required to be entered again in the same process"
+      },
+      {
+        "name": "re-entering-information-essential",
+        "evidence": "re-entering the information is essential"
+      },
+      {
+        "name": "information-required-for-security",
+        "evidence": "the information is required to ensure the security of the content"
+      },
+      {
+        "name": "previously-entered-information-no-longer-valid",
+        "evidence": "previously entered information is no longer valid"
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.8",
+    "expression": "cognitive-function-test-required-in-authentication-process AND NOT (cognitive-function-test-is-object-recognition OR cognitive-function-test-is-personal-content)",
+    "predicates": [
+      {
+        "name": "cognitive-function-test-required-in-authentication-process",
+        "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+      },
+      {
+        "name": "cognitive-function-test-is-object-recognition",
+        "evidence": "Object Recognition The cognitive function test is to recognize objects."
+      },
+      {
+        "name": "cognitive-function-test-is-personal-content",
+        "evidence": "Personal Content The cognitive function test is to identify non-text content the user provided to the website."
+      }
+    ]
+  },
+  {
+    "sc_id": "3.3.9",
+    "expression": "cognitive-function-test-required-in-authentication-process",
+    "predicates": [
+      {
+        "name": "cognitive-function-test-required-in-authentication-process",
+        "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+      }
+    ]
+  },
+  {
+    "sc_id": "4.1.2",
+    "expression": "ui-component-present",
+    "predicates": [
+      {
+        "name": "ui-component-present",
+        "evidence": "For all user interface components (including but not limited to: form elements, links and components generated by scripts)"
+      }
+    ]
+  },
+  {
+    "sc_id": "4.1.3",
+    "expression": "content-implemented-using-markup-languages AND status-message-present",
+    "predicates": [
+      {
+        "name": "content-implemented-using-markup-languages",
+        "evidence": "In content implemented using markup languages"
+      },
+      {
+        "name": "status-message-present",
+        "evidence": "status messages can be programmatically determined through role or properties"
+      }
+    ]
+  }
+]

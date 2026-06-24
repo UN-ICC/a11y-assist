@@ -1,0 +1,1805 @@
+{
+  "predicates": [
+    {
+      "id": "image-of-text-present",
+      "sc_count": 3,
+      "scs": [
+        "1.4.4",
+        "1.4.5",
+        "1.4.9"
+      ],
+      "merged_from": [
+        "image-of-text"
+      ],
+      "evidence": "Except for captions and images of text"
+    },
+    {
+      "id": "media-alternative-for-text-clearly-labeled",
+      "sc_count": 3,
+      "scs": [
+        "1.2.1",
+        "1.2.2",
+        "1.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "except when the audio or video is a media alternative for text and is clearly labeled as such"
+    },
+    {
+      "id": "prerecorded-video-in-synchronized-media",
+      "sc_count": 3,
+      "scs": [
+        "1.2.3",
+        "1.2.5",
+        "1.2.7"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+    },
+    {
+      "id": "ui-component-present",
+      "sc_count": 3,
+      "scs": [
+        "1.3.6",
+        "2.4.10",
+        "4.1.2"
+      ],
+      "merged_from": [
+        "user-interface-component"
+      ],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "author-created-content-present",
+      "sc_count": 2,
+      "scs": [
+        "2.4.11",
+        "2.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "the component is not entirely hidden due to author-created content"
+    },
+    {
+      "id": "cognitive-function-test-required-in-authentication-process",
+      "sc_count": 2,
+      "scs": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "merged_from": [],
+      "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+    },
+    {
+      "id": "content-implemented-using-markup-languages",
+      "sc_count": 2,
+      "scs": [
+        "1.3.6",
+        "4.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "In content implemented using markup languages, the purpose of user interface components, icons, and regions can be programmatically determined."
+    },
+    {
+      "id": "content-present",
+      "sc_count": 2,
+      "scs": [
+        "1.4.10",
+        "2.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "Content can be presented without loss of information or functionality"
+    },
+    {
+      "id": "decorative-text",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "that are pure decoration"
+    },
+    {
+      "id": "flashing-content-present",
+      "sc_count": 2,
+      "scs": [
+        "2.3.1",
+        "2.3.2"
+      ],
+      "merged_from": [
+        "content-that-flashes-present"
+      ],
+      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period"
+    },
+    {
+      "id": "functionality-present",
+      "sc_count": 2,
+      "scs": [
+        "2.1.1",
+        "2.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality of the content is operable through a keyboard interface"
+    },
+    {
+      "id": "inactive-ui-component-text",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Text or images of text that are part of an inactive user interface component"
+    },
+    {
+      "id": "input-error-automatically-detected",
+      "sc_count": 2,
+      "scs": [
+        "3.3.1",
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "If an input error is automatically detected"
+    },
+    {
+      "id": "link-present",
+      "sc_count": 2,
+      "scs": [
+        "2.4.4",
+        "2.4.9"
+      ],
+      "merged_from": [],
+      "evidence": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context"
+    },
+    {
+      "id": "link-purpose-ambiguous-to-users-in-general",
+      "sc_count": 2,
+      "scs": [
+        "2.4.4",
+        "2.4.9"
+      ],
+      "merged_from": [],
+      "evidence": "except where the purpose of the link would be ambiguous to users in general"
+    },
+    {
+      "id": "logotype",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Logotypes Text that is part of a logo or brand name has no contrast requirement."
+    },
+    {
+      "id": "not-visible-text",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "that are not visible to anyone"
+    },
+    {
+      "id": "operates-user-agent-or-assistive-technology",
+      "sc_count": 2,
+      "scs": [
+        "2.5.1",
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "this does not apply to actions that are required to operate the user agent or assistive technology"
+    },
+    {
+      "id": "prerecorded-audio-in-synchronized-media",
+      "sc_count": 2,
+      "scs": [
+        "1.2.2",
+        "1.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Captions are provided for all prerecorded audio content in synchronized media"
+    },
+    {
+      "id": "prerecorded-audio-only-media-present",
+      "sc_count": 2,
+      "scs": [
+        "1.2.1",
+        "1.4.7"
+      ],
+      "merged_from": [
+        "prerecorded-audio-only-content"
+      ],
+      "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
+    },
+    {
+      "id": "prerecorded-video-only-media-present",
+      "sc_count": 2,
+      "scs": [
+        "1.2.1",
+        "1.2.8"
+      ],
+      "merged_from": [],
+      "evidence": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content."
+    },
+    {
+      "id": "target-for-pointer-input-present",
+      "sc_count": 2,
+      "scs": [
+        "2.5.5",
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "The size of the target for pointer inputs"
+    },
+    {
+      "id": "target-inline-in-text",
+      "sc_count": 2,
+      "scs": [
+        "2.5.5",
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "Inline The target is in a sentence or block of text"
+    },
+    {
+      "id": "target-size-determined-by-user-agent",
+      "sc_count": 2,
+      "scs": [
+        "2.5.5",
+        "2.5.8"
+      ],
+      "merged_from": [
+        "target-size-determined-by-user-agent-not-modified-by-author"
+      ],
+      "evidence": "The size of the target is determined by the user agent and is not modified by the author"
+    },
+    {
+      "id": "text-or-image-of-text-present",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1"
+    },
+    {
+      "id": "text-part-of-picture",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "that are part of a picture that contains significant other visual content"
+    },
+    {
+      "id": "ui-component-receives-keyboard-focus",
+      "sc_count": 2,
+      "scs": [
+        "2.4.11",
+        "2.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "When a user interface component receives keyboard focus"
+    },
+    {
+      "id": "web-page-within-set-of-web-pages",
+      "sc_count": 2,
+      "scs": [
+        "2.4.5",
+        "2.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "More than one way is available to locate a web page within a set of web pages"
+    },
+    {
+      "id": "abbreviation-present",
+      "sc_count": 1,
+      "scs": [
+        "3.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "identifying the expanded form or meaning of abbreviations"
+    },
+    {
+      "id": "additional-content-user-agent-controlled",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "The visual presentation of the additional content is controlled by the user agent and is not modified by the author"
+    },
+    {
+      "id": "animation-essential-to-functionality",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless the animation is essential to the functionality"
+    },
+    {
+      "id": "animation-essential-to-information-conveyed",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless the animation is essential to the functionality or the information being conveyed"
+    },
+    {
+      "id": "audio-captcha",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "is not an audio CAPTCHA or audio logo"
+    },
+    {
+      "id": "audio-lasts-more-than-3-seconds",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "If any audio on a web page plays automatically for more than 3 seconds"
+    },
+    {
+      "id": "audio-logo",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "is not an audio CAPTCHA or audio logo"
+    },
+    {
+      "id": "audio-plays-automatically",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "If any audio on a web page plays automatically for more than 3 seconds"
+    },
+    {
+      "id": "authenticated-session-expires",
+      "sc_count": 1,
+      "scs": [
+        "2.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "When an authenticated session expires"
+    },
+    {
+      "id": "auto-updating-information-present",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "For any auto-updating information"
+    },
+    {
+      "id": "blocks-of-content-repeated-on-multiple-web-pages",
+      "sc_count": 1,
+      "scs": [
+        "2.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages."
+    },
+    {
+      "id": "blocks-of-text-present",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "For the visual presentation of blocks of text"
+    },
+    {
+      "id": "captions",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ],
+      "merged_from": [],
+      "evidence": "Except for captions and images of text"
+    },
+    {
+      "id": "change-of-context-present",
+      "sc_count": 1,
+      "scs": [
+        "3.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "Changes of context are initiated only by user request"
+    },
+    {
+      "id": "character-key-shortcut-implemented",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters"
+    },
+    {
+      "id": "cognitive-function-test-is-object-recognition",
+      "sc_count": 1,
+      "scs": [
+        "3.3.8"
+      ],
+      "merged_from": [],
+      "evidence": "Object Recognition The cognitive function test is to recognize objects."
+    },
+    {
+      "id": "cognitive-function-test-is-personal-content",
+      "sc_count": 1,
+      "scs": [
+        "3.3.8"
+      ],
+      "merged_from": [],
+      "evidence": "Personal Content The cognitive function test is to identify non-text content the user provided to the website."
+    },
+    {
+      "id": "color-conveys-information",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "Color is not used as the only visual means of conveying information"
+    },
+    {
+      "id": "color-distinguishes-visual-element",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "or distinguishing a visual element"
+    },
+    {
+      "id": "color-indicates-action",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "indicating an action"
+    },
+    {
+      "id": "color-prompts-response",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "prompting a response"
+    },
+    {
+      "id": "components-with-same-functionality-within-set-present",
+      "sc_count": 1,
+      "scs": [
+        "3.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Components that have the same functionality within a set of web pages"
+    },
+    {
+      "id": "content-requires-user-input",
+      "sc_count": 1,
+      "scs": [
+        "3.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "Labels or instructions are provided when content requires user input"
+    },
+    {
+      "id": "content-sequence-affects-meaning",
+      "sc_count": 1,
+      "scs": [
+        "1.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined."
+    },
+    {
+      "id": "content-using-markup-supporting-text-style-properties",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "In content implemented using markup languages that support the following text style properties"
+    },
+    {
+      "id": "content-with-view-and-operation-present",
+      "sc_count": 1,
+      "scs": [
+        "1.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape"
+    },
+    {
+      "id": "correction-suggestions-known",
+      "sc_count": 1,
+      "scs": [
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "suggestions for correction are known"
+    },
+    {
+      "id": "data-preserved-more-than-twenty-hours",
+      "sc_count": 1,
+      "scs": [
+        "2.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions"
+    },
+    {
+      "id": "display-orientation-essential",
+      "sc_count": 1,
+      "scs": [
+        "1.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "unless a specific display orientation is essential"
+    },
+    {
+      "id": "dragging-essential",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "unless dragging is essential"
+    },
+    {
+      "id": "emergency-interruption",
+      "sc_count": 1,
+      "scs": [
+        "2.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "except interruptions involving an emergency"
+    },
+    {
+      "id": "equivalent-target-available",
+      "sc_count": 1,
+      "scs": [
+        "2.5.5"
+      ],
+      "merged_from": [],
+      "evidence": "The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels"
+    },
+    {
+      "id": "event-or-activity-present",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "the event or activity presented by the content"
+    },
+    {
+      "id": "financial-transaction-caused",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "financial transactions for the user to occur"
+    },
+    {
+      "id": "focus-indicator-determined-by-user-agent",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "The focus indicator is determined by the user agent and cannot be adjusted by the author"
+    },
+    {
+      "id": "focus-indicator-not-modified-by-author",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "The focus indicator and the indicator's background color are not modified by the author"
+    },
+    {
+      "id": "focus-triggers-additional-content",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden"
+    },
+    {
+      "id": "foreground-speech-primary",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "contains primarily speech in the foreground"
+    },
+    {
+      "id": "fully-automated-contact-mechanism-present",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "A fully automated contact mechanism"
+    },
+    {
+      "id": "functionality-determined-by-user-agent-not-modified-by-author",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "the functionality is determined by the user agent and not modified by the author"
+    },
+    {
+      "id": "functionality-operated-by-device-motion",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "Functionality that can be operated by device motion or user motion"
+    },
+    {
+      "id": "functionality-operated-by-user-motion",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "Functionality that can be operated by device motion or user motion"
+    },
+    {
+      "id": "functionality-operated-with-single-pointer",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "For functionality that can be operated using a single pointer"
+    },
+    {
+      "id": "functionality-uses-multipoint-gesture",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses multipoint or path-based gestures for operation"
+    },
+    {
+      "id": "functionality-uses-path-based-gesture",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses multipoint or path-based gestures for operation"
+    },
+    {
+      "id": "functionality-using-dragging-movement-present",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses a dragging movement for operation"
+    },
+    {
+      "id": "gesture-essential",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "unless a multipoint or path-based gesture is essential"
+    },
+    {
+      "id": "graphical-object-required-to-understand-present",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "Parts of graphics required to understand the content"
+    },
+    {
+      "id": "graphics-presentation-essential",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "except when a particular presentation of graphics is essential to the information being conveyed"
+    },
+    {
+      "id": "heading-present",
+      "sc_count": 1,
+      "scs": [
+        "2.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Headings and labels describe topic or purpose."
+    },
+    {
+      "id": "help-mechanism-repeated-on-multiple-pages-in-set",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages"
+    },
+    {
+      "id": "hover-triggers-additional-content",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden"
+    },
+    {
+      "id": "human-contact-details-present",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Human contact details"
+    },
+    {
+      "id": "human-contact-mechanism-present",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Human contact mechanism"
+    },
+    {
+      "id": "icon-present",
+      "sc_count": 1,
+      "scs": [
+        "1.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "idiom-present",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "including idioms and jargon"
+    },
+    {
+      "id": "image-of-text-customizable",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "Customizable The image of text can be visually customized to the user's requirements"
+    },
+    {
+      "id": "implemented-with-technology-supporting-input-purpose-identification",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The content is implemented using technologies with support for identifying the expected meaning for form input data."
+    },
+    {
+      "id": "inactive-ui-component",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "except for inactive components"
+    },
+    {
+      "id": "information-previously-entered-required-again-in-same-process",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "Information previously entered by or provided to the user that is required to be entered again in the same process"
+    },
+    {
+      "id": "information-required-for-security",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "the information is required to ensure the security of the content"
+    },
+    {
+      "id": "information-structure-or-relationships-conveyed-through-presentation",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+    },
+    {
+      "id": "input-field-collecting-information-about-the-user",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The purpose of each input field collecting information about the user can be programmatically determined"
+    },
+    {
+      "id": "input-field-serves-identified-input-purpose",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The input field serves a purpose identified in the Input Purposes for user interface components section"
+    },
+    {
+      "id": "input-modality-available-on-platform",
+      "sc_count": 1,
+      "scs": [
+        "2.5.6"
+      ],
+      "merged_from": [],
+      "evidence": "Web content does not restrict use of input modalities available on a platform"
+    },
+    {
+      "id": "instructions-for-understanding-and-operating-content-present",
+      "sc_count": 1,
+      "scs": [
+        "1.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound."
+    },
+    {
+      "id": "interruptions-present",
+      "sc_count": 1,
+      "scs": [
+        "2.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Interruptions can be postponed or suppressed by the user"
+    },
+    {
+      "id": "jargon-present",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "including idioms and jargon"
+    },
+    {
+      "id": "keyboard-focus-can-be-moved-to-component",
+      "sc_count": 1,
+      "scs": [
+        "2.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "If keyboard focus can be moved to a component of the page using a keyboard interface"
+    },
+    {
+      "id": "keyboard-focus-indicator-visible",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "When the keyboard focus indicator is visible"
+    },
+    {
+      "id": "keyboard-operable-user-interface-present",
+      "sc_count": 1,
+      "scs": [
+        "2.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
+    },
+    {
+      "id": "label-present",
+      "sc_count": 1,
+      "scs": [
+        "2.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Headings and labels describe topic or purpose."
+    },
+    {
+      "id": "language-script-without-text-style-properties",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "Human languages and scripts that do not make use of one or more of these text style properties in written text"
+    },
+    {
+      "id": "lasts-more-than-five-seconds",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "(2) lasts more than five seconds"
+    },
+    {
+      "id": "legal-commitment-caused",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "For web pages that cause legal commitments"
+    },
+    {
+      "id": "live-audio-in-synchronized-media",
+      "sc_count": 1,
+      "scs": [
+        "1.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Captions are provided for all live audio content in synchronized media."
+    },
+    {
+      "id": "live-audio-only-content-present",
+      "sc_count": 1,
+      "scs": [
+        "1.2.9"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media that presents equivalent information for live audio-only content is provided."
+    },
+    {
+      "id": "motion-animation-triggered-by-interaction-present",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "Motion animation triggered by interaction can be disabled"
+    },
+    {
+      "id": "motion-essential",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "The motion is essential for the function and doing so would invalidate the activity"
+    },
+    {
+      "id": "motion-operated-through-accessibility-supported-interface",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "The motion is used to operate functionality through an accessibility supported interface"
+    },
+    {
+      "id": "moving-blinking-or-scrolling-information-present",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "For any moving, blinking or scrolling information"
+    },
+    {
+      "id": "musical-vocalization",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "is not vocalization intended to be primarily musical expression such as singing or rapping"
+    },
+    {
+      "id": "navigation-sequence-affects-meaning",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "and the navigation sequences affect meaning or operation"
+    },
+    {
+      "id": "navigation-sequence-affects-operation",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "and the navigation sequences affect meaning or operation"
+    },
+    {
+      "id": "navigational-mechanism-repeated-on-multiple-pages-in-set",
+      "sc_count": 1,
+      "scs": [
+        "3.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages"
+    },
+    {
+      "id": "non-interactive-synchronized-media",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "except for non-interactive synchronized media and real-time events"
+    },
+    {
+      "id": "non-text-content-present",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+    },
+    {
+      "id": "part-of-essential-activity",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential"
+    },
+    {
+      "id": "particular-presentation-essential",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "Essential A particular presentation of text is essential to the information being conveyed"
+    },
+    {
+      "id": "passage-or-phrase-in-content",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "The human language of each passage or phrase in the content can be programmatically determined"
+    },
+    {
+      "id": "path-dependent-input-essential",
+      "sc_count": 1,
+      "scs": [
+        "2.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints"
+    },
+    {
+      "id": "pauses-in-foreground-audio-insufficient",
+      "sc_count": 1,
+      "scs": [
+        "1.2.7"
+      ],
+      "merged_from": [],
+      "evidence": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video"
+    },
+    {
+      "id": "prerecorded-synchronized-media-present",
+      "sc_count": 1,
+      "scs": [
+        "1.2.8"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media is provided for all prerecorded synchronized media"
+    },
+    {
+      "id": "presented-in-parallel-with-other-content",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "is presented in parallel with other content"
+    },
+    {
+      "id": "previously-entered-information-no-longer-valid",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "previously entered information is no longer valid"
+    },
+    {
+      "id": "proper-name",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "except for proper names"
+    },
+    {
+      "id": "providing-suggestions-jeopardizes-security-or-purpose",
+      "sc_count": 1,
+      "scs": [
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless it would jeopardize the security or purpose of the content"
+    },
+    {
+      "id": "re-entering-information-essential",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "re-entering the information is essential"
+    },
+    {
+      "id": "real-time-event",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "except for non-interactive synchronized media and real-time events"
+    },
+    {
+      "id": "region-present",
+      "sc_count": 1,
+      "scs": [
+        "1.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "self-help-option-present",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Self-help option"
+    },
+    {
+      "id": "starts-automatically",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "(1) starts automatically"
+    },
+    {
+      "id": "status-message-present",
+      "sc_count": 1,
+      "scs": [
+        "4.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "status messages can be programmatically determined through role or properties"
+    },
+    {
+      "id": "target-presentation-essential",
+      "sc_count": 1,
+      "scs": [
+        "2.5.5"
+      ],
+      "merged_from": [],
+      "evidence": "A particular presentation of the target is essential to the information being conveyed"
+    },
+    {
+      "id": "target-presentation-essential-or-legally-required",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "Essential A particular presentation of the target is essential or is legally required for the information being conveyed"
+    },
+    {
+      "id": "technical-term",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "technical terms"
+    },
+    {
+      "id": "technology-can-achieve-visual-presentation",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "If the technologies being used can achieve the visual presentation"
+    },
+    {
+      "id": "text-present",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ],
+      "merged_from": [],
+      "evidence": "text can be resized without assistive technology up to 200 percent without loss of content or functionality"
+    },
+    {
+      "id": "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+      "sc_count": 1,
+      "scs": [
+        "3.1.5"
+      ],
+      "merged_from": [],
+      "evidence": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles"
+    },
+    {
+      "id": "time-limit-set-by-content",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "For each time limit that is set by the content"
+    },
+    {
+      "id": "two-dimensional-layout-essential",
+      "sc_count": 1,
+      "scs": [
+        "1.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "Except for parts of the content which require two-dimensional layout for usage or meaning"
+    },
+    {
+      "id": "ui-component-appearance-user-agent-determined",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "where the appearance of the component is determined by the user agent and not modified by the author"
+    },
+    {
+      "id": "ui-component-has-label-with-image-of-text",
+      "sc_count": 1,
+      "scs": [
+        "2.5.3"
+      ],
+      "merged_from": [],
+      "evidence": "For user interface components with labels that include text or images of text"
+    },
+    {
+      "id": "ui-component-has-label-with-text",
+      "sc_count": 1,
+      "scs": [
+        "2.5.3"
+      ],
+      "merged_from": [],
+      "evidence": "For user interface components with labels that include text or images of text"
+    },
+    {
+      "id": "ui-component-receives-focus",
+      "sc_count": 1,
+      "scs": [
+        "3.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "When any user interface component receives focus"
+    },
+    {
+      "id": "ui-component-setting-can-be-changed",
+      "sc_count": 1,
+      "scs": [
+        "3.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "Changing the setting of any user interface component does not automatically cause a change of context"
+    },
+    {
+      "id": "ui-component-visual-information-present",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "Visual information required to identify user interface components and states"
+    },
+    {
+      "id": "user-controllable-data-modified-or-deleted",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "that modify or delete user-controllable data in data storage systems"
+    },
+    {
+      "id": "user-inactivity-could-cause-data-loss",
+      "sc_count": 1,
+      "scs": [
+        "2.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "the duration of any user inactivity that could cause data loss"
+    },
+    {
+      "id": "user-submits-information",
+      "sc_count": 1,
+      "scs": [
+        "3.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "For web pages that require the user to submit information"
+    },
+    {
+      "id": "user-test-responses-submitted",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "that submit user test responses"
+    },
+    {
+      "id": "web-page-is-result-of-process",
+      "sc_count": 1,
+      "scs": [
+        "2.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "except where the web page is the result of, or a step in, a process"
+    },
+    {
+      "id": "web-page-is-step-in-process",
+      "sc_count": 1,
+      "scs": [
+        "2.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "except where the web page is the result of, or a step in, a process"
+    },
+    {
+      "id": "web-page-navigable-sequentially",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "If a web page can be navigated sequentially"
+    },
+    {
+      "id": "web-page-present",
+      "sc_count": 1,
+      "scs": [
+        "3.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "The default human language of each web page can be programmatically determined."
+    },
+    {
+      "id": "word-meaning-ambiguous-without-pronunciation",
+      "sc_count": 1,
+      "scs": [
+        "3.1.6"
+      ],
+      "merged_from": [],
+      "evidence": "identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation"
+    },
+    {
+      "id": "word-of-indeterminate-language",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "words of indeterminate language"
+    },
+    {
+      "id": "word-or-phrase-used-in-unusual-or-restricted-way",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "identifying specific definitions of words or phrases used in an unusual or restricted way"
+    },
+    {
+      "id": "word-part-of-vernacular-of-surrounding-text",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "words or phrases that have become part of the vernacular of the immediately surrounding text"
+    }
+  ],
+  "criteria": [
+    {
+      "sc_id": "1.1.1",
+      "expression": "non-text-content-present"
+    },
+    {
+      "sc_id": "1.2.1",
+      "expression": "(prerecorded-audio-only-media-present OR prerecorded-video-only-media-present) AND NOT media-alternative-for-text-clearly-labeled"
+    },
+    {
+      "sc_id": "1.2.2",
+      "expression": "prerecorded-audio-in-synchronized-media AND NOT media-alternative-for-text-clearly-labeled"
+    },
+    {
+      "sc_id": "1.2.3",
+      "expression": "prerecorded-video-in-synchronized-media AND NOT media-alternative-for-text-clearly-labeled"
+    },
+    {
+      "sc_id": "1.2.4",
+      "expression": "live-audio-in-synchronized-media"
+    },
+    {
+      "sc_id": "1.2.5",
+      "expression": "prerecorded-video-in-synchronized-media"
+    },
+    {
+      "sc_id": "1.2.6",
+      "expression": "prerecorded-audio-in-synchronized-media"
+    },
+    {
+      "sc_id": "1.2.7",
+      "expression": "prerecorded-video-in-synchronized-media AND pauses-in-foreground-audio-insufficient"
+    },
+    {
+      "sc_id": "1.2.8",
+      "expression": "prerecorded-synchronized-media-present OR prerecorded-video-only-media-present"
+    },
+    {
+      "sc_id": "1.2.9",
+      "expression": "live-audio-only-content-present"
+    },
+    {
+      "sc_id": "1.3.1",
+      "expression": "information-structure-or-relationships-conveyed-through-presentation"
+    },
+    {
+      "sc_id": "1.3.2",
+      "expression": "content-sequence-affects-meaning"
+    },
+    {
+      "sc_id": "1.3.3",
+      "expression": "instructions-for-understanding-and-operating-content-present"
+    },
+    {
+      "sc_id": "1.3.4",
+      "expression": "content-with-view-and-operation-present AND NOT display-orientation-essential"
+    },
+    {
+      "sc_id": "1.3.5",
+      "expression": "input-field-collecting-information-about-the-user AND input-field-serves-identified-input-purpose AND implemented-with-technology-supporting-input-purpose-identification"
+    },
+    {
+      "sc_id": "1.3.6",
+      "expression": "content-implemented-using-markup-languages AND (ui-component-present OR icon-present OR region-present)"
+    },
+    {
+      "sc_id": "1.4.1",
+      "expression": "color-conveys-information OR color-indicates-action OR color-prompts-response OR color-distinguishes-visual-element"
+    },
+    {
+      "sc_id": "1.4.2",
+      "expression": "audio-plays-automatically AND audio-lasts-more-than-3-seconds"
+    },
+    {
+      "sc_id": "1.4.3",
+      "expression": "text-or-image-of-text-present AND NOT (inactive-ui-component-text OR decorative-text OR not-visible-text OR text-part-of-picture OR logotype)"
+    },
+    {
+      "sc_id": "1.4.4",
+      "expression": "text-present AND NOT (captions OR image-of-text-present)"
+    },
+    {
+      "sc_id": "1.4.5",
+      "expression": "image-of-text-present AND technology-can-achieve-visual-presentation AND NOT (image-of-text-customizable OR particular-presentation-essential)"
+    },
+    {
+      "sc_id": "1.4.6",
+      "expression": "text-or-image-of-text-present AND NOT (inactive-ui-component-text OR decorative-text OR not-visible-text OR text-part-of-picture OR logotype)"
+    },
+    {
+      "sc_id": "1.4.7",
+      "expression": "prerecorded-audio-only-media-present AND foreground-speech-primary AND NOT (audio-captcha OR audio-logo OR musical-vocalization)"
+    },
+    {
+      "sc_id": "1.4.8",
+      "expression": "blocks-of-text-present"
+    },
+    {
+      "sc_id": "1.4.9",
+      "expression": "image-of-text-present"
+    },
+    {
+      "sc_id": "1.4.10",
+      "expression": "content-present AND NOT two-dimensional-layout-essential"
+    },
+    {
+      "sc_id": "1.4.11",
+      "expression": "(ui-component-visual-information-present AND NOT (inactive-ui-component OR ui-component-appearance-user-agent-determined)) OR (graphical-object-required-to-understand-present AND NOT graphics-presentation-essential)"
+    },
+    {
+      "sc_id": "1.4.12",
+      "expression": "content-using-markup-supporting-text-style-properties AND NOT language-script-without-text-style-properties"
+    },
+    {
+      "sc_id": "1.4.13",
+      "expression": "(hover-triggers-additional-content OR focus-triggers-additional-content) AND NOT additional-content-user-agent-controlled"
+    },
+    {
+      "sc_id": "2.1.1",
+      "expression": "functionality-present AND NOT path-dependent-input-essential"
+    },
+    {
+      "sc_id": "2.1.2",
+      "expression": "keyboard-focus-can-be-moved-to-component"
+    },
+    {
+      "sc_id": "2.1.3",
+      "expression": "functionality-present"
+    },
+    {
+      "sc_id": "2.1.4",
+      "expression": "character-key-shortcut-implemented"
+    },
+    {
+      "sc_id": "2.2.1",
+      "expression": "time-limit-set-by-content"
+    },
+    {
+      "sc_id": "2.2.2",
+      "expression": "(moving-blinking-or-scrolling-information-present AND starts-automatically AND lasts-more-than-five-seconds AND presented-in-parallel-with-other-content AND NOT part-of-essential-activity) OR (auto-updating-information-present AND starts-automatically AND presented-in-parallel-with-other-content AND NOT part-of-essential-activity)"
+    },
+    {
+      "sc_id": "2.2.3",
+      "expression": "event-or-activity-present AND NOT (non-interactive-synchronized-media OR real-time-event)"
+    },
+    {
+      "sc_id": "2.2.4",
+      "expression": "interruptions-present AND NOT emergency-interruption"
+    },
+    {
+      "sc_id": "2.2.5",
+      "expression": "authenticated-session-expires"
+    },
+    {
+      "sc_id": "2.2.6",
+      "expression": "user-inactivity-could-cause-data-loss AND NOT data-preserved-more-than-twenty-hours"
+    },
+    {
+      "sc_id": "2.3.1",
+      "expression": "flashing-content-present"
+    },
+    {
+      "sc_id": "2.3.2",
+      "expression": "flashing-content-present"
+    },
+    {
+      "sc_id": "2.3.3",
+      "expression": "motion-animation-triggered-by-interaction-present AND NOT (animation-essential-to-functionality OR animation-essential-to-information-conveyed)"
+    },
+    {
+      "sc_id": "2.4.1",
+      "expression": "blocks-of-content-repeated-on-multiple-web-pages"
+    },
+    {
+      "sc_id": "2.4.2",
+      "expression": "true"
+    },
+    {
+      "sc_id": "2.4.3",
+      "expression": "web-page-navigable-sequentially AND (navigation-sequence-affects-meaning OR navigation-sequence-affects-operation)"
+    },
+    {
+      "sc_id": "2.4.4",
+      "expression": "link-present AND NOT link-purpose-ambiguous-to-users-in-general"
+    },
+    {
+      "sc_id": "2.4.5",
+      "expression": "web-page-within-set-of-web-pages AND NOT (web-page-is-result-of-process OR web-page-is-step-in-process)"
+    },
+    {
+      "sc_id": "2.4.6",
+      "expression": "heading-present OR label-present"
+    },
+    {
+      "sc_id": "2.4.7",
+      "expression": "keyboard-operable-user-interface-present"
+    },
+    {
+      "sc_id": "2.4.8",
+      "expression": "web-page-within-set-of-web-pages"
+    },
+    {
+      "sc_id": "2.4.9",
+      "expression": "link-present AND NOT link-purpose-ambiguous-to-users-in-general"
+    },
+    {
+      "sc_id": "2.4.10",
+      "expression": "content-present AND NOT ui-component-present"
+    },
+    {
+      "sc_id": "2.4.11",
+      "expression": "ui-component-receives-keyboard-focus AND author-created-content-present"
+    },
+    {
+      "sc_id": "2.4.12",
+      "expression": "ui-component-receives-keyboard-focus AND author-created-content-present"
+    },
+    {
+      "sc_id": "2.4.13",
+      "expression": "keyboard-focus-indicator-visible AND NOT (focus-indicator-determined-by-user-agent OR focus-indicator-not-modified-by-author)"
+    },
+    {
+      "sc_id": "2.5.1",
+      "expression": "(functionality-uses-multipoint-gesture OR functionality-uses-path-based-gesture) AND NOT gesture-essential AND NOT operates-user-agent-or-assistive-technology"
+    },
+    {
+      "sc_id": "2.5.2",
+      "expression": "functionality-operated-with-single-pointer AND NOT operates-user-agent-or-assistive-technology"
+    },
+    {
+      "sc_id": "2.5.3",
+      "expression": "ui-component-has-label-with-text OR ui-component-has-label-with-image-of-text"
+    },
+    {
+      "sc_id": "2.5.4",
+      "expression": "(functionality-operated-by-device-motion OR functionality-operated-by-user-motion) AND NOT (motion-operated-through-accessibility-supported-interface OR motion-essential)"
+    },
+    {
+      "sc_id": "2.5.5",
+      "expression": "target-for-pointer-input-present AND NOT (equivalent-target-available OR target-inline-in-text OR target-size-determined-by-user-agent OR target-presentation-essential)"
+    },
+    {
+      "sc_id": "2.5.6",
+      "expression": "input-modality-available-on-platform"
+    },
+    {
+      "sc_id": "2.5.7",
+      "expression": "functionality-using-dragging-movement-present AND NOT (dragging-essential OR functionality-determined-by-user-agent-not-modified-by-author)"
+    },
+    {
+      "sc_id": "2.5.8",
+      "expression": "target-for-pointer-input-present AND NOT (target-inline-in-text OR target-size-determined-by-user-agent OR target-presentation-essential-or-legally-required)"
+    },
+    {
+      "sc_id": "3.1.1",
+      "expression": "web-page-present"
+    },
+    {
+      "sc_id": "3.1.2",
+      "expression": "passage-or-phrase-in-content AND NOT (proper-name OR technical-term OR word-of-indeterminate-language OR word-part-of-vernacular-of-surrounding-text)"
+    },
+    {
+      "sc_id": "3.1.3",
+      "expression": "word-or-phrase-used-in-unusual-or-restricted-way OR idiom-present OR jargon-present"
+    },
+    {
+      "sc_id": "3.1.4",
+      "expression": "abbreviation-present"
+    },
+    {
+      "sc_id": "3.1.5",
+      "expression": "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles"
+    },
+    {
+      "sc_id": "3.1.6",
+      "expression": "word-meaning-ambiguous-without-pronunciation"
+    },
+    {
+      "sc_id": "3.2.1",
+      "expression": "ui-component-receives-focus"
+    },
+    {
+      "sc_id": "3.2.2",
+      "expression": "ui-component-setting-can-be-changed"
+    },
+    {
+      "sc_id": "3.2.3",
+      "expression": "navigational-mechanism-repeated-on-multiple-pages-in-set"
+    },
+    {
+      "sc_id": "3.2.4",
+      "expression": "components-with-same-functionality-within-set-present"
+    },
+    {
+      "sc_id": "3.2.5",
+      "expression": "change-of-context-present"
+    },
+    {
+      "sc_id": "3.2.6",
+      "expression": "(human-contact-details-present OR human-contact-mechanism-present OR self-help-option-present OR fully-automated-contact-mechanism-present) AND help-mechanism-repeated-on-multiple-pages-in-set"
+    },
+    {
+      "sc_id": "3.3.1",
+      "expression": "input-error-automatically-detected"
+    },
+    {
+      "sc_id": "3.3.2",
+      "expression": "content-requires-user-input"
+    },
+    {
+      "sc_id": "3.3.3",
+      "expression": "input-error-automatically-detected AND correction-suggestions-known AND NOT providing-suggestions-jeopardizes-security-or-purpose"
+    },
+    {
+      "sc_id": "3.3.4",
+      "expression": "legal-commitment-caused OR financial-transaction-caused OR user-controllable-data-modified-or-deleted OR user-test-responses-submitted"
+    },
+    {
+      "sc_id": "3.3.5",
+      "expression": "true"
+    },
+    {
+      "sc_id": "3.3.6",
+      "expression": "user-submits-information"
+    },
+    {
+      "sc_id": "3.3.7",
+      "expression": "information-previously-entered-required-again-in-same-process AND NOT (re-entering-information-essential OR information-required-for-security OR previously-entered-information-no-longer-valid)"
+    },
+    {
+      "sc_id": "3.3.8",
+      "expression": "cognitive-function-test-required-in-authentication-process AND NOT (cognitive-function-test-is-object-recognition OR cognitive-function-test-is-personal-content)"
+    },
+    {
+      "sc_id": "3.3.9",
+      "expression": "cognitive-function-test-required-in-authentication-process"
+    },
+    {
+      "sc_id": "4.1.2",
+      "expression": "ui-component-present"
+    },
+    {
+      "sc_id": "4.1.3",
+      "expression": "content-implemented-using-markup-languages AND status-message-present"
+    }
+  ]
+}

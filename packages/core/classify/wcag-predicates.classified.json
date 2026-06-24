@@ -1,0 +1,2653 @@
+{
+  "predicates": [
+    {
+      "id": "image-of-text-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content contains an image whose visual content is a rendering of readable text.",
+      "sc_count": 3,
+      "scs": [
+        "1.4.4",
+        "1.4.5",
+        "1.4.9"
+      ],
+      "merged_from": [
+        "image-of-text"
+      ],
+      "evidence": "Except for captions and images of text"
+    },
+    {
+      "id": "media-alternative-for-text-clearly-labeled",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the audio or video serves as an alternative presenting information already available in text and is explicitly labeled as such.",
+      "sc_count": 3,
+      "scs": [
+        "1.2.1",
+        "1.2.2",
+        "1.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "except when the audio or video is a media alternative for text and is clearly labeled as such"
+    },
+    {
+      "id": "prerecorded-video-in-synchronized-media",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content includes prerecorded synchronized media that contains a video track.",
+      "sc_count": 3,
+      "scs": [
+        "1.2.3",
+        "1.2.5",
+        "1.2.7"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+    },
+    {
+      "id": "ui-component-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the component exposes a user interface component role (a perceivable/operable UI element).",
+      "sc_count": 3,
+      "scs": [
+        "1.3.6",
+        "2.4.10",
+        "4.1.2"
+      ],
+      "merged_from": [
+        "user-interface-component"
+      ],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "author-created-content-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the page contains author-created content (e.g., sticky or overlay elements) that can obscure a focused component.",
+      "sc_count": 2,
+      "scs": [
+        "2.4.11",
+        "2.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "the component is not entirely hidden due to author-created content"
+    },
+    {
+      "id": "cognitive-function-test-required-in-authentication-process",
+      "class": "human",
+      "scope": "process",
+      "definition": "TRUE when any step of an authentication process requires the user to perform a cognitive function test such as recalling a password or solving a puzzle.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.8",
+        "3.3.9"
+      ],
+      "merged_from": [],
+      "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+    },
+    {
+      "id": "content-implemented-using-markup-languages",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the content is implemented using a markup language (e.g., HTML).",
+      "sc_count": 2,
+      "scs": [
+        "1.3.6",
+        "4.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "In content implemented using markup languages, the purpose of user interface components, icons, and regions can be programmatically determined."
+    },
+    {
+      "id": "content-present",
+      "class": "auto",
+      "scope": "page",
+      "definition": "TRUE when there is content present to be presented to the user.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.10",
+        "2.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "Content can be presented without loss of information or functionality"
+    },
+    {
+      "id": "decorative-text",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the text serves no informational purpose and is purely decorative.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "that are pure decoration"
+    },
+    {
+      "id": "flashing-content-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content contains something that flashes.",
+      "sc_count": 2,
+      "scs": [
+        "2.3.1",
+        "2.3.2"
+      ],
+      "merged_from": [
+        "content-that-flashes-present"
+      ],
+      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period"
+    },
+    {
+      "id": "functionality-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the component provides operable functionality (its role is operable).",
+      "sc_count": 2,
+      "scs": [
+        "2.1.1",
+        "2.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality of the content is operable through a keyboard interface"
+    },
+    {
+      "id": "inactive-ui-component-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the text is part of a disabled/inactive user interface component.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Text or images of text that are part of an inactive user interface component"
+    },
+    {
+      "id": "input-error-automatically-detected",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the content automatically detects an input error made by the user.",
+      "sc_count": 2,
+      "scs": [
+        "3.3.1",
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "If an input error is automatically detected"
+    },
+    {
+      "id": "link-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the component has a link role (or is a native anchor with href).",
+      "sc_count": 2,
+      "scs": [
+        "2.4.4",
+        "2.4.9"
+      ],
+      "merged_from": [],
+      "evidence": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context"
+    },
+    {
+      "id": "link-purpose-ambiguous-to-users-in-general",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the link's purpose would be ambiguous to users in general even given its programmatic context.",
+      "sc_count": 2,
+      "scs": [
+        "2.4.4",
+        "2.4.9"
+      ],
+      "merged_from": [],
+      "evidence": "except where the purpose of the link would be ambiguous to users in general"
+    },
+    {
+      "id": "logotype",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the text is part of a logo or brand name.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Logotypes Text that is part of a logo or brand name has no contrast requirement."
+    },
+    {
+      "id": "not-visible-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the text is not visible to any user (e.g., visually hidden via markup or CSS).",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "that are not visible to anyone"
+    },
+    {
+      "id": "operates-user-agent-or-assistive-technology",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the action or gesture is required to operate the user agent or assistive technology rather than the content.",
+      "sc_count": 2,
+      "scs": [
+        "2.5.1",
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "this does not apply to actions that are required to operate the user agent or assistive technology"
+    },
+    {
+      "id": "prerecorded-audio-in-synchronized-media",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content includes prerecorded synchronized media that contains audio.",
+      "sc_count": 2,
+      "scs": [
+        "1.2.2",
+        "1.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Captions are provided for all prerecorded audio content in synchronized media"
+    },
+    {
+      "id": "prerecorded-audio-only-media-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content includes prerecorded audio-only media.",
+      "sc_count": 2,
+      "scs": [
+        "1.2.1",
+        "1.4.7"
+      ],
+      "merged_from": [
+        "prerecorded-audio-only-content"
+      ],
+      "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
+    },
+    {
+      "id": "prerecorded-video-only-media-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content includes prerecorded video-only media (no audio track).",
+      "sc_count": 2,
+      "scs": [
+        "1.2.1",
+        "1.2.8"
+      ],
+      "merged_from": [],
+      "evidence": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content."
+    },
+    {
+      "id": "target-for-pointer-input-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the component is a target that can be operated by pointer input (operable role).",
+      "sc_count": 2,
+      "scs": [
+        "2.5.5",
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "The size of the target for pointer inputs"
+    },
+    {
+      "id": "target-inline-in-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the target is positioned inline within a sentence or block of text.",
+      "sc_count": 2,
+      "scs": [
+        "2.5.5",
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "Inline The target is in a sentence or block of text"
+    },
+    {
+      "id": "target-size-determined-by-user-agent",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the target's size is left to the user-agent default and not modified by the author.",
+      "sc_count": 2,
+      "scs": [
+        "2.5.5",
+        "2.5.8"
+      ],
+      "merged_from": [
+        "target-size-determined-by-user-agent-not-modified-by-author"
+      ],
+      "evidence": "The size of the target is determined by the user agent and is not modified by the author"
+    },
+    {
+      "id": "text-or-image-of-text-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content contains text or an image of text.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1"
+    },
+    {
+      "id": "text-part-of-picture",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the text is part of a picture that contains significant other visual content.",
+      "sc_count": 2,
+      "scs": [
+        "1.4.3",
+        "1.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "that are part of a picture that contains significant other visual content"
+    },
+    {
+      "id": "ui-component-receives-keyboard-focus",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the component can receive keyboard focus (focusable per its role).",
+      "sc_count": 2,
+      "scs": [
+        "2.4.11",
+        "2.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "When a user interface component receives keyboard focus"
+    },
+    {
+      "id": "web-page-within-set-of-web-pages",
+      "class": "human",
+      "scope": "site",
+      "definition": "TRUE when the web page is one of a set of related web pages within the site.",
+      "sc_count": 2,
+      "scs": [
+        "2.4.5",
+        "2.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "More than one way is available to locate a web page within a set of web pages"
+    },
+    {
+      "id": "abbreviation-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the authored content contains an abbreviation or acronym.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "identifying the expanded form or meaning of abbreviations"
+    },
+    {
+      "id": "additional-content-user-agent-controlled",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the additional content's visual presentation is controlled by the user agent and not modified by the author.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "The visual presentation of the additional content is controlled by the user agent and is not modified by the author"
+    },
+    {
+      "id": "animation-essential-to-functionality",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the animation is essential to the functionality being provided.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless the animation is essential to the functionality"
+    },
+    {
+      "id": "animation-essential-to-information-conveyed",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the animation is essential to the information being conveyed.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless the animation is essential to the functionality or the information being conveyed"
+    },
+    {
+      "id": "audio-captcha",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the audio content functions as a CAPTCHA, i.e. an audio challenge used to distinguish humans from machines.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "is not an audio CAPTCHA or audio logo"
+    },
+    {
+      "id": "audio-lasts-more-than-3-seconds",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the duration of the audio content exceeds 3 seconds.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "If any audio on a web page plays automatically for more than 3 seconds"
+    },
+    {
+      "id": "audio-logo",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the audio serves as a brand identifier (audio logo/sonic branding) rather than conveying primary content.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "is not an audio CAPTCHA or audio logo"
+    },
+    {
+      "id": "audio-plays-automatically",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when audio begins playing automatically without the user initiating it.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.2"
+      ],
+      "merged_from": [],
+      "evidence": "If any audio on a web page plays automatically for more than 3 seconds"
+    },
+    {
+      "id": "authenticated-session-expires",
+      "class": "instance",
+      "scope": "process",
+      "definition": "TRUE when an authenticated user session can time out or expire during use.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "When an authenticated session expires"
+    },
+    {
+      "id": "auto-updating-information-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the content includes information that updates automatically without user action.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "For any auto-updating information"
+    },
+    {
+      "id": "blocks-of-content-repeated-on-multiple-web-pages",
+      "class": "instance",
+      "scope": "site",
+      "definition": "TRUE when one or more blocks of content (e.g. navigation, banners) are repeated across multiple pages in the set.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages."
+    },
+    {
+      "id": "blocks-of-text-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the content contains blocks of running text (multi-sentence prose).",
+      "sc_count": 1,
+      "scs": [
+        "1.4.8"
+      ],
+      "merged_from": [],
+      "evidence": "For the visual presentation of blocks of text"
+    },
+    {
+      "id": "captions",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the content in question is captions for synchronized media.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ],
+      "merged_from": [],
+      "evidence": "Except for captions and images of text"
+    },
+    {
+      "id": "change-of-context-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when an interaction triggers a change of context (e.g. new window, focus move, major content change).",
+      "sc_count": 1,
+      "scs": [
+        "3.2.5"
+      ],
+      "merged_from": [],
+      "evidence": "Changes of context are initiated only by user request"
+    },
+    {
+      "id": "character-key-shortcut-implemented",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when a keyboard shortcut using only letter, punctuation, number, or symbol characters is implemented in the content.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.4"
+      ],
+      "merged_from": [],
+      "evidence": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters"
+    },
+    {
+      "id": "cognitive-function-test-is-object-recognition",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the cognitive function test asks the user to recognize objects.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.8"
+      ],
+      "merged_from": [],
+      "evidence": "Object Recognition The cognitive function test is to recognize objects."
+    },
+    {
+      "id": "cognitive-function-test-is-personal-content",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the cognitive function test asks the user to identify non-text content they previously provided to the site.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.8"
+      ],
+      "merged_from": [],
+      "evidence": "Personal Content The cognitive function test is to identify non-text content the user provided to the website."
+    },
+    {
+      "id": "color-conveys-information",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when color is used as a means of conveying information.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "Color is not used as the only visual means of conveying information"
+    },
+    {
+      "id": "color-distinguishes-visual-element",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when color is used to distinguish one visual element from another in a way that carries meaning.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "or distinguishing a visual element"
+    },
+    {
+      "id": "color-indicates-action",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when color is used to indicate that an action is available or required.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "indicating an action"
+    },
+    {
+      "id": "color-prompts-response",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when color is used to prompt the user for a response.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.1"
+      ],
+      "merged_from": [],
+      "evidence": "prompting a response"
+    },
+    {
+      "id": "components-with-same-functionality-within-set-present",
+      "class": "human",
+      "scope": "site",
+      "definition": "TRUE when components sharing the same functionality appear on multiple pages within the set of web pages.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Components that have the same functionality within a set of web pages"
+    },
+    {
+      "id": "content-requires-user-input",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the content includes fields or controls that require the user to enter data.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "Labels or instructions are provided when content requires user input"
+    },
+    {
+      "id": "content-sequence-affects-meaning",
+      "class": "human",
+      "scope": "page",
+      "definition": "TRUE when the order in which content is presented affects its meaning.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.2"
+      ],
+      "merged_from": [],
+      "evidence": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined."
+    },
+    {
+      "id": "content-using-markup-supporting-text-style-properties",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when the content is implemented in a markup language (e.g. HTML/CSS) that supports the listed text style properties.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "In content implemented using markup languages that support the following text style properties"
+    },
+    {
+      "id": "content-with-view-and-operation-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "TRUE when there is content that has a visual presentation and can be operated by the user.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape"
+    },
+    {
+      "id": "correction-suggestions-known",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when a correct suggestion for fixing the detected input error is known to the author.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "suggestions for correction are known"
+    },
+    {
+      "id": "data-preserved-more-than-twenty-hours",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when user-entered data is preserved for more than 20 hours of inactivity.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions"
+    },
+    {
+      "id": "display-orientation-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when a specific display orientation is essential to the content's function or meaning.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "unless a specific display orientation is essential"
+    },
+    {
+      "id": "dragging-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when a dragging movement is essential to the functionality and cannot be replaced by a single pointer action.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "unless dragging is essential"
+    },
+    {
+      "id": "emergency-interruption",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when the interruption involves a health, safety, or property emergency.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "except interruptions involving an emergency"
+    },
+    {
+      "id": "equivalent-target-available",
+      "class": "human",
+      "scope": "component",
+      "definition": "TRUE when an equivalent link or control of at least 44 by 44 CSS pixels exists on the same page for the same function.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.5"
+      ],
+      "merged_from": [],
+      "evidence": "The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels"
+    },
+    {
+      "id": "event-or-activity-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the content presents a time-based event or activity to the user.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "the event or activity presented by the content"
+    },
+    {
+      "id": "financial-transaction-caused",
+      "class": "human",
+      "scope": "process",
+      "definition": "TRUE when submitting causes a financial transaction for the user to occur.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "financial transactions for the user to occur"
+    },
+    {
+      "id": "focus-indicator-determined-by-user-agent",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the focus indicator is left to the user agent and cannot be adjusted by the author.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "The focus indicator is determined by the user agent and cannot be adjusted by the author"
+    },
+    {
+      "id": "focus-indicator-not-modified-by-author",
+      "class": "instance",
+      "scope": "component",
+      "definition": "TRUE when the focus indicator and its background color are not modified by the author.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "The focus indicator and the indicator's background color are not modified by the author"
+    },
+    {
+      "id": "focus-triggers-additional-content",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if moving keyboard focus onto the component makes extra content (e.g. a tooltip or popup) appear that hides again when focus leaves.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden"
+    },
+    {
+      "id": "foreground-speech-primary",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the audio consists primarily of intelligible speech in the foreground rather than music or background sound.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "contains primarily speech in the foreground"
+    },
+    {
+      "id": "fully-automated-contact-mechanism-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the content provides a fully automated way to get help, such as a chatbot or automated self-service contact form.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "A fully automated contact mechanism"
+    },
+    {
+      "id": "functionality-determined-by-user-agent-not-modified-by-author",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the dragging/operation behavior is the user agent's native default and is not customized or overridden by the author.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "the functionality is determined by the user agent and not modified by the author"
+    },
+    {
+      "id": "functionality-operated-by-device-motion",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if some functionality can be triggered by moving the device itself, such as shaking or tilting.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "Functionality that can be operated by device motion or user motion"
+    },
+    {
+      "id": "functionality-operated-by-user-motion",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if some functionality can be triggered by the user's own body motion sensed by the device, such as a gesture in front of a camera.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "Functionality that can be operated by device motion or user motion"
+    },
+    {
+      "id": "functionality-operated-with-single-pointer",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the component can be operated using a single pointer (e.g. one finger tap, click, or single-finger drag).",
+      "sc_count": 1,
+      "scs": [
+        "2.5.2"
+      ],
+      "merged_from": [],
+      "evidence": "For functionality that can be operated using a single pointer"
+    },
+    {
+      "id": "functionality-uses-multipoint-gesture",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if operating the functionality requires a multipoint gesture such as a two-finger pinch or two-finger tap.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses multipoint or path-based gestures for operation"
+    },
+    {
+      "id": "functionality-uses-path-based-gesture",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if operating the functionality requires a path-based gesture such as a swipe or a drag along a specific path.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses multipoint or path-based gestures for operation"
+    },
+    {
+      "id": "functionality-using-dragging-movement-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if some functionality is operated by a dragging movement (pressing, moving, and releasing a pointer).",
+      "sc_count": 1,
+      "scs": [
+        "2.5.7"
+      ],
+      "merged_from": [],
+      "evidence": "All functionality that uses a dragging movement for operation"
+    },
+    {
+      "id": "gesture-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the multipoint or path-based gesture is essential and cannot be replaced by a simpler single-pointer alternative without invalidating the activity.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.1"
+      ],
+      "merged_from": [],
+      "evidence": "unless a multipoint or path-based gesture is essential"
+    },
+    {
+      "id": "graphical-object-required-to-understand-present",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the content includes a graphical object (or part of one) that a user must perceive to understand the content.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "Parts of graphics required to understand the content"
+    },
+    {
+      "id": "graphics-presentation-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if a particular visual presentation of the graphics is essential to the information being conveyed.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "except when a particular presentation of graphics is essential to the information being conveyed"
+    },
+    {
+      "id": "heading-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True if the component carries a heading role (native heading element or role=heading).",
+      "sc_count": 1,
+      "scs": [
+        "2.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Headings and labels describe topic or purpose."
+    },
+    {
+      "id": "help-mechanism-repeated-on-multiple-pages-in-set",
+      "class": "instance",
+      "scope": "site",
+      "definition": "True if the same help mechanism appears in the same relative order on multiple pages within a set of web pages.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages"
+    },
+    {
+      "id": "hover-triggers-additional-content",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if hovering a pointer over the component makes extra content (e.g. a tooltip or popup) appear that hides again when the pointer leaves.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden"
+    },
+    {
+      "id": "human-contact-details-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the content provides human contact details such as a phone number, email address, or physical address.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Human contact details"
+    },
+    {
+      "id": "human-contact-mechanism-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the content provides a mechanism to reach a human, such as a contact form, messaging app, or social media channel.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Human contact mechanism"
+    },
+    {
+      "id": "icon-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the authored content includes an icon (icon font, SVG, or image acting as an icon).",
+      "sc_count": 1,
+      "scs": [
+        "1.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "idiom-present",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the text contains an idiom whose meaning is figurative and not derivable from the literal words.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "including idioms and jargon"
+    },
+    {
+      "id": "image-of-text-customizable",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the image of text can be visually customized by the user (font, size, color, spacing) to their requirements.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "Customizable The image of text can be visually customized to the user's requirements"
+    },
+    {
+      "id": "implemented-with-technology-supporting-input-purpose-identification",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True if the technology used supports programmatically identifying the expected meaning of form input (e.g. HTML's autocomplete attribute).",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The content is implemented using technologies with support for identifying the expected meaning for form input data."
+    },
+    {
+      "id": "inactive-ui-component",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the user interface component is in an inactive/disabled state in the authored instance.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "except for inactive components"
+    },
+    {
+      "id": "information-previously-entered-required-again-in-same-process",
+      "class": "instance",
+      "scope": "process",
+      "definition": "True if information already entered by or provided to the user must be entered again at a later step of the same process.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "Information previously entered by or provided to the user that is required to be entered again in the same process"
+    },
+    {
+      "id": "information-required-for-security",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if re-supplying the information is required to ensure the security of the content.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "the information is required to ensure the security of the content"
+    },
+    {
+      "id": "information-structure-or-relationships-conveyed-through-presentation",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if information, structure, or relationships are conveyed visually through presentation in a way that must be made programmatically determinable or available in text.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.1"
+      ],
+      "merged_from": [],
+      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+    },
+    {
+      "id": "input-field-collecting-information-about-the-user",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the field is an input that collects information about the user (e.g. name, email, address) rather than general/search input.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The purpose of each input field collecting information about the user can be programmatically determined"
+    },
+    {
+      "id": "input-field-serves-identified-input-purpose",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the field's purpose maps to one of the WCAG-defined Input Purposes for user interface components.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.5"
+      ],
+      "merged_from": [],
+      "evidence": "The input field serves a purpose identified in the Input Purposes for user interface components section"
+    },
+    {
+      "id": "input-modality-available-on-platform",
+      "class": "auto",
+      "scope": "page",
+      "definition": "True if input modalities exist on the platform (keyboard, pointer, touch), which is effectively always the case for web content.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.6"
+      ],
+      "merged_from": [],
+      "evidence": "Web content does not restrict use of input modalities available on a platform"
+    },
+    {
+      "id": "instructions-for-understanding-and-operating-content-present",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the content provides instructions for understanding or operating it.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound."
+    },
+    {
+      "id": "interruptions-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True if the content presents interruptions such as alerts, auto-updates, or popups that interrupt the user.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Interruptions can be postponed or suppressed by the user"
+    },
+    {
+      "id": "jargon-present",
+      "class": "human",
+      "scope": "component",
+      "definition": "True if the text contains jargon: specialized terms used in a particular way by a specific group.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "including idioms and jargon"
+    },
+    {
+      "id": "keyboard-focus-can-be-moved-to-component",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component's role/contract makes it focusable via a keyboard interface.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "If keyboard focus can be moved to a component of the page using a keyboard interface"
+    },
+    {
+      "id": "keyboard-focus-indicator-visible",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the authored markup/styles render a visible keyboard focus indicator on the focused component.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.13"
+      ],
+      "merged_from": [],
+      "evidence": "When the keyboard focus indicator is visible"
+    },
+    {
+      "id": "keyboard-operable-user-interface-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component's role/contract defines a keyboard-operable user interface.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
+    },
+    {
+      "id": "label-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component is one whose contract requires or supports an author-provided label/accessible name.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.6"
+      ],
+      "merged_from": [],
+      "evidence": "Headings and labels describe topic or purpose."
+    },
+    {
+      "id": "language-script-without-text-style-properties",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when the content's human language or script does not make use of one or more of the targeted text-style properties (line height, letter/word/paragraph spacing).",
+      "sc_count": 1,
+      "scs": [
+        "1.4.12"
+      ],
+      "merged_from": [],
+      "evidence": "Human languages and scripts that do not make use of one or more of these text style properties in written text"
+    },
+    {
+      "id": "lasts-more-than-five-seconds",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the moving/blinking/scrolling or auto-updating content runs for more than five seconds.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "(2) lasts more than five seconds"
+    },
+    {
+      "id": "legal-commitment-caused",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when completing the page or process creates a legal commitment for the user.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "For web pages that cause legal commitments"
+    },
+    {
+      "id": "live-audio-in-synchronized-media",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content contains live audio that is part of synchronized media.",
+      "sc_count": 1,
+      "scs": [
+        "1.2.4"
+      ],
+      "merged_from": [],
+      "evidence": "Captions are provided for all live audio content in synchronized media."
+    },
+    {
+      "id": "live-audio-only-content-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content contains live audio-only media.",
+      "sc_count": 1,
+      "scs": [
+        "1.2.9"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media that presents equivalent information for live audio-only content is provided."
+    },
+    {
+      "id": "motion-animation-triggered-by-interaction-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the authored content includes motion animation triggered by a user interaction.",
+      "sc_count": 1,
+      "scs": [
+        "2.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "Motion animation triggered by interaction can be disabled"
+    },
+    {
+      "id": "motion-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when device or user motion is essential to the function such that disabling it would invalidate the activity.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "The motion is essential for the function and doing so would invalidate the activity"
+    },
+    {
+      "id": "motion-operated-through-accessibility-supported-interface",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the motion-operated functionality is also operable through an accessibility-supported interface.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.4"
+      ],
+      "merged_from": [],
+      "evidence": "The motion is used to operate functionality through an accessibility supported interface"
+    },
+    {
+      "id": "moving-blinking-or-scrolling-information-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content includes moving, blinking, or scrolling information.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "For any moving, blinking or scrolling information"
+    },
+    {
+      "id": "musical-vocalization",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when the audio's vocalization is intended primarily as musical expression such as singing or rapping.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.7"
+      ],
+      "merged_from": [],
+      "evidence": "is not vocalization intended to be primarily musical expression such as singing or rapping"
+    },
+    {
+      "id": "navigation-sequence-affects-meaning",
+      "class": "human",
+      "scope": "page",
+      "definition": "True when the order in which the page's content is navigated changes its meaning.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "and the navigation sequences affect meaning or operation"
+    },
+    {
+      "id": "navigation-sequence-affects-operation",
+      "class": "human",
+      "scope": "page",
+      "definition": "True when the order in which the page's content is navigated affects its operation.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "and the navigation sequences affect meaning or operation"
+    },
+    {
+      "id": "navigational-mechanism-repeated-on-multiple-pages-in-set",
+      "class": "instance",
+      "scope": "site",
+      "definition": "True when the same navigational mechanism appears on multiple pages within a set of web pages.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages"
+    },
+    {
+      "id": "non-interactive-synchronized-media",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content is non-interactive synchronized media.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "except for non-interactive synchronized media and real-time events"
+    },
+    {
+      "id": "non-text-content-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the authored content includes non-text content such as an image, icon, or chart.",
+      "sc_count": 1,
+      "scs": [
+        "1.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+    },
+    {
+      "id": "part-of-essential-activity",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when the movement, blinking, or scrolling is part of an activity where it is essential.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential"
+    },
+    {
+      "id": "particular-presentation-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a specific visual presentation of the text is essential to the information being conveyed.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "Essential A particular presentation of text is essential to the information being conveyed"
+    },
+    {
+      "id": "passage-or-phrase-in-content",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content contains a distinct passage or phrase (e.g., in a different human language) within surrounding text.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "The human language of each passage or phrase in the content can be programmatically determined"
+    },
+    {
+      "id": "path-dependent-input-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when the underlying function essentially requires input depending on the path of the user's movement and not just the endpoints.",
+      "sc_count": 1,
+      "scs": [
+        "2.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints"
+    },
+    {
+      "id": "pauses-in-foreground-audio-insufficient",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when natural pauses in the foreground audio are insufficient for audio descriptions to convey the sense of the video.",
+      "sc_count": 1,
+      "scs": [
+        "1.2.7"
+      ],
+      "merged_from": [],
+      "evidence": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video"
+    },
+    {
+      "id": "prerecorded-synchronized-media-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content includes prerecorded synchronized media.",
+      "sc_count": 1,
+      "scs": [
+        "1.2.8"
+      ],
+      "merged_from": [],
+      "evidence": "An alternative for time-based media is provided for all prerecorded synchronized media"
+    },
+    {
+      "id": "presented-in-parallel-with-other-content",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the moving or auto-updating content is displayed alongside other content.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "is presented in parallel with other content"
+    },
+    {
+      "id": "previously-entered-information-no-longer-valid",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when information previously entered in the same process is no longer valid.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "previously entered information is no longer valid"
+    },
+    {
+      "id": "proper-name",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when the word or phrase is a proper name.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "except for proper names"
+    },
+    {
+      "id": "providing-suggestions-jeopardizes-security-or-purpose",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when providing correction suggestions would jeopardize the security or purpose of the content.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.3"
+      ],
+      "merged_from": [],
+      "evidence": "unless it would jeopardize the security or purpose of the content"
+    },
+    {
+      "id": "re-entering-information-essential",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when re-entering the previously provided information is essential to the process.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.7"
+      ],
+      "merged_from": [],
+      "evidence": "re-entering the information is essential"
+    },
+    {
+      "id": "real-time-event",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the content presents a real-time (live) event.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.3"
+      ],
+      "merged_from": [],
+      "evidence": "except for non-interactive synchronized media and real-time events"
+    },
+    {
+      "id": "region-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component is a landmark/region whose purpose can be programmatically determined.",
+      "sc_count": 1,
+      "scs": [
+        "1.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+    },
+    {
+      "id": "self-help-option-present",
+      "class": "instance",
+      "scope": "page",
+      "definition": "True when the page provides a self-help option (e.g., FAQ, help page, or search) as a help mechanism for users.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "Self-help option"
+    },
+    {
+      "id": "starts-automatically",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when moving, blinking, scrolling, or auto-updating content begins on its own without the user initiating it.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "(1) starts automatically"
+    },
+    {
+      "id": "status-message-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component's role exposes a live region (e.g., role=status or role=alert) that conveys status messages programmatically.",
+      "sc_count": 1,
+      "scs": [
+        "4.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "status messages can be programmatically determined through role or properties"
+    },
+    {
+      "id": "target-presentation-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a particular visual presentation/size of the pointer target is essential to the information being conveyed.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.5"
+      ],
+      "merged_from": [],
+      "evidence": "A particular presentation of the target is essential to the information being conveyed"
+    },
+    {
+      "id": "target-presentation-essential-or-legally-required",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a particular presentation/size of the pointer target is essential or legally required for the information being conveyed.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.8"
+      ],
+      "merged_from": [],
+      "evidence": "Essential A particular presentation of the target is essential or is legally required for the information being conveyed"
+    },
+    {
+      "id": "technical-term",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a word or phrase is a technical term within its subject domain as used in context.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "technical terms"
+    },
+    {
+      "id": "technology-can-achieve-visual-presentation",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the technologies actually used by the content are capable of rendering the desired visual presentation as real text rather than an image of text.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "If the technologies being used can achieve the visual presentation"
+    },
+    {
+      "id": "text-present",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the authored content contains textual content (not an image of text).",
+      "sc_count": 1,
+      "scs": [
+        "1.4.4"
+      ],
+      "merged_from": [],
+      "evidence": "text can be resized without assistive technology up to 200 percent without loss of content or functionality"
+    },
+    {
+      "id": "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+      "class": "human",
+      "scope": "page",
+      "definition": "True when, after removing proper names and titles, the text demands reading ability beyond the lower secondary education level.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.5"
+      ],
+      "merged_from": [],
+      "evidence": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles"
+    },
+    {
+      "id": "time-limit-set-by-content",
+      "class": "instance",
+      "scope": "page",
+      "definition": "True when the content imposes a time limit on a user interaction or session.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "For each time limit that is set by the content"
+    },
+    {
+      "id": "two-dimensional-layout-essential",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a part of the content requires a two-dimensional layout for its usage or meaning.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.10"
+      ],
+      "merged_from": [],
+      "evidence": "Except for parts of the content which require two-dimensional layout for usage or meaning"
+    },
+    {
+      "id": "ui-component-appearance-user-agent-determined",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the component's visual appearance is determined by the user agent default and is not modified by the author.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "where the appearance of the component is determined by the user agent and not modified by the author"
+    },
+    {
+      "id": "ui-component-has-label-with-image-of-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the component's visible label includes an image of text.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.3"
+      ],
+      "merged_from": [],
+      "evidence": "For user interface components with labels that include text or images of text"
+    },
+    {
+      "id": "ui-component-has-label-with-text",
+      "class": "instance",
+      "scope": "component",
+      "definition": "True when the component has a visible label that includes text.",
+      "sc_count": 1,
+      "scs": [
+        "2.5.3"
+      ],
+      "merged_from": [],
+      "evidence": "For user interface components with labels that include text or images of text"
+    },
+    {
+      "id": "ui-component-receives-focus",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component's role makes it focusable so it can receive focus.",
+      "sc_count": 1,
+      "scs": [
+        "3.2.1"
+      ],
+      "merged_from": [],
+      "evidence": "When any user interface component receives focus"
+    },
+    {
+      "id": "ui-component-setting-can-be-changed",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component's role provides a changeable setting/state (e.g., a form control or selectable widget).",
+      "sc_count": 1,
+      "scs": [
+        "3.2.2"
+      ],
+      "merged_from": [],
+      "evidence": "Changing the setting of any user interface component does not automatically cause a change of context"
+    },
+    {
+      "id": "ui-component-visual-information-present",
+      "class": "auto",
+      "scope": "component",
+      "definition": "True when the component has an operable role with visual information needed to identify the component and its states.",
+      "sc_count": 1,
+      "scs": [
+        "1.4.11"
+      ],
+      "merged_from": [],
+      "evidence": "Visual information required to identify user interface components and states"
+    },
+    {
+      "id": "user-controllable-data-modified-or-deleted",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when the action modifies or deletes user-controllable data held in a data storage system.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "that modify or delete user-controllable data in data storage systems"
+    },
+    {
+      "id": "user-inactivity-could-cause-data-loss",
+      "class": "human",
+      "scope": "page",
+      "definition": "True when a period of user inactivity could result in loss of the user's data.",
+      "sc_count": 1,
+      "scs": [
+        "2.2.6"
+      ],
+      "merged_from": [],
+      "evidence": "the duration of any user inactivity that could cause data loss"
+    },
+    {
+      "id": "user-submits-information",
+      "class": "instance",
+      "scope": "page",
+      "definition": "True when the page requires the user to submit information (e.g., contains a submittable form).",
+      "sc_count": 1,
+      "scs": [
+        "3.3.6"
+      ],
+      "merged_from": [],
+      "evidence": "For web pages that require the user to submit information"
+    },
+    {
+      "id": "user-test-responses-submitted",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when the action submits the user's responses to a test.",
+      "sc_count": 1,
+      "scs": [
+        "3.3.4"
+      ],
+      "merged_from": [],
+      "evidence": "that submit user test responses"
+    },
+    {
+      "id": "web-page-is-result-of-process",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when the page is the end result of a multi-step process.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "except where the web page is the result of, or a step in, a process"
+    },
+    {
+      "id": "web-page-is-step-in-process",
+      "class": "human",
+      "scope": "process",
+      "definition": "True when the page is one step within a multi-step process.",
+      "sc_count": 1,
+      "scs": [
+        "2.4.5"
+      ],
+      "merged_from": [],
+      "evidence": "except where the web page is the result of, or a step in, a process"
+    },
+    {
+      "id": "web-page-navigable-sequentially",
+      "class": "auto",
+      "scope": "page",
+      "definition": "True when the page can be navigated sequentially via the keyboard (has focusable content in a focus order).",
+      "sc_count": 1,
+      "scs": [
+        "2.4.3"
+      ],
+      "merged_from": [],
+      "evidence": "If a web page can be navigated sequentially"
+    },
+    {
+      "id": "web-page-present",
+      "class": "auto",
+      "scope": "page",
+      "definition": "True when the content is delivered as a web page.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.1"
+      ],
+      "merged_from": [],
+      "evidence": "The default human language of each web page can be programmatically determined."
+    },
+    {
+      "id": "word-meaning-ambiguous-without-pronunciation",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a word's meaning in context is ambiguous unless its specific pronunciation is known.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.6"
+      ],
+      "merged_from": [],
+      "evidence": "identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation"
+    },
+    {
+      "id": "word-of-indeterminate-language",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when the human language of a word or phrase cannot be determined.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "words of indeterminate language"
+    },
+    {
+      "id": "word-or-phrase-used-in-unusual-or-restricted-way",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a word or phrase is used in an unusual or restricted way, including idioms and jargon.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.3"
+      ],
+      "merged_from": [],
+      "evidence": "identifying specific definitions of words or phrases used in an unusual or restricted way"
+    },
+    {
+      "id": "word-part-of-vernacular-of-surrounding-text",
+      "class": "human",
+      "scope": "component",
+      "definition": "True when a foreign word or phrase has become part of the vernacular of the immediately surrounding text's language.",
+      "sc_count": 1,
+      "scs": [
+        "3.1.2"
+      ],
+      "merged_from": [],
+      "evidence": "words or phrases that have become part of the vernacular of the immediately surrounding text"
+    }
+  ],
+  "criteria": [
+    {
+      "sc_id": "1.1.1",
+      "expression": "non-text-content-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.2.1",
+      "expression": "(prerecorded-audio-only-media-present OR prerecorded-video-only-media-present) AND NOT media-alternative-for-text-clearly-labeled",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.2",
+      "expression": "prerecorded-audio-in-synchronized-media AND NOT media-alternative-for-text-clearly-labeled",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.3",
+      "expression": "prerecorded-video-in-synchronized-media AND NOT media-alternative-for-text-clearly-labeled",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.4",
+      "expression": "live-audio-in-synchronized-media",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.2.5",
+      "expression": "prerecorded-video-in-synchronized-media",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.2.6",
+      "expression": "prerecorded-audio-in-synchronized-media",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.2.7",
+      "expression": "prerecorded-video-in-synchronized-media AND pauses-in-foreground-audio-insufficient",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.2.8",
+      "expression": "prerecorded-synchronized-media-present OR prerecorded-video-only-media-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.2.9",
+      "expression": "live-audio-only-content-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.3.1",
+      "expression": "information-structure-or-relationships-conveyed-through-presentation",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.2",
+      "expression": "content-sequence-affects-meaning",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.3",
+      "expression": "instructions-for-understanding-and-operating-content-present",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.4",
+      "expression": "content-with-view-and-operation-present AND NOT display-orientation-essential",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.5",
+      "expression": "input-field-collecting-information-about-the-user AND input-field-serves-identified-input-purpose AND implemented-with-technology-supporting-input-purpose-identification",
+      "classes": [
+        "instance",
+        "human",
+        "auto"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.3.6",
+      "expression": "content-implemented-using-markup-languages AND (ui-component-present OR icon-present OR region-present)",
+      "classes": [
+        "auto",
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.1",
+      "expression": "color-conveys-information OR color-indicates-action OR color-prompts-response OR color-distinguishes-visual-element",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.2",
+      "expression": "audio-plays-automatically AND audio-lasts-more-than-3-seconds",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.3",
+      "expression": "text-or-image-of-text-present AND NOT (inactive-ui-component-text OR decorative-text OR not-visible-text OR text-part-of-picture OR logotype)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.4",
+      "expression": "text-present AND NOT (captions OR image-of-text-present)",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.5",
+      "expression": "image-of-text-present AND technology-can-achieve-visual-presentation AND NOT (image-of-text-customizable OR particular-presentation-essential)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.6",
+      "expression": "text-or-image-of-text-present AND NOT (inactive-ui-component-text OR decorative-text OR not-visible-text OR text-part-of-picture OR logotype)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.7",
+      "expression": "prerecorded-audio-only-media-present AND foreground-speech-primary AND NOT (audio-captcha OR audio-logo OR musical-vocalization)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.8",
+      "expression": "blocks-of-text-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.9",
+      "expression": "image-of-text-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "1.4.10",
+      "expression": "content-present AND NOT two-dimensional-layout-essential",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.11",
+      "expression": "(ui-component-visual-information-present AND NOT (inactive-ui-component OR ui-component-appearance-user-agent-determined)) OR (graphical-object-required-to-understand-present AND NOT graphics-presentation-essential)",
+      "classes": [
+        "auto",
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.12",
+      "expression": "content-using-markup-supporting-text-style-properties AND NOT language-script-without-text-style-properties",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "1.4.13",
+      "expression": "(hover-triggers-additional-content OR focus-triggers-additional-content) AND NOT additional-content-user-agent-controlled",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.1.1",
+      "expression": "functionality-present AND NOT path-dependent-input-essential",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.1.2",
+      "expression": "keyboard-focus-can-be-moved-to-component",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.1.3",
+      "expression": "functionality-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.1.4",
+      "expression": "character-key-shortcut-implemented",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.1",
+      "expression": "time-limit-set-by-content",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.2",
+      "expression": "(moving-blinking-or-scrolling-information-present AND starts-automatically AND lasts-more-than-five-seconds AND presented-in-parallel-with-other-content AND NOT part-of-essential-activity) OR (auto-updating-information-present AND starts-automatically AND presented-in-parallel-with-other-content AND NOT part-of-essential-activity)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.2.3",
+      "expression": "event-or-activity-present AND NOT (non-interactive-synchronized-media OR real-time-event)",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.4",
+      "expression": "interruptions-present AND NOT emergency-interruption",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.2.5",
+      "expression": "authenticated-session-expires",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.2.6",
+      "expression": "user-inactivity-could-cause-data-loss AND NOT data-preserved-more-than-twenty-hours",
+      "classes": [
+        "human",
+        "instance"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.3.1",
+      "expression": "flashing-content-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.3.2",
+      "expression": "flashing-content-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.3.3",
+      "expression": "motion-animation-triggered-by-interaction-present AND NOT (animation-essential-to-functionality OR animation-essential-to-information-conveyed)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.1",
+      "expression": "blocks-of-content-repeated-on-multiple-web-pages",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.2",
+      "expression": "true",
+      "classes": [],
+      "decidability": "unconditional"
+    },
+    {
+      "sc_id": "2.4.3",
+      "expression": "web-page-navigable-sequentially AND (navigation-sequence-affects-meaning OR navigation-sequence-affects-operation)",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.4",
+      "expression": "link-present AND NOT link-purpose-ambiguous-to-users-in-general",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.5",
+      "expression": "web-page-within-set-of-web-pages AND NOT (web-page-is-result-of-process OR web-page-is-step-in-process)",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.6",
+      "expression": "heading-present OR label-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.4.7",
+      "expression": "keyboard-operable-user-interface-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.4.8",
+      "expression": "web-page-within-set-of-web-pages",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.9",
+      "expression": "link-present AND NOT link-purpose-ambiguous-to-users-in-general",
+      "classes": [
+        "auto",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.4.10",
+      "expression": "content-present AND NOT ui-component-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.4.11",
+      "expression": "ui-component-receives-keyboard-focus AND author-created-content-present",
+      "classes": [
+        "auto",
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.12",
+      "expression": "ui-component-receives-keyboard-focus AND author-created-content-present",
+      "classes": [
+        "auto",
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.4.13",
+      "expression": "keyboard-focus-indicator-visible AND NOT (focus-indicator-determined-by-user-agent OR focus-indicator-not-modified-by-author)",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.1",
+      "expression": "(functionality-uses-multipoint-gesture OR functionality-uses-path-based-gesture) AND NOT gesture-essential AND NOT operates-user-agent-or-assistive-technology",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.5.2",
+      "expression": "functionality-operated-with-single-pointer AND NOT operates-user-agent-or-assistive-technology",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.5.3",
+      "expression": "ui-component-has-label-with-text OR ui-component-has-label-with-image-of-text",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "2.5.4",
+      "expression": "(functionality-operated-by-device-motion OR functionality-operated-by-user-motion) AND NOT (motion-operated-through-accessibility-supported-interface OR motion-essential)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.5.5",
+      "expression": "target-for-pointer-input-present AND NOT (equivalent-target-available OR target-inline-in-text OR target-size-determined-by-user-agent OR target-presentation-essential)",
+      "classes": [
+        "auto",
+        "human",
+        "instance"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.5.6",
+      "expression": "input-modality-available-on-platform",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "2.5.7",
+      "expression": "functionality-using-dragging-movement-present AND NOT (dragging-essential OR functionality-determined-by-user-agent-not-modified-by-author)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "2.5.8",
+      "expression": "target-for-pointer-input-present AND NOT (target-inline-in-text OR target-size-determined-by-user-agent OR target-presentation-essential-or-legally-required)",
+      "classes": [
+        "auto",
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.1.1",
+      "expression": "web-page-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "3.1.2",
+      "expression": "passage-or-phrase-in-content AND NOT (proper-name OR technical-term OR word-of-indeterminate-language OR word-part-of-vernacular-of-surrounding-text)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.1.3",
+      "expression": "word-or-phrase-used-in-unusual-or-restricted-way OR idiom-present OR jargon-present",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.1.4",
+      "expression": "abbreviation-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.1.5",
+      "expression": "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.1.6",
+      "expression": "word-meaning-ambiguous-without-pronunciation",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.2.1",
+      "expression": "ui-component-receives-focus",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "3.2.2",
+      "expression": "ui-component-setting-can-be-changed",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "3.2.3",
+      "expression": "navigational-mechanism-repeated-on-multiple-pages-in-set",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.4",
+      "expression": "components-with-same-functionality-within-set-present",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.2.5",
+      "expression": "change-of-context-present",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.2.6",
+      "expression": "(human-contact-details-present OR human-contact-mechanism-present OR self-help-option-present OR fully-automated-contact-mechanism-present) AND help-mechanism-repeated-on-multiple-pages-in-set",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.1",
+      "expression": "input-error-automatically-detected",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.2",
+      "expression": "content-requires-user-input",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.3",
+      "expression": "input-error-automatically-detected AND correction-suggestions-known AND NOT providing-suggestions-jeopardizes-security-or-purpose",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.3.4",
+      "expression": "legal-commitment-caused OR financial-transaction-caused OR user-controllable-data-modified-or-deleted OR user-test-responses-submitted",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.3.5",
+      "expression": "true",
+      "classes": [],
+      "decidability": "unconditional"
+    },
+    {
+      "sc_id": "3.3.6",
+      "expression": "user-submits-information",
+      "classes": [
+        "instance"
+      ],
+      "decidability": "needs-instance"
+    },
+    {
+      "sc_id": "3.3.7",
+      "expression": "information-previously-entered-required-again-in-same-process AND NOT (re-entering-information-essential OR information-required-for-security OR previously-entered-information-no-longer-valid)",
+      "classes": [
+        "instance",
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.3.8",
+      "expression": "cognitive-function-test-required-in-authentication-process AND NOT (cognitive-function-test-is-object-recognition OR cognitive-function-test-is-personal-content)",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "3.3.9",
+      "expression": "cognitive-function-test-required-in-authentication-process",
+      "classes": [
+        "human"
+      ],
+      "decidability": "needs-human"
+    },
+    {
+      "sc_id": "4.1.2",
+      "expression": "ui-component-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    },
+    {
+      "sc_id": "4.1.3",
+      "expression": "content-implemented-using-markup-languages AND status-message-present",
+      "classes": [
+        "auto"
+      ],
+      "decidability": "auto"
+    }
+  ]
+}
