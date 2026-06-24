@@ -16,7 +16,9 @@
         "alternative-for-time-based-media-presents-equivalent-information",
         "audio-track-presents-equivalent-information"
       ],
-      "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
+      "evidence": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "describes-topic-or-purpose",
@@ -35,7 +37,9 @@
         "headings-describe-topic-or-purpose",
         "labels-describe-topic-or-purpose"
       ],
-      "evidence": "If non-text content is a control or accepts user input, then it has a name that describes its purpose."
+      "evidence": "If non-text content is a control or accepts user input, then it has a name that describes its purpose.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "all-functionality-keyboard-operable",
@@ -50,7 +54,9 @@
       "merged_from": [
         "all-functionality-operable-through-keyboard-interface"
       ],
-      "evidence": "All functionality of the content is operable through a keyboard interface"
+      "evidence": "All functionality of the content is operable through a keyboard interface",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "alternative-authentication-method-available",
@@ -63,7 +69,9 @@
         "3.3.9"
       ],
       "merged_from": [],
-      "evidence": "Another authentication method that does not rely on a cognitive function test."
+      "evidence": "Another authentication method that does not rely on a cognitive function test.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "audio-description-provided",
@@ -76,7 +84,9 @@
         "1.2.5"
       ],
       "merged_from": [],
-      "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media"
+      "evidence": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "captions-provided",
@@ -89,7 +99,11 @@
         "1.2.4"
       ],
       "merged_from": [],
-      "evidence": "Captions are provided for all prerecorded audio content in synchronized media"
+      "evidence": "Captions are provided for all prerecorded audio content in synchronized media",
+      "tier": "axe",
+      "axe_rules": [
+        "video-caption"
+      ]
     },
     {
       "id": "change-initiated-by-user",
@@ -102,7 +116,9 @@
         "3.2.6"
       ],
       "merged_from": [],
-      "evidence": "unless a change is initiated by the user"
+      "evidence": "unless a change is initiated by the user",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "cognitive-function-test-not-required",
@@ -115,7 +131,9 @@
         "3.3.9"
       ],
       "merged_from": [],
-      "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process"
+      "evidence": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "correction-opportunity-provided",
@@ -130,7 +148,9 @@
       "merged_from": [
         "opportunity-to-correct-provided"
       ],
-      "evidence": "the user is provided an opportunity to correct them"
+      "evidence": "the user is provided an opportunity to correct them",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "data-checked-for-input-errors",
@@ -143,7 +163,9 @@
         "3.3.6"
       ],
       "merged_from": [],
-      "evidence": "CheckedData entered by the user is checked for input errors"
+      "evidence": "CheckedData entered by the user is checked for input errors",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "link-purpose-determinable",
@@ -160,7 +182,9 @@
         "link-purpose-determinable-from-link-text-with-programmatic-context",
         "mechanism-available-to-identify-link-purpose-from-link-text-alone"
       ],
-      "evidence": "The purpose of each link can be determined from the link text alone"
+      "evidence": "The purpose of each link can be determined from the link text alone",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "mechanism-to-assist-completing-test-available",
@@ -173,7 +197,9 @@
         "3.3.9"
       ],
       "merged_from": [],
-      "evidence": "A mechanism is available to assist the user in completing the cognitive function test."
+      "evidence": "A mechanism is available to assist the user in completing the cognitive function test.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "no-specific-keystroke-timing-required",
@@ -188,7 +214,9 @@
       "merged_from": [
         "no-specific-timing-required-for-individual-keystrokes"
       ],
-      "evidence": "without requiring specific timings for individual keystrokes"
+      "evidence": "without requiring specific timings for individual keystrokes",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "review-confirm-correct-before-finalizing",
@@ -204,7 +232,9 @@
         "mechanism-to-review-confirm-correct-before-finalizing",
         "mechanism-for-review-confirm-correct-before-finalizing"
       ],
-      "evidence": "ConfirmedA mechanism is available for reviewing, confirming, and correcting information before finalizing the submission"
+      "evidence": "ConfirmedA mechanism is available for reviewing, confirming, and correcting information before finalizing the submission",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "submissions-reversible",
@@ -217,7 +247,9 @@
         "3.3.6"
       ],
       "merged_from": [],
-      "evidence": "ReversibleSubmissions are reversible"
+      "evidence": "ReversibleSubmissions are reversible",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "text-presentation-essential",
@@ -230,7 +262,9 @@
         "1.4.9"
       ],
       "merged_from": [],
-      "evidence": "A particular presentation of text is essential to the information being conveyed"
+      "evidence": "A particular presentation of text is essential to the information being conveyed",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "activity-can-continue-without-data-loss-after-reauthentication",
@@ -242,7 +276,9 @@
         "2.2.5"
       ],
       "merged_from": [],
-      "evidence": "the user can continue the activity without loss of data after re-authenticating"
+      "evidence": "the user can continue the activity without loss of data after re-authenticating",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "additional-content-dismissible-without-moving-pointer-or-focus",
@@ -254,7 +290,9 @@
         "1.4.13"
       ],
       "merged_from": [],
-      "evidence": "Dismissible A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus"
+      "evidence": "Dismissible A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "additional-content-hoverable-without-disappearing",
@@ -266,7 +304,9 @@
         "1.4.13"
       ],
       "merged_from": [],
-      "evidence": "Hoverable If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing"
+      "evidence": "Hoverable If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "additional-content-persistent-until-trigger-removed",
@@ -278,7 +318,9 @@
         "1.4.13"
       ],
       "merged_from": [],
-      "evidence": "Persistent The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid"
+      "evidence": "Persistent The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "auto-updating-can-be-paused-stopped-hidden-or-frequency-controlled",
@@ -290,7 +332,9 @@
         "2.2.2"
       ],
       "merged_from": [],
-      "evidence": "there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update"
+      "evidence": "there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "auto-updating-essential-to-activity",
@@ -302,7 +346,9 @@
         "2.2.2"
       ],
       "merged_from": [],
-      "evidence": "unless the auto-updating is part of an activity where it is essential"
+      "evidence": "unless the auto-updating is part of an activity where it is essential",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "background-sounds-at-least-20db-lower-than-foreground",
@@ -314,7 +360,9 @@
         "1.4.7"
       ],
       "merged_from": [],
-      "evidence": "20 dB The background sounds are at least 20 decibels lower than the foreground speech content"
+      "evidence": "20 dB The background sounds are at least 20 decibels lower than the foreground speech content",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "background-sounds-can-be-turned-off",
@@ -326,7 +374,9 @@
         "1.4.7"
       ],
       "merged_from": [],
-      "evidence": "Turn Off The background sounds can be turned off"
+      "evidence": "Turn Off The background sounds can be turned off",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "can-be-ignored-by-assistive-technology",
@@ -338,7 +388,9 @@
         "1.1.1"
       ],
       "merged_from": [],
-      "evidence": "it is implemented in a way that it can be ignored by assistive technology"
+      "evidence": "it is implemented in a way that it can be ignored by assistive technology",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "captcha-alternative-sensory-forms-provided",
@@ -350,7 +402,9 @@
         "1.1.1"
       ],
       "merged_from": [],
-      "evidence": "alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities"
+      "evidence": "alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "captcha-text-alternative-describes-purpose",
@@ -362,7 +416,9 @@
         "1.1.1"
       ],
       "merged_from": [],
-      "evidence": "text alternatives that identify and describe the purpose of the non-text content are provided"
+      "evidence": "text alternatives that identify and describe the purpose of the non-text content are provided",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "changes-notified-to-user-agents",
@@ -374,7 +430,9 @@
         "4.1.2"
       ],
       "merged_from": [],
-      "evidence": "notification of changes to these items is available to user agents, including assistive technologies"
+      "evidence": "notification of changes to these items is available to user agents, including assistive technologies",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "changes-of-context-initiated-only-by-user-request",
@@ -386,7 +444,9 @@
         "3.2.5"
       ],
       "merged_from": [],
-      "evidence": "Changes of context are initiated only by user request"
+      "evidence": "Changes of context are initiated only by user request",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "completion-on-up-event",
@@ -398,7 +458,9 @@
         "2.5.2"
       ],
       "merged_from": [],
-      "evidence": "Abort or Undo Completion of the function is on the up-event"
+      "evidence": "Abort or Undo Completion of the function is on the up-event",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "content-does-not-flash-more-than-three-times-per-second",
@@ -410,7 +472,9 @@
         "2.3.2"
       ],
       "merged_from": [],
-      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period."
+      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "context-sensitive-help-available",
@@ -422,7 +486,9 @@
         "3.3.5"
       ],
       "merged_from": [],
-      "evidence": "Context-sensitive help is available"
+      "evidence": "Context-sensitive help is available",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "correct-reading-sequence-programmatically-determinable",
@@ -434,7 +500,9 @@
         "1.3.2"
       ],
       "merged_from": [],
-      "evidence": "a correct reading sequence can be programmatically determined"
+      "evidence": "a correct reading sequence can be programmatically determined",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "correction-suggestions-provided",
@@ -446,7 +514,9 @@
         "3.3.3"
       ],
       "merged_from": [],
-      "evidence": "the suggestions are provided to the user"
+      "evidence": "the suggestions are provided to the user",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "data-preserved-beyond-twenty-hours",
@@ -458,7 +528,9 @@
         "2.2.6"
       ],
       "merged_from": [],
-      "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions"
+      "evidence": "unless the data is preserved for more than 20 hours when the user does not take any actions",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "default-language-programmatically-determinable",
@@ -470,7 +542,13 @@
         "3.1.1"
       ],
       "merged_from": [],
-      "evidence": "The default human language of each web page can be programmatically determined"
+      "evidence": "The default human language of each web page can be programmatically determined",
+      "tier": "axe",
+      "axe_rules": [
+        "html-has-lang",
+        "html-lang-valid",
+        "html-xml-lang-mismatch"
+      ]
     },
     {
       "id": "down-event-not-used-to-execute-function",
@@ -482,7 +560,9 @@
         "2.5.2"
       ],
       "merged_from": [],
-      "evidence": "No Down-Event The down-event of the pointer is not used to execute any part of the function"
+      "evidence": "No Down-Event The down-event of the pointer is not used to execute any part of the function",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "equivalent-control-at-least-44-by-44-css-pixels-available",
@@ -494,7 +574,9 @@
         "2.5.5"
       ],
       "merged_from": [],
-      "evidence": "Equivalent The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels"
+      "evidence": "Equivalent The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "erroneous-item-identified",
@@ -506,7 +588,9 @@
         "3.3.1"
       ],
       "merged_from": [],
-      "evidence": "the item that is in error is identified"
+      "evidence": "the item that is in error is identified",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "error-described-to-user-in-text",
@@ -518,7 +602,9 @@
         "3.3.1"
       ],
       "merged_from": [],
-      "evidence": "the error is described to the user in text"
+      "evidence": "the error is described to the user in text",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "extended-audio-description-provided",
@@ -530,7 +616,9 @@
         "1.2.7"
       ],
       "merged_from": [],
-      "evidence": "extended audio description is provided for all prerecorded video content in synchronized media"
+      "evidence": "extended audio description is provided for all prerecorded video content in synchronized media",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "flash-below-general-and-red-flash-thresholds",
@@ -542,7 +630,9 @@
         "2.3.1"
       ],
       "merged_from": [],
-      "evidence": "or the flash is below the general flash and red flash thresholds"
+      "evidence": "or the flash is below the general flash and red flash thresholds",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focus-can-be-moved-away-using-keyboard",
@@ -554,7 +644,9 @@
         "2.1.2"
       ],
       "merged_from": [],
-      "evidence": "then focus can be moved away from that component using only a keyboard interface"
+      "evidence": "then focus can be moved away from that component using only a keyboard interface",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focus-does-not-initiate-change-of-context",
@@ -566,7 +658,9 @@
         "3.2.1"
       ],
       "merged_from": [],
-      "evidence": "When any user interface component receives focus, it does not initiate a change of context"
+      "evidence": "When any user interface component receives focus, it does not initiate a change of context",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focus-indicator-area-at-least-2-css-pixel-perimeter",
@@ -578,7 +672,9 @@
         "2.4.13"
       ],
       "merged_from": [],
-      "evidence": "is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component"
+      "evidence": "is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focus-indicator-contrast-ratio-at-least-3-to-1-between-focused-and-unfocused-states",
@@ -590,7 +686,9 @@
         "2.4.13"
       ],
       "merged_from": [],
-      "evidence": "has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states"
+      "evidence": "has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focus-order-preserves-meaning",
@@ -602,7 +700,9 @@
         "2.4.3"
       ],
       "merged_from": [],
-      "evidence": "focusable components receive focus in an order that preserves meaning and operability"
+      "evidence": "focusable components receive focus in an order that preserves meaning and operability",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "focus-order-preserves-operability",
@@ -614,7 +714,9 @@
         "2.4.3"
       ],
       "merged_from": [],
-      "evidence": "focusable components receive focus in an order that preserves meaning and operability"
+      "evidence": "focusable components receive focus in an order that preserves meaning and operability",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focused-component-no-part-hidden-by-author-content",
@@ -626,7 +728,9 @@
         "2.4.12"
       ],
       "merged_from": [],
-      "evidence": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content."
+      "evidence": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "focused-component-not-entirely-hidden-by-author-content",
@@ -638,7 +742,9 @@
         "2.4.11"
       ],
       "merged_from": [],
-      "evidence": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content."
+      "evidence": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "foreground-and-background-colors-user-selectable",
@@ -650,7 +756,9 @@
         "1.4.8"
       ],
       "merged_from": [],
-      "evidence": "Foreground and background colors can be selected by the user"
+      "evidence": "Foreground and background colors can be selected by the user",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "function-achievable-through-different-conforming-control",
@@ -662,7 +770,9 @@
         "2.5.8"
       ],
       "merged_from": [],
-      "evidence": "The function can be achieved through a different control on the same page that meets this criterion"
+      "evidence": "The function can be achieved through a different control on the same page that meets this criterion",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "functionality-achievable-by-single-pointer-without-dragging",
@@ -674,7 +784,9 @@
         "2.5.7"
       ],
       "merged_from": [],
-      "evidence": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging"
+      "evidence": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "graphical-object-contrast-ratio-at-least-3-to-1",
@@ -686,7 +798,9 @@
         "1.4.11"
       ],
       "merged_from": [],
-      "evidence": "Graphical Objects Parts of graphics required to understand the content ... have a contrast ratio of at least 3:1 against adjacent color(s)"
+      "evidence": "Graphical Objects Parts of graphics required to understand the content ... have a contrast ratio of at least 3:1 against adjacent color(s)",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "image-of-text-used-only-for-pure-decoration",
@@ -698,7 +812,9 @@
         "1.4.9"
       ],
       "merged_from": [],
-      "evidence": "Images of text are only used for pure decoration"
+      "evidence": "Images of text are only used for pure decoration",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "image-of-text-visually-customizable",
@@ -710,7 +826,9 @@
         "1.4.5"
       ],
       "merged_from": [],
-      "evidence": "The image of text can be visually customized to the user's requirements"
+      "evidence": "The image of text can be visually customized to the user's requirements",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "inactivity-duration-causing-data-loss-warned-to-user",
@@ -722,7 +840,9 @@
         "2.2.6"
       ],
       "merged_from": [],
-      "evidence": "Users are warned of the duration of any user inactivity that could cause data loss"
+      "evidence": "Users are warned of the duration of any user inactivity that could cause data loss",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "info-structure-relationships-available-in-text",
@@ -734,7 +854,9 @@
         "1.3.1"
       ],
       "merged_from": [],
-      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "info-structure-relationships-programmatically-determinable",
@@ -746,7 +868,21 @@
         "1.3.1"
       ],
       "merged_from": [],
-      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined"
+      "evidence": "Information, structure, and relationships conveyed through presentation can be programmatically determined",
+      "tier": "axe",
+      "axe_rules": [
+        "list",
+        "listitem",
+        "definition-list",
+        "dlitem",
+        "th-has-data-cells",
+        "td-has-header",
+        "td-headers-attr",
+        "p-as-heading",
+        "table-fake-caption",
+        "aria-required-children",
+        "aria-required-parent"
+      ]
     },
     {
       "id": "information-auto-populated",
@@ -758,7 +894,9 @@
         "3.3.7"
       ],
       "merged_from": [],
-      "evidence": "is either: auto-populated"
+      "evidence": "is either: auto-populated",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "information-available-to-select",
@@ -770,7 +908,9 @@
         "3.3.7"
       ],
       "merged_from": [],
-      "evidence": "available for the user to select"
+      "evidence": "available for the user to select",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "information-conveyed-by-means-other-than-color",
@@ -782,7 +922,9 @@
         "1.4.1"
       ],
       "merged_from": [],
-      "evidence": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element."
+      "evidence": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "information-conveyed-by-text-rather-than-images-of-text",
@@ -794,7 +936,9 @@
         "1.4.5"
       ],
       "merged_from": [],
-      "evidence": "text is used to convey information rather than images of text"
+      "evidence": "text is used to convey information rather than images of text",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "input-modalities-not-restricted",
@@ -806,7 +950,9 @@
         "2.5.6"
       ],
       "merged_from": [],
-      "evidence": "Web content does not restrict use of input modalities available on a platform"
+      "evidence": "Web content does not restrict use of input modalities available on a platform",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "input-purpose-programmatically-determinable",
@@ -818,7 +964,11 @@
         "1.3.5"
       ],
       "merged_from": [],
-      "evidence": "The purpose of each input field collecting information about the user can be programmatically determined"
+      "evidence": "The purpose of each input field collecting information about the user can be programmatically determined",
+      "tier": "axe",
+      "axe_rules": [
+        "autocomplete-valid"
+      ]
     },
     {
       "id": "instructions-provided",
@@ -830,7 +980,9 @@
         "3.3.2"
       ],
       "merged_from": [],
-      "evidence": "Labels or instructions are provided when content requires user input"
+      "evidence": "Labels or instructions are provided when content requires user input",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "instructions-understandable-without-relying-solely-on-sensory-characteristics",
@@ -842,7 +994,9 @@
         "1.3.3"
       ],
       "merged_from": [],
-      "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound."
+      "evidence": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "interaction-triggered-motion-animation-can-be-disabled",
@@ -854,7 +1008,9 @@
         "2.3.3"
       ],
       "merged_from": [],
-      "evidence": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed."
+      "evidence": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "interruptions-can-be-postponed",
@@ -866,7 +1022,9 @@
         "2.2.4"
       ],
       "merged_from": [],
-      "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency"
+      "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "interruptions-can-be-suppressed",
@@ -878,7 +1036,9 @@
         "2.2.4"
       ],
       "merged_from": [],
-      "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency"
+      "evidence": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "keyboard-focus-indicator-visible",
@@ -890,7 +1050,9 @@
         "2.4.7"
       ],
       "merged_from": [],
-      "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
+      "evidence": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "labels-provided",
@@ -902,7 +1064,9 @@
         "3.3.2"
       ],
       "merged_from": [],
-      "evidence": "Labels or instructions are provided when content requires user input"
+      "evidence": "Labels or instructions are provided when content requires user input",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "large-text-contrast-ratio-at-least-3-to-1",
@@ -914,7 +1078,11 @@
         "1.4.3"
       ],
       "merged_from": [],
-      "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 3:1"
+      "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 3:1",
+      "tier": "axe",
+      "axe_rules": [
+        "color-contrast"
+      ]
     },
     {
       "id": "large-text-contrast-ratio-at-least-4-5-to-1",
@@ -926,7 +1094,11 @@
         "1.4.6"
       ],
       "merged_from": [],
-      "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1"
+      "evidence": "Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1",
+      "tier": "axe",
+      "axe_rules": [
+        "color-contrast-enhanced"
+      ]
     },
     {
       "id": "line-and-paragraph-spacing-sufficient",
@@ -938,7 +1110,9 @@
         "1.4.8"
       ],
       "merged_from": [],
-      "evidence": "Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing"
+      "evidence": "Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "location-within-page-set-information-available",
@@ -950,7 +1124,9 @@
         "2.4.8"
       ],
       "merged_from": [],
-      "evidence": "Information about the user's location within a set of web pages is available."
+      "evidence": "Information about the user's location within a set of web pages is available.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-available-to-abort-before-completion",
@@ -962,7 +1138,9 @@
         "2.5.2"
       ],
       "merged_from": [],
-      "evidence": "a mechanism is available to abort the function before completion"
+      "evidence": "a mechanism is available to abort the function before completion",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-available-to-identify-definitions",
@@ -974,7 +1152,9 @@
         "3.1.3"
       ],
       "merged_from": [],
-      "evidence": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon"
+      "evidence": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-available-to-identify-expanded-form-or-meaning",
@@ -986,7 +1166,9 @@
         "3.1.4"
       ],
       "merged_from": [],
-      "evidence": "A mechanism for identifying the expanded form or meaning of abbreviations is available"
+      "evidence": "A mechanism for identifying the expanded form or meaning of abbreviations is available",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-available-to-identify-pronunciation",
@@ -998,7 +1180,9 @@
         "3.1.6"
       ],
       "merged_from": [],
-      "evidence": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation"
+      "evidence": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-available-to-undo-after-completion",
@@ -1010,7 +1194,9 @@
         "2.5.2"
       ],
       "merged_from": [],
-      "evidence": "to undo the function after completion"
+      "evidence": "to undo the function after completion",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-to-bypass-repeated-blocks-available",
@@ -1022,7 +1208,11 @@
         "2.4.1"
       ],
       "merged_from": [],
-      "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages."
+      "evidence": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages.",
+      "tier": "axe",
+      "axe_rules": [
+        "bypass"
+      ]
     },
     {
       "id": "mechanism-to-control-audio-volume-independently-available",
@@ -1034,7 +1224,9 @@
         "1.4.2"
       ],
       "merged_from": [],
-      "evidence": "a mechanism is available to control audio volume independently from the overall system volume level"
+      "evidence": "a mechanism is available to control audio volume independently from the overall system volume level",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-to-pause-or-stop-audio-available",
@@ -1046,7 +1238,9 @@
         "1.4.2"
       ],
       "merged_from": [],
-      "evidence": "either a mechanism is available to pause or stop the audio"
+      "evidence": "either a mechanism is available to pause or stop the audio",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "mechanism-to-turn-off-changes-available",
@@ -1058,7 +1252,9 @@
         "3.2.5"
       ],
       "merged_from": [],
-      "evidence": "or a mechanism is available to turn off such changes"
+      "evidence": "or a mechanism is available to turn off such changes",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "motion-response-can-be-disabled",
@@ -1070,7 +1266,9 @@
         "2.5.4"
       ],
       "merged_from": [],
-      "evidence": "responding to the motion can be disabled to prevent accidental actuation"
+      "evidence": "responding to the motion can be disabled to prevent accidental actuation",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "moving-blinking-scrolling-can-be-paused-stopped-or-hidden",
@@ -1082,7 +1280,9 @@
         "2.2.2"
       ],
       "merged_from": [],
-      "evidence": "there is a mechanism for the user to pause, stop, or hide it"
+      "evidence": "there is a mechanism for the user to pause, stop, or hide it",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "moving-blinking-scrolling-essential-to-activity",
@@ -1094,7 +1294,9 @@
         "2.2.2"
       ],
       "merged_from": [],
-      "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential"
+      "evidence": "unless the movement, blinking, or scrolling is part of an activity where it is essential",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "multiple-ways-to-locate-page-available",
@@ -1106,7 +1308,9 @@
         "2.4.5"
       ],
       "merged_from": [],
-      "evidence": "More than one way is available to locate a web page within a set of web pages"
+      "evidence": "More than one way is available to locate a web page within a set of web pages",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "name-contains-visually-presented-label-text",
@@ -1118,7 +1322,11 @@
         "2.5.3"
       ],
       "merged_from": [],
-      "evidence": "the name contains the text that is presented visually"
+      "evidence": "the name contains the text that is presented visually",
+      "tier": "axe",
+      "axe_rules": [
+        "label-content-name-mismatch"
+      ]
     },
     {
       "id": "name-programmatically-determinable",
@@ -1130,7 +1338,20 @@
         "4.1.2"
       ],
       "merged_from": [],
-      "evidence": "the name and role can be programmatically determined"
+      "evidence": "the name and role can be programmatically determined",
+      "tier": "axe",
+      "axe_rules": [
+        "button-name",
+        "link-name",
+        "input-button-name",
+        "aria-command-name",
+        "aria-input-field-name",
+        "aria-toggle-field-name",
+        "select-name",
+        "label",
+        "frame-title",
+        "summary-name"
+      ]
     },
     {
       "id": "no-background-sounds",
@@ -1142,7 +1363,9 @@
         "1.4.7"
       ],
       "merged_from": [],
-      "evidence": "No Background The audio does not contain background sounds"
+      "evidence": "No Background The audio does not contain background sounds",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "no-loss-of-content-or-functionality",
@@ -1154,7 +1377,9 @@
         "1.4.4"
       ],
       "merged_from": [],
-      "evidence": "up to 200 percent without loss of content or functionality"
+      "evidence": "up to 200 percent without loss of content or functionality",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "no-loss-of-content-or-functionality-when-text-spacing-properties-overridden",
@@ -1166,7 +1391,9 @@
         "1.4.12"
       ],
       "merged_from": [],
-      "evidence": "no loss of content or functionality occurs by setting all of the following and by changing no other style property: Line height (line spacing) to at least 1.5 times the font size; Spacing following paragraphs to at least 2 times the font size; Letter spacing (tracking) to at least 0.12 times the font size; Word spacing to at least 0.16 times the font size"
+      "evidence": "no loss of content or functionality occurs by setting all of the following and by changing no other style property: Line height (line spacing) to at least 1.5 times the font size; Spacing following paragraphs to at least 2 times the font size; Letter spacing (tracking) to at least 0.12 times the font size; Word spacing to at least 0.16 times the font size",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "no-loss-of-information-or-functionality",
@@ -1178,7 +1405,9 @@
         "1.4.10"
       ],
       "merged_from": [],
-      "evidence": "Content can be presented without loss of information or functionality"
+      "evidence": "Content can be presented without loss of information or functionality",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "no-more-than-three-flashes-in-any-one-second",
@@ -1190,7 +1419,9 @@
         "2.3.1"
       ],
       "merged_from": [],
-      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period"
+      "evidence": "Web pages do not contain anything that flashes more than three times in any one second period",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "no-scrolling-in-two-dimensions",
@@ -1202,7 +1433,9 @@
         "1.4.10"
       ],
       "merged_from": [],
-      "evidence": "without requiring scrolling in two dimensions for: Vertical scrolling content at a width equivalent to 320 CSS pixels; Horizontal scrolling content at a height equivalent to 256 CSS pixels"
+      "evidence": "without requiring scrolling in two dimensions for: Vertical scrolling content at a width equivalent to 320 CSS pixels; Horizontal scrolling content at a height equivalent to 256 CSS pixels",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "nonstandard-exit-method-advised-to-user",
@@ -1214,7 +1447,9 @@
         "2.1.2"
       ],
       "merged_from": [],
-      "evidence": "the user is advised of the method for moving focus away"
+      "evidence": "the user is advised of the method for moving focus away",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "operable-by-user-interface-components",
@@ -1226,7 +1461,9 @@
         "2.5.4"
       ],
       "merged_from": [],
-      "evidence": "can also be operated by user interface components"
+      "evidence": "can also be operated by user interface components",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "operable-with-single-pointer-without-path-based-gesture",
@@ -1238,7 +1475,9 @@
         "2.5.1"
       ],
       "merged_from": [],
-      "evidence": "can be operated with a single pointer without a path-based gesture"
+      "evidence": "can be operated with a single pointer without a path-based gesture",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "particular-target-presentation-essential",
@@ -1250,7 +1489,9 @@
         "2.5.8"
       ],
       "merged_from": [],
-      "evidence": "A particular presentation of the target is essential or is legally required for the information being conveyed"
+      "evidence": "A particular presentation of the target is essential or is legally required for the information being conveyed",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "passage-or-phrase-language-programmatically-determinable",
@@ -1262,7 +1503,11 @@
         "3.1.2"
       ],
       "merged_from": [],
-      "evidence": "The human language of each passage or phrase in the content can be programmatically determined"
+      "evidence": "The human language of each passage or phrase in the content can be programmatically determined",
+      "tier": "axe",
+      "axe_rules": [
+        "valid-lang"
+      ]
     },
     {
       "id": "presentable-by-assistive-technologies-without-receiving-focus",
@@ -1274,7 +1519,9 @@
         "4.1.3"
       ],
       "merged_from": [],
-      "evidence": "they can be presented to the user by assistive technologies without receiving focus"
+      "evidence": "they can be presented to the user by assistive technologies without receiving focus",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "providing-suggestions-would-jeopardize-security-or-purpose",
@@ -1286,7 +1533,9 @@
         "3.3.3"
       ],
       "merged_from": [],
-      "evidence": "unless it would jeopardize the security or purpose of the content"
+      "evidence": "unless it would jeopardize the security or purpose of the content",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "purpose-of-components-icons-regions-programmatically-determinable",
@@ -1298,7 +1547,9 @@
         "1.3.6"
       ],
       "merged_from": [],
-      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined"
+      "evidence": "the purpose of user interface components, icons, and regions can be programmatically determined",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "repeated-help-mechanisms-occur-in-same-relative-order",
@@ -1310,7 +1561,9 @@
         "3.2.6"
       ],
       "merged_from": [],
-      "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages, they occur in the same order relative to other page content"
+      "evidence": "those mechanisms are repeated on multiple web pages within a set of web pages, they occur in the same order relative to other page content",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "repeated-navigation-occurs-in-same-relative-order",
@@ -1322,7 +1575,9 @@
         "3.2.3"
       ],
       "merged_from": [],
-      "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated"
+      "evidence": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "role-programmatically-determinable",
@@ -1334,7 +1589,9 @@
         "4.1.2"
       ],
       "merged_from": [],
-      "evidence": "the name and role can be programmatically determined"
+      "evidence": "the name and role can be programmatically determined",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "same-functionality-components-identified-consistently",
@@ -1346,7 +1603,9 @@
         "3.2.4"
       ],
       "merged_from": [],
-      "evidence": "Components that have the same functionality within a set of web pages are identified consistently"
+      "evidence": "Components that have the same functionality within a set of web pages are identified consistently",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "section-headings-used-to-organize-content",
@@ -1358,7 +1617,9 @@
         "2.4.10"
       ],
       "merged_from": [],
-      "evidence": "Section headings are used to organize the content."
+      "evidence": "Section headings are used to organize the content.",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "setting-change-does-not-cause-change-of-context",
@@ -1370,7 +1631,9 @@
         "3.2.2"
       ],
       "merged_from": [],
-      "evidence": "Changing the setting of any user interface component does not automatically cause a change of context"
+      "evidence": "Changing the setting of any user interface component does not automatically cause a change of context",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "shortcut-active-only-on-component-focus",
@@ -1382,7 +1645,9 @@
         "2.1.4"
       ],
       "merged_from": [],
-      "evidence": "Active only on focus The keyboard shortcut for a user interface component is only active when that component has focus"
+      "evidence": "Active only on focus The keyboard shortcut for a user interface component is only active when that component has focus",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "shortcut-can-be-remapped-to-non-printable-keys",
@@ -1394,7 +1659,9 @@
         "2.1.4"
       ],
       "merged_from": [],
-      "evidence": "Remap A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt)"
+      "evidence": "Remap A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt)",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "shortcut-can-be-turned-off",
@@ -1406,7 +1673,9 @@
         "2.1.4"
       ],
       "merged_from": [],
-      "evidence": "Turn off A mechanism is available to turn the shortcut off"
+      "evidence": "Turn off A mechanism is available to turn the shortcut off",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "sign-language-interpretation-provided",
@@ -1418,7 +1687,9 @@
         "1.2.6"
       ],
       "merged_from": [],
-      "evidence": "Sign language interpretation is provided for all prerecorded audio content in synchronized media."
+      "evidence": "Sign language interpretation is provided for all prerecorded audio content in synchronized media.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "simplified-version-not-requiring-advanced-reading-available",
@@ -1430,7 +1701,9 @@
         "3.1.5"
       ],
       "merged_from": [],
-      "evidence": "a version that does not require reading ability more advanced than the lower secondary education level, is available"
+      "evidence": "a version that does not require reading ability more advanced than the lower secondary education level, is available",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "standard-exit-methods-sufficient",
@@ -1442,7 +1715,9 @@
         "2.1.2"
       ],
       "merged_from": [],
-      "evidence": "if it requires more than unmodified arrow or tab keys or other standard exit methods"
+      "evidence": "if it requires more than unmodified arrow or tab keys or other standard exit methods",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "status-messages-programmatically-determinable-through-role-or-properties",
@@ -1454,7 +1729,9 @@
         "4.1.3"
       ],
       "merged_from": [],
-      "evidence": "status messages can be programmatically determined through role or properties"
+      "evidence": "status messages can be programmatically determined through role or properties",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "supplemental-content-available",
@@ -1466,7 +1743,9 @@
         "3.1.5"
       ],
       "merged_from": [],
-      "evidence": "supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available"
+      "evidence": "supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "target-at-least-44-by-44-css-pixels",
@@ -1478,7 +1757,9 @@
         "2.5.5"
       ],
       "merged_from": [],
-      "evidence": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels"
+      "evidence": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "target-inline-in-text",
@@ -1490,7 +1771,9 @@
         "2.5.8"
       ],
       "merged_from": [],
-      "evidence": "The target is in a sentence or its size is otherwise constrained by the line-height of non-target text"
+      "evidence": "The target is in a sentence or its size is otherwise constrained by the line-height of non-target text",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "target-size-at-least-24-by-24-css-pixels",
@@ -1502,7 +1785,11 @@
         "2.5.8"
       ],
       "merged_from": [],
-      "evidence": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels"
+      "evidence": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels",
+      "tier": "axe",
+      "axe_rules": [
+        "target-size"
+      ]
     },
     {
       "id": "target-size-determined-by-user-agent",
@@ -1514,7 +1801,9 @@
         "2.5.8"
       ],
       "merged_from": [],
-      "evidence": "The size of the target is determined by the user agent and is not modified by the author"
+      "evidence": "The size of the target is determined by the user agent and is not modified by the author",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "test-is-object-recognition",
@@ -1526,7 +1815,9 @@
         "3.3.8"
       ],
       "merged_from": [],
-      "evidence": "The cognitive function test is to recognize objects."
+      "evidence": "The cognitive function test is to recognize objects.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "test-is-personal-content-identification",
@@ -1538,7 +1829,9 @@
         "3.3.8"
       ],
       "merged_from": [],
-      "evidence": "The cognitive function test is to identify non-text content the user provided to the website."
+      "evidence": "The cognitive function test is to identify non-text content the user provided to the website.",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "text-alternative-present",
@@ -1550,7 +1843,15 @@
         "1.1.1"
       ],
       "merged_from": [],
-      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose",
+      "tier": "axe",
+      "axe_rules": [
+        "image-alt",
+        "input-image-alt",
+        "object-alt",
+        "role-img-alt",
+        "svg-img-alt"
+      ]
     },
     {
       "id": "text-alternative-provides-descriptive-identification",
@@ -1562,7 +1863,9 @@
         "1.1.1"
       ],
       "merged_from": [],
-      "evidence": "text alternatives at least provide descriptive identification of the non-text content"
+      "evidence": "text alternatives at least provide descriptive identification of the non-text content",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "text-alternative-serves-equivalent-purpose",
@@ -1574,7 +1877,9 @@
         "1.1.1"
       ],
       "merged_from": [],
-      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose"
+      "evidence": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "text-contrast-ratio-at-least-4.5-to-1",
@@ -1586,7 +1891,11 @@
         "1.4.3"
       ],
       "merged_from": [],
-      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1"
+      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1",
+      "tier": "axe",
+      "axe_rules": [
+        "color-contrast"
+      ]
     },
     {
       "id": "text-contrast-ratio-at-least-7-to-1",
@@ -1598,7 +1907,11 @@
         "1.4.6"
       ],
       "merged_from": [],
-      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 7:1"
+      "evidence": "The visual presentation of text and images of text has a contrast ratio of at least 7:1",
+      "tier": "axe",
+      "axe_rules": [
+        "color-contrast-enhanced"
+      ]
     },
     {
       "id": "text-not-justified",
@@ -1610,7 +1923,9 @@
         "1.4.8"
       ],
       "merged_from": [],
-      "evidence": "Text is not justified (aligned to both the left and the right margins)"
+      "evidence": "Text is not justified (aligned to both the left and the right margins)",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "text-resizable-to-200-percent-without-horizontal-scrolling",
@@ -1622,7 +1937,9 @@
         "1.4.8"
       ],
       "merged_from": [],
-      "evidence": "Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window"
+      "evidence": "Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "text-resizable-up-to-200-percent-without-assistive-technology",
@@ -1634,7 +1951,11 @@
         "1.4.4"
       ],
       "merged_from": [],
-      "evidence": "text can be resized without assistive technology up to 200 percent"
+      "evidence": "text can be resized without assistive technology up to 200 percent",
+      "tier": "axe",
+      "axe_rules": [
+        "meta-viewport"
+      ]
     },
     {
       "id": "time-limit-can-be-adjusted",
@@ -1646,7 +1967,9 @@
         "2.2.1"
       ],
       "merged_from": [],
-      "evidence": "Adjust The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting"
+      "evidence": "Adjust The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "time-limit-can-be-extended",
@@ -1658,7 +1981,9 @@
         "2.2.1"
       ],
       "merged_from": [],
-      "evidence": "Extend The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action"
+      "evidence": "Extend The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "time-limit-can-be-turned-off",
@@ -1670,7 +1995,9 @@
         "2.2.1"
       ],
       "merged_from": [],
-      "evidence": "Turn off The user is allowed to turn off the time limit before encountering it"
+      "evidence": "Turn off The user is allowed to turn off the time limit before encountering it",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "time-limit-essential-to-activity",
@@ -1682,7 +2009,9 @@
         "2.2.1"
       ],
       "merged_from": [],
-      "evidence": "Essential Exception The time limit is essential and extending it would invalidate the activity"
+      "evidence": "Essential Exception The time limit is essential and extending it would invalidate the activity",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "time-limit-longer-than-twenty-hours",
@@ -1694,7 +2023,11 @@
         "2.2.1"
       ],
       "merged_from": [],
-      "evidence": "20 Hour Exception The time limit is longer than 20 hours"
+      "evidence": "20 Hour Exception The time limit is longer than 20 hours",
+      "tier": "axe",
+      "axe_rules": [
+        "meta-refresh"
+      ]
     },
     {
       "id": "time-limit-required-for-real-time-event",
@@ -1706,7 +2039,9 @@
         "2.2.1"
       ],
       "merged_from": [],
-      "evidence": "Real-time Exception The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible"
+      "evidence": "Real-time Exception The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "timing-not-essential-to-activity",
@@ -1718,7 +2053,9 @@
         "2.2.3"
       ],
       "merged_from": [],
-      "evidence": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events"
+      "evidence": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "title-present",
@@ -1730,7 +2067,11 @@
         "2.4.2"
       ],
       "merged_from": [],
-      "evidence": "Web pages have titles"
+      "evidence": "Web pages have titles",
+      "tier": "axe",
+      "axe_rules": [
+        "document-title"
+      ]
     },
     {
       "id": "ui-component-visual-information-contrast-ratio-at-least-3-to-1",
@@ -1742,7 +2083,9 @@
         "1.4.11"
       ],
       "merged_from": [],
-      "evidence": "User Interface Components Visual information required to identify user interface components and states ... have a contrast ratio of at least 3:1 against adjacent color(s)"
+      "evidence": "User Interface Components Visual information required to identify user interface components and states ... have a contrast ratio of at least 3:1 against adjacent color(s)",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "undersized-targets-spaced-so-24-css-pixel-circles-do-not-intersect",
@@ -1754,7 +2097,11 @@
         "2.5.8"
       ],
       "merged_from": [],
-      "evidence": "Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target"
+      "evidence": "Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target",
+      "tier": "axe",
+      "axe_rules": [
+        "target-size"
+      ]
     },
     {
       "id": "up-event-reverses-down-event-outcome",
@@ -1766,7 +2113,9 @@
         "2.5.2"
       ],
       "merged_from": [],
-      "evidence": "Up Reversal The up-event reverses any outcome of the preceding down-event"
+      "evidence": "Up Reversal The up-event reverses any outcome of the preceding down-event",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "user-advised-of-behavior-before-use",
@@ -1778,7 +2127,9 @@
         "3.2.2"
       ],
       "merged_from": [],
-      "evidence": "unless the user has been advised of the behavior before using the component"
+      "evidence": "unless the user has been advised of the behavior before using the component",
+      "tier": "human",
+      "axe_rules": []
     },
     {
       "id": "user-settable-states-properties-values-programmatically-settable",
@@ -1790,7 +2141,9 @@
         "4.1.2"
       ],
       "merged_from": [],
-      "evidence": "states, properties, and values that can be set by the user can be programmatically set"
+      "evidence": "states, properties, and values that can be set by the user can be programmatically set",
+      "tier": "agent",
+      "axe_rules": []
     },
     {
       "id": "view-and-operation-not-restricted-to-single-display-orientation",
@@ -1802,7 +2155,11 @@
         "1.3.4"
       ],
       "merged_from": [],
-      "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential."
+      "evidence": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
+      "tier": "axe",
+      "axe_rules": [
+        "css-orientation-lock"
+      ]
     },
     {
       "id": "width-no-more-than-80-characters",
@@ -1814,7 +2171,9 @@
         "1.4.8"
       ],
       "merged_from": [],
-      "evidence": "Width is no more than 80 characters or glyphs (40 if CJK)"
+      "evidence": "Width is no more than 80 characters or glyphs (40 if CJK)",
+      "tier": "agent",
+      "axe_rules": []
     }
   ],
   "criteria": [
@@ -1826,7 +2185,8 @@
         "human",
         "instance"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.1",
@@ -1834,7 +2194,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.2",
@@ -1842,7 +2203,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "1.2.3",
@@ -1850,7 +2212,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.4",
@@ -1858,7 +2221,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "1.2.5",
@@ -1866,7 +2230,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.6",
@@ -1874,7 +2239,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.7",
@@ -1882,7 +2248,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.8",
@@ -1890,7 +2257,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.2.9",
@@ -1898,7 +2266,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.3.1",
@@ -1907,7 +2276,8 @@
         "instance",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.3.2",
@@ -1915,7 +2285,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.3.3",
@@ -1923,7 +2294,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.3.4",
@@ -1931,7 +2303,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "1.3.5",
@@ -1939,7 +2312,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "1.3.6",
@@ -1947,7 +2321,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.4.1",
@@ -1955,7 +2330,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.4.2",
@@ -1963,7 +2339,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "1.4.3",
@@ -1971,7 +2348,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "1.4.4",
@@ -1979,7 +2357,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "1.4.5",
@@ -1988,7 +2367,8 @@
         "human",
         "instance"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.4.6",
@@ -1996,7 +2376,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "1.4.7",
@@ -2006,7 +2387,8 @@
         "instance",
         "auto"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.4.8",
@@ -2015,7 +2397,8 @@
         "instance",
         "auto"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "1.4.9",
@@ -2023,7 +2406,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.4.10",
@@ -2032,7 +2416,8 @@
         "instance",
         "auto"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "1.4.11",
@@ -2041,7 +2426,8 @@
         "auto",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "1.4.12",
@@ -2049,7 +2435,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "1.4.13",
@@ -2057,7 +2444,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.1.1",
@@ -2065,7 +2453,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.1.2",
@@ -2073,7 +2462,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.1.3",
@@ -2081,7 +2471,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.1.4",
@@ -2089,7 +2480,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.2.1",
@@ -2098,7 +2490,8 @@
         "instance",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.2.2",
@@ -2107,7 +2500,8 @@
         "instance",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.2.3",
@@ -2115,7 +2509,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.2.4",
@@ -2123,7 +2518,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.2.5",
@@ -2131,7 +2527,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.2.6",
@@ -2139,7 +2536,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.3.1",
@@ -2147,7 +2545,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.3.2",
@@ -2155,7 +2554,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.3.3",
@@ -2163,7 +2563,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.1",
@@ -2171,7 +2572,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "2.4.2",
@@ -2180,7 +2582,8 @@
         "auto",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.4.3",
@@ -2189,7 +2592,8 @@
         "human",
         "instance"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.4.4",
@@ -2197,7 +2601,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.4.5",
@@ -2205,7 +2610,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.6",
@@ -2213,7 +2619,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.4.7",
@@ -2221,7 +2628,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.8",
@@ -2229,7 +2637,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.9",
@@ -2237,7 +2646,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "2.4.10",
@@ -2245,7 +2655,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.11",
@@ -2253,7 +2664,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.12",
@@ -2261,7 +2673,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.4.13",
@@ -2269,7 +2682,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.1",
@@ -2277,7 +2691,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.2",
@@ -2285,7 +2700,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.3",
@@ -2293,7 +2709,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "2.5.4",
@@ -2301,7 +2718,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.5",
@@ -2310,7 +2728,8 @@
         "auto",
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.6",
@@ -2318,7 +2737,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.7",
@@ -2326,7 +2746,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "2.5.8",
@@ -2336,7 +2757,8 @@
         "instance",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "3.1.1",
@@ -2344,7 +2766,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "3.1.2",
@@ -2352,7 +2775,8 @@
       "classes": [
         "auto"
       ],
-      "decidability": "auto"
+      "decidability": "auto",
+      "residue": "axe-complete"
     },
     {
       "sc_id": "3.1.3",
@@ -2360,7 +2784,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.1.4",
@@ -2368,7 +2793,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.1.5",
@@ -2376,7 +2802,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "3.1.6",
@@ -2384,7 +2811,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.2.1",
@@ -2392,7 +2820,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.2.2",
@@ -2400,7 +2829,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "needs-human"
     },
     {
       "sc_id": "3.2.3",
@@ -2408,7 +2838,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.2.4",
@@ -2416,7 +2847,8 @@
       "classes": [
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "3.2.5",
@@ -2424,7 +2856,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.2.6",
@@ -2432,7 +2865,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.1",
@@ -2440,7 +2874,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.2",
@@ -2449,7 +2884,8 @@
         "auto",
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.3",
@@ -2458,7 +2894,8 @@
         "instance",
         "human"
       ],
-      "decidability": "needs-human"
+      "decidability": "needs-human",
+      "residue": "needs-human"
     },
     {
       "sc_id": "3.3.4",
@@ -2466,7 +2903,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.5",
@@ -2474,7 +2912,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.6",
@@ -2482,7 +2921,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.7",
@@ -2490,7 +2930,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "3.3.8",
@@ -2498,7 +2939,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "needs-human"
     },
     {
       "sc_id": "3.3.9",
@@ -2506,7 +2948,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "4.1.2",
@@ -2515,7 +2958,8 @@
         "auto",
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     },
     {
       "sc_id": "4.1.3",
@@ -2523,7 +2967,8 @@
       "classes": [
         "instance"
       ],
-      "decidability": "needs-instance"
+      "decidability": "needs-instance",
+      "residue": "agent-closable"
     }
   ]
 }

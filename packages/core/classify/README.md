@@ -46,16 +46,18 @@ descriptions, used only for that comparison.)
 | `wcag-verification.classified.json` | Canonical verification predicates + `class` / `scope` / `definition`. |
 | `act-verification.canon.json` | Parallel V from ACT rule descriptions (38 covered SCs) — for the reducibility comparison only. |
 | **Tooling** | |
-| `gen-docs.mjs` | Regenerates the [Classifier (WIP)](../../../docs/classifier.md) docs page from the artifacts above. Run from the repo root: `node packages/core/classify/gen-docs.mjs`. |
+| `gen-docs.mjs` | Regenerates the Classifier docs pages — `docs/classifier/predicates.md` (registries, expressions, reducibility) and `docs/classifier/assessment.md` (the automation assessment) — from the artifacts above. Run from the repo root: `node packages/core/classify/gen-docs.mjs`. |
 
 ## Predicate classification
 
-- **class** — how a11y-assist handles the predicate.
-  - *Applicability:* `auto` = decided from the component's structure (ARIA roles +
-    contract, native elements, keyboard table); `instance` = needs the authored
-    markup; `human` = needs judgment.
-  - *Verification:* `auto` = machine-verifiable (axe-core / static check);
-    `instance` = agent inspects the markup; `human` = needs judgment about
-    meaning/equivalence.
+- **Applicability `class`** — can a11y-assist decide the trigger? `auto` (from the
+  component's structure — ARIA roles + contract, native elements, keyboard table),
+  `instance` (needs the authored markup), `human` (needs judgment).
+- **Verification `tier`** — how the postcondition is resolved *after the build*,
+  matched against axe-core's actual rule set: `axe` (an axe rule verifies it —
+  matched rule ids stored in `axe_rules`), `agent` (no axe rule, but an AI agent
+  can confirm it by inspecting the built code), `human` (judgment still required).
+  Each criterion's obligation then rolls up to a `residue`: `axe-complete`,
+  `agent-closable` (no user needed), or `needs-human`.
 - **scope** — `component` | `page` | `process` | `site`.
 - **definition** — the yes/no test for the predicate.
