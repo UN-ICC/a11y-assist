@@ -297,14 +297,25 @@ d('  PR2 --> OUT')
 d('  INC --> OUT')
 d('```','')
 
-d('## The gate map','')
-d('Nine coarse facets (level 1), each split into sub-gates (level 2). "gates SCs" is how many criteria the facet can decide.','')
+d('## The gate map — full tree','')
+d('Nine coarse facets (level 1), each split into sub-gates (level 2), each resolving to its predicate leaves (level 3). One subtree per facet — a single combined tree would be ~175 nodes. "gates SCs" is how many criteria the facet can decide. Below each tree, the same leaves as a table.','')
+const mlabel = s => String(s).replace(/"/g,"'")
+let fi=0
 for (const [fac,v] of Object.entries(FACETS.facets)) {
   d(`### ${fac}`,'')
   d(`**Gate:** ${v.gate}  ·  gates ${v.scs.length} SCs (${v.scs.join(', ')})`,'')
-  d('| Sub-gate | preds |','|---|---|')
-  for (const s of v.subgates) d(`| ${s.question} | ${s.predicates.length} |`)
+  d('```mermaid')
+  d('flowchart LR')
+  d(`  g${fi}["${mlabel(v.gate)}"]`)
+  v.subgates.forEach((s,si)=>{
+    d(`  g${fi} --> s${fi}_${si}["${mlabel(s.question)}"]`)
+    s.predicates.forEach((p,pi)=> d(`  s${fi}_${si} --> p${fi}_${si}_${pi}["${p}"]`))
+  })
+  d('```')
+  d('| Sub-gate | predicate leaves |','|---|---|')
+  for (const s of v.subgates) d(`| ${cell(s.question)} | ${s.predicates.map(p=>'`'+p+'`').join(' ')} |`)
   d('')
+  fi++
 }
 
 d('## Measured cost','')
