@@ -39,6 +39,76 @@ Headline numbers from the current data:
 - SC applicability decidability: **13** decided from structure alone (the floor), **30** need the markup, **43** need human judgment.
 - The structural floor — criteria that apply with no instance/human input: **2.1.2, 2.1.3, 2.4.2, 2.4.6, 2.4.7, 2.4.10, 2.5.6, 3.1.1, 3.2.1, 3.2.2, 3.3.5, 4.1.2, 4.1.3**.
 
+## Reducibility
+
+How much structure do the predicates impose on the 86 criteria? Two opposite readings hold at once: applicability is **reducible at the criterion level** (most SCs hinge on one condition) but **not at the vocabulary level** (the predicate set barely compresses).
+
+### Predicate reuse
+
+Most predicates govern a single criterion; only a thin backbone recurs.
+
+```mermaid
+xychart-beta
+    title "Predicates by number of SCs governed"
+    x-axis ["1 SC", "2 SCs", "3 SCs"]
+    y-axis "predicates" 0 --> 130
+    bar [129, 24, 4]
+```
+28 predicates recur across more than one SC; **129** are one-offs.
+
+### Criterion complexity
+
+How many predicates each criterion's expression uses. A large share need just one.
+
+```mermaid
+xychart-beta
+    title "SCs by number of predicates in their expression"
+    x-axis ["0", "1", "2", "3", "4", "5", "6"]
+    y-axis "Success Criteria" 0 --> 40
+    bar [2, 35, 20, 13, 8, 5, 3]
+```
+**37** of 86 criteria are decided by zero or one predicate.
+
+### Coverage
+
+Taking the top-K predicates by reuse, how many distinct criteria do they touch? The curve is close to linear — there is no small "core set" that explains most of WCAG. Completeness costs vocabulary.
+
+```mermaid
+xychart-beta
+    title "Distinct SCs touched by the top-K predicates"
+    x-axis ["5", "10", "20", "28", "40", "60", "157"]
+    y-axis "SCs touched (of 86)" 0 --> 86
+    line [13, 21, 31, 36, 44, 55, 84]
+```
+
+### Structure: criterion clusters
+
+Linking criteria that share a predicate decomposes the corpus into **63** near-independent units: **50** isolated criteria and **13** small families. The families are the bottom-up cross-corpus structure — discovered from the data, not asserted.
+
+```mermaid
+xychart-beta
+    title "Cluster sizes (criteria linked by a shared predicate)"
+    x-axis ["1 SC", "2 SCs", "3 SCs", "5 SCs", "8 SCs"]
+    y-axis "clusters" 0 --> 50
+    bar [50, 10, 1, 1, 1]
+```
+
+| Size | Criteria in the family |
+|---|---|
+| 8 | 1.2.1, 1.2.2, 1.2.3, 1.2.5, 1.2.6, 1.2.7, 1.2.8, 1.4.7 |
+| 5 | 1.3.6, 1.4.10, 2.4.10, 4.1.2, 4.1.3 |
+| 3 | 1.4.4, 1.4.5, 1.4.9 |
+| 2 | 1.4.3, 1.4.6 |
+| 2 | 2.1.1, 2.1.3 |
+| 2 | 2.3.1, 2.3.2 |
+| 2 | 2.4.4, 2.4.9 |
+| 2 | 2.4.5, 2.4.8 |
+| 2 | 2.4.11, 2.4.12 |
+| 2 | 2.5.1, 2.5.2 |
+| 2 | 2.5.5, 2.5.8 |
+| 2 | 3.3.1, 3.3.3 |
+| 2 | 3.3.8, 3.3.9 |
+
 ## Predicate registry
 
 The 157 canonical applicability conditions, grouped by detectability class. "SCs" lists the criteria whose applicability references the predicate.

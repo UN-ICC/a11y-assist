@@ -31,6 +31,7 @@ intermediate artifacts for review; nothing here is imported by `src/`.
 | `wcag-applicability.raw.json` | Raw per-SC extraction (un-merged). 162 distinct predicate strings. |
 | `wcag-applicability.canon.json` | Canonical registry (157 predicates) + 86 rewritten expressions. |
 | `wcag-predicates.classified.json` | Canonical predicates + `class` / `scope` / `definition`. |
+| `gen-docs.mjs` | Regenerates the [Classifier (WIP)](../../../docs/classifier.md) docs page (motivation, pipeline, reducibility charts, registry, per-SC table) from the artifacts above. Run from the repo root: `node packages/core/classify/gen-docs.mjs`. |
 
 ## Predicate classification
 
