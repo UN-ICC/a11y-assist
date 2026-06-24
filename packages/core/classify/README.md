@@ -45,6 +45,11 @@ descriptions, used only for that comparison.)
 | `wcag-verification.canon.json` | Canonical registry (148 predicates) + 86 rewritten obligation expressions. |
 | `wcag-verification.classified.json` | Canonical verification predicates + `class` / `scope` / `definition`. |
 | `act-verification.canon.json` | Parallel V from ACT rule descriptions (38 covered SCs) — for the reducibility comparison only. |
+| **Applicability decision tree (WIP prototype)** | |
+| `applicability-facets.json` | The 2-level prune tree: 9 coarse facet gates (level 1), each split into 2–4 sub-gates (level 2, 31 total), every non-auto predicate assigned to one sub-gate, plus the SCs each facet gates. |
+| `eval-slice.mjs` | Prototype: component → `deriveAuto` (auto predicate values) → three-valued evaluation → applies / not-applicable / depends. `PRESUME=1` defaults instance predicates false. |
+| `rounds-lib.mjs` | The rounds engine: `run(component)` → auto floor → facet gates → sub-gates → applicable SC set, plus representative `ANS` answer sets per component. Shared by the CLI and the docs generator. |
+| `eval-rounds.mjs` | CLI over `rounds-lib`: `node packages/core/classify/eval-rounds.mjs [component\|all]`. |
 | **Tooling** | |
 | `gen-docs.mjs` | Regenerates the Classifier docs pages — `docs/classifier/predicates.md` (registries, expressions, reducibility) and `docs/classifier/assessment.md` (the automation assessment) — from the artifacts above. Run from the repo root: `node packages/core/classify/gen-docs.mjs`. |
 

@@ -1,0 +1,736 @@
+{
+  "gates": {
+    "media": "Any audio or video (time-based media)?",
+    "images": "Any images, icons, or graphics (non-text content)?",
+    "color-contrast": "Does anything rely on color, or need visual contrast?",
+    "text-language": "Is there reading text / language content?",
+    "timing-motion": "Any time limits, moving/auto-updating content, animation, or flashing?",
+    "pointer-gesture": "Any pointer gestures, dragging, motion, or touch targets?",
+    "forms-input": "Does it collect user input (forms/fields)?",
+    "navigation-context": "Is it navigation, part of a page set, or a multi-step/transactional process?",
+    "structure-focus": "Does it convey structure, or manage focus/keyboard interaction?",
+    "other": "(uncategorised)"
+  },
+  "facets": {
+    "media": {
+      "gate": "Any audio or video (time-based media)?",
+      "predicates": [
+        "audio-captcha",
+        "audio-lasts-more-than-3-seconds",
+        "audio-logo",
+        "audio-plays-automatically",
+        "captions",
+        "foreground-speech-primary",
+        "live-audio-in-synchronized-media",
+        "live-audio-only-content-present",
+        "media-alternative-for-text-clearly-labeled",
+        "musical-vocalization",
+        "non-interactive-synchronized-media",
+        "pauses-in-foreground-audio-insufficient",
+        "prerecorded-audio-in-synchronized-media",
+        "prerecorded-audio-only-media-present",
+        "prerecorded-synchronized-media-present",
+        "prerecorded-video-in-synchronized-media",
+        "prerecorded-video-only-media-present"
+      ],
+      "scs": [
+        "1.2.1",
+        "1.2.2",
+        "1.2.3",
+        "1.2.4",
+        "1.2.5",
+        "1.2.6",
+        "1.2.7",
+        "1.2.8",
+        "1.2.9",
+        "1.4.2",
+        "1.4.4",
+        "1.4.7",
+        "2.2.3"
+      ],
+      "subgates": [
+        {
+          "question": "Is there synchronized media (an audio and video track playing together)?",
+          "predicates": [
+            "captions",
+            "live-audio-in-synchronized-media",
+            "non-interactive-synchronized-media",
+            "pauses-in-foreground-audio-insufficient",
+            "prerecorded-audio-in-synchronized-media",
+            "prerecorded-synchronized-media-present",
+            "prerecorded-video-in-synchronized-media"
+          ]
+        },
+        {
+          "question": "Is there standalone audio (sound-only content, e.g. an audio clip, autoplay sound, or audio CAPTCHA)?",
+          "predicates": [
+            "audio-captcha",
+            "audio-lasts-more-than-3-seconds",
+            "audio-logo",
+            "audio-plays-automatically",
+            "foreground-speech-primary",
+            "live-audio-only-content-present",
+            "musical-vocalization",
+            "prerecorded-audio-only-media-present"
+          ]
+        },
+        {
+          "question": "Is there video-only media (no audio track) or media provided as a labeled alternative for text?",
+          "predicates": [
+            "prerecorded-video-only-media-present",
+            "media-alternative-for-text-clearly-labeled"
+          ]
+        }
+      ]
+    },
+    "images": {
+      "gate": "Any images, icons, or graphics (non-text content)?",
+      "predicates": [
+        "icon-present",
+        "image-of-text-customizable",
+        "image-of-text-present",
+        "non-text-content-present",
+        "particular-presentation-essential",
+        "technology-can-achieve-visual-presentation",
+        "ui-component-has-label-with-image-of-text"
+      ],
+      "scs": [
+        "1.1.1",
+        "1.3.6",
+        "1.4.4",
+        "1.4.5",
+        "1.4.9",
+        "2.5.3"
+      ],
+      "subgates": [
+        {
+          "question": "Are there images of text (visual content that is a rendering of readable text, including in a component label)?",
+          "predicates": [
+            "image-of-text-customizable",
+            "image-of-text-present",
+            "particular-presentation-essential",
+            "technology-can-achieve-visual-presentation",
+            "ui-component-has-label-with-image-of-text"
+          ]
+        },
+        {
+          "question": "Is there non-text content such as an image, chart, or icon?",
+          "predicates": [
+            "non-text-content-present",
+            "icon-present"
+          ]
+        }
+      ]
+    },
+    "color-contrast": {
+      "gate": "Does anything rely on color, or need visual contrast?",
+      "predicates": [
+        "color-conveys-information",
+        "color-distinguishes-visual-element",
+        "color-indicates-action",
+        "color-prompts-response",
+        "decorative-text",
+        "graphical-object-required-to-understand-present",
+        "graphics-presentation-essential",
+        "inactive-ui-component",
+        "inactive-ui-component-text",
+        "logotype",
+        "not-visible-text",
+        "text-or-image-of-text-present",
+        "text-part-of-picture",
+        "ui-component-appearance-user-agent-determined"
+      ],
+      "scs": [
+        "1.4.1",
+        "1.4.3",
+        "1.4.6",
+        "1.4.11"
+      ],
+      "subgates": [
+        {
+          "question": "Is color alone used to convey meaning, indicate an action, distinguish elements, or prompt a response?",
+          "predicates": [
+            "color-conveys-information",
+            "color-distinguishes-visual-element",
+            "color-indicates-action",
+            "color-prompts-response"
+          ]
+        },
+        {
+          "question": "Is there text or an image of text whose contrast could matter?",
+          "predicates": [
+            "text-or-image-of-text-present",
+            "decorative-text",
+            "inactive-ui-component-text",
+            "logotype",
+            "not-visible-text",
+            "text-part-of-picture"
+          ]
+        },
+        {
+          "question": "Are there non-text graphical objects or UI components whose contrast could matter?",
+          "predicates": [
+            "graphical-object-required-to-understand-present",
+            "graphics-presentation-essential",
+            "inactive-ui-component",
+            "ui-component-appearance-user-agent-determined"
+          ]
+        }
+      ]
+    },
+    "text-language": {
+      "gate": "Is there reading text / language content?",
+      "predicates": [
+        "abbreviation-present",
+        "blocks-of-text-present",
+        "idiom-present",
+        "jargon-present",
+        "language-script-without-text-style-properties",
+        "passage-or-phrase-in-content",
+        "proper-name",
+        "technical-term",
+        "text-present",
+        "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+        "ui-component-has-label-with-text",
+        "word-meaning-ambiguous-without-pronunciation",
+        "word-of-indeterminate-language",
+        "word-or-phrase-used-in-unusual-or-restricted-way",
+        "word-part-of-vernacular-of-surrounding-text"
+      ],
+      "scs": [
+        "1.4.4",
+        "1.4.8",
+        "1.4.12",
+        "2.5.3",
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6"
+      ],
+      "subgates": [
+        {
+          "question": "Is there text content, blocks of running text, or text labels at all?",
+          "predicates": [
+            "text-present",
+            "blocks-of-text-present",
+            "ui-component-has-label-with-text",
+            "language-script-without-text-style-properties"
+          ]
+        },
+        {
+          "question": "Are there foreign-language passages, proper names, or words of indeterminate language?",
+          "predicates": [
+            "passage-or-phrase-in-content",
+            "proper-name",
+            "technical-term",
+            "word-of-indeterminate-language",
+            "word-part-of-vernacular-of-surrounding-text"
+          ]
+        },
+        {
+          "question": "Are there abbreviations, idioms, jargon, or words used in an unusual or restricted way?",
+          "predicates": [
+            "abbreviation-present",
+            "idiom-present",
+            "jargon-present",
+            "word-or-phrase-used-in-unusual-or-restricted-way"
+          ]
+        },
+        {
+          "question": "Does the text demand advanced reading ability or depend on pronunciation to be understood?",
+          "predicates": [
+            "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles",
+            "word-meaning-ambiguous-without-pronunciation"
+          ]
+        }
+      ]
+    },
+    "timing-motion": {
+      "gate": "Any time limits, moving/auto-updating content, animation, or flashing?",
+      "predicates": [
+        "animation-essential-to-functionality",
+        "animation-essential-to-information-conveyed",
+        "authenticated-session-expires",
+        "auto-updating-information-present",
+        "data-preserved-more-than-twenty-hours",
+        "emergency-interruption",
+        "event-or-activity-present",
+        "flashing-content-present",
+        "interruptions-present",
+        "lasts-more-than-five-seconds",
+        "motion-animation-triggered-by-interaction-present",
+        "moving-blinking-or-scrolling-information-present",
+        "part-of-essential-activity",
+        "presented-in-parallel-with-other-content",
+        "real-time-event",
+        "starts-automatically",
+        "time-limit-set-by-content",
+        "user-inactivity-could-cause-data-loss"
+      ],
+      "scs": [
+        "2.2.1",
+        "2.2.2",
+        "2.2.3",
+        "2.2.4",
+        "2.2.5",
+        "2.2.6",
+        "2.3.1",
+        "2.3.2",
+        "2.3.3"
+      ],
+      "subgates": [
+        {
+          "question": "Are there any time limits, session timeouts, or time-based events that could expire or risk data loss?",
+          "predicates": [
+            "time-limit-set-by-content",
+            "authenticated-session-expires",
+            "data-preserved-more-than-twenty-hours",
+            "user-inactivity-could-cause-data-loss",
+            "event-or-activity-present",
+            "real-time-event"
+          ]
+        },
+        {
+          "question": "Is there any moving, blinking, scrolling, or auto-updating content?",
+          "predicates": [
+            "auto-updating-information-present",
+            "moving-blinking-or-scrolling-information-present",
+            "lasts-more-than-five-seconds",
+            "starts-automatically",
+            "presented-in-parallel-with-other-content",
+            "part-of-essential-activity"
+          ]
+        },
+        {
+          "question": "Does the content interrupt the user with alerts, pop-ups, or auto-updates?",
+          "predicates": [
+            "interruptions-present",
+            "emergency-interruption"
+          ]
+        },
+        {
+          "question": "Is there any flashing, animation, or motion effect?",
+          "predicates": [
+            "flashing-content-present",
+            "motion-animation-triggered-by-interaction-present",
+            "animation-essential-to-functionality",
+            "animation-essential-to-information-conveyed"
+          ]
+        }
+      ]
+    },
+    "pointer-gesture": {
+      "gate": "Any pointer gestures, dragging, motion, or touch targets?",
+      "predicates": [
+        "dragging-essential",
+        "equivalent-target-available",
+        "functionality-determined-by-user-agent-not-modified-by-author",
+        "functionality-operated-by-device-motion",
+        "functionality-operated-by-user-motion",
+        "functionality-operated-with-single-pointer",
+        "functionality-uses-multipoint-gesture",
+        "functionality-uses-path-based-gesture",
+        "functionality-using-dragging-movement-present",
+        "gesture-essential",
+        "motion-essential",
+        "motion-operated-through-accessibility-supported-interface",
+        "operates-user-agent-or-assistive-technology",
+        "path-dependent-input-essential",
+        "target-inline-in-text",
+        "target-presentation-essential",
+        "target-presentation-essential-or-legally-required",
+        "target-size-determined-by-user-agent"
+      ],
+      "scs": [
+        "2.1.1",
+        "2.5.1",
+        "2.5.2",
+        "2.5.4",
+        "2.5.5",
+        "2.5.7",
+        "2.5.8"
+      ],
+      "subgates": [
+        {
+          "question": "Multipoint or path-based gestures (incl. path-dependent input)?",
+          "predicates": [
+            "functionality-uses-multipoint-gesture",
+            "functionality-uses-path-based-gesture",
+            "gesture-essential",
+            "functionality-operated-with-single-pointer",
+            "operates-user-agent-or-assistive-technology",
+            "path-dependent-input-essential"
+          ]
+        },
+        {
+          "question": "Dragging movements?",
+          "predicates": [
+            "functionality-using-dragging-movement-present",
+            "dragging-essential",
+            "functionality-determined-by-user-agent-not-modified-by-author"
+          ]
+        },
+        {
+          "question": "Device-motion or user-motion actuation?",
+          "predicates": [
+            "functionality-operated-by-device-motion",
+            "functionality-operated-by-user-motion",
+            "motion-essential",
+            "motion-operated-through-accessibility-supported-interface"
+          ]
+        },
+        {
+          "question": "Custom-sized pointer/touch targets?",
+          "predicates": [
+            "equivalent-target-available",
+            "target-inline-in-text",
+            "target-presentation-essential",
+            "target-presentation-essential-or-legally-required",
+            "target-size-determined-by-user-agent"
+          ]
+        }
+      ]
+    },
+    "forms-input": {
+      "gate": "Does it collect user input (forms/fields)?",
+      "predicates": [
+        "cognitive-function-test-is-object-recognition",
+        "cognitive-function-test-is-personal-content",
+        "cognitive-function-test-required-in-authentication-process",
+        "content-requires-user-input",
+        "correction-suggestions-known",
+        "information-previously-entered-required-again-in-same-process",
+        "information-required-for-security",
+        "input-error-automatically-detected",
+        "input-field-collecting-information-about-the-user",
+        "input-field-serves-identified-input-purpose",
+        "previously-entered-information-no-longer-valid",
+        "providing-suggestions-jeopardizes-security-or-purpose",
+        "re-entering-information-essential",
+        "user-submits-information"
+      ],
+      "scs": [
+        "1.3.5",
+        "3.3.1",
+        "3.3.2",
+        "3.3.3",
+        "3.3.6",
+        "3.3.7",
+        "3.3.8",
+        "3.3.9"
+      ],
+      "subgates": [
+        {
+          "question": "Is it part of an authentication flow / cognitive function test?",
+          "predicates": [
+            "cognitive-function-test-required-in-authentication-process",
+            "cognitive-function-test-is-object-recognition",
+            "cognitive-function-test-is-personal-content"
+          ]
+        },
+        {
+          "question": "Does it validate or report input errors?",
+          "predicates": [
+            "input-error-automatically-detected",
+            "correction-suggestions-known",
+            "providing-suggestions-jeopardizes-security-or-purpose"
+          ]
+        },
+        {
+          "question": "Does it re-request previously entered information?",
+          "predicates": [
+            "information-previously-entered-required-again-in-same-process",
+            "information-required-for-security",
+            "previously-entered-information-no-longer-valid",
+            "re-entering-information-essential"
+          ]
+        },
+        {
+          "question": "Does it collect or submit user input via fields?",
+          "predicates": [
+            "content-requires-user-input",
+            "user-submits-information",
+            "input-field-collecting-information-about-the-user",
+            "input-field-serves-identified-input-purpose"
+          ]
+        }
+      ]
+    },
+    "navigation-context": {
+      "gate": "Is it navigation, part of a page set, or a multi-step/transactional process?",
+      "predicates": [
+        "blocks-of-content-repeated-on-multiple-web-pages",
+        "change-of-context-present",
+        "components-with-same-functionality-within-set-present",
+        "financial-transaction-caused",
+        "fully-automated-contact-mechanism-present",
+        "help-mechanism-repeated-on-multiple-pages-in-set",
+        "human-contact-details-present",
+        "human-contact-mechanism-present",
+        "legal-commitment-caused",
+        "link-purpose-ambiguous-to-users-in-general",
+        "navigational-mechanism-repeated-on-multiple-pages-in-set",
+        "self-help-option-present",
+        "user-controllable-data-modified-or-deleted",
+        "user-test-responses-submitted",
+        "web-page-is-result-of-process",
+        "web-page-is-step-in-process",
+        "web-page-within-set-of-web-pages"
+      ],
+      "scs": [
+        "2.4.1",
+        "2.4.4",
+        "2.4.5",
+        "2.4.8",
+        "2.4.9",
+        "3.2.3",
+        "3.2.4",
+        "3.2.5",
+        "3.2.6",
+        "3.3.4"
+      ],
+      "subgates": [
+        {
+          "question": "Is this page one of a set of related pages with content/mechanisms repeated across them?",
+          "predicates": [
+            "blocks-of-content-repeated-on-multiple-web-pages",
+            "components-with-same-functionality-within-set-present",
+            "navigational-mechanism-repeated-on-multiple-pages-in-set",
+            "web-page-within-set-of-web-pages"
+          ]
+        },
+        {
+          "question": "Does the page provide a help or contact mechanism?",
+          "predicates": [
+            "fully-automated-contact-mechanism-present",
+            "help-mechanism-repeated-on-multiple-pages-in-set",
+            "human-contact-details-present",
+            "human-contact-mechanism-present",
+            "self-help-option-present"
+          ]
+        },
+        {
+          "question": "Is it a step in a multi-step / transactional process (legal / financial / data-changing)?",
+          "predicates": [
+            "financial-transaction-caused",
+            "legal-commitment-caused",
+            "user-controllable-data-modified-or-deleted",
+            "user-test-responses-submitted",
+            "web-page-is-result-of-process",
+            "web-page-is-step-in-process"
+          ]
+        },
+        {
+          "question": "Are there links or controls whose activation changes context?",
+          "predicates": [
+            "change-of-context-present",
+            "link-purpose-ambiguous-to-users-in-general"
+          ]
+        }
+      ]
+    },
+    "structure-focus": {
+      "gate": "Does it convey structure, or manage focus/keyboard interaction?",
+      "predicates": [
+        "additional-content-user-agent-controlled",
+        "author-created-content-present",
+        "character-key-shortcut-implemented",
+        "content-sequence-affects-meaning",
+        "display-orientation-essential",
+        "focus-indicator-determined-by-user-agent",
+        "focus-indicator-not-modified-by-author",
+        "focus-triggers-additional-content",
+        "hover-triggers-additional-content",
+        "information-structure-or-relationships-conveyed-through-presentation",
+        "instructions-for-understanding-and-operating-content-present",
+        "keyboard-focus-indicator-visible",
+        "navigation-sequence-affects-meaning",
+        "navigation-sequence-affects-operation",
+        "two-dimensional-layout-essential"
+      ],
+      "scs": [
+        "1.3.1",
+        "1.3.2",
+        "1.3.3",
+        "1.3.4",
+        "1.4.10",
+        "1.4.13",
+        "2.1.4",
+        "2.4.3",
+        "2.4.11",
+        "2.4.12",
+        "2.4.13"
+      ],
+      "subgates": [
+        {
+          "question": "Does it convey structure, relationships, order, or layout/orientation visually?",
+          "predicates": [
+            "information-structure-or-relationships-conveyed-through-presentation",
+            "content-sequence-affects-meaning",
+            "instructions-for-understanding-and-operating-content-present",
+            "display-orientation-essential",
+            "two-dimensional-layout-essential",
+            "navigation-sequence-affects-meaning",
+            "navigation-sequence-affects-operation"
+          ]
+        },
+        {
+          "question": "Does it manage focus appearance, keyboard shortcuts, or overlay content that can obscure focus?",
+          "predicates": [
+            "author-created-content-present",
+            "character-key-shortcut-implemented",
+            "focus-indicator-determined-by-user-agent",
+            "focus-indicator-not-modified-by-author",
+            "keyboard-focus-indicator-visible"
+          ]
+        },
+        {
+          "question": "Does extra content appear on hover or focus?",
+          "predicates": [
+            "additional-content-user-agent-controlled",
+            "focus-triggers-additional-content",
+            "hover-triggers-additional-content"
+          ]
+        }
+      ]
+    }
+  },
+  "predicate_facet": {
+    "image-of-text-present": "images",
+    "media-alternative-for-text-clearly-labeled": "media",
+    "prerecorded-video-in-synchronized-media": "media",
+    "author-created-content-present": "structure-focus",
+    "cognitive-function-test-required-in-authentication-process": "forms-input",
+    "decorative-text": "color-contrast",
+    "flashing-content-present": "timing-motion",
+    "inactive-ui-component-text": "color-contrast",
+    "input-error-automatically-detected": "forms-input",
+    "link-purpose-ambiguous-to-users-in-general": "navigation-context",
+    "logotype": "color-contrast",
+    "not-visible-text": "color-contrast",
+    "operates-user-agent-or-assistive-technology": "pointer-gesture",
+    "prerecorded-audio-in-synchronized-media": "media",
+    "prerecorded-audio-only-media-present": "media",
+    "prerecorded-video-only-media-present": "media",
+    "target-inline-in-text": "pointer-gesture",
+    "target-size-determined-by-user-agent": "pointer-gesture",
+    "text-or-image-of-text-present": "color-contrast",
+    "text-part-of-picture": "color-contrast",
+    "web-page-within-set-of-web-pages": "navigation-context",
+    "abbreviation-present": "text-language",
+    "additional-content-user-agent-controlled": "structure-focus",
+    "animation-essential-to-functionality": "timing-motion",
+    "animation-essential-to-information-conveyed": "timing-motion",
+    "audio-captcha": "media",
+    "audio-lasts-more-than-3-seconds": "media",
+    "audio-logo": "media",
+    "audio-plays-automatically": "media",
+    "authenticated-session-expires": "timing-motion",
+    "auto-updating-information-present": "timing-motion",
+    "blocks-of-content-repeated-on-multiple-web-pages": "navigation-context",
+    "blocks-of-text-present": "text-language",
+    "captions": "media",
+    "change-of-context-present": "navigation-context",
+    "character-key-shortcut-implemented": "structure-focus",
+    "cognitive-function-test-is-object-recognition": "forms-input",
+    "cognitive-function-test-is-personal-content": "forms-input",
+    "color-conveys-information": "color-contrast",
+    "color-distinguishes-visual-element": "color-contrast",
+    "color-indicates-action": "color-contrast",
+    "color-prompts-response": "color-contrast",
+    "components-with-same-functionality-within-set-present": "navigation-context",
+    "content-requires-user-input": "forms-input",
+    "content-sequence-affects-meaning": "structure-focus",
+    "correction-suggestions-known": "forms-input",
+    "data-preserved-more-than-twenty-hours": "timing-motion",
+    "display-orientation-essential": "structure-focus",
+    "dragging-essential": "pointer-gesture",
+    "emergency-interruption": "timing-motion",
+    "equivalent-target-available": "pointer-gesture",
+    "event-or-activity-present": "timing-motion",
+    "financial-transaction-caused": "navigation-context",
+    "legal-commitment-caused": "navigation-context",
+    "focus-indicator-not-modified-by-author": "structure-focus",
+    "focus-triggers-additional-content": "structure-focus",
+    "foreground-speech-primary": "media",
+    "fully-automated-contact-mechanism-present": "navigation-context",
+    "functionality-determined-by-user-agent-not-modified-by-author": "pointer-gesture",
+    "functionality-operated-by-device-motion": "pointer-gesture",
+    "functionality-operated-by-user-motion": "pointer-gesture",
+    "functionality-operated-with-single-pointer": "pointer-gesture",
+    "functionality-uses-multipoint-gesture": "pointer-gesture",
+    "functionality-uses-path-based-gesture": "pointer-gesture",
+    "functionality-using-dragging-movement-present": "pointer-gesture",
+    "gesture-essential": "pointer-gesture",
+    "graphical-object-required-to-understand-present": "color-contrast",
+    "graphics-presentation-essential": "color-contrast",
+    "help-mechanism-repeated-on-multiple-pages-in-set": "navigation-context",
+    "human-contact-details-present": "navigation-context",
+    "human-contact-mechanism-present": "navigation-context",
+    "icon-present": "images",
+    "idiom-present": "text-language",
+    "image-of-text-customizable": "images",
+    "inactive-ui-component": "color-contrast",
+    "information-previously-entered-required-again-in-same-process": "forms-input",
+    "information-required-for-security": "forms-input",
+    "information-structure-or-relationships-conveyed-through-presentation": "structure-focus",
+    "input-field-collecting-information-about-the-user": "forms-input",
+    "input-field-serves-identified-input-purpose": "forms-input",
+    "instructions-for-understanding-and-operating-content-present": "structure-focus",
+    "interruptions-present": "timing-motion",
+    "jargon-present": "text-language",
+    "keyboard-focus-indicator-visible": "structure-focus",
+    "language-script-without-text-style-properties": "text-language",
+    "lasts-more-than-five-seconds": "timing-motion",
+    "live-audio-in-synchronized-media": "media",
+    "live-audio-only-content-present": "media",
+    "motion-animation-triggered-by-interaction-present": "timing-motion",
+    "motion-essential": "pointer-gesture",
+    "motion-operated-through-accessibility-supported-interface": "pointer-gesture",
+    "moving-blinking-or-scrolling-information-present": "timing-motion",
+    "musical-vocalization": "media",
+    "navigation-sequence-affects-meaning": "structure-focus",
+    "navigation-sequence-affects-operation": "structure-focus",
+    "navigational-mechanism-repeated-on-multiple-pages-in-set": "navigation-context",
+    "non-interactive-synchronized-media": "media",
+    "non-text-content-present": "images",
+    "part-of-essential-activity": "timing-motion",
+    "particular-presentation-essential": "images",
+    "passage-or-phrase-in-content": "text-language",
+    "path-dependent-input-essential": "pointer-gesture",
+    "pauses-in-foreground-audio-insufficient": "media",
+    "prerecorded-synchronized-media-present": "media",
+    "presented-in-parallel-with-other-content": "timing-motion",
+    "previously-entered-information-no-longer-valid": "forms-input",
+    "proper-name": "text-language",
+    "providing-suggestions-jeopardizes-security-or-purpose": "forms-input",
+    "re-entering-information-essential": "forms-input",
+    "real-time-event": "timing-motion",
+    "self-help-option-present": "navigation-context",
+    "starts-automatically": "timing-motion",
+    "target-presentation-essential": "pointer-gesture",
+    "target-presentation-essential-or-legally-required": "pointer-gesture",
+    "technical-term": "text-language",
+    "technology-can-achieve-visual-presentation": "images",
+    "text-present": "text-language",
+    "text-requires-advanced-reading-ability-after-removing-proper-names-and-titles": "text-language",
+    "time-limit-set-by-content": "timing-motion",
+    "two-dimensional-layout-essential": "structure-focus",
+    "ui-component-appearance-user-agent-determined": "color-contrast",
+    "ui-component-has-label-with-image-of-text": "images",
+    "ui-component-has-label-with-text": "text-language",
+    "user-controllable-data-modified-or-deleted": "navigation-context",
+    "user-inactivity-could-cause-data-loss": "timing-motion",
+    "user-submits-information": "forms-input",
+    "user-test-responses-submitted": "navigation-context",
+    "web-page-is-result-of-process": "navigation-context",
+    "web-page-is-step-in-process": "navigation-context",
+    "word-meaning-ambiguous-without-pronunciation": "text-language",
+    "word-of-indeterminate-language": "text-language",
+    "word-or-phrase-used-in-unusual-or-restricted-way": "text-language",
+    "word-part-of-vernacular-of-surrounding-text": "text-language",
+    "focus-indicator-determined-by-user-agent": "structure-focus",
+    "hover-triggers-additional-content": "structure-focus"
+  }
+}

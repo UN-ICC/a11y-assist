@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
+import { run, ANS, FAC as FACETS } from './rounds-lib.mjs'
 const require = createRequire(import.meta.url)
 const A = JSON.parse(readFileSync('packages/core/classify/wcag-predicates.classified.json','utf8'))
 const V = JSON.parse(readFileSync('packages/core/classify/wcag-verification.classified.json','utf8'))
@@ -265,3 +266,73 @@ q('- **The leverage is the agent tier, not more static coverage.** Past axe\'s h
 
 writeFileSync('docs/classifier/assessment.md', M.join('\n'))
 console.log('wrote docs/classifier/assessment.md —', M.length, 'lines')
+
+// ============================ DECISION TREE PAGE ============================
+const D=[]; const d=(...x)=>D.push(...x)
+const rows = Object.keys(ANS).map(run).filter(Boolean).sort((a,b)=>a.q-b.q||a.NAME.localeCompare(b.NAME))
+const autoCount = A.predicates.filter(p=>p.class==='auto').length
+const nonAuto = A.predicates.length - autoCount
+const totalSub = Object.values(FACETS.facets).reduce((a,f)=>a+f.subgates.length,0)
+
+d('---','title: Decision tree','parent: Classifier (WIP)','nav_order: 3','permalink: /classifier/decision-tree/','---','')
+d('# Decision tree','')
+d('The *pre-verification* problem: given a component, **which Success Criteria apply at all?** Naively that means assessing all 157 applicability [predicates]({{ \'/classifier/predicates/\' | relative_url }}). This page is the mechanism that resolves it in a few rounds of mostly-"no" questions instead.','')
+
+d('## Three sources of truth','')
+d(`Applicability predicates are settled three ways, cheapest first:`,'')
+d(`1. **Derive** — the **${autoCount} \`auto\` predicates** come free from the component selection (its ARIA roles + contract + native elements). No questions.`)
+d(`2. **Gate** — the remaining **${nonAuto}** (instance + human) are organised into a 2-level prune tree: **9 facet gates** → **${totalSub} sub-gates**. A gate answered "no" prunes its whole cluster; "yes" includes it (conservative — over-include for review rather than miss).`)
+d(`3. **Ask / presume** — gates the agent can\'t derive from the build, it presumes "no" (build flow) or asks the user.`,'')
+
+d('```mermaid')
+d('flowchart TD')
+d('  S["Select component (APG / role)"] --> R0["Round 0 — derive auto predicates · 0 questions"]')
+d('  R0 --> R1{"Round 1 — ~9 facet gates"}')
+d('  R1 -->|no| PR["prune facet cluster"]')
+d('  R1 -->|yes| R2{"Round 2 — that facet\'s 2–4 sub-gates"}')
+d('  R2 -->|no| PR2["prune sub-cluster"]')
+d('  R2 -->|yes| INC["include → those SCs apply"]')
+d('  PR --> OUT["Applicable SC set"]')
+d('  PR2 --> OUT')
+d('  INC --> OUT')
+d('```','')
+
+d('## The gate map','')
+d('Nine coarse facets (level 1), each split into sub-gates (level 2). "gates SCs" is how many criteria the facet can decide.','')
+for (const [fac,v] of Object.entries(FACETS.facets)) {
+  d(`### ${fac}`,'')
+  d(`**Gate:** ${v.gate}  ·  gates ${v.scs.length} SCs (${v.scs.join(', ')})`,'')
+  d('| Sub-gate | preds |','|---|---|')
+  for (const s of v.subgates) d(`| ${s.question} | ${s.predicates.length} |`)
+  d('')
+}
+
+d('## Measured cost','')
+d('Running the rounds engine over a spread of components (with representative answer sets). Every one resolves **fully** — zero `depends` — in two question-rounds.','')
+d('| Component | widget | yes-facets | questions (9 + sub) | applies | n/a | depends |')
+d('|---|---|---|---|---|---|---|')
+for (const r of rows) d(`| ${r.NAME} | ${r.widget?'yes':'no'} | ${r.yesFacets.length} | **${r.q}** | ${r.applies} | ${r.na} | ${r.dep} |`)
+d('')
+d('```mermaid')
+d('xychart-beta')
+d('    title "Questions to resolve applicability, by component"')
+d(`    x-axis [${rows.map(r=>`"${r.NAME}"`).join(', ')}]`)
+d('    y-axis "questions" 0 --> 140')
+d(`    bar [${rows.map(r=>r.q).join(', ')}]`)
+d(`    line [${rows.map(()=>135).join(', ')}]`)
+d('```')
+d('The bars are the rounds engine; the flat line at 135 is the naive "ask every non-auto predicate." The count scales with component richness (2 active facets → ~16, 4 → ~23) and stays bounded well under the naive baseline.','')
+
+d('## Why it converges','')
+d('- **70 of 86 SCs are gated by a single facet** (see [reducibility]({{ \'/classifier/predicates/#reducibility\' | relative_url }})), so one gate cleanly decides each.')
+d('- **Within a facet the prior is skewed too** — "there is text? yes" but "abbreviations / idioms / foreign-language? no, no, no" — so sub-gates prune most of a yes-facet\'s contents.')
+d('- The tree is therefore **shallow (2 levels)** and the answers are **mostly "no"**, which is what collapses 135 → ~20.','')
+
+d('## Caveats','')
+d('- The per-component figures use **representative hardcoded answer sets** — what is validated is the mechanism and the bounded question count, not the exact `applies` for each component.')
+d('- "yes → include the cluster" is **conservative**: it can slightly over-apply. That is the safe direction for applicability (over-include for review, never silently miss); exceptions are refined at verification.')
+d('- The count can drop further: several facet gates are themselves **derivable** (`forms-input` ⇐ an input role, `navigation-context` ⇐ a link role), so a real agent would not ask them.')
+d('- Prototype only — `eval-rounds.mjs` / `rounds-lib.mjs` in `classify/`, not wired into the build.','')
+
+writeFileSync('docs/classifier/decision-tree.md', D.join('\n'))
+console.log('wrote docs/classifier/decision-tree.md —', D.length, 'lines')
