@@ -55,12 +55,23 @@ const act = [...actRules.values()].map((r) => ({
 // --- applicability engine (experimental): precompute each component's `auto`
 // predicate truth here (server-side, via core), inline the facet tree +
 // expressions + definitions; the browser runs only a tiny evaluator. ---
-const autoTrue = (c: { aria_contract: Record<string, { accessible_name_required: boolean }>; native_elements: { canonical_id: string }[]; apg?: { keyboard_interactions: unknown[] } }) => {
-  const a = applicability.deriveAuto(applicability.factsFromComposition(c))
-  return Object.keys(a).filter((k) => a[k as keyof typeof a])
+const LEVELS = ['A', 'AA', 'AAA'] as const
+for (const c of [...apg, ...primitives]) {
+  const facts = applicability.factsFromComposition(c)
+  const auto = applicability.deriveAuto(facts)
+  const rec = c as unknown as Record<string, unknown>
+  rec.auto_applicability = Object.keys(auto).filter((k) => auto[k as keyof typeof auto]) // for the walkthrough
+  const guidance: Record<string, unknown> = {}
+  for (const lv of LEVELS) {
+    const g = applicability.structuralGuidance(facts, lv)
+    guidance[lv] = {
+      floor: g.floor,
+      contentDependent: g.contentDependent.length,
+      checklist: { axe: g.checklist.axe, agent: g.checklist.agent, human: g.checklist.human },
+    }
+  }
+  rec.guidance = guidance // precomputed structural guidance per level (input-free)
 }
-for (const c of apg) (c as Record<string, unknown>).auto_applicability = autoTrue(c)
-for (const c of primitives) (c as Record<string, unknown>).auto_applicability = autoTrue(c)
 
 const applData = {
   facets: applicability.FACETS,

@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { composeAriaRole } from 'a11y-assist-core'
+import { applicableScs } from '../applicable-scs.js'
 
 const parameters = z.object({
   role: z.string().describe(
@@ -20,7 +21,9 @@ export const getAriaRoleTool = {
   description:
     'ENTRY POINT for working on a native primitive / small element. Returns the ARIA ' +
     'contract for the role (required/supported props, name source), the native HTML ' +
-    'elements that carry it, and `suggested_queries` (ACT searches) to run next. Same ' +
+    'elements that carry it, and `suggested_queries` (ACT searches) to run next. Also ' +
+    'returns `applicable_scs`: the WCAG criteria that apply from the role structurally ' +
+    '(the floor) at the chosen level, plus a tiered verification checklist. Same ' +
     'drill-down as get_apg_pattern: search_act → get_wcag_sc → audit_html. Use ' +
     'get_apg_pattern instead for composite components (dialog, tabs, …).',
   parameters,
@@ -32,6 +35,6 @@ export const getAriaRoleTool = {
         hint: 'Use get_element_roles to resolve an HTML element to its role(s), or get_apg_pattern for composite components.',
       })
     }
-    return JSON.stringify(composed)
+    return JSON.stringify({ ...composed, applicable_scs: applicableScs(composed, level) })
   },
 }

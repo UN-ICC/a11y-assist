@@ -35,7 +35,7 @@ export function evalExpr(expr: string, look: (predicate: string) => Tri): Tri {
 }
 
 const predicatesIn = (expr: string): string[] =>
-  [...new Set(expr.replace(/\(/g, ' ( ').replace(/\)/g, ' ) ').split(/\s+/).filter((t) => !OPS.has(t)))]
+  [...new Set(expr.replace(/\(/g, ' ( ').replace(/\)/g, ' ) ').split(/\s+/).filter((t) => t && !OPS.has(t)))]
 
 export interface ApplicabilityResult {
   applies: SCId[]

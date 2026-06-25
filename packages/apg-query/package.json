@@ -1,6 +1,6 @@
 {
   "name": "apg-query",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Programmatic access to the W3C ARIA Authoring Practices Guide (APG) patterns. Analogous to aria-query, but for APG.",
   "type": "module",
   "main": "dist/index.js",

@@ -7,7 +7,7 @@ Documentation and the web application: <https://un-icc.github.io/a11y-assist/>
 ## Purpose
 
 - Accessibility requirements are distributed across four W3C documents and published as prose. They are not machine-readable, and the material for a single component is too large to review at once and exceeds an AI agent's context. a11y-assist extracts each source verbatim into queryable libraries and serves them on demand.
-- Automated tools cover approximately half of the WCAG Success Criteria; the remainder require human judgement. Verification proceeds in three stages — axe-core, agent review of the markup against the retrieved recipe, and a checklist of the remaining qualitative criteria for human review.
+- Automated tools cover only the structurally testable part of WCAG; most criteria require judgement — to verify, and often even to determine whether they apply. Verification proceeds in three stages, routed by who can settle each check: axe-core, agent review of the markup against the retrieved recipe, and a checklist of the remaining qualitative criteria for human review.
 
 Scope: a11y-assist supports lightweight, on-demand verification during AI-assisted development. It is not a systematic auditing tool; broader auditing support is planned.
 

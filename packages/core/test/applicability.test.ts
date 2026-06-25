@@ -8,8 +8,8 @@ import assert from 'node:assert/strict'
 import { composeApgPattern } from '../src/index.js'
 import {
   factsFromComposition, deriveAuto, buildAssignment,
-  evaluateApplicability, planVerification, evaluateVerification,
-  APPL_EXPR, APPL_META, VERIF_META, APPLICABILITY_PREDICATES, AUTO_PREDICATES,
+  evaluateApplicability, planVerification, evaluateVerification, structuralGuidance,
+  APPL_EXPR, APPL_META, VERIF_META, SC_TITLE, APPLICABILITY_PREDICATES, AUTO_PREDICATES,
 } from '../src/applicability/index.js'
 
 const OPS = new Set(['AND', 'OR', 'NOT', '(', ')', 'true'])
@@ -67,4 +67,37 @@ test('planVerification partitions applicable SCs by tier and keeps expressions',
 test('evaluateVerification never asserts conformance on unknowns', () => {
   const res = evaluateVerification(['4.1.2'], {})
   assert.equal(res['4.1.2'], 'unverified')
+})
+
+test('structuralGuidance: floor / content-dependent / excluded + checklist, level-gated', () => {
+  const c = composeApgPattern('dialog', 'AA')
+  assert.ok(c)
+  const g = structuralGuidance(factsFromComposition(c)) // default AA
+  // structural floor: a role → 4.1.2; focus visible → 2.4.7 (unconditional from structure).
+  // (2.1.1 is NOT in the floor — its `AND NOT path-dependent-input-essential` exception
+  //  is non-auto, so it honestly falls to content-dependent.)
+  assert.ok(g.floor.includes('4.1.2'), '4.1.2 in floor')
+  assert.ok(g.floor.includes('2.4.7'), '2.4.7 in floor')
+  // content-dependent: only knowable from the markup → deferred to audit
+  assert.ok(g.contentDependent.includes('1.1.1'), '1.1.1 (non-text content) is content-dependent')
+  // structurally excluded: no live region
+  assert.ok(g.excluded.includes('4.1.3'), '4.1.3 excluded (no live region)')
+  // level gating: no AAA criterion leaks into any bucket at AA
+  for (const sc of [...g.floor, ...g.contentDependent, ...g.excluded]) {
+    assert.notEqual(SC_TITLE[sc].level, 'AAA', sc + ' (AAA) leaked at AA')
+  }
+  assert.ok(!g.floor.includes('2.1.3'), '2.1.3 (AAA) excluded at AA')
+  // checklist is for the floor and well-formed
+  const all = [...g.checklist.axe, ...g.checklist.agent, ...g.checklist.human]
+  assert.ok(all.length > 0)
+  for (const p of all) assert.ok(VERIF_META[p], p + ' has meta')
+})
+
+test('structuralGuidance: AAA opens up higher-level criteria', () => {
+  const c = composeApgPattern('dialog', 'AA')
+  assert.ok(c)
+  const aa = structuralGuidance(factsFromComposition(c), 'AA')
+  const aaa = structuralGuidance(factsFromComposition(c), 'AAA')
+  assert.ok(aaa.floor.includes('2.1.3'), '2.1.3 (AAA) in floor at AAA')
+  assert.ok(aaa.floor.length >= aa.floor.length, 'AAA floor is a superset of AA')
 })

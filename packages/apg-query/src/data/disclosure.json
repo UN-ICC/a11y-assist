@@ -16,5 +16,26 @@
       "description": "activates the disclosure control and toggles the visibility of the disclosure content."
     }
   ],
-  "examples": []
+  "examples": [
+    {
+      "name": "Disclosure (Show/Hide) of Image Description",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/"
+    },
+    {
+      "name": "Disclosure (Show/Hide) of Answers to Frequently Asked Questions",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/"
+    },
+    {
+      "name": "Disclosure (Show/Hide) Navigation Menu",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/"
+    },
+    {
+      "name": "Disclosure (Show/Hide) Navigation Menu with Top-Level Links",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/"
+    },
+    {
+      "name": "Disclosure (Show/Hide) Card",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/"
+    }
+  ]
 }

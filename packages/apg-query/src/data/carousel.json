@@ -18,5 +18,14 @@
       "description": "If present, the rotation control is the first element in the Tab sequence inside the carousel. It is essential that it precede the rotating content so it can be easily located."
     }
   ],
-  "examples": []
+  "examples": [
+    {
+      "name": "Auto-Rotating Image Carousel with Buttons for Slide Control:",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/"
+    },
+    {
+      "name": "Auto-Rotating Image Carousel with Tabs for Slide Control:",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/"
+    }
+  ]
 }

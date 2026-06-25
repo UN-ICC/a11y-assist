@@ -61,6 +61,14 @@
       + list.map(function (k) { return '<tr><td><code>' + esc(k.key) + '</code></td><td>' + esc(k.description) + '</td></tr>' }).join('')
       + '</tbody></table>'
   }
+  function examplesHtml(c) {
+    var ex = (c.apg && c.apg.examples) || []
+    if (!ex.length) return ''
+    return '<details open><summary>Examples (' + ex.length + ')</summary><ul class="ex-list">'
+      + ex.map(function (e) {
+        return '<li><a href="' + esc(e.url) + '" target="_blank" rel="noreferrer">' + esc(e.name) + ' &#8599;</a></li>'
+      }).join('') + '</ul></details>'
+  }
   // Client mirror of core.searchWcag: substring over id+title+statement, level-gated.
   function searchWcag(query, level) {
     var q = String(query).toLowerCase().trim()
@@ -256,7 +264,31 @@
     if (!host || !D.applicability) return
     var F = D.applicability.facets, DEF = D.applicability.def
     var keys = Object.keys(F)
-    var st = { step: 1, facets: [], subs: {}, leaves: [] }
+    var st = { step: 0, facets: [], subs: {}, leaves: [] }
+    function vGroupStatic(label, list) {
+      if (!list.length) return ''
+      var VM = (D.applicability || {}).verifMeta || {}
+      return '<p class="appl-q">' + label + ' (' + list.length + ')</p><ul class="rules">' + list.map(function (p) {
+        return '<li>' + esc((VM[p] || {}).definition || p) + '</li>'
+      }).join('') + '</ul>'
+    }
+    function guidanceHtml() {
+      var g = (c.guidance || {})[state.level]
+      if (!g) return '<p class="note">No structural guidance for this component.</p>'
+      var h = '<p class="note">Structural guidance for this <code>' + esc(c.role) + '</code> at WCAG ' + esc(state.level) + '. These follow from the component itself; more may apply depending on your content.</p>'
+      h += '<h4>Applies structurally (' + g.floor.length + ')</h4>'
+      h += '<ul class="rules">' + g.floor.map(function (id) {
+        var sc = D.scs[id]
+        return '<li><button class="sc-chip" data-sc="' + esc(id) + '">' + esc(id) + '</button> ' + esc(sc ? sc.title : '') + ' <span class="role">' + esc(sc ? sc.level : '') + '</span></li>'
+      }).join('') + '</ul>'
+      h += '<h4>Verification checklist</h4>'
+      h += vGroupStatic('Automated &mdash; axe-core', g.checklist.axe)
+      h += vGroupStatic('Agent can verify &mdash; inspect the built markup', g.checklist.agent)
+      h += vGroupStatic('Needs human judgment', g.checklist.human)
+      h += '<p class="note"><strong>' + g.contentDependent + '</strong> more criteria may apply depending on content/context (images, color, timing, language…) &mdash; resolve them with Refine / audit.</p>'
+      h += '<p><button class="primary appl-refine">Refine / audit &rarr;</button></p>'
+      return h
+    }
     function cb(kind, val, label, checked) {
       return '<label class="appl-cb"><input type="checkbox" data-k="' + kind + '" value="' + esc(val) + '"' + (checked ? ' checked' : '') + '> ' + esc(label) + '</label>'
     }
@@ -265,13 +297,15 @@
     }
     function paint() {
       var h = '<div class="appl-block"><h3>Applicable SCs <span class="exp">experimental</span></h3>'
-      if (st.step < 4) {
-        h += '<p class="note">A few yes/no rounds compute which WCAG criteria apply to this <code>' + esc(c.role) + '</code>. The structural ones are already fixed by the component; answer only what its content/context adds.</p>'
+      if (st.step >= 1 && st.step < 4) {
+        h += '<p class="note">Refine / audit: answer a few rounds to add the content/context criteria beyond the structural floor.</p>'
       }
-      if (st.step === 1) {
+      if (st.step === 0) {
+        h += guidanceHtml()
+      } else if (st.step === 1) {
         h += '<p class="appl-q">1 / 3 &middot; Which of these does this component involve?</p>'
         keys.forEach(function (k) { h += cb('f', k, F[k].gate) })
-        h += '<p><button class="primary appl-next" data-next="2">Next</button></p>'
+        h += '<p><button class="ghost appl-home">&larr; Guidance</button> <button class="primary appl-next" data-next="2">Next</button></p>'
       } else if (st.step === 2) {
         h += '<p class="appl-q">2 / 3 &middot; Narrow down:</p>'
         if (!st.facets.length) h += '<p class="note">Nothing selected — the applicable set is the structural floor.</p>'
@@ -297,7 +331,7 @@
           return '<li><button class="sc-chip" data-sc="' + esc(id) + '">' + esc(id) + '</button> ' + esc(sc ? sc.title : '') + ' <span class="role">' + esc(sc ? sc.level : '') + '</span></li>'
         }).join('') + '</ul>'
         h += '<p class="note">Derived from the component (auto) + your answers. Conservative: it over-includes rather than miss.</p>'
-        h += '<p><button class="primary appl-verify">Verification checklist &rarr;</button> <button class="ghost appl-back" data-back="1">Start over</button></p>'
+        h += '<p><button class="primary appl-verify">Verification checklist &rarr;</button> <button class="ghost appl-home">Start over</button></p>'
       } else {
         st.appl = applicableSCs(c.auto_applicability, st.leaves)
         st.plan = verificationPlan(st.appl)
@@ -307,7 +341,7 @@
         h += vGroupCtl('Agent can verify &mdash; inspect the built markup', st.plan.agent, false)
         h += vGroupCtl('Needs human judgment', st.plan.human, false)
         h += '<div id="appl-verdict"></div>'
-        h += '<p><button class="ghost appl-back" data-back="4">&larr; Back to SCs</button> <button class="ghost appl-back" data-back="1">Start over</button></p>'
+        h += '<p><button class="ghost appl-back" data-back="4">&larr; Back to SCs</button> <button class="ghost appl-home">Start over</button></p>'
       }
       h += '</div>'
       host.innerHTML = h
@@ -404,6 +438,10 @@
       if (go) go.addEventListener('click', function () { st.leaves = collect('p'); st.step = 4; paint() })
       var v = host.querySelector('.appl-verify')
       if (v) v.addEventListener('click', function () { st.step = 5; paint() })
+      var rf = host.querySelector('.appl-refine')
+      if (rf) rf.addEventListener('click', function () { st.facets = []; st.subs = {}; st.leaves = []; st.step = 1; paint() })
+      var hm = host.querySelector('.appl-home')
+      if (hm) hm.addEventListener('click', function () { st.facets = []; st.subs = {}; st.leaves = []; st.step = 0; paint() })
       host.querySelectorAll('.vctl input').forEach(function (r) { r.addEventListener('change', updateVerdict) })
       var ax = host.querySelector('.appl-axe-run')
       if (ax) ax.addEventListener('click', runAxe)
@@ -455,6 +493,7 @@
       + '<p><a href="' + esc(c.apg.apg_url) + '" target="_blank" rel="noreferrer">APG reference &#8599;</a></p>'
     var human = '<details open><summary>About</summary><p>' + nl(c.apg.about_this_pattern) + '</p></details>'
       + (c.apg.keyboard_interactions.length ? '<details><summary>Keyboard interactions (' + c.apg.keyboard_interactions.length + ')</summary>' + kbdHtml(c.apg.keyboard_interactions) + '</details>' : '')
+      + examplesHtml(c)
       + contractHtml(c) + nativeHtml(c)
       + '<h3>Suggested searches</h3>' + chipsHtml(c)
       + '<div id="drill"></div>'

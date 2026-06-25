@@ -79,6 +79,8 @@ ul.rules li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
 .appl-block h3 { margin-top: 0; }
 .exp { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #fff; background: var(--accent); border-radius: 4px; padding: 0.1rem 0.4rem; vertical-align: middle; }
 .appl-q { font-weight: 600; margin: 0.6rem 0 0.4rem; }
+.ex-list { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+.ex-list li { padding: 0.15rem 0; }
 .appl-cb { display: block; padding: 0.3rem 0; line-height: 1.4; }
 .appl-cb input { margin-right: 0.5rem; }
 .vlist { list-style: none; padding: 0; margin: 0.3rem 0 0.8rem; }

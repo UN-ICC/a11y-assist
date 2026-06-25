@@ -10,6 +10,8 @@ import { searchActTool } from './tools/search-act.js'
 import { getActRuleTool } from './tools/get-act-rule.js'
 import { searchWcagTool } from './tools/search-wcag.js'
 import { getWcagScTool } from './tools/get-wcag-sc.js'
+import { evaluateApplicabilityTool } from './tools/evaluate-applicability.js'
+import { evaluateVerificationTool } from './tools/evaluate-verification.js'
 import { auditHtmlTool } from './tools/audit-html.js'
 import { auditUrlTool } from './tools/audit-url.js'
 import { shutdownBrowser } from './browser/pool.js'
@@ -20,6 +22,7 @@ import { CONFIG } from './config.js'
 const TOOL_NAMES = [
   'get_apg_pattern', 'get_aria_role', 'get_element_roles', 'list_apg_patterns',  // entry + discovery
   'search_act', 'get_act_rule', 'search_wcag', 'get_wcag_sc',                    // drill-down
+  'evaluate_applicability', 'evaluate_verification',                            // refine / audit (experimental)
   'audit_html', 'audit_url',                                                     // verify
 ]
 
@@ -37,6 +40,8 @@ async function main(): Promise<void> {
   server.addTool(getActRuleTool)
   server.addTool(searchWcagTool)
   server.addTool(getWcagScTool)
+  server.addTool(evaluateApplicabilityTool)
+  server.addTool(evaluateVerificationTool)
   server.addTool(auditHtmlTool)
   server.addTool(auditUrlTool)
 

@@ -32,6 +32,11 @@ export {
 } from './evaluate.js'
 
 export {
+  structuralGuidance,
+  type StructuralGuidance,
+} from './guidance.js'
+
+export {
   SC_IDS,
   APPLICABILITY_PREDICATES,
   VERIFICATION_PREDICATES,

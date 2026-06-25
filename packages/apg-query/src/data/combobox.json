@@ -208,5 +208,30 @@
       "description": "There are two ways to close the popup and return focus to the combobox:"
     }
   ],
-  "examples": []
+  "examples": [
+    {
+      "name": "Select-Only Combobox",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/"
+    },
+    {
+      "name": "Editable Combobox with Both List and Inline Autocomplete",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/"
+    },
+    {
+      "name": "Editable Combobox with List Autocomplete",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/"
+    },
+    {
+      "name": "Editable Combobox Without Autocomplete",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/"
+    },
+    {
+      "name": "Editable Combobox with Grid Popup",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/"
+    },
+    {
+      "name": "Date Picker Combobox",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/"
+    }
+  ]
 }

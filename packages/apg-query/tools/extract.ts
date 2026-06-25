@@ -286,20 +286,20 @@ function extractExamples($: cheerio.CheerioAPI, baseUrl: string): Example[] {
 
   const sections = $('section').filter((_, el) => {
     const id = $(el).attr('id') ?? ''
-    return /^examples?$/i.test(id) || /examples?-of-/i.test(id)
+    return /^examples?$/i.test(id) || /^examples?[-_]/i.test(id) || /examples?-of-/i.test(id)
   })
 
   sections.find('a[href]').each((_, a) => {
     const href = $(a).attr('href') ?? ''
     if (!href || href.startsWith('#')) return
-    // Resolve relative URLs.
+    // Example implementations live under the pattern's `examples/` path; the
+    // link text is the example's name (it does NOT contain the word "example").
+    if (!href.includes('examples/')) return
     const url = new URL(href, baseUrl).toString()
-    if (seen.has(url)) return
-    seen.add(url)
     const name = $(a).text().trim().replace(/\s+/g, ' ')
-    if (name && /example/i.test(name)) {
-      out.push({ name, url })
-    }
+    if (!name || seen.has(url)) return
+    seen.add(url)
+    out.push({ name, url })
   })
 
   return out

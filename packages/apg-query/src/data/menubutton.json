@@ -33,6 +33,10 @@
     {
       "name": "Action Menu Button Example Using element.focus()",
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/"
+    },
+    {
+      "name": "Navigation Menu Button",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/"
     }
   ]
 }

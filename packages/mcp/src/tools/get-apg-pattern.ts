@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { composeApgPattern, listApgPatterns } from 'a11y-assist-core'
+import { applicableScs } from '../applicable-scs.js'
 
 const parameters = z.object({
   name: z.string().describe(
@@ -21,9 +22,11 @@ export const getApgPatternTool = {
     'ENTRY POINT for building a composite component. Returns the verbatim W3C APG ' +
     'card (about, keyboard interactions, examples), the ARIA contract for its roles, ' +
     'the native HTML elements that carry them, and `suggested_queries` (ACT searches) ' +
-    'to run next. Workflow: get_apg_pattern → run a suggested search_act → get_wcag_sc ' +
-    'for the SCs it returns → verify with audit_html. For native primitives (text input, ' +
-    'link, image) use get_aria_role instead.',
+    'to run next. Also returns `applicable_scs`: the WCAG criteria that apply from the ' +
+    "component's structure alone (the floor) at the chosen level, plus a tiered " +
+    'verification checklist (axe / agent / human) and a count of further criteria that ' +
+    'depend on the content you add. For native primitives (text input, link, image) use ' +
+    'get_aria_role instead.',
   parameters,
   execute: async ({ name, level }: Args): Promise<string> => {
     const composed = composeApgPattern(name, level)
@@ -34,6 +37,6 @@ export const getApgPatternTool = {
         hint: 'For native primitives (textbox, link, img) use get_aria_role.',
       })
     }
-    return JSON.stringify(composed)
+    return JSON.stringify({ ...composed, applicable_scs: applicableScs(composed, level) })
   },
 }
