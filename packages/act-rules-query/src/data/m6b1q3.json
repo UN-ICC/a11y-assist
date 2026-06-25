@@ -13,5 +13,61 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to [HTML elements][] that is a [semantic][semantic role] `menuitem` [included in the accessibility tree][].",
+  "expectations": [
+    "Each target element has an [accessible name][] that is not empty (`\"\"`)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This element with the `menuitem` role has an [accessible name][] because of its text content.",
+      "code": "<div role=\"menu\">\n\t<button role=\"menuitem\">New file</button>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This element with the `menuitem` role has an [accessible name][] because of its `aria-label` attribute.",
+      "code": "<div role=\"menu\">\n\t<button role=\"menuitem\" aria-label=\"New file\">\n\t\t<img src=\"/test-assets/shared/file.svg\" alt=\"\" />\n\t</button>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This element with the `menuitem` role has an [accessible name][] because its `aria-labelledby` attribute references an element with text content.",
+      "code": "<div role=\"menu\">\n\t<button role=\"menuitem\" aria-labelledby=\"newfile\">\n\t\t<img src=\"/test-assets/shared/file.svg\" alt=\"\" />\n\t\t<span id=\"newfile\" hidden>New file</span>\n\t</button>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This element with the `menuitem` role has an [accessible name][] because of its `title` attribute.",
+      "code": "<div role=\"menu\">\n\t<button role=\"menuitem\" title=\"New file\">\n\t\t<img src=\"/test-assets/shared/file.svg\" alt=\"\" />\n\t</button>\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This element with the `menuitem` role has no [accessible name][] because it has no content or attribute that can provide it.",
+      "code": "<div role=\"menu\">\n\t<button role=\"menuitem\">\n\t\t<img src=\"/test-assets/shared/file.svg\" alt=\"\" />\n\t</button>\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This off-screen element with the `menuitem` role has no [accessible name][] because it has no content or attribute that can provide it.",
+      "code": "<html lang=\"en\">\n\t<style>\n\t\t.offscreen {\n\t\t\tposition: absolute;\n\t\t\tleft: -9999px;\n\t\t\ttop: -9999px;\n\t\t}\n\t</style>\n\t<div role=\"menu\" class=\"offscreen\">\n\t\t<button role=\"menuitem\">\n\t\t\t<img src=\"/test-assets/shared/file.svg\" alt=\"\" />\n\t\t</button>\n\t</div>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "The `li` element has a `listitem` [semantic role][], even as a child of a `menu` element.",
+      "code": "<menu>\n\t<li>\n\t\t<a href=\"#\">New file</a>\n\t</li>\n</menu>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This element with the `menuitem` role does not need an [accessible name][] because it is not [included in the accessibility tree][].",
+      "code": "<div role=\"menu\" hidden>\n\t<button role=\"menuitem\">\n\t\t<img src=\"/test-assets/shared/file.svg\" alt=\"\" />\n\t</button>\n</div>"
+    }
+  ],
+  "background": "",
+  "assumptions": "This rule assumes that all menuitems are [user interface components as defined by WCAG 2](https://www.w3.org/TR/WCAG22/#dfn-user-interface-components). If an element has a role of `menuitem` that would not be perceived as a single control by users, [4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value) would not apply and so failing this rule would not result in a conformance issue.",
+  "accessibility_support": "Implementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some [semantic][semantic role] `menuitem` elements can fail this rule with some technology but users of other technologies would not experience any accessibility issue.",
   "url": "https://act-rules.github.io/rules/m6b1q3"
 }

@@ -11,5 +11,73 @@
     "Source code"
   ],
   "applicability_text": "This rule applies to any [starting tag](https://www.w3.org/TR/html5/syntax.html#start-tags) in an HTML or SVG document.\n\n**Note:** This rule cannot be tested on the DOM Tree because the browser removes duplicates of any attribute that is already present on an element.",
+  "expectations": [
+    "For each test target, there are no duplicated [attributes](https://www.w3.org/TR/html5/syntax.html#elements-attributes)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `img` element contains no duplicated attributes.",
+      "code": "<img src=\"/test-assets/shared/w3c-logo.png\" alt=\"W3C logo\" />"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `br` element contains no attributes, so there is no duplicated attribute.",
+      "code": "<br />"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `input` element contains three different attributes, two of them being empty.",
+      "code": "<input type=\"checkbox\" disabled readonly />"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This `SVG` element contains no attributes.",
+      "code": "<svg>\n\t<line x1=\"0\" y1=\"0\" x2=\"200\" y2=\"200\" style=\"stroke-width:2\" />\n</svg>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This `script` element contains duplicated attributes, but they are ignored because they are placed within the `script` tag.",
+      "code": "<script>\n\tvar foo = '<img src=\"/test-assets/shared/w3c-logo.png\" alt=\"\" alt=\"W3C logo\" />'\n</script>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `img` element contains a duplicated `alt` attribute.",
+      "code": "<img src=\"/test-assets/shared/w3c-logo.png\" alt=\"\" alt=\"W3C logo\" />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `input` element contains a duplicate `disabled` attribute.",
+      "code": "<input type=\"checkbox\" disabled=\"disabled\" disabled readonly />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `line` element contains duplicate `x1` and duplicate `y1` attributes.",
+      "code": "<svg>\n\t<line x1=\"0\" y1=\"0\" x1=\"200\" y1=\"200\" style=\"stroke-width:2\" />\n</svg>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This code is XML, not HTML or SVG.",
+      "code": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rdf:RDF\n  xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n  xmlns:earl=\"http://www.w3.org/ns/earl#\">\n  <earl:TestResult rdf:about=\"#result\"></earl:TestResult>\n</rdf:RDF>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This code is JavaScript, not HTML or SVG.",
+      "code": "var foo = '<img src=\"/test-assets/shared/w3c-logo.png\" alt=\"W3C logo\" />'"
+    }
+  ],
+  "background": "",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/e6952f"
 }

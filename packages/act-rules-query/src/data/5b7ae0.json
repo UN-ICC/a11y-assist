@@ -11,5 +11,85 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any [document element](https://dom.spec.whatwg.org/#document-element) if it is an `html` element for which all the following are true:\n\n- is in a [top-level browsing context][]; and\n- has a [node document](https://dom.spec.whatwg.org/#concept-node-document) with a [content type][] of `text/html`; and\n- has a `lang` attribute with a [known primary language tag][]; and\n- has a non-empty `xml:lang` attribute.",
+  "expectations": [
+    "For each test target, the values of the [primary language subtags][], if any exist, for the `lang` and `xml:lang` attributes are the same."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `html` element has identical [primary language subtags][] for its `lang` and `xml:lang` attributes.",
+      "code": "<html lang=\"EN\" xml:lang=\"en\"></html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `html` element has identical [primary language subtags][] for its `lang` and `xml:lang` attributes. The [extended language subtags][] also match.",
+      "code": "<html lang=\"en-GB\" xml:lang=\"en-GB\"></html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `html` element has identical [primary language subtags][] for its `lang` and `xml:lang` attributes. The [extended language subtags][] do not match, but this is not required by this rule.",
+      "code": "<html lang=\"en-GB\" xml:lang=\"en-US\"></html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `html` element has different [primary language subtags][] for its `lang` and `xml:lang` attributes.",
+      "code": "<html lang=\"fr\" xml:lang=\"en\"></html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `html` element has different [primary language subtags][] for its `lang` and `xml:lang` attributes. The [extended language subtags][] do match, but this rules only focus on the [primary language subtags][].",
+      "code": "<html lang=\"fr-CA\" xml:lang=\"en-CA\"></html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This rule does not apply to `svg` elements.",
+      "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" lang=\"en\" xml:lang=\"en\"></svg>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This rule does not apply to `svg` elements, even inside an `html` element.",
+      "code": "<html>\n\t<body>\n\t\t<svg lang=\"en\"></svg>\n\t</body>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This rule does not apply to `math` elements.",
+      "code": "<math xml:lang=\"en\"></math>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 4",
+      "description": "This rule only applies to documents with a [content type][] of `text/html`",
+      "code": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n<html lang=\"en\" xml:lang=\"en\"></html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 5",
+      "description": "This rule does not apply to `html` elements without an `xml:lang` attribute.",
+      "code": "<html lang=\"en\"></html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 6",
+      "description": "This rule applies neither to `html` elements without an `xml:lang` attribute, nor to `html` in [nested browsing context][]",
+      "code": "<html lang=\"en\">\n\t<iframe srcdoc=\"<html lang='en' xml:lang='en'></html>\" />\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 7",
+      "description": "This rule does not apply to `html` elements with an empty (`\"\"`) `xml:lang` attribute.",
+      "code": "<html lang=\"fr\" xml:lang=\"\"></html>"
+    }
+  ],
+  "background": "This rule is only applicable to non-embedded HTML pages. HTML pages embedded into other documents, such as through `iframe` or `object` elements are not applicable because they are not [web pages](https://www.w3.org/TR/WCAG22/#dfn-web-page-s) according to the definition in WCAG.",
+  "assumptions": "- The language of the page can be set by other methods than the `lang` attribute, for example using HTTP headers or the `meta` element. These methods are not supported by all assistive technologies. This rule assumes that these other methods are insufficient to satisfying [Success Criterion 3.1.1: Language of Page](https://www.w3.org/TR/WCAG22/#language-of-page).\n\n- This rule assumes that user agents and assistive technologies can programmatically determine [known primary language tags][known primary language tag] even if these do not conform to the [RFC 5646][] syntax.\n\n- This rule assumes that only [known primary language tags][known primary language tag] are enough to satisfy [Success Criterion 3.1.1 Language of Page][sc311]; this notably excludes [grandfathered tags][] and [ISO 639.2][] three-letters codes, both having poor support in assistive technologies.\n\n- The rule assumes that having `lang` and `xml:lang` attributes with matching [primary language subtags][] but non-matching [language tags](https://www.rfc-editor.org/rfc/rfc5646.html#section-2) overall, will not cause accessibility issues. This is not necessarily the case for all languages. One notable case is the [language tags](https://www.rfc-editor.org/rfc/rfc5646.html#section-2) for Cantonese (`zh-yue`) and Mandarin (`zh-cmn`) where the [primary language subtags][] match, but the [extended language subtags][] don't. Such a case would not fail this rule, but could lead to accessibility issues.",
+  "accessibility_support": "Since most assistive technologies will consistently use `lang` over `xml:lang` when both are used, violation of this rule may not necessarily be a violation of WCAG 2. Only when there are inconsistencies between assistive technologies as to which attribute is used to determine the language does this lead to a violation of SC 3.1.1.",
   "url": "https://act-rules.github.io/rules/5b7ae0"
 }

@@ -17,5 +17,181 @@
     "CSS Styling"
   ],
   "applicability_text": "This rule applies to any [HTML element][] that is an [inheriting semantic][] `link` [included in the accessibility tree][].",
+  "expectations": [
+    "Each target element has an [accessible name][] that is not empty (`\"\"`)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `a` element has an [accessible name][] from its content.",
+      "code": "<a href=\"https://www.w3.org/WAI\"> Web Accessibility Initiative (WAI) </a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `div` element has an [explicit semantic role](#explicit-role) of `link` and an [accessible name][] from its content.",
+      "code": "<div role=\"link\" onclick=\"openLink(event)\" onkeyup=\"openLink(event)\" tabindex=\"0\">\n\tWeb Accessibility Initiative (WAI)\n</div>\n<script>\n\tfunction openLink(event) {\n\t\tif (event.type === 'click' || ['Enter', ' '].includes(event.key)) {\n\t\t\twindow.location.href = 'https://www.w3.org/WAI/'\n\t\t}\n\t}\n</script>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `button` element has an [explicit semantic role](#explicit-role) of `link` and an [accessible name][] from its content.",
+      "code": "<button role=\"link\" onclick=\"window.location.href='https://www.w3.org/WAI/'\">Click me for WAI!</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This `a` element has an [accessible name][] via `aria-label`",
+      "code": "<a href=\"https://www.w3.org/WAI\"\n\t><img src=\"/test-assets/shared/w3c-logo.png\" aria-label=\"Web Accessibility Initiative\"\n/></a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This `a` element has an [accessible name][] via `title`.",
+      "code": "<a href=\"https://www.w3.org/WAI\" title=\"Web Accessibility Initiative\"\n\t><img src=\"/test-assets/shared/w3c-logo.png\" alt=\"\"\n/></a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "This `a` element has an [accessible name][] from its content via the `title` on the `img` element.",
+      "code": "<a href=\"https://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" title=\"Web Accessibility Initiative\"/></a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 7",
+      "description": "This `a` element has an [accessible name][] from its content.",
+      "code": "<a href=\"https://www.w3.org/WAI\"\n\t><img src=\"/test-assets/shared/w3c-logo.png\" alt=\"\" />Web Accessibility Initiative (WAI)</a\n>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 8",
+      "description": "This `a` element has an [accessible name][] from its content via `aria-labelledby` on the `img` element.",
+      "code": "<a href=\"https://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" aria-labelledby=\"id1\"/></a>\n<div id=\"id1\">Web Accessibility Initiative (WAI)</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 9",
+      "description": "This `a` element placed off screen has an [accessible name][] from its content.",
+      "code": "<html>\n\t<style>\n\t\t.offScreenLink {\n\t\t\tposition: absolute;\n\t\t\tleft: -9999px;\n\t\t\ttop: -9999px;\n\t\t}\n\t</style>\n\t<body>\n\t\t<a class=\"offScreenLink\" href=\"https://www.w3.org/WAI\">Web Accessibility Initiative (WAI)</a>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 10",
+      "description": "This `area` element has a [semantic role][] of `link` and an [accessible name][] via `alt`.",
+      "code": "<img src=\"/test-assets/c487ae/planets.jpg\" width=\"145\" height=\"126\" alt=\"Planets\" usemap=\"#planetmap\" />\n\n<map name=\"planetmap\">\n\t<area shape=\"rect\" coords=\"0,0,30,100\" href=\"sun.htm\" alt=\"Sun\" />\n</map>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 11",
+      "description": "This `a` element is an [inheriting semantic][] `link` given by its `role=\"doc-biblioref\"` attribute as well as an [accessible name] given by its child text node.",
+      "code": "See [<a href=\"https://act-rules.github.io/\" role=\"doc-biblioref\">ACT rules</a>]"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `a` element has an empty [accessible name][].",
+      "code": "<a href=\"http://www.w3.org/WAI\"></a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `a` element with an image has an empty [accessible name][]. The image is decorative and is marked as such with an empty `alt` [attribute value][].",
+      "code": "<a href=\"https://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" alt=\"\"/></a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `a` element with an image has an empty [accessible name][]. The image is decorative because it has a `role` [attribute value][] of `presentation`.",
+      "code": "<a href=\"http://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" role=\"presentation\"/></a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This `a` element with an image has an empty [accessible name][]. The image is decorative because it has a `role` [attribute value][] of `none`.",
+      "code": "<a href=\"http://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" role=\"none\"/></a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This `a` element with an `img` with an empty `title` has an empty [accessible name][].",
+      "code": "<a href=\"https://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" title=\"\"/></a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 6",
+      "description": "This `a` element with an `img` with an `aria-labelledby` has an empty [accessible name][].",
+      "code": "<a href=\"https://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" aria-labelledby=\"id1\"/></a>\n<div id=\"id1\"></div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 7",
+      "description": "This `a` element with an `img` with an `aria-labelledby` referencing a non-existing id has an empty [accessible name][].",
+      "code": "<a href=\"https://www.w3.org/WAI\"><img src=\"/test-assets/shared/w3c-logo.png\" aria-labelledby=\"id1\"/></a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 8",
+      "description": "This `a` element placed off screen has an empty [accessible name][].",
+      "code": "<a href=\"https://www.w3.org/WAI\" style=\"left: -9999px; position: absolute;\">\n\t<img src=\"/test-assets/shared/w3c-logo.png\" />\n</a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 9",
+      "description": "This `area` element has a [semantic role][] of `link` and an empty [accessible name][].",
+      "code": "<img src=\"/test-assets/c487ae/planets.jpg\" width=\"145\" height=\"126\" alt=\"Planets\" usemap=\"#planetmap\" />\n\n<map name=\"planetmap\">\n\t<area shape=\"rect\" coords=\"0,0,82,126\" href=\"sun.htm\" />\n</map>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 10",
+      "description": "This `a` element has an [explicit role][] of `none`. However, it is [focusable][] (by default). Thus it has a [semantic role][] of `link` due to [Presentational Roles Conflict Resolution][]. It has an empty [accessible name][].",
+      "code": "<a href=\"https://www.w3.org/WAI\" role=\"none\"> </a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 11",
+      "description": "This `a` element is an [inheriting semantic][] `link` given by its `role=\"doc-biblioref\"` attribute but it has an empty [accessible name].",
+      "code": "See [<a href=\"https://act-rules.github.io/\" role=\"doc-biblioref\"\n\t><img src=\"https://github.com/act-rules/act-rules.github.io/blob/develop/test-assets/shared/act-logo.png\" alt=\"\"/></a\n>]"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `a` element does not have a [semantic role][] of `link` because it has been changed to `button`.",
+      "code": "<a href=\"https://www.w3.org/WAI\" role=\"button\">\n\tWeb Accessibility Initiative (WAI)\n</a>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `a` element is not [included in the accessibility tree][] due to `display: none`.",
+      "code": "<a href=\"https://www.w3.org/WAI\" style=\"display: none;\"><img src=\"/test-assets/shared/w3c-logo.png\"/></a>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `a` element is not [included in the accessibility tree][] due to `visibility: hidden`.",
+      "code": "<a href=\"https://www.w3.org/WAI\" style=\"visibility: hidden;\">Some text</a>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 4",
+      "description": "This `a` element is not [included in the accessibility tree][] due to `aria-hidden=\"true\"`.",
+      "code": "<a aria-hidden=\"true\" href=\"https://www.w3.org/WAI\">\n\tWeb Accessibility Initiative (WAI)\n</a>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 5",
+      "description": "This `area` element does not have the role of link because it does not have an `href` attribute.",
+      "code": "<area shape=\"rect\" coords=\"0,0,82,126\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 6",
+      "description": "This `a` element does not have the role of link because it does not have an `href` attribute.",
+      "code": "<a />"
+    }
+  ],
+  "background": "",
+  "assumptions": "The rule assumes that all links are [user interface components](https://www.w3.org/TR/WCAG22/#dfn-user-interface-components) as defined by WCAG 2. When the link role is used on elements that do not behave as links, failing this rule might not mean that the success criteria are failed.",
+  "accessibility_support": "- For `area` elements that have an `href` attribute, but are not nested inside a `map` element, there are differences between browsers and assistive technology on if the `area` is [included in the accessibility tree][].\n- Implementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some [semantic][semantic role] `link` elements can fail this rule with some technology but users of other technologies would not experience any accessibility issue.\n- Accessibility support for some elements inheriting the semantic role of `link` (e.g. elements with `doc-*` attributes) may vary depending on the assistive technology in use.",
   "url": "https://act-rules.github.io/rules/c487ae"
 }

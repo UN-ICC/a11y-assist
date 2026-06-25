@@ -9,5 +9,109 @@
   "wcag_sc_ids_secondary": [],
   "input_aspects": [],
   "applicability_text": "This rule applies to any [HTML or SVG element][] that is [focusable][].",
+  "expectations": [
+    "For each test target, the [outcome](#outcome) of at least one of the following rules is \"passed\":\n\n- [Focusable Element Has No Keyboard Trap Via Standard Navigation](https://www.w3.org/WAI/standards-guidelines/act/rules/a1b64e/)\n- [Focusable Element Has No Keyboard Trap Via Non-Standard Navigation](https://www.w3.org/WAI/standards-guidelines/act/rules/ebe86a/)"
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "These [focusable][] elements do not create a trap for keyboard navigation.",
+      "code": "<a href=\"#\">Link 1</a> <button>Button1</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This element is made [focusable][] by the `tabindex` attribute. It does not create a trap for keyboard navigation.",
+      "code": "<div tabindex=\"1\">Text</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This element is made [focusable][] by the `tabindex` attribute, even if it is not part of the sequential focus navigation. It does not create a trap for keyboard navigation.",
+      "code": "<div tabindex=\"-1\">Text</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "These focusable `button` elements have scripts that create a keyboard trap. The document includes help information in a paragraph before the `button` elements and the method advised works to escape the keyboard trap.",
+      "code": "<script src=\"/test-assets/focusable-no-keyboard-trap/keyboard.js\"></script>\n\n<p>Press Ctrl+M to Exit</p>\n<a id=\"link1\" href=\"#\">Link 1</a>\n<button id=\"btn1\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn2')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 1\n</button>\n<button id=\"btn2\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn1')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 2\n</button>\n<a id=\"link2\" href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "These focusable `button` elements have scripts that create a keyboard trap. The document includes help information within the trap and the method advised works to escape the keyboard trap.",
+      "code": "<script src=\"/test-assets/focusable-no-keyboard-trap/keyboard.js\"></script>\n\n<a id=\"link1\" href=\"#\">Link 1</a>\n<button id=\"btn1\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn2')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 1\n</button>\n<p>Press Ctrl+M to Exit</p>\n<button id=\"btn2\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn1')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 2\n</button>\n<a id=\"link2\" href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "These focusable `button` elements have scripts that create a keyboard trap. The document includes help information in a \"help\" link that once clicked exposes the instructions to escape the keyboard trap.",
+      "code": "<script src=\"/test-assets/focusable-no-keyboard-trap/keyboard.js\"></script>\n\n<div onkeydown=\"escapeTrapOnCtrlM(event)\">\n\t<a id=\"link1\" href=\"#\">Link 1</a>\n\t<button id=\"btn1\" onfocus=\"trapOn = true\" onblur=\"moveFocusTo('helpLink')\">\n\t\tButton 1\n\t</button>\n\t<a id=\"helpLink\" href=\"#\" onclick=\"showHelpText()\">How to go the next element</a>\n\t<div id=\"helptext\"></div>\n\t<button id=\"btn2\" onblur=\"moveFocusTo('btn1')\">\n\t\tButton 2\n\t</button>\n</div>\n<a id=\"link2\" href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 7",
+      "description": "The [focusable][] `button` labeled \"Button3\" creates a keyboard trap when navigating forward, as it moves focus back to \"Button1\" preventing users to focus \"Button3\". However, when navigating backward, all focusable elements receive focus as expected. Therefore, according to the background notes, this behavior is considered compliant with the rule, despite being recognized as a poor practice in terms of keyboard accessibility.",
+      "code": "<button onblur=\"setTimeout(() => this.nextElementSibling.focus(), 10)\">\n\tButton1\n</button>\n<button onblur=\"setTimeout(() => this.previousElementSibling.focus(), 10)\">\n\tButton2\n</button>\n<button>\n\tButton3\n</button>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This [focusable][] element creates a keyboard trap bringing focus to the `button`. Note that if one of the links is removed, the focus may jump to the browser UI before the timeout expires, at which point the `this.focus()` trap cannot trigger anymore.",
+      "code": "<a href=\"#\">Link 1</a>\n<button onblur=\"setTimeout(() => this.focus(), 10)\">\n\tButton1\n</button>\n<a href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `button` element is between other `button` elements creating a keyboard trap.",
+      "code": "<button onblur=\"setTimeout(() => this.focus(), 10)\">Button 1</button>\n<button>Button 2</button>\n<button onblur=\"setTimeout(() => this.focus(), 10)\">Button 3</button>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "These focusable `button` elements create a keyboard trap with no instructions.",
+      "code": "<script src=\"/test-assets/focusable-no-keyboard-trap/keyboard.js\"></script>\n\n<a id=\"link1\" href=\"#\">Link 1</a>\n<button id=\"btn1\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn2')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 1\n</button>\n<button id=\"btn2\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn1')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 2\n</button>\n<a id=\"link2\" href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "These focusable `button` elements create a keyboard trap with instructions that don't give advice on the method for proceeding.",
+      "code": "<script src=\"/test-assets/focusable-no-keyboard-trap/keyboard.js\"></script>\n\n<p>Go to the next element</p>\n<a id=\"link1\" href=\"#\">Link 1</a>\n<button id=\"btn1\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn2')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 1\n</button>\n<button id=\"btn2\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn1')\" onkeydown=\"escapeTrapOnCtrlM(event)\">\n\tButton 2\n</button>\n<a id=\"link2\" href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "These focusable `button` elements create a keyboard trap with help text, where the method advised doesn't work.",
+      "code": "<script src=\"/test-assets/focusable-no-keyboard-trap/keyboard.js\"></script>\n\n<a id=\"link1\" href=\"#\">Link 1</a>\n<button id=\"btn1\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn2')\">\n\tButton 1\n</button>\n<p>Press Ctrl+M to Exit</p>\n<button id=\"btn2\" onfocus=\"trapOn = true\" onblur=\"moveFocusToButton('btn1')\">\n\tButton 2\n</button>\n<a id=\"link2\" href=\"#\">Link 2</a>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "There is no [focusable][] element.",
+      "code": "<h1>Page 1</h1>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "There is no [focusable][] element.",
+      "code": "<button type=\"button\" disabled>Click Me!</button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "There is no [focusable][] element.",
+      "code": "<button type=\"button\" style=\"display:none;\">Click Me!</button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 4",
+      "description": "There is no [focusable][] element.",
+      "code": "<a href=\"#\" style=\"visibility:hidden;\">Link 1</a> <button style=\"visibility:hidden;\">Button1</button>"
+    }
+  ],
+  "background": "This rule only requires navigation in one direction (either forward or backward), not both, and not a specific one. It is clear that not being able to escape a focus trap in any direction is a failure of [Success Criterion 2.1.2 No keyboard trap][sc212]. However, it is less clear that being able to escape in only one direction is enough to satisfy it. If [Success Criterion 2.1.2 No keyboard trap][sc212] requires the possibility to escape the trap in a specific way (e.g. forward [standard keyboard navigation](#standard-keyboard-navigation)) or in both directions, this rule may pass while the criterion is not satisfied.",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/80af7b"
 }

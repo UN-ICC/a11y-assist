@@ -16,5 +16,139 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any element that is [included in the accessibility tree](#included-in-the-accessibility-tree) and for which one of the following is true:\n\n- the element has one of the following [semantic roles][]: `checkbox`, `combobox` (`select` elements), `listbox`, `menuitemcheckbox`, `menuitemradio`, `radio`, `searchbox`, `slider`, `spinbutton`, `switch`, `textbox`; or\n- the element is an `input` with no [semantic role][] and a `type` [attribute value][] of `color`, `date`, `datetime-local`, `file`, `month`, `password`, `time`, or `week`.",
+  "expectations": [
+    "Each target element has an [accessible name][] that is not empty (`\"\"`)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `input` element has an [accessible name][] because of its [programmatic label](#programmatic-label).",
+      "code": "<label>\n\tfirst name\n\t<input />\n</label>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `input` element has an [accessible name][] because of its `aria-label` attribute.",
+      "code": "<div>last name</div>\n<input aria-label=\"last name\" disabled />"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `select` element has an [accessible name][] because of its [programmatic label](#programmatic-label).",
+      "code": "<label for=\"country\">Country</label>\n<select id=\"country\">\n\t<option>England</option>\n\t<option>Scotland</option>\n\t<option>Wales</option>\n\t<option>Northern Ireland</option>\n</select>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This `textarea` element has an [accessible name][] because of its `aria-labelledby` attribute.",
+      "code": "<div id=\"country\">Country</div>\n<textarea aria-labelledby=\"country\"></textarea>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This `input` element has an [accessible name][] because of its `placeholder` attribute. **Note**: While the `placeholder` attribute is sufficient to provide an [accessible name][], a [visible][] [label][] that does not disappear when a user starts to enter data is still required for [success criterion 3.3.2 Labels or Instructions][sc332].",
+      "code": "<input placeholder=\"Your search query\" /> <button type=\"submit\">search</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "This [semantic][semantic role] `combobox` element has an [accessible name][] because of its `aria-label` attribute.",
+      "code": "<div>Country</div>\n<div aria-label=\"country\" role=\"combobox\" aria-disabled=\"true\">England</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 7",
+      "description": "This [semantic][semantic role] `checkbox` element has the text content as its [accessible name][].",
+      "code": "<div role=\"checkbox\">I agree to the terms and conditions.</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 8",
+      "description": "These `menuitemcheckbox` elements have an [accessible name][] because its aria-labelledby attribute references a `span` element.",
+      "code": "<p id=\"dip\">Add one or more dip:</p>\n<div role=\"menu\" aria-labelledby=\"dip\">\n\t<input type=\"checkbox\" role=\"menuitemcheckbox\" aria-labelledby=\"ketchup\" /><span id=\"ketchup\" aria-hidden=\"true\"\n\t\t>Ketchup</span\n\t><br />\n\t<input type=\"checkbox\" role=\"menuitemcheckbox\" aria-labelledby=\"mayonnaise\" /><span id=\"mayonnaise\" aria-hidden=\"true\"\n\t\t>Mayonnaise</span\n\t>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 9",
+      "description": "This `input` element with a `type` [attribute value][] of `color` has an [accessible name][] because of its [programmatic label](#programmatic-label).",
+      "code": "<label>\n\tFavorite color\n\t<input type=\"color\" />\n</label>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `input` element does not have an attribute that gives an [accessible name][] to it.",
+      "code": "<div>last name</div>\n<input />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This disabled `input` element does not have an attribute that gives an [accessible name][] to it.",
+      "code": "<input disabled />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `input` element has an empty (`\"\"`) [accessible name][] because the space in the `aria-label` [attribute value][] is trimmed.",
+      "code": "<input aria-label=\" \" />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This `select` element has an empty (`\"\"`) [accessible name][] because the `div` has no text content.",
+      "code": "<div id=\"country\"></div>\n<select aria-labelledby=\"country\">\n\t<option>England</option>\n</select>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This [semantic][semantic role] `textbox` element has an empty (`\"\"`) [accessible name][]. The parent `label` element does not give it an [accessible name][], this only works for native form fields.",
+      "code": "<label>\n\tfirst name\n\t<div role=\"textbox\"></div>\n</label>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 6",
+      "description": "This [semantic][semantic role] `textbox` element has an empty (`\"\"`) [accessible name][]. The `label` element does not give it an [accessible name][], this only works for native form fields.",
+      "code": "<label for=\"firstname\">first name</label>\n<div role=\"textbox\" id=\"firstname\"></div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 7",
+      "description": "This [semantic][semantic role] `textbox` element has an empty (`\"\"`) [accessible name][]. The text content of the element serves as its value, not as an [accessible name][].",
+      "code": "<div role=\"textbox\">first name</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 8",
+      "description": "These `menuitemcheckbox` elements do not have an [accessible name][].",
+      "code": "<p id=\"dip\">Add one or more dip:</p>\n<div role=\"menu\" aria-labelledby=\"dip\">\n\t<input type=\"checkbox\" role=\"menuitemcheckbox\" /><span aria-hidden=\"true\">Ketchup</span><br />\n\t<input type=\"checkbox\" role=\"menuitemcheckbox\" /><span aria-hidden=\"true\">Mayonnaise</span>\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 9",
+      "description": "This `input` element with a `type` [attribute value][] of `date` has an empty (`\"\"`) [accessible name][].",
+      "code": "<label>Date of birth</label> <input type=\"date\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `input` element is not [included in the accessibility tree][] because of its `style` attribute which sets `display` to `none`.",
+      "code": "<input aria-label=\"firstname\" style=\"display:none;\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `input` element is not [included in the accessibility tree][] because of its `aria-hidden` attribute.",
+      "code": "<input disabled aria-hidden=\"true\" aria-label=\"firstname\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `select` element is not [included in the accessibility tree][] because it is `disabled` and has a `role` attribute value of \"none\".",
+      "code": "<select role=\"none\" disabled>\n\t<option value=\"volvo\">Volvo</option>\n\t<option value=\"saab\">Saab</option>\n\t<option value=\"opel\">Opel</option>\n</select>"
+    }
+  ],
+  "background": "The list of roles in the applicability is derived by taking all the roles from [WAI-ARIA Specifications](#wai-aria-specifications) that:\n\n- have [semantic roles][] that inherit from the `input`, `menuitem` or `select` role; and\n- are form field controls (this notably excludes `menu`, `option` or `tree`).\n\nThis rule does not test other control-like roles such as `button` and `menuitem`, because these do not inherit from `input` or `select`; these should be tested separately. This rule tests explicitly input types such as date and color because they have no semantic role, but still require an accessible name.\n\nThis rule does not map to [3.3.2 Labels or Instructions](https://www.w3.org/TR/WCAG22/#labels-or-instructions) as there are sufficient techniques within 3.3.2 that don't need the elements to have an [accessible name][]. For example \"[G131: Providing descriptive labels](https://www.w3.org/WAI/WCAG22/Techniques/general/G131)\" **AND** \"[G162: Positioning labels to maximize predictability of relationships](https://www.w3.org/WAI/WCAG22/Techniques/general/G162)\" would be sufficient.",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "- Several assistive technologies have a functionality to list all form fields on a page, including the `disabled` ones. Therefore this rule is still applicable to `disabled` form fields. If an assistive technology consistently ignores `disabled` form fields in all its interactions, then it is possible to have a `disabled` form field with no accessible name without creating accessibility issues for the user.\n- Implementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some elements can have one of the applicable [semantic roles][] and fail this rule with some technology but users of other technologies would not experience any accessibility issue.",
   "url": "https://act-rules.github.io/rules/e086e5"
 }

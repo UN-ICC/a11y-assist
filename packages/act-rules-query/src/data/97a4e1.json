@@ -13,5 +13,115 @@
     "CSS Styling"
   ],
   "applicability_text": "This rule applies to elements that are [included in the accessibility tree][] and have a [semantic role](#semantic-role) of `button`, except for `input` elements with a `type` [attribute value] of `image`.",
+  "expectations": [
+    "Each target element has an [accessible name][] that is not empty (`\"\"`)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `button` element has an [accessible name][] because of its text content.",
+      "code": "<button>My button</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `input` element has an [accessible name][] because of its `value` attribute.",
+      "code": "<input type=\"submit\" value=\"Submit\" />"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `button` element has an [accessible name][] because of its `aria-label` attribute.",
+      "code": "<button aria-label=\"My button\"></button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This element with a `button` role has an [accessible name][] because of its `aria-label` attribute.",
+      "code": "<span role=\"button\" aria-label=\"My button\"></span>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This `button` element with the `disabled` attribute has an [accessible name][] because of its text content.",
+      "code": "<button disabled>Delete</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "This off screen `button` element has an [accessible name][] because of its text content.",
+      "code": "<html>\n\t<style>\n\t\t.notInPage {\n\t\t\tposition: absolute;\n\t\t\tleft: -9999px;\n\t\t\ttop: -9999px;\n\t\t}\n\t</style>\n\t<body>\n\t\t<button class=\"notInPage\">Save</button>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 7",
+      "description": "This `input` element has an [accessible name][] because of the default accessible name for an `input` element with a `type` attribute set to `reset`.",
+      "code": "<input type=\"reset\" />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `button` element has no [accessible name][] because it has no content or attribute that can provide it.",
+      "code": "<button></button>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `button` element has no [accessible name][]. The `value` attribute does not provide an [accessible name][] for `button` elements, only when an `input` element's [state of the `type` attribute](https://html.spec.whatwg.org/multipage/input.html#states-of-the-type-attribute) is `button`, `submit` or `reset`.",
+      "code": "<button type=\"button\" value=\"read more\"></button>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This element with the `button` role has no [accessible name][] because it has no content or attribute that can provide it.",
+      "code": "<span role=\"button\"></span>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This off screen `button` element has no [accessible name][] because it has no content or attribute that can provide it.",
+      "code": "<html>\n\t<style>\n\t\t.notInPage {\n\t\t\tposition: absolute;\n\t\t\tleft: -9999px;\n\t\t\ttop: -9999px;\n\t\t}\n\t</style>\n\t<body>\n\t\t<button class=\"notInPage\" value=\"delete\"></button>\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This `button` element has an [explicit role][] of `none`. However, it is [focusable][] (by default). Thus it has a [semantic role][] of `button` due to [Presentational Roles Conflict Resolution][]. It has an empty [accessible name][].",
+      "code": "<button role=\"none\"></button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `input` element has a `type` attribute set to `image`. These images are tested in a separate rule which also tests [success criterion 1.1.1 Non-text Content](https://www.w3.org/TR/WCAG22/#non-text-content).",
+      "code": "<input type=\"image\" value=\"download\" alt=\"Download\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `button` element does not need an [accessible name][] because it is not included in the accessibility tree.",
+      "code": "<button style=\"display: none;\"></button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `button` element has a `link` role. Links are tested in a separate rule which also tests [success criterion 2.4.4 Link Purpose (In Context)](https://www.w3.org/TR/WCAG22/#link-purpose-in-context).",
+      "code": "<button role=\"link\">take me somewhere</button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 4",
+      "description": "There is no element with a semantic role of `button`.",
+      "code": "<div>Press Here</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 5",
+      "description": "This `button` element has an [explicit role][] of `none`; it is not [focusable][] because it is `disabled`. Thus it has a [semantic role][] of `none`.",
+      "code": "<button role=\"none\" disabled></button>"
+    }
+  ],
+  "background": "This rule considers an exception for \"image buttons\" (i.e., `input` elements with a `type` [attribute value] of `image`). Image buttons failing this rule would fail [Success Criterion 4.1.2](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value) and [Success Criterion 1.1.1](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content) which is not part of the accessibility requirements for this rule.",
+  "assumptions": "- The rule assumes that all buttons are [user interface components as defined by WCAG 2](https://www.w3.org/TR/WCAG22/#dfn-user-interface-components).\n\n- Some elements have a role of `button` and a default accessible name defined by the [HTML Accessibility API Mapping][html aam input button], for example `input` elements whose `type` [attribute value][] is either `submit` or `reset`. This rule considers that these default names can be descriptive and therefore does not fail them.",
+  "accessibility_support": "- Implementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some elements can have a [semantic role][] of `button` and fail this rule with some technology but users of other technologies would not experience any accessibility issue.",
   "url": "https://act-rules.github.io/rules/97a4e1"
 }

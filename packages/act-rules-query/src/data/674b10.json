@@ -13,5 +13,73 @@
     "CSS Styling"
   ],
   "applicability_text": "This rule applies to any `role` attribute for which all the following are true:\n\n- the attribute has a value that is neither empty (\"\") nor only [ASCII whitespace][]; and\n- the attribute is specified on an [HTML or SVG element][] which is not [programmatically hidden][].",
+  "expectations": [
+    "Each test target has at least one token which is a valid value corresponding to a non-abstract role from [WAI-ARIA Specifications][]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `role` attribute contains one `searchbox` token which is a valid [WAI-ARIA role][].",
+      "code": "<label>Search: <input type=\"text\" role=\"searchbox\" placeholder=\"Enter 3 or more characters\"/></label>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `role` attribute contains two tokens which are both valid [WAI-ARIA roles][wai-aria role].",
+      "code": "<style>\n\t.ref {\n\t\tcolor: #0000ee;\n\t\ttext-decoration: underline;\n\t\tcursor: pointer;\n\t}\n</style>\nSee [<span class=\"ref\" onclick=\"location.href='https://act-rules.github.io/'\" role=\"doc-biblioref link\">ACT rules</span\n>]."
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `role` attribute contains two tokens, and one of these tokens (`searchbox`) is a valid [WAI-ARIA role][].",
+      "code": "<label>Search: <input type=\"text\" role=\"searchfield searchbox\" placeholder=\"Enter 3 or more characters\"/></label>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `role` attribute contains one `lnik` token, but this token is not a valid role in any of the [WAI-ARIA specifications][].",
+      "code": "<style>\n\t.link {\n\t\tcolor: #0000ee;\n\t\ttext-decoration: underline;\n\t\tcursor: pointer;\n\t}\n</style>\nI love <span class=\"link\" onclick=\"location.href='https://act-rules.github.io/'\" role=\"lnik\">ACT rules</span>."
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `role` attribute contains two tokens, but neither of these tokens is a valid role in any of the [WAI-ARIA specifications][].",
+      "code": "<style>\n\t.ref {\n\t\tcolor: #0000ee;\n\t\ttext-decoration: underline;\n\t\tcursor: pointer;\n\t}\n</style>\nSee [<span class=\"ref\" onclick=\"location.href='https://act-rules.github.io/'\" role=\"bibliographic-reference lnik\"\n\t>ACT rules</span\n>]."
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "There is no `role` attribute.",
+      "code": "<img src=\"/test-assets/shared/w3c-logo.png\" alt=\"W3C logo\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `role` attribute has no value.",
+      "code": "<div role>Some Content</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `role` attribute is empty (\"\").",
+      "code": "<div role=\"\">Some Content</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 4",
+      "description": "This `role` attribute is only [ASCII whitespace][].",
+      "code": "<input type=\"text\" role=\" \" aria-label=\"field name\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 5",
+      "description": "This `role` attribute is specified on an element which is [programmatically hidden][].",
+      "code": "<div aria-hidden=\"true\" role=\"banner\">Some Content</div>"
+    }
+  ],
+  "background": "Using an invalid role is often the result of a typo or other developer error. Unknown roles are ignored by browsers and assistive technologies, and the element's [implicit role][] is used. This often means that a role that should exist is missing.\n\nThe `role` attribute is a set of [space separated tokens][]. Having a [whitespace](#whitespace) separated list of more than one token in the value of the role attribute is used for what is known as _fallback roles_. If the first token is not accessibility supported (or valid), the next one will be used for determining the [semantic role][] of the element, and so forth. The rule applies to attributes containing at least one non-[ASCII whitespace][] character so that there is at least one token in the set.\n\nNot every role can be used on every element. Which ARIA roles may be used on which HTML elements is defined in [ARIA in HTML](https://www.w3.org/TR/html-aria/). Testing this is not part of this rule.",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/674b10"
 }

@@ -11,5 +11,55 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any [document element](https://dom.spec.whatwg.org/#document-element) if it is an `html` element for which all the following are true:\n\n- is in a [top-level browsing context](https://html.spec.whatwg.org/#top-level-browsing-context); and\n- has a [node document](https://dom.spec.whatwg.org/#concept-node-document) with a [content type](https://dom.spec.whatwg.org/#concept-document-content-type) of `text/html`.\n\n**Note:** `html` elements within `iframe` and `object` elements are not applicable as `iframe` and `object` elements create [nested browsing contexts](https://html.spec.whatwg.org/#nested-browsing-context). However, as these elements are meant to provide a layer of isolation, the declared language of their [parent browsing context](https://html.spec.whatwg.org/#parent-browsing-context) will likely not be inherited, making it possible for empty `lang` attributes in [nested browsing contexts](https://html.spec.whatwg.org/#nested-browsing-context) to also cause accessibility issues.",
+  "expectations": [
+    "Each test target has a `lang` [attribute value][] that is neither empty (`\"\"`) nor only [ASCII whitespace](https://infra.spec.whatwg.org/#ascii-whitespace)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `html` element has a `lang` attribute with a non-empty (`\"\"`) value.",
+      "code": "<html lang=\"en\">\n\t<body>\n\t\tThe quick brown fox jumps over the lazy dog.\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `html` element does not have a `lang` attribute.",
+      "code": "<html>\n\t<body>\n\t\tThe quick brown fox jumps over the lazy dog.\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `html` element has a `lang` attribute with an empty (`\"\"`) value.",
+      "code": "<html lang=\"\">\n\t<body>\n\t\tThe quick brown fox jumps over the lazy dog.\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `html` element has a `lang` attribute whose value is only [ASCII whitespace](https://infra.spec.whatwg.org/#ascii-whitespace).",
+      "code": "<html lang=\" \">\n\t<body>\n\t\tThe quick brown fox jumps over the lazy dog.\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This `html` element has no `lang` attribute, only a `xml:lang` attribute.",
+      "code": "<html xml:lang=\"en\">\n\t<body>\n\t\tThe quick brown fox jumps over the lazy dog.\n\t</body>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This rule does not apply to an `svg` element.",
+      "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" lang=\"en\">\n    <text>\n        The quick brown fox jumps over the lazy dog.\n    </text>\n</svg>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This rule does not apply to a `math` element.",
+      "code": "<math lang=\"en\">\n    The quick brown fox jumps over the lazy dog.\n</math>"
+    }
+  ],
+  "background": "",
+  "assumptions": "The language of the page can be set by other methods than the `lang` attribute, for example using HTTP headers or the `meta` element. These methods are not supported by all assistive technologies. This rule assumes that these other methods are insufficient to satisfying [Success Criterion 3.1.1: Language of Page](https://www.w3.org/TR/WCAG22/#language-of-page).",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/b5c3f8"
 }

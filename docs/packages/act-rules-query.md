@@ -46,9 +46,23 @@ interface ACTRule {
   wcag_sc_ids_secondary: string[]
   input_aspects: string[]
   applicability_text: string     // verbatim '## Applicability' section
+  expectations: string[]         // each '## Expectation' — what must hold to pass
+  examples: ACTExample[]         // worked Passed / Failed / Inapplicable examples, with code
+  background: string             // '## Background' prose
+  assumptions: string            // 'Assumptions' section
+  accessibility_support: string  // 'Accessibility Support' section
   url: string                    // canonical at act-rules.github.io
 }
+
+interface ACTExample {
+  category: 'passed' | 'failed' | 'inapplicable'
+  name: string                   // e.g. 'Passed Example 1'
+  description: string            // verbatim prose
+  code: string                   // the example's code (first fenced block)
+}
 ```
+
+Every field is verbatim from the snapshotted Markdown — the full rule (applicability, expectations, examples, background), not just its applicability.
 
 ## Methodology
 
@@ -91,6 +105,7 @@ Each published version ↔ the upstream snapshot it was built from.
 
 | Version | Scraped | Upstream commit |
 | --- | --- | --- |
+| 0.1.1 | 2026-05-07 | `80e887e` |
 | 0.1.0 | 2026-05-07 | `80e887e` |
 
 <!-- provenance:end -->

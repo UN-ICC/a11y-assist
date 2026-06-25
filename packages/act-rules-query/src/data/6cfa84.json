@@ -12,5 +12,103 @@
     "CSS Styling"
   ],
   "applicability_text": "This rule applies to any element with an `aria-hidden` [attribute value][] of `true`.",
+  "expectations": [
+    "None of the target elements has an [inclusive descendant][] in the [flat tree][] that are [focusable][] and part of the [sequential focus navigation][]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `p` element is not part of the [sequential focus navigation][].",
+      "code": "<p aria-hidden=\"true\">Some text</p>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `a` element is not part of the [sequential focus navigation][] because it is hidden through CSS.",
+      "code": "<div aria-hidden=\"true\">\n\t<a href=\"/\" style=\"display:none\">Link</a>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `input` element is not part of the [sequential focus navigation][] because of the `disabled` attribute.",
+      "code": "<input disabled aria-hidden=\"true\" />"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This `a` element is not [focusable][] because it moves focus to the `input` element whenever it receives focus. These elements are sometimes referred to as 'focus sentinel' or 'bumper'. They are typically found before and after a modal / dialog in order to contain focus within the modal. Page authors do not want the sentinel to be visible, nor do they want them to be read by a screen reader. But, they do want the element to be part of the [sequential focus navigation][]. This allows the page author to detect that focus has left the dialog in order to wrap it to the top/bottom as appropriate.",
+      "code": "<div\n\tid=\"sampleModal\"\n\trole=\"dialog\"\n\taria-label=\"Sample Modal\"\n\taria-modal=\"true\"\n\tstyle=\"border: solid black 1px; padding: 1rem;\"\n>\n\t<label>First and last name <input id=\"dialogFirst\"/></label><br />\n\t<button id=\"closeButton\">Close button</button>\n</div>\n<div aria-hidden=\"true\">\n\t<a href=\"#\" id=\"sentinelAfter\" style=\"position:absolute; top:-999em\"\n\t\t>Upon receiving focus, this focus sentinel should wrap focus to the top of the modal</a\n\t>\n</div>\n<script>\n\tdocument.getElementById('sentinelAfter').addEventListener('focus', () => {\n\t\tdocument.getElementById('dialogFirst').focus()\n\t})\n\tdocument.getElementById('closeButton').addEventListener('click', () => {\n\t\tdocument.getElementById('sampleModal').style.display = 'none'\n\t})\n</script>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This `button` element is [focusable][], but not part of the [sequential focus navigation][] because of the `tabindex` attribute.",
+      "code": "<div aria-hidden=\"true\">\n\t<button tabindex=\"-1\">Some button</button>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "This `svg` element with `aria-hidden` does not have a focusable descendant, focusable ancestors are not a problem for this rule.",
+      "code": "<a href=\"#\">\n\t<svg width=\"16\" height=\"16\" aria-hidden=\"true\">\n\t\t<circle cx=\"8\" cy=\"11\" r=\"4\" stroke=\"black\" stroke-width=\"2\" fill=\"transparent\" />\n\t</svg>\n\tHello ACT\n</a>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `a` element positioned off screen is part of the [sequential focus navigation][] using the keyboard.",
+      "code": "<div aria-hidden=\"true\">\n\t<a href=\"/\" style=\"position:absolute; top:-999em\">Link</a>\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `input` element is part of the [sequential focus navigation][] because it was incorrectly disabled.",
+      "code": "<div aria-hidden=\"true\">\n\t<input aria-disabled=\"true\" />\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `button` element is part of the [sequential focus navigation][] and a descendant of an element with an `aria-hidden` [attribute value][] of `true` because `aria-hidden` can't be reset once set to true on an ancestor.",
+      "code": "<div aria-hidden=\"true\">\n\t<div aria-hidden=\"false\">\n\t\t<button>Some button</button>\n\t</div>\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This `p` element is part of the [sequential focus navigation][] because of the `tabindex` attribute.",
+      "code": "<p tabindex=\"0\" aria-hidden=\"true\">Some text</p>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This `summary` element is part of the [sequential focus navigation][].",
+      "code": "<details aria-hidden=\"true\">\n\t<summary>Some button</summary>\n\t<p>Some details</p>\n</details>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 6",
+      "description": "This `a` element is [focusable][] because it fails to move focus when it receives focus. This is in contrast to a focus sentinel that immediately jumps focus to a valid location. Focus sentinels are typically used before and after a modal dialog in order to contain and wrap focus. In this case, the `focus` event was removed, but the sentinel was not.",
+      "code": "<div\n\tid=\"sampleModal\"\n\trole=\"dialog\"\n\taria-label=\"Sample Modal\"\n\taria-modal=\"true\"\n\tstyle=\"border: solid black 1px; padding: 1rem;\"\n>\n\t<label>First and last name <input id=\"dialogFirst\"/></label><br />\n\t<button id=\"closeButton\">Close button</button>\n</div>\n<div aria-hidden=\"true\">\n\t<a href=\"#\" id=\"sentinelAfter\" style=\"position:absolute; top:-999em\"\n\t\t>Upon receiving focus, this focus sentinel should wrap focus to the top of the modal</a\n\t>\n</div>\n<script>\n\tdocument.getElementById('closeButton').addEventListener('click', () => {\n\t\tdocument.getElementById('sampleModal').style.display = 'none'\n\t})\n</script>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `aria-hidden` attribute is ignored with null value.",
+      "code": "<button tabindex=\"-1\" aria-hidden>Some button</button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `aria-hidden` attribute is ignored with value `false`.",
+      "code": "<p aria-hidden=\"false\">Some text</p>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `aria-hidden` attribute has an incorrect value.",
+      "code": "<div aria-hidden=\"yes\">\n\t<p>Some text</p>\n</div>"
+    }
+  ],
+  "background": "Using `aria-hidden=\"false\"` on a descendant of an element with `aria-hidden=\"true\"` [**does not** expose that element](https://www.w3.org/TR/wai-aria-1.2/#aria-hidden). `aria-hidden=\"true\"` hides itself and all its content from assistive technologies.\n\nBy adding `aria-hidden=\"true\"` to an element, content authors ensure that assistive technologies will ignore the element. This can be used to hide parts of a web page that are [pure decoration](https://www.w3.org/TR/WCAG22/#dfn-pure-decoration), such as icon fonts - that are not meant to be read by assistive technologies.\n\nAn element with an `aria-hidden` attribute set to `true` that is also part of the [sequential focus navigation][] may cause confusion for users of assistive technologies because the element can be reached via [sequential focus navigation][], but it should be hidden and not [included in the accessibility tree][].\n\nThe 1 second time span introduced in the exception of the definition of [focusable][] is an arbitrary limit which is not included in WCAG. Given that scripts can manage the focus state of elements, testing the focused state of an element consistently would be impractical without a time limit.",
+  "assumptions": "Interacting with the page does not result in changing the `aria-hidden` [attribute value][] of target elements. An example of such a situation would be when closing a modal dialog makes previously hidden elements that were not [focusable][] or part of the [sequential focus navigation][] become [focusable][] and part of the [sequential focus navigation][].",
+  "accessibility_support": "Some user agents treat the value of `aria-hidden` attribute as case-sensitive.",
   "url": "https://act-rules.github.io/rules/6cfa84"
 }

@@ -13,7 +13,7 @@ import { resolve, dirname, basename } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { execSync } from 'node:child_process'
 import matter from 'gray-matter'
-import type { ACTRule, ACTSnapshot } from '../src/types.js'
+import type { ACTRule, ACTExample, ACTSnapshot } from '../src/types.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
@@ -77,6 +77,64 @@ function extractApplicability(body: string): string {
   return m[1].trim()
 }
 
+/** Text under the first '##'/'###' heading matching `pattern`, until the next heading of any level. */
+function extractSection(body: string, pattern: string): string {
+  const re = new RegExp(`^#{2,3}\\s+${pattern}\\b[^\\n]*\\n`, 'm')
+  const m = re.exec(body)
+  if (!m) return ''
+  const rest = body.slice(m.index + m[0].length)
+  const next = rest.search(/^#{2,3}\s/m)
+  return (next === -1 ? rest : rest.slice(0, next)).trim()
+}
+
+/** Every '## Expectation[ N]' section's text. */
+function extractExpectations(body: string): string[] {
+  const out: string[] = []
+  const re = /^##\s+Expectation\b[^\n]*\n/gm
+  let m: RegExpExecArray | null
+  while ((m = re.exec(body))) {
+    const rest = body.slice(m.index + m[0].length)
+    const next = rest.search(/^#{2,3}\s/m)
+    const text = (next === -1 ? rest : rest.slice(0, next)).trim()
+    if (text) out.push(text)
+  }
+  return out
+}
+
+/** Parse the '## Examples' section into worked examples grouped by outcome. */
+function extractExamples(body: string): ACTExample[] {
+  const head = /^##\s+Examples\b[^\n]*\n/m.exec(body)
+  if (!head) return []
+  let block = body.slice(head.index + head[0].length)
+  const nextH2 = block.search(/^##\s/m)
+  if (nextH2 !== -1) block = block.slice(0, nextH2)
+
+  const out: ACTExample[] = []
+  let category: ACTExample['category'] | '' = ''
+  let cur: { name: string; lines: string[] } | null = null
+  const flush = () => {
+    if (!cur || !category) { cur = null; return }
+    const text = cur.lines.join('\n')
+    const code = text.match(/```[a-z]*\n([\s\S]*?)```/)
+    out.push({
+      category,
+      name: cur.name,
+      description: (code ? text.slice(0, text.indexOf(code[0])) : text).replace(/\s+/g, ' ').trim(),
+      code: code ? code[1].trim() : '',
+    })
+    cur = null
+  }
+  for (const line of block.split('\n')) {
+    const h3 = line.match(/^###\s+(Passed|Failed|Inapplicable)\b/)
+    if (h3) { flush(); category = h3[1].toLowerCase() as ACTExample['category']; continue }
+    const h4 = line.match(/^####\s+(.*)$/)
+    if (h4) { flush(); cur = { name: h4[1].trim(), lines: [] }; continue }
+    if (cur) cur.lines.push(line)
+  }
+  flush()
+  return out
+}
+
 function loadRule(filePath: string): ACTRule | null {
   const raw = readFileSync(filePath, 'utf8')
   const parsed = matter(raw)
@@ -88,7 +146,7 @@ function loadRule(filePath: string): ACTRule | null {
   }
 
   const wcag = extractWCAGRefs(fm.accessibility_requirements)
-  const applicability_text = extractApplicability(parsed.content)
+  const body = parsed.content
 
   return {
     id: fm.id,
@@ -98,7 +156,12 @@ function loadRule(filePath: string): ACTRule | null {
     wcag_sc_ids: wcag.primary,
     wcag_sc_ids_secondary: wcag.secondary,
     input_aspects: fm.input_aspects ?? [],
-    applicability_text,
+    applicability_text: extractApplicability(body),
+    expectations: extractExpectations(body),
+    examples: extractExamples(body),
+    background: extractSection(body, 'Background'),
+    assumptions: extractSection(body, 'Assumptions'),
+    accessibility_support: extractSection(body, 'Accessibility Support'),
     url: `${ACT_BASE_URL}/${fm.id}`,
   }
 }
@@ -143,10 +206,15 @@ async function main() {
     JSON.stringify(manifest, null, 2) + '\n',
   )
 
-  // Snapshot metadata.
+  // Snapshot metadata. The date + commit identify the *snapshot* (set when the
+  // .md files were synced), so a pure re-parse must preserve them — only a fresh
+  // capture (git available) updates the commit. Always refresh rule_count.
+  let prev: Partial<ACTSnapshot> = {}
+  try { prev = JSON.parse(readFileSync(resolve(DATA_DIR, '_snapshot.json'), 'utf8')) } catch { /* none yet */ }
+  const captured = captureUpstreamCommit()
   const snapshot: ACTSnapshot = {
-    date: new Date().toISOString().slice(0, 10),
-    upstream_commit: captureUpstreamCommit(),
+    date: prev.date ?? new Date().toISOString().slice(0, 10),
+    upstream_commit: captured !== 'unknown' ? captured : (prev.upstream_commit ?? 'unknown'),
     rule_count: rules.length,
   }
   writeFileSync(

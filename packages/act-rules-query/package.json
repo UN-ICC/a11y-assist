@@ -1,6 +1,6 @@
 {
   "name": "act-rules-query",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Programmatic access to W3C Accessibility Conformance Testing (ACT) Rules. Loaded from snapshotted YAML/Markdown source files.",
   "type": "module",
   "main": "dist/index.js",

@@ -13,5 +13,43 @@
     "Language"
   ],
   "applicability_text": "This rule applies to any [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio.",
+  "expectations": [
+    "The visual information of each test target is available through an audio track."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `video` element, which has no audio, has a separate audio track that describes the visual information.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t</video>\n\n\t<audio controls>\n\t\t<source src=\"/test-assets/rabbit-video/audio-description.mp3\" type=\"audio/mpeg\" />\n\t</audio>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `video` element, which has no audio, does not have an audio track describing the visual information.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `video` element, which has no audio, has a separate audio track that incorrectly describes the visual information.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t</video>\n\n\t<audio controls>\n\t\t<source src=\"/test-assets/rabbit-video/incorrect-audio-description.mp3\" type=\"audio/mpeg\" />\n\t</audio>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `video` element has audio.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `video` element is not [visible][].",
+      "code": "<html lang=\"en\">\n\t<video controls style=\"display: none;\">\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t</video>\n</html>"
+    }
+  ],
+  "background": "",
+  "assumptions": "This rule assumes that a mechanism is available to start the video and that the video element is not simply used to display the [poster](https://www.w3.org/TR/html5/semantics-embedded-content.html#element-attrdef-video-poster).",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/d7ba54"
 }

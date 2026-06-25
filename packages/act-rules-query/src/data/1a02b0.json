@@ -18,5 +18,67 @@
     "Language"
   ],
   "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][].",
+  "expectations": [
+    "The visual information of each test target is available through a text transcript that is [included in the accessibility tree][], and is either on the page or linked.\n\n**Note:** A \"text transcript\" in the context of this rule is defined in WCAG 2 as an [alternative for time based media](https://www.w3.org/TR/WCAG22/#dfn-alternative-for-time-based-media)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "A video element with a visible text transcript on the same page.",
+      "code": "<html lang=\"en\">`\n<video controls>\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<p>The above video shows a giant fat rabbit climbing out of a hole in the ground.\nHe stretches, yaws, and then starts walking.\nThen he stops to scratch his bottom.</p>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "A video element with a link to a text transcript on a different page.",
+      "code": "<html lang=\"en\">`\n<video controls>\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<a href=\"/test-assets/rabbit-video/transcript.html\">Transcript</a>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `video` element has a non-visible text transcript available on the same page.",
+      "code": "<html lang=\"en\">\n<video controls>\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<p style=\"position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;\">The above video shows a giant fat rabbit climbing out of a hole in the ground.\nHe stretches, yaws, and then starts walking.\nThen he stops to scratch his bottom.</p>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "A video element with an associated track element that contains captions for all the audio and a transcript on the page.",
+      "code": "<html lang=\"en\">\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls>\n\t\t<track src=\"/test-assets/perspective-video/perspective-caption.vtt\" kind=\"captions\" />\n\t</video>\n\t<p>\n\t\tWeb Accessibility Perspectives: Keyboard Accessibility. Not being able to use your computer because your mouse\n\t\tdoesn't work, is frustrating. (A computer user's mouse breaks when it falls off the desk.) Many people use only the\n\t\tkeyboard to navigate websites. Either through preference or circumstance. (A person wearing a sling on her arm\n\t\ttyping with one hand.)\n\t</p>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "A video element with an incorrect text transcript on the same page.",
+      "code": "<html lang=\"en\">`\n<video controls>\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<p>The above video shows a giant fat dog climbing out of a hole in the ground.\nHe stretches, yaws, and then starts walking.\nThen he stops to scratch his bottom.</p>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "A video element with a link to an incorrect text transcript on a different page.",
+      "code": "<html lang=\"en\">`\n<video controls>\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<a href=\"/test-assets/rabbit-video/incorrect-transcript.html\">Transcript</a>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `video` element has a text transcript available on the same page, but the transcript is not [included in the accessibility tree][].",
+      "code": "<html lang=\"en\">\n<video controls>\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<p aria-hidden=\"true\">The above video shows a giant fat rabbit climbing out of a hole in the ground.\nHe stretches, yaws, and then starts walking.\nThen he stops to scratch his bottom.</p>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "A video element with audio does not have a text transcript.",
+      "code": "<html lang=\"en\">\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls>\n\t\t<track src=\"/test-assets/perspective-video/perspective-caption.vtt\" kind=\"captions\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "A video element that is not [visible][].",
+      "code": "<html lang=\"en\">`\n<video controls style=\"display: none;\">\n  <source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\"></source>\n  <source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\"></source>\n</video>\n<a href=\"/test-assets/rabbit-video/transcript.html\">Transcript</a>\n</html>"
+    }
+  ],
+  "background": "",
+  "assumptions": "- This rule assumes that a mechanism is available to start the video and that the video element is not simply used to display the [poster](https://www.w3.org/TR/html5/semantics-embedded-content.html#element-attrdef-video-poster).\n- Users who are not visually impaired can comprehend the contents of the video through visual cues and information presented visually.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/1a02b0"
 }

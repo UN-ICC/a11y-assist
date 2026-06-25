@@ -12,5 +12,55 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any attribute that starts with `aria-`.",
+  "expectations": [
+    "Each target attribute is defined in [WAI-ARIA Specifications][]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `article` element has an `aria-atomic` attribute which is defined in [WAI-ARIA Specifications][].",
+      "code": "<article aria-atomic=\"true\">This is a description of something cool...</article>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `div` element with a role of `dialog` has an `aria-modal` attribute which is defined in [WAI-ARIA Specifications][].",
+      "code": "<div role=\"dialog\" aria-modal=\"true\" aria-label=\"Modal title\">Contains modal content...</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `div` element with a role of `textbox` has multiple `aria-` attributes which are defined in [WAI-ARIA Specifications][].",
+      "code": "<div\n\trole=\"textbox\"\n\tcontenteditable=\"true\"\n\taria-multiline=\"true\"\n\taria-label=\"Enter your hobbies\"\n\taria-required=\"true\"\n></div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This `input` element with a type of `number` has multiple `aria-` attributes specified which are all defined in [WAI-ARIA Specifications][].",
+      "code": "<label for=\"spinbutton\">Enter a number between 0 and 100:</label>\n<input id=\"spinbutton\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"25\" type=\"number\" value=\"25\" />"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `div` element with a role of `checkbox` has an `aria-not-checked` attribute which is not defined in [WAI-ARIA Specifications][].",
+      "code": "<div role=\"checkbox\" aria-not-checked=\"true\">All conditions are met</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `div` element with a role of `searchbox` has an `aria-labelled` attribute (instead of `aria-labelledby`) which is not defined in [WAI-ARIA Specifications][].",
+      "code": "<span id=\"label\">Birthday:</span>\n<div contenteditable role=\"searchbox\" aria-labelled=\"label\" aria-placeholder=\"MM-DD-YYYY\">\n\t01-01-2019\n</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `canvas` element does not have an `aria-` attribute specified.",
+      "code": "<canvas> </canvas>"
+    }
+  ],
+  "background": "The presence of unknown ARIA attributes is often the result of a typo or other developer error. These attributes are ignored by browsers and other assistive technologies. This often means that a state or property which should exist is missing.",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/5f99a7"
 }

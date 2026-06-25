@@ -13,5 +13,43 @@
     "Language"
   ],
   "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][] where the video does not contain audio and contains a `track` element with a `kind` [attribute value][] of `descriptions`.",
+  "expectations": [
+    "The visual information of each test target is described with a description `track` element that has the same language as the video or the same language as the page."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `video` element, which has no audio, has a `track` element with descriptions.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t\t<track kind=\"descriptions\" src=\"/test-assets/rabbit-video/descriptions.vtt\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `video` element, which has no audio, has a `track` element with incorrect descriptions.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t\t<track kind=\"descriptions\" src=\"/test-assets/rabbit-video/incorrect-descriptions.vtt\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `video` element has audio.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\" />\n\t\t<track kind=\"descriptions\" src=\"/test-assets/rabbit-video/descriptions.vtt\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `video` element is not [visible][].",
+      "code": "<html lang=\"en\">\n\t<video controls style=\"display: none;\">\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t\t<track kind=\"descriptions\" src=\"/test-assets/rabbit-video/descriptions.vtt\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `video` element, which has no audio, does not have a `track` element.",
+      "code": "<html lang=\"en\">\n\t<video controls>\n\t\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n\t</video>\n</html>"
+    }
+  ],
+  "background": "Multiple description `track` elements may be useful for different languages, but at least one must match the language of the video or the language of the page.",
+  "assumptions": "This rule assumes that a mechanism is available to start the video and that the video element is not simply used to display the [poster](https://www.w3.org/TR/html5/semantics-embedded-content.html#element-attrdef-video-poster).",
+  "accessibility_support": "Currently the description track is not supported by most assistive technologies. Video players may be able to work around the lack of support for the description track by using aria-live but few do this today.",
   "url": "https://act-rules.github.io/rules/ac7dc6"
 }

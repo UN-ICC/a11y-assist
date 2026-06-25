@@ -376,9 +376,12 @@ async function main() {
     console.error(`[apg-query] wrote ${out}`)
   }
 
-  // Snapshot manifest
+  // Snapshot manifest. The date identifies the snapshot; only a fresh fetch
+  // (--refresh) updates it. A pure re-extract preserves the existing date.
+  let prevDate: string | undefined
+  try { prevDate = JSON.parse(readFileSync(resolve(DATA_DIR, '_snapshot.json'), 'utf8')).date } catch { /* none yet */ }
   const snapshot: APGSnapshot = {
-    date: new Date().toISOString().slice(0, 10),
+    date: (!process.argv.includes('--refresh') && prevDate) ? prevDate : new Date().toISOString().slice(0, 10),
     apg_base: APG_BASE,
     pattern_count: PATTERNS.length,
   }

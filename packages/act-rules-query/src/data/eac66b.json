@@ -9,5 +9,49 @@
   "wcag_sc_ids_secondary": [],
   "input_aspects": [],
   "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `video` element that is [visible][], where the video contains audio.",
+  "expectations": [
+    "For each test target, the [outcome](#outcome) of at least one of the following rules is passed:\n\n- [`Video` Element Content Is Media Alternative For Text](https://www.w3.org/WAI/standards-guidelines/act/rules/ab4d13/)\n- [`Video` Element Auditory Content Has Captions](https://www.w3.org/WAI/standards-guidelines/act/rules/f51b46/)"
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "A video element with an associated track element that contains captions for all the audio.",
+      "code": "<html lang=\"en\">\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls>\n\t\t<track src=\"/test-assets/perspective-video/perspective-caption.vtt\" kind=\"captions\" />\n\t</video>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "A video element that describes some of the text on the same page. The text on the page labels the video as an alternative.",
+      "code": "<html lang=\"en\">\n\t<p>\n\t\tWeb Accessibility Perspectives: Keyboard Accessibility. Not being able to use your computer because your mouse\n\t\tdoesn't work, is frustrating. Many people use only the keyboard to navigate websites. Either through preference or\n\t\tcircumstance. This is solved by keyboard compatibility. Keyboard compatibility is described in WCAG. See the video\n\t\tbelow to watch the same information again in video form.\n\t</p>\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls></video>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "A video element without any form of captions.",
+      "code": "<html lang=\"en\">\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls></video>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "A video element that describes some of the text on the same page. The video contains more information than the text does.",
+      "code": "<html lang=\"en\">\n\t<p>\n\t\tNot being able to use your computer because your mouse doesn't work, is frustrating. Either through preference or\n\t\tcircumstance. This is solved by keyboard compatibility. Keyboard compatibility is described in WCAG. See the video\n\t\tbelow to watch the same information again in video form.\n\t</p>\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls></video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "A video element that is not [visible][].",
+      "code": "<html lang=\"en\">\n\t<video src=\"/test-assets/perspective-video/perspective-video.mp4\" controls style=\"display: none;\"></video>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "A video element without audio.",
+      "code": "<html lang=\"en\">\n\t<video src=\"/test-assets/perspective-video/perspective-video-silent.mp4\" controls></video>\n</html>"
+    }
+  ],
+  "background": "",
+  "assumptions": "- This rule assumes that the video element is used to play synchronized media (video with audio), and that there is a mechanism to start the media.\n- This rule assumes that the language of each test target can be correctly determined (either programmatically or by analyzing the content), and sufficiently understood.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/eac66b"
 }

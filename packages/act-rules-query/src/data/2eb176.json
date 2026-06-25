@@ -12,5 +12,79 @@
     "Language"
   ],
   "applicability_text": "This rule applies to every [non-streaming](#non-streaming-media-element) `audio` element that is:\n\n- playing; or,\n- has a [play button][] that is [visible][] and [included in the accessibility tree][].",
+  "expectations": [
+    "The auditory information of each test target is available through a text transcript. That text transcript is [visible][] and [included in the accessibility tree][], either on the page or through a link.\n\n**Note:** A \"text transcript\" in the context of this rule is defined in WCAG 2 as an [alternative for time based media](https://www.w3.org/TR/WCAG22/#dfn-alternative-for-time-based-media)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `audio` element has native player controls and an internal transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n\t<p>\n\t\tThe above audio contains the following speech: We choose to go to the moon in this decade and do the other things,\n\t\tnot because they are easy, but because they are hard, because that goal will serve to organize and measure the best\n\t\tof our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to\n\t\tpostpone, and one which we intend to win, and the others, too.\n\t</p>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `audio` element has native player controls and an external transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n\t<a href=\"/test-assets/moon-audio/moon-speech-transcript.html\">Transcript</a>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `audio` element has an `autoplay` attribute and an external transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" autoplay></audio>\n\t<a href=\"/test-assets/moon-audio/moon-speech-transcript.html\">Transcript</a>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `audio` element has native player controls and no transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `audio` element has native player controls and an incorrect internal transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n\t<p>\n\t\tThe above audio contains the following speech: We choose to go to the cheese in this decade and do the other things,\n\t\tnot because they are easy, but because they are hard, because that goal will serve to organize and measure the best\n\t\tof our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to\n\t\tpostpone, and one which we intend to win, and the others, too.\n\t</p>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `audio` element has native player controls and an incorrect external transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n\t<a href=\"/test-assets/moon-audio/moon-speech-incorrect-transcript.html\">Transcript</a>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This `audio` element has an `autoplay` attribute and an incorrect external transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" autoplay></audio>\n\t<a href=\"/test-assets/moon-audio/moon-speech-incorrect-transcript.html\">Transcript</a>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This `audio` element has native player controls and a [non-visible][visible] internal transcript.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n\t<p style=\"text-indent: -9999px;\">\n\t\tThe above audio contains the following speech: We choose to go to the moon in this decade and do the other things,\n\t\tnot because they are easy, but because they are hard, because that goal will serve to organize and measure the best\n\t\tof our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to\n\t\tpostpone, and one which we intend to win, and the others, too.\n\t</p>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 6",
+      "description": "This `audio` element has native player controls and an internal transcript that is not exposed to the accessibility tree.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>\n\t<p aria-hidden=\"true\">\n\t\tThe above audio contains the following speech: We choose to go to the moon in this decade and do the other things,\n\t\tnot because they are easy, but because they are hard, because that goal will serve to organize and measure the best\n\t\tof our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to\n\t\tpostpone, and one which we intend to win, and the others, too.\n\t</p>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `audio` element has no native player controls.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\"></audio>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `audio` element has hidden native player controls.",
+      "code": "<html lang=\"en\">\n\t<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls style=\"display: none;\"></audio>\n</html>"
+    }
+  ],
+  "background": "",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/2eb176"
 }

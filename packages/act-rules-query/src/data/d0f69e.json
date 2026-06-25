@@ -13,5 +13,109 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any [HTML element][] with a [semantic][semantic role] [rowheader][] or [columnheader][] for which all of the following is true:\n\n- the element is [visible][]; and\n- the element is [included in the accessibility tree][]; and\n- the element has at least one ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][]; and\n- the element's closest ancestor in the [flat tree][] that is a [semantic][semantic role] [table][] or [grid][] is [included in the accessibility tree][].",
+  "expectations": [
+    "Each target element is [assigned][] to at least one element with an [inheriting semantic][] [cell][]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `th` element has an assigned `td` element.",
+      "code": "<table>\n\t<tr>\n\t\t<th>Time</th>\n\t</tr>\n\t<tr>\n\t\t<td>05:41</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "Each of the 2 `span` elements with role of `columnheader` has assigned `span` elements with a role of `cell`.",
+      "code": "<div role=\"table\" aria-label=\"Temperatures\">\n\t<div role=\"rowgroup\">\n\t\t<div role=\"row\">\n\t\t\t<span role=\"columnheader\">Month</span>\n\t\t\t<span role=\"columnheader\">Top Temperature</span>\n\t\t</div>\n\t</div>\n\t<div role=\"rowgroup\">\n\t\t<div role=\"row\">\n\t\t\t<span role=\"cell\">July</span>\n\t\t\t<span role=\"cell\">40 C</span>\n\t\t</div>\n\t\t<div role=\"row\">\n\t\t\t<span role=\"cell\">August</span>\n\t\t\t<span role=\"cell\">45 C</span>\n\t\t</div>\n\t</div>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "Each of the 2 `th` elements has an assigned `td` element because this `td` element spans 2 columns.",
+      "code": "<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Projects</th>\n\t\t\t<th>Exams</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td colspan=\"2\">15%</td>\n\t\t</tr>\n\t</tbody>\n</table>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "Each of the 4 `th` elements has an assigned `td` element, within the same `table` element having a [semantic role][] of `grid`.",
+      "code": "<table role=\"grid\" aria-label=\"Meal times\">\n\t<thead>\n\t\t<tr>\n\t\t\t<td></td>\n\t\t\t<th scope=\"col\" role=\"columnheader\">Breakfast</th>\n\t\t\t<th scope=\"col\" role=\"columnheader\">Lunch</th>\n\t\t\t<th scope=\"col\" role=\"columnheader\">Dinner</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<th scope=\"row\" role=\"rowheader\">Day 1</th>\n\t\t\t<td>8:00</td>\n\t\t\t<td>13:00</td>\n\t\t\t<td>18:00</td>\n\t\t</tr>\n\t</tbody>\n</table>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "Each of the 2 `th` elements has an assigned `td` element because the `headers` attribute assigns the `th` with `id` equal to \"col2\" to the `td` element.",
+      "code": "<table>\n\t<tr>\n\t\t<th id=\"col1\">Cities</th>\n\t\t<th id=\"col2\">Count</th>\n\t</tr>\n\t<tr>\n\t\t<td>Paris</td>\n\t</tr>\n\t<tr>\n\t\t<td headers=\"col2\">1</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "Each of the 5 `th` elements in this table has assigned cells, whether data or header.",
+      "code": "<table>\n\t<caption>\n\t\tOpening hours\n\t</caption>\n\t<tr>\n\t\t<th>Day</th>\n\t\t<th>Morning</th>\n\t\t<th>Afternoon</th>\n\t</tr>\n\t<tr>\n\t\t<th>Mon-Fri</th>\n\t\t<td>8-12</td>\n\t\t<td>14-17</td>\n\t</tr>\n\t<tr>\n\t\t<th>Sat-Sun</th>\n\t\t<td>10-14</td>\n\t\t<td>Closed</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "The `th` element with text \"Value\" does not have an assigned cell within the same `table` element.",
+      "code": "<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Rate</th>\n\t\t\t<th>Value</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>15%</td>\n\t\t</tr>\n\t</tbody>\n</table>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `th` element with `id` equal to \"col2\" does not have an assigned cell within the same `table` element because the `headers` attribute removes the cell association from its column.",
+      "code": "<table>\n\t<tr>\n\t\t<th id=\"col1\">Country</th>\n\t\t<th id=\"col2\">Starting with a Z</th>\n\t</tr>\n\t<tr>\n\t\t<td>Zambia</td>\n\t\t<td headers=\"col1\">Zimbabwe</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `div` with role of `columnheader` and text equal to \"Occupant\" does not have an assigned cell within the same `table` element.",
+      "code": "<div role=\"grid\">\n\t<div role=\"row\">\n\t\t<div role=\"columnheader\">Room</div>\n\t\t<div role=\"columnheader\">Occupant</div>\n\t</div>\n\t<div role=\"row\">\n\t\t<div role=\"gridcell\">1A</div>\n\t</div>\n\t<div role=\"row\">\n\t\t<div role=\"gridcell\">2A</div>\n\t</div>\n</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "There are no elements with a [semantic role][] of `header` within the `table` element.",
+      "code": "<table>\n\t<tr>\n\t\t<td>12:00</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "There are no elements with a [semantic role][] of `header` within the `table` element.",
+      "code": "<table></table>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `th` element has an [explicit role][] of `cell` and there are no more elements with a [semantic role][] of `header` within the `table` element.",
+      "code": "<table>\n\t<tr>\n\t\t<th role=\"cell\">Column A</th>\n\t</tr>\n\t<tr>\n\t\t<td>Cell A</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 4",
+      "description": "This `th` element is neither [visible][] nor [included in the accessibility tree][] and there are no more elements with a [semantic role][] of `header` within the `table` element.",
+      "code": "<table>\n\t<tr>\n\t\t<th style=\"display: none;\">Organization</th>\n\t</tr>\n\t<tr>\n\t\t<td>W3C</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 5",
+      "description": "This `th` element is not [included in the accessibility tree][] and there are no more elements with a [semantic role][] of `header` within the `table` element.",
+      "code": "<table>\n\t<tr>\n\t\t<th aria-hidden=\"true\">Organization</th>\n\t</tr>\n\t<tr>\n\t\t<td>W3C</td>\n\t</tr>\n</table>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 6",
+      "description": "This `th` element is not a descendant in the [flat tree][] of a [semantic][semantic role] `table` or `grid`.",
+      "code": "<div>\n\t<tr>\n\t\t<th>Column A</th>\n\t</tr>\n</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 7",
+      "description": "This `th` element is part of a table which is not [included in the accessibility tree][].",
+      "code": "<table role=\"presentation\">\n\t<tr>\n\t\t<th>Time</th>\n\t</tr>\n\t<tr>\n\t\t<td>12:00</td>\n\t</tr>\n</table>"
+    }
+  ],
+  "background": "The roles inheriting from `cell` are `columnheader`, `gridcell`, and `rowheader`.",
+  "assumptions": "This rule assumes that table header cells have a relationship conveyed through presentation with other cells within the same table. This excludes edge cases such as a table definition where there is only one header cell, or a table definition where there are multiple headers and no other cells. In such scenarios the rule fails, but [success criterion 1.3.1 Info and Relationships][sc1.3.1] could still be satisfied.",
+  "accessibility_support": "- Table markup and header cell association is not well supported by some popular assistive technologies. Passing this rule can still cause issues for users of those assistive technologies.\n- Implementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some elements can have one of the applicable [semantic roles][semantic role] and fail this rule with some technology but users of other technologies would not experience any accessibility issue.",
   "url": "https://act-rules.github.io/rules/d0f69e"
 }

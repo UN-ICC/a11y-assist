@@ -12,5 +12,55 @@
     "Visual output"
   ],
   "applicability_text": "This rule applies to any `audio` or `video` element for which all the following are true:\n\n- **autoplay**: the element has an `autoplay` [attribute value][] of `true`; and\n- **not muted**: the element has a `muted` [attribute value][] of `false`; and\n- **not paused**: the element has a `paused` [attribute value][] of `false`; and\n- **duration**: the element has a [media resource][] lasting more than 3 seconds that contains audio.",
+  "expectations": [
+    "For each test target the total audio output does not last more than 3 seconds.\n\n**Note:** This rule does not cover single audio instances that play repeatedly for more than three seconds, or multiple audio instances for more than three seconds. The [WCAG Understanding documentation for 1.4.2 Audio Controls](https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html) is ambiguous about how to handle these scenarios."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `audio` element does not play automatically for more than 3 seconds.",
+      "code": "<audio src=\"/test-assets/moon-audio/moon-speech.mp3#t=25\" autoplay></audio>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `video` element's audio output does not last longer than 3 seconds.",
+      "code": "<video autoplay>\n\t<source src=\"/test-assets/rabbit-video/video.mp4#t=8,10\" type=\"video/mp4\" />\n\t<source src=\"/test-assets/rabbit-video/video.webm#t=8,10\" type=\"video/webm\" />\n</video>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `audio` element plays automatically for more than 3 seconds.",
+      "code": "<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" autoplay controls></audio>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `video` element plays some audio automatically for more than 3 seconds.",
+      "code": "<video autoplay>\n\t<source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\" />\n\t<source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\" />\n</video>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `video` element has audio that autoplays for longer than 3 seconds but is muted.",
+      "code": "<video autoplay muted>\n\t<source src=\"/test-assets/rabbit-video/video.mp4\" type=\"video/mp4\" />\n\t<source src=\"/test-assets/rabbit-video/video.webm\" type=\"video/webm\" />\n</video>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `video` element refers to a source file that has no audio output.",
+      "code": "<video autoplay>\n\t<source src=\"/test-assets/rabbit-video/silent.mp4\" type=\"video/mp4\" />\n\t<source src=\"/test-assets/rabbit-video/silent.webm\" type=\"video/webm\" />\n</video>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `audio` element does not autoplay.",
+      "code": "<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls></audio>"
+    }
+  ],
+  "background": "",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/aaa1bf"
 }

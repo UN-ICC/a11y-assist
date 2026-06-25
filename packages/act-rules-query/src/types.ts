@@ -39,8 +39,35 @@ export interface ACTRule {
   /** Verbatim text of the '## Applicability' Markdown section. */
   applicability_text: string
 
+  /** Verbatim text of each '## Expectation' section — the conditions that must hold to pass. */
+  expectations: string[]
+
+  /** Worked examples from the '## Examples' section, by outcome. */
+  examples: ACTExample[]
+
+  /** Verbatim '## Background' prose (excluding its sub-sections). */
+  background: string
+
+  /** Verbatim 'Assumptions' section, if any. */
+  assumptions: string
+
+  /** Verbatim 'Accessibility Support' section, if any. */
+  accessibility_support: string
+
   /** Canonical URL on act-rules.github.io. */
   url: string
+}
+
+/** A worked example from an ACT rule's '## Examples' section. */
+export interface ACTExample {
+  /** 'passed' | 'failed' | 'inapplicable'. */
+  category: 'passed' | 'failed' | 'inapplicable'
+  /** Example heading, e.g. 'Passed Example 1'. */
+  name: string
+  /** Prose describing the example (verbatim, whitespace-collapsed). */
+  description: string
+  /** The example's code (first fenced block), verbatim. */
+  code: string
 }
 
 /** Snapshot metadata. */

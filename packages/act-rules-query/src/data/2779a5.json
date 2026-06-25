@@ -11,5 +11,86 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to the root element of the [web page][], if it is an `html` element.",
+  "expectations": [
+    "Each target element has at least one [descendant](https://dom.spec.whatwg.org/#concept-tree-descendant) that is a [`title` element](https://html.spec.whatwg.org/multipage/semantics.html#htmltitleelement).",
+    "For each target element, the first [HTML][] `title` element that is a [descendant](https://dom.spec.whatwg.org/#concept-tree-descendant) of the [document element](https://dom.spec.whatwg.org/#document-element) has [children](https://dom.spec.whatwg.org/#concept-tree-child) that are [text nodes](https://dom.spec.whatwg.org/#text) that are not only [whitespace](#whitespace)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This page has a `title` element with content.",
+      "code": "<html>\n\t<title>This page has a title</title>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This page has a `title` element that serves as the title for the page. This rule doesn't take into account HTML pages embedded into the target document.",
+      "code": "<html>\n\t<head>\n\t\t<title>This page gives a title to an iframe</title>\n\t</head>\n\t<body>\n\t\t<iframe src=\"/test-assets/sc2-4-2-title-page-without-title.html\"></iframe>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This page has two `title` elements with content.",
+      "code": "<html>\n\t<head>\n\t\t<title>Title of the page.</title>\n\t</head>\n\t<body>\n\t\t<title>Title of the page.</title>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This page has one `title` element with content, which is within the `body` element.",
+      "code": "<html>\n\t<body>\n\t\t<title>Title of the page.</title>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This page has two `title` elements and only the first has content.",
+      "code": "<html>\n\t<head>\n\t\t<title>Title of the page.</title>\n\t</head>\n\t<body>\n\t\t<title></title>\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This page does not have a `title` element.",
+      "code": "<html>\n\t<h1>this page has no title</h1>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This page has a `title` element that is empty.",
+      "code": "<html>\n\t<title></title>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This page does not have a `title` element. The `title` element in the content of the `iframe` does not function as the title for the entire page.",
+      "code": "<html>\n\t<iframe src=\"/test-assets/sc2-4-2-title-page-with-title.html\"></iframe>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This page has two `title` elements and the first is empty.",
+      "code": "<html>\n\t<head>\n\t\t<title></title>\n\t</head>\n\t<body>\n\t\t<title>Title of the page.</title>\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This page has a `title` element that only contains a separator character.",
+      "code": "<html>\n\t<title> </title>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 6",
+      "description": "This page does not have a title because the shadow root is not a [descendant](https://dom.spec.whatwg.org/#concept-tree-descendant) of the [document element](https://dom.spec.whatwg.org/#document-element).",
+      "code": "<html>\n\t<body>\n\t\t<template id=\"shadow-element\">\n\t\t\t<title>This is the page title</title>\n\t\t</template>\n\t\t<script>\n\t\t\tconst host = document.querySelector('body')\n\t\t\tconst shadow = host.attachShadow({ mode: 'open' })\n\t\t\tconst template = document.getElementById('shadow-element')\n\n\t\t\tshadow.appendChild(template.content)\n\t\t</script>\n\t</body>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `title` element is a child of an `svg` element.",
+      "code": "<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <title>This is an SVG</title>\n</svg>"
+    }
+  ],
+  "background": "This rule is only applicable to non-embedded HTML pages. HTML pages embedded into other documents, such as through `iframe` or `object` elements are not applicable because they are not [web pages](https://www.w3.org/TR/WCAG22/#dfn-web-page-s) according to the definition in WCAG.",
+  "assumptions": "This rule assumes that [Success Criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG22/#page-titled) does not require that a document only has one `title` element, nor that it is a child of the `head` element of a document. While this is invalid in HTML, the [HTML specification](https://html.spec.whatwg.org/multipage/dom.html#the-title-element-2) describes what should happen in case of multiple titles, and titles outside the `head` element. Because of this, neither of these validation issues causes a conformance problem for WCAG. Regardless of whether this is required by 2.4.2 Page Titled, failing this rule means the success criterion is not satisfied.\n\nThis rule assumes that the title of the page is not provided by a higher-level protocol. For example, the subject field of an email authored in HTML can provide a title without requiring a `title` element. In such a case, this rule will fail while [Success Criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG22/#page-titled) may still be satisfied.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/2779a5"
 }

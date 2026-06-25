@@ -14,5 +14,115 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any [WAI-ARIA state or property][] that is specified on an [HTML or SVG element][namespaced element] that is [included in the accessibility tree][].",
+  "expectations": [
+    "For each test target, one of the following is true:\n\n- **global**: the test target is a [global state or property][global]; or\n- **semantic role**: the test target is an [inherited][], [supported][], or [required][] [state][] or [property][] of the [semantic role][] of the element on which the test target is specified; or\n- **language feature**: the test target is specified on an [HTML element][namespaced element] and is allowed on that element. Which ARIA states or properties may be used on which element is described in [ARIA in HTML](https://w3c.github.io/html-aria/)."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "The `aria-pressed` [state][] is [supported][] with `button`, which is the [implicit role][] for `button` elements.",
+      "code": "<button aria-pressed=\"false\">My button</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "The `aria-pressed` [state][] is [supported][] with `button`, which is the [explicit role][] of this `div` element.",
+      "code": "<div role=\"button\" aria-pressed=\"false\">My button</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "The `aria-busy` [state][] is a [global][] [state][] that is [supported][] by all elements, even without any [semantic role][].",
+      "code": "<div aria-busy=\"true\">My busy div</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "The `aria-label` [property][] is a [global][] [property][].",
+      "code": "<div role=\"button\" aria-label=\"OK\">✓</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "The `aria-checked` [state][] is [required][] for the [semantic][semantic role] `checkbox`.",
+      "code": "<div role=\"checkbox\" aria-checked=\"false\">My checkbox</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "The `aria-expanded` [property][] is [required][] for the [semantic][semantic role] `combobox`.",
+      "code": "<div role=\"combobox\" aria-controls=\"id1\" aria-expanded=\"false\" aria-label=\"My combobox\">My combobox</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 7",
+      "description": "The `aria-expanded` [property][] is [required][] for the [semantic][semantic role] `combobox`.",
+      "code": "<div role=\"combobox\" aria-expanded=\"false\" aria-controls=\"id1\" aria-label=\"My combobox\">My combobox</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 8",
+      "description": "The `aria-expanded` [property][] is [required][] for the [semantic][semantic role] `combobox`. [WAI-ARIA states and properties][wai-aria state or property] with `undefined` value are still applicable to this rule.",
+      "code": "<div role=\"combobox\" aria-expanded=\"undefined\" aria-controls=\"id1\" aria-label=\"My combobox\">My combobox</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 9",
+      "description": "The `aria-label` [property][] is [global][]. It is allowed on any [semantic role][], including roles from the [WAI-ARIA Graphics Module](https://www.w3.org/TR/graphics-aria-1.0). This rule is applicable to SVG elements.",
+      "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" role=\"graphics-object\" width=\"100\" height=\"100\" aria-label=\"yellow circle\">\n\t<circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"yellow\"></circle>\n</svg>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 10",
+      "description": "This `button` element has an [explicit role][] of `none`. However, because it is [focusable][] (by default), it has a [semantic role][] of `button` due to [Presentational Roles Conflict Resolution][]. The `aria-pressed` [state][] is [supported][] for the `button` role.",
+      "code": "<button role=\"none\" aria-pressed=\"false\">ACT rules are cool!</button>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 11",
+      "description": "This `input` element does not have an [explicit role][] of `textbox`, but the `aria-required` property may be used on an `input` element with a `type` [attribute value][] of `password`.",
+      "code": "<label>Password<input type=\"password\" aria-required=\"true\"/></label>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 12",
+      "description": "This `div` element has an [explicit role][] of `switch`; the `aria-required` [property][] is [inherited][] from the `checkbox` [superclass role](https://www.w3.org/TR/wai-aria-1.2/#superclassrole).",
+      "code": "<div role=\"switch\" aria-checked=\"false\" tabindex=\"0\" aria-required=\"true\">\n\t<span class=\"label\">Notifications</span>\n\t<span\n\t\tclass=\"switch\"\n\t\tstyle=\"position: relative; display: inline-block; top: 6px; border: 2px solid black; border-radius: 12px; height: 20px; width: 40px;\"\n\t>\n\t\t<span\n\t\t\tstyle=\"position: absolute; top: 2px; left: 2px; display: inline-block; border: 2px solid black; border-radius: 8px; height: 12px; width: 12px; background: black;\"\n\t\t></span>\n\t</span>\n\t<span class=\"on\" aria-hidden=\"true\" style=\"display: none;\">On</span>\n\t<span class=\"off\" aria-hidden=\"true\">Off</span>\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 13",
+      "description": "This `div` element has an [explicit role][] of `separator`. The `aria-valuemin`, `aria-valuemax` and `aria-valuenow` [properties][property] are [supported][] for the `separator` role when the element is [focusable][].",
+      "code": "<div role=\"separator\" aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" tabindex=\"0\">My separator</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "The `aria-sort` [property][] may not be used on a [semantic][semantic role] `button`.",
+      "code": "<button aria-sort=\"\">Sort by year</button>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "The `aria-orientation` property may not be used on `audio` element, nor can it be used on `application` (the [semantic role][] for which [inherited][], [supported][], or [required][] [states][state] or [properties][property] are also applicable to `audio` element).",
+      "code": "<audio src=\"/test-assets/moon-audio/moon-speech.mp3\" controls aria-orientation=\"horizontal\"></audio>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `div` element has no [WAI-ARIA state or property][].",
+      "code": "<div role=\"group\">A group of content</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `div` element is not [included in the accessibility tree][], hence its [WAI-ARIA state or property][] is not checked.",
+      "code": "<div role=\"button\" aria-sort=\"\" style=\"display:none;\"></div>"
+    }
+  ],
+  "background": "The use of ARIA attributes that are not supported by a role is often the result of a developer using either an incorrect role, or misunderstanding the attribute. These attributes are ignored by browsers and other assistive technologies. This often means that information that should exist is missing to assistive technology users.\n\nIn HTML, there are language features that do not have corresponding implicit WAI-ARIA semantics. As per [ARIA in HTML](https://www.w3.org/TR/html-aria/), those elements can have [global states or properties][global]. Some of those elements can also have [inherited][], [supported][], or [required][] [states][state] or [properties][property] that correspond to a [WAI-ARIA role](https://www.w3.org/TR/wai-aria-1.2/#introroles). For example, the `audio` element has no corresponding ARIA semantics but it can have [inherited][], [supported][], or [required][] [states][state] or [properties][property] of the [`application` role](https://www.w3.org/TR/wai-aria-1.2/#application).\n\nNote that required WAI-ARIA states or properties for a role may change with the advance of the WAI-ARIA specifications. For example, both aria-expanded and aria-controls were required in [ARIA 1.2](https://www.w3.org/TR/wai-aria-1.2/#combobox) for combobox role, but the aria-controls was removed from required states or properties in [ARIA 1.3](https://www.w3.org/TR/wai-aria-1.3/#combobox). The examples in this rule follow [ARIA 1.3](https://www.w3.org/TR/wai-aria-1.3/#combobox).\n\nAssessing the value of the attribute is out of scope for this rule.",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "Implementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some elements can have a [semantic role][] of `none` and their attributes fail this rule with some technologies but users of other technology would not experience any accessibility issue.",
   "url": "https://act-rules.github.io/rules/5c01ea"
 }

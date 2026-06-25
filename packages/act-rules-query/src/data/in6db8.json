@@ -13,5 +13,67 @@
     "CSS Styling"
   ],
   "applicability_text": "This rule applies to any `aria-controls` attribute defined on an [HTML element][namespaced element] for which one of the following is true:\n\n- <dfn>expanded combobox</dfn>: the element is a [semantic][] `combobox` with an `aria-expanded` [attribute value][] of `true`; or\n- <dfn>scrollbar</dfn>: the element is a [semantic][] `scrollbar`.",
+  "expectations": [
+    "Each test target's [attribute value][] is a space-separated list of one or more IDs. At least one of those IDs must match an `id` [attribute value][] in the same [shadow tree][] or, if not within a [shadow tree][], within the same [document][document tree]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "The `aria-controls` [attribute value][] of this `scrollbar` matches the `id` of the `main` element in the same document.",
+      "code": "<main id=\"content\">Lorem ipsum...</main>\n<div\n\trole=\"scrollbar\"\n\taria-controls=\"content\"\n\taria-orientation=\"vertical\"\n\taria-valuemax=\"100\"\n\taria-valuemin=\"0\"\n\taria-valuenow=\"25\"\n></div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "The `aria-controls` [attribute value][] of this expanded `combobox` matches the `id` of the `ul` element in the same document.",
+      "code": "<label for=\"tag_combo\" id=\"tag_label\">Tag</label>\n<input\n\ttype=\"text\"\n\tid=\"tag_combo\"\n\trole=\"combobox\"\n\taria-expanded=\"true\"\n\taria-controls=\"popup_listbox\"\n\taria-activedescendant=\"selected_option\"\n/>\n<ul role=\"listbox\" id=\"popup_listbox\" aria-labelledby=\"tag_label\">\n\t<li role=\"option\">Zebra</li>\n\t<li role=\"option\" id=\"selected_option\">Zoom</li>\n</ul>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "The `aria-controls` [attribute value][] of this `scrollbar` has two IDs. The `content-2` ID matches the `id` of the `main` element in the same document.",
+      "code": "<main id=\"content-2\">Lorem ipsum...</main>\n<div\n\trole=\"scrollbar\"\n\taria-controls=\"content-1 content-2\"\n\taria-orientation=\"vertical\"\n\taria-valuemax=\"100\"\n\taria-valuemin=\"0\"\n\taria-valuenow=\"25\"\n></div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "The `aria-controls` attribute of this expanded `combobox` references an ID of `popup_listbox` which does not exist in the document.",
+      "code": "<label>\n\tTag\n\t<input role=\"combobox\" aria-expanded=\"true\" aria-controls=\"popup_listbox\" />\n</label>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "The `aria-controls` attribute of this `scrollbar` references IDs of `content-1` and `content-2`. Neither of these IDs exist in the document.",
+      "code": "<main>Lorem ipsum...</main>\n<div\n\trole=\"scrollbar\"\n\taria-controls=\"content-1 content-2\"\n\taria-orientation=\"vertical\"\n\taria-valuemax=\"100\"\n\taria-valuemin=\"0\"\n\taria-valuenow=\"25\"\n></div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "The `aria-controls` attribute of this expanded `combobox` references a `popup_listbox` ID. This `id` exists, but in a different DOM tree as the `combobox`.",
+      "code": "<div id=\"aria-listbox\">\n\t<label for=\"tag_combo\">Tag</label>\n\t<input\n\t\ttype=\"text\"\n\t\tid=\"tag_combo\"\n\t\trole=\"combobox\"\n\t\taria-expanded=\"true\"\n\t\taria-controls=\"popup_listbox\"\n\t\taria-activedescendant=\"selected_option\"\n\t/>\n</div>\n<script>\n\tconst ariaListbox = document.querySelector('#aria-listbox')\n\tconst shadowRoot = ariaListbox.attachShadow({ mode: 'open' })\n\tshadowRoot.innerHTML = `\n\t\t<slot></slot>\n\t\t<ul role=\"listbox\" id=\"popup_listbox\">\n\t\t\t<li role=\"option\">Zebra</li>\n\t\t\t<li role=\"option\" id=\"selected_option\">Zoom</li>\n\t\t</ul>\n\t`\n</script>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "The `aria-controls` attribute is defined on a `combobox` which does not have an `aria-expanded` [attribute value][] of `true`.",
+      "code": "<label for=\"tag_combo\">Tag</label>\n<input type=\"text\" id=\"tag_combo\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"popup_listbox\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `aria-controls` attribute is not defined on a [semantic][] `scrollbar` nor `combobox`.",
+      "code": "<button aria-controls=\"my-modal\">Open the modal</button>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "There is no `aria-controls` attribute.",
+      "code": "<button>Open the modal</button>"
+    }
+  ],
+  "background": "This rule is written specifically for `aria-controls`, because it is the only [ID Reference List][] property that is [required by WAI-ARIA][]. The `aria-controls` property is only required by the `scrollbar` role and by an expanded `combobox`. There are no [ID Reference][] properties that are required by WAI-ARIA for any role.",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "Some user agents treat the value of `aria-*` attribute as case-sensitive (even when these are not IDs) while some treat them as case-insensitive.",
   "url": "https://act-rules.github.io/rules/in6db8"
 }

@@ -12,5 +12,97 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any [HTML or SVG element][] that is [included in the accessibility tree][] and has an [explicit semantic role][], except if the element has an [implicit semantic role][] that is identical to the [explicit semantic role][].",
+  "expectations": [
+    "For each test target, the [WAI-ARIA required states and properties][] for the role are set and not empty (`\"\"`), unless the state or property has a default value listed under [WAI-ARIA implicit value for role][]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This `heading` has the required `aria-level` property.",
+      "code": "<div role=\"heading\" aria-level=\"1\">\n\tMy First Heading\n</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `checkbox` has the required `aria-checked` property.",
+      "code": "<div role=\"checkbox\" aria-checked=\"false\" aria-labelledby=\"label\"></div>\n<div id=\"label\">Check me</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `scrollbar` has the required properties `aria-controls` and `aria-valuenow`. `aria-valuemin` has a default value of 0 and `aria-valuemax` of 100.",
+      "code": "<div role=\"scrollbar\" aria-controls=\"content\" aria-valuenow=\"0\"></div>\n<main id=\"content\"></main>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "These `option` nodes do not need the required `aria-selected` property because it has a default value of `false`.",
+      "code": "<div id=\"label\">Tags</div>\n<ul role=\"listbox\" aria-labelledby=\"label\">\n\t<li role=\"option\">Zebra</li>\n\t<li role=\"option\">Zoom</li>\n</ul>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This `separator` is not a `widget` because it is not [focusable][]. The `separator` role only requires the `aria-valuenow` property when the element is focusable.",
+      "code": "<p>My first HTML</p>\n<div role=\"separator\"></div>\n<p>My last HTML</p>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "This `combobox` has the required properties `aria-controls` and `aria-expanded`.",
+      "code": "<label for=\"tag_combo\" id=\"tag_label\">Tag</label>\n<input type=\"text\" id=\"tag_combo\" role=\"combobox\" aria-expanded=\"true\" aria-controls=\"popup_listbox\" />\n<ul role=\"listbox\" id=\"popup_listbox\" aria-labelledby=\"tag_label\">\n\t<li role=\"option\">Zebra</li>\n\t<li role=\"option\" id=\"selected_option\">Zoom</li>\n</ul>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This `heading` does not have the required `aria-level` property. Prior to [WAI-ARIA 1.2][] the `heading` role had an implicit default `aria-level` value of `2`. As of WAI-ARIA 1.2 this property must be explicitly set.",
+      "code": "<div role=\"heading\">\n\tMy First Heading\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This `switch` does not have the required `aria-checked` property. Prior to [WAI-ARIA 1.2][] the `switch` role had an implicit default `aria-checked` value of `false`. As of WAI-ARIA 1.2 this property must be explicitly set.",
+      "code": "<div role=\"switch\">\n\tToggle me\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This `checkbox` does not have the required property `aria-checked`. Prior to [WAI-ARIA 1.2][] the `checkbox` had an implicit default `aria-checked` value of `false`. As of WAI-ARIA 1.2 this property must be explicitly set.",
+      "code": "<div role=\"checkbox\" aria-labelledby=\"label\"></div>\n<div id=\"label\">Check me</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This `separator` does not have the required `aria-valuenow` property. This is required because the `separator` is [focusable][], which makes it a `widget`.",
+      "code": "<p>My first HTML</p>\n<div role=\"separator\" tabindex=\"0\"></div>\n<p>My last HTML</p>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "This `combobox` does not have the required `aria-expanded` property. Prior to [WAI-ARIA 1.2][] the `combobox` had an implicit default `aria-expanded` value of `false`. As of WAI-ARIA 1.2 this property must be explicitly set.",
+      "code": "<label for=\"tag_combo\">Tag</label>\n<input type=\"text\" id=\"tag_combo\" role=\"combobox\" aria-controls=\"popup_listbox\" />\n<ul role=\"listbox\" id=\"popup_listbox\">\n\t<li role=\"option\">Zebra</li>\n\t<li role=\"option\" id=\"selected_option\">Zoom</li>\n</ul>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This `div` does not have a [semantic role](#semantic-role).",
+      "code": "<div>Some Content</div>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This `checkbox` has an [implicit semantic role](#implicit-role) that is identical to the [explicit semantic role](#explicit-role). This allows native HTML `checked` attribute to apply.",
+      "code": "<input type=\"checkbox\" role=\"checkbox\" aria-label=\"Checkbox name\" />"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 3",
+      "description": "This `combobox` is not [included in the accessibility tree][] due to its styling, hiding it from everybody.",
+      "code": "<div role=\"combobox\" style=\"display:none;\"></div>"
+    }
+  ],
+  "background": "Omitting [WAI-ARIA required states and properties][] is often the result of a developer error. When required properties are missing and a default value is not specified by [WAI-ARIA Specifications][], the behavior is not defined. For [WAI-ARIA 1.2][], the only [explicit semantic roles][explicit semantic role] with a required property with a default value are the `option` and `tabs roles` for the `aria-selected` property.\n\nThis rule is testing author built components that specify [explicit semantic roles][explicit semantic role] and not components that keep their [implicit semantic role][]. For components that keep their [implicit semantic role][], all native HTML and SVG elements have native attributes that are mapped to all of the [WAI-ARIA required states and properties](https://www.w3.org/TR/wai-aria/#requiredState). Most of these mappings are defined in the [HTML Accessibility API Mappings, Attribute State and Property Mappings][html aam].",
+  "assumptions": "- The ARIA `role` is being used to conform to WCAG.",
+  "accessibility_support": "This rule relies on browsers and assistive technologies to support leaving out [WAI-ARIA required states and properties][] when a [WAI-ARIA implicit value for role][] is specified in [WAI-ARIA Specifications][].\n\n**Note:** The required states and properties with implicit values can be found in the Core Accessibility API Mappings 1.1 [Overview of default values for missing required attributes](https://www.w3.org/TR/core-aam-1.1/#authorErrorDefaultValuesTable).",
   "url": "https://act-rules.github.io/rules/4e8ab6"
 }

@@ -14,5 +14,139 @@
     "Language"
   ],
   "applicability_text": "This rule applies to any [text node][] that is either [visible][] or [included in the accessibility tree][].",
+  "expectations": [
+    "For each test target, either it contains none of the [visual reference words][], or it does not identify any [web content][] through the use of any [visual reference words][], or it does identify some [web content][] and at least one of the following is true:\n\n- **non-visual reference**: the test target is on the same [web page][] as a [textual][text] instruction that also identifies that [web content][] without any [visual reference word][]; or\n- **non-sensory meaning**: at least one of the [visual reference words][] that identifies the [web content][] is used with a non-sensory meaning; or\n- **visible words**: each [visual reference word][] in the test target is included in the [visible text content][] of the identified content; or\n- **accessible words**: each [visual reference word][] in the test target is included in the [accessible name][] of the identified content; or\n- **no instruction**: the test target does not give instructions about it through the use of any of the [visual reference words][]."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This paragraph includes the [visual reference word][] \"right\". The content in the second column is identified with the word \"right\" but also identified by referencing the word \"howdy\", thus matching the **non-visual reference** condition.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 1 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p>Click the button labelled \"howdy\", on the right, for a surprise</p>\n\t\t\t</div>\n\t\t\t<div class=\"col\">\n\t\t\t\t<button onclick=\"alert('Surprise!')\">Howdy</button>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This paragraph includes the [visual reference word][] \"below\" which can here be accurately interpreted as \"further in the reading order\". Hence, the paragraph matches the **non-sensory meaning** condition.",
+      "code": "<html lang=\"en\">\n\t<p>Interact with the button below this paragraph, for a surprise</p>\n\t<button onclick=\"alert('Surprise!')\">Howdy</button>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This paragraph includes the [visual reference word][] \"right\". The visual reference made by the word \"right\" is complemented by the non-visual reference made by the word \"menu\" to the content identified by the \"Menu\" heading, thus matching the **non-visual reference** condition.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 3 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p>Find the menu on the right, to navigate</p>\n\t\t\t</div>\n\t\t\t<div class=\"col\">\n\t\t\t\t<h1>Menu</h1>\n\t\t\t\t<ul>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.w3.org/Consortium/contact\">Contact</a>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.w3.org/Help/\">Help and FAQ</a>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 4",
+      "description": "This text includes the [visual reference word][] \"tilted\" and identifies web content (namely itself). But the text also includes the word \"this\" which makes it apparent that the description is about the same content, thus matching the **non-visual reference** condition.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 4 9bd38c</title>\n\t\t<style>\n\t\t\tdiv.tilt {\n\t\t\t\theight: 750px;\n\t\t\t\twidth: 150px;\n\t\t\t\t-ms-transform: rotate(20deg); /* IE 9 */\n\t\t\t\t-webkit-transform: rotate(20deg); /* Safari 3-8 */\n\t\t\t\ttransform: rotate(20deg);\n\t\t\t}\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<div class=\"tilt\">Search this pieCe of tiLted text fOr clueS on whEre to find The monster.</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 5",
+      "description": "This paragraph includes the [visual reference word][] \"round\". The button is identified by this word which is also included in the [visible text content][] of the element, thus matching the **visible words** condition.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 5 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p>Click the round button, for a surprise</p>\n\t\t\t</div>\n\t\t\t<div class=\"col\">\n\t\t\t\t<button style=\"border-radius: 50%; height: 100px; width: 100px;\" onclick=\"alert('Surprise!')\">\n\t\t\t\t\tRound button\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 6",
+      "description": "This paragraph includes the [visual reference word][] \"triangle\" which is included in the heading of the menu, thus matching the **visible words** condition. The fact that the described content is on another page of the same website does not restrict this rule.",
+      "code": "<html lang=\"en\">\n\t<p>\n\t\tOn the\n\t\t<a href=\"/test-assets/non-visual-reference-alternative-9bd38c/triangle-menu-with-heading.html\">information page</a>\n\t\tyou can find more examples within the triangle menu.\n\t</p>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 7",
+      "description": "This paragraph includes the [visual reference words][] \"wide\" and \"narrow\". The images are indicated by these words which are also included in the [accessible names][accessible name] of the images, thus matching the **accessible words** condition.",
+      "code": "<html lang=\"en\">\n\t<p>The wide image is awesome. The narrow image isn't.</p>\n\t<img\n\t\tscr=\"/test-assets/non-visual-reference-alternative-9bd38c/awesome_wide.jfif\"\n\t\talt=\"Wide photo of an awesome landscape.\"\n\t/>\n\t<img\n\t\tscr=\"/test-assets/non-visual-reference-alternative-9bd38c/non_awesome_narrow.jpg\"\n\t\talt=\"Narrow photo of a dull landscape.\"\n\t/>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 8",
+      "description": "This paragraph includes the [visual reference words][] \"square\" and \"right\" but in this case they are not identifying any [web content][].",
+      "code": "<html lang=\"en\">\n\t<p>A square is a regular quadrilateral with four equal sides and four right angles.</p>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 9",
+      "description": "This paragraph includes the [visual reference word][] \"circle\" but in this case it is not an instruction about any [web content][], thus matching the **no instruction** condition.",
+      "code": "<html lang=\"en\">\n\t<p>\n\t\tThis circle is nice.\n\t\t<span\n\t\t\trole=\"presentation\"\n\t\t\tstyle=\"height: 25px;\n\t\t     width: 25px;\n\t\t     background-color: #bbb;\n\t\t     border-radius: 50%;\n\t\t     display: inline-block;\"\n\t\t>\n\t\t</span>\n\t</p>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 10",
+      "description": "This paragraph includes the [visual reference word][] \"star\" but there is also a heading \"examples\" that can be referenced, thus matching the **non-visual references** condition. The fact that the identified content is in an `iframe` does not restrict this rule.",
+      "code": "<html lang=\"en\">\n\t<p>More examples can be found when you look underneath the star or you can search for the \"Examples\" heading</p>\n\t<iframe title=\"star\" src=\"/test-assets/non-visual-reference-alternative-9bd38c/star-with-heading.html\"></iframe>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 11",
+      "description": "This paragraph includes the [visual reference word][] \"right\". The content in the second column is identified with the word \"right\" but also identified by referencing the word \"howdy\", thus matching the **non-visual reference** condition. Note that, despite the fact that the text is not visible, this example is applicable because it is included in the accessibility tree.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 11 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p style=\"position:absolute; top:-9999em\">Click the button labelled \"howdy\", on the right, for a surprise</p>\n\t\t\t</div>\n\t\t\t<div class=\"col\">\n\t\t\t\t<button onclick=\"alert('Surprise!')\">Howdy</button>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 12",
+      "description": "This paragraph includes the [visual reference word][] \"green\". The content in the second column is identified with the word \"green\" but also identified by referencing the word \"howdy\", thus matching the **non-visual reference** condition. Note that, despite the fact that the text is not included in the accessibility tree, this example is applicable because it is visible.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 12 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p aria-hidden=\"true\">Click the green button labelled \"howdy\" for a surprise</p>\n\t\t\t</div>\n\t\t\t<div class=\"col\">\n\t\t\t\t<button style=\"background-color: green\" onclick=\"alert('Surprise!')\">Howdy</button>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 13",
+      "description": "This paragraph includes the [visual reference word][] \"right\". The user is told to find the navigation on the right and the navigation is also correctly identified by a `nav` element whose [accessible name][] contains the word \"navigation\", thus matching the **non-visual reference** condition.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Passed example 13 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p>Find the navigation on the right, for the non-essential links</p>\n\t\t\t</div>\n\t\t\t<nav>\n\t\t\t\t<div class=\"col\">\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a href=\"https://www.w3.org/Consortium/contact\">Contact</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a href=\"https://www.w3.org/Help/\">Help and FAQ</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</nav>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 14",
+      "description": "No [text node][] on this page includes any of the [visual reference words][].",
+      "code": "<html lang=\"en\">\n\t<p>Click the button, for a surprise</p>\n\t<button onclick=\"alert('Surprise!')\">Howdy</button>\n</html>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 15",
+      "description": "No [text node][] on this page includes any of the [visual reference words][]. The word \"square\" in French (the language of the page) never has the meaning of the geometrical figure. Hence, it is not the translation of any of the [visual reference words][]. The sentence means \"After school, he's taking his kids to the public garden.\"",
+      "code": "<html lang=\"fr\">\n\t<p>\n\t\tAprès l'école, il emmène ses enfants jouer au square.\n\t</p>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "This paragraph includes the [visual reference word][] \"right\". The user is told to find the menu on the right but the menu is not identified in any other way.",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Failed example 1 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p>Find the menu on the right, to navigate</p>\n\t\t\t</div>\n\t\t\t<div class=\"col\">\n\t\t\t\t<ul>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.w3.org/Consortium/contact\">Contact</a>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a href=\"https://www.w3.org/Help/\">Help and FAQ</a>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "This paragraph includes the [visual reference word][] \"right\". The user is told to find the navigation on the right and the navigation is correctly identified by a `nav` element, but there are 2 `nav` elements on the page so the user doesn't know which one to use (the non-visual reference is ambiguous and does not identify a specific [web content][]).",
+      "code": "<html lang=\"en\">\n\t<head>\n\t\t<title>Failed example 2 9bd38c</title>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/test-assets/non-visual-reference-alternative-9bd38c/columns.css\" />\n\t</head>\n\t<body>\n\t\t<nav>\n\t\t\t<ul>\n\t\t\t\t<li>\n\t\t\t\t\t<a href=\"https://www.w3.org/\">W3C homepage</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href=\"https://www.w3.org/standards/\">Standards</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</nav>\n\t\t<div class=\"col-container\">\n\t\t\t<div class=\"col\">\n\t\t\t\t<p>Find the navigation on the right, for the non-essential links</p>\n\t\t\t</div>\n\t\t\t<nav>\n\t\t\t\t<div class=\"col\">\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a href=\"https://www.w3.org/Consortium/contact\">Contact</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a href=\"https://www.w3.org/Help/\">Help and FAQ</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</nav>\n\t\t</div>\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "This paragraph includes the [visual reference word][] \"triangle\" (which is not included in the identified content) and no other indication is present so the rule fails. The fact that the triangle menu is on a different page of the same website does not restrict the rule.",
+      "code": "<html lang=\"en\">\n\t<body>\n\t\t<p>\n\t\t\tOn the\n\t\t\t<a href=\"/test-assets/non-visual-reference-alternative-9bd38c/triangle-menu-without-heading.html\"\n\t\t\t\t>information page</a\n\t\t\t>\n\t\t\tyou can find more examples within the triangle menu\n\t\t</p>\n\t</body>\n</html>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "This paragraph includes the [visual reference word][] \"star\" (which is not included in the identified content) and there is no other indication. The content described is in an `iframe`.",
+      "code": "<html lang=\"en\">\n\t<body>\n\t\t<p>More examples can be found when you look underneath the star</p>\n\t\t<iframe src=\"/test-assets/non-visual-reference-alternative-9bd38c/star-without-heading.html\"></iframe>\n\t</body>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "This image link contains no [text node][].",
+      "code": "<html lang=\"en\">\n\t<a href=\"https://act-rules.github.io/\"><img src=\"test-assets/shared/act-logo.png\" alt=\"ACT rules\"/></a>\n</html>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 2",
+      "description": "This document contains no [text node][] that is either [visible][] or [included in the accessibility tree][].",
+      "code": "<html lang=\"en\">\n\t<div style=\"display:none\">\n\t\t<p>Click the box, for a surprise</p>\n\t\t<button onclick=\"alert('Surprise!')\">Howdy</button>\n\t</div>\n</html>"
+    }
+  ],
+  "background": "[Visual reference words][] that can be interpreted with the non-sensory meaning include, in English, expressions like \"right after this\" where \"right\" is a [visual reference word][] used with the meaning \"immediately\"; or words like \"below\" that is often used with the meaning \"further in reading order\".\n\nThe rule doesn't require the non-visual characteristic description to be included in the accessibility tree. If the alternatives are not included in the accessibility tree, only [Success Criteria 1.3.1 Info and Relationships][sc131] would fail instead of [Success Criterion 1.3.3 Sensory Characteristics][sc133]. Hence, the rule passes in these cases as it is not a failure of the accessibility requirements of this rule.\n\nThe identified web content does not have to be positioned on the same web page and doesn't need to be linked to from the tested web page.",
+  "assumptions": "This rule assumes that [visual reference words][] are forms of information conveyed through visual presentation. Therefore, failing this rule fails [Success Criterion 1.3.3 Sensory Characteristics][sc133]. Visual presentation is not limited to CSS and includes images such as the image of a circle with text.",
+  "accessibility_support": "There are no accessibility support issues known.",
   "url": "https://act-rules.github.io/rules/9bd38c"
 }

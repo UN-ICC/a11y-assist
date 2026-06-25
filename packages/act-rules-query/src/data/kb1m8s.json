@@ -13,5 +13,67 @@
     "DOM Tree"
   ],
   "applicability_text": "This rule applies to any [WAI-ARIA global state or property][global] that is specified on an [HTML or SVG element][namespaced element] that is [included in the accessibility tree][].",
+  "expectations": [
+    "The test target is not [prohibited][] for the [semantic role][] of the element on which it is specified."
+  ],
+  "examples": [
+    {
+      "category": "passed",
+      "name": "Passed Example 1",
+      "description": "This generic `div` element is allowed the global `aria-live` property.",
+      "code": "<div aria-live=\"polite\">I like Bananas</div>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 2",
+      "description": "This `a` element with an [implicit role][] of `link` is allowed the `aria-label` property.",
+      "code": "<a href=\"#\" aria-label=\"Previously 100, now 1 euro\"> <s>€100</s> / <b>€1</b> </a>"
+    },
+    {
+      "category": "passed",
+      "name": "Passed Example 3",
+      "description": "This `div` element is allowed the `aria-braillelabel` property because its [explicit role][] of `heading` does not prohibit this.",
+      "code": "<div role=\"heading\" aria-braillelabel=\"I like bananas\">\n\tI ❤️ Bananas\n</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 1",
+      "description": "The `aria-label` property is [prohibited][] for an element with a `generic` role.",
+      "code": "<div aria-label=\"Previously 100, now 1 euro\"><s>€100</s> / <b>€1</b></div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 2",
+      "description": "The `aria-labelledby` property is [prohibited][] for an element with a `paragraph` role.",
+      "code": "<h1 id=\"bananas\">I like bananas</h1>\n<p aria-labelledby=\"Bananas\">🧑 ❤️ 🍌🍌</p>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 3",
+      "description": "The `aria-braillelabel` property is [prohibited][] for an element with a `button` role.",
+      "code": "<p aria-braillelabel=\"I love Bananas\">I ❤️ Bananas</p>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 4",
+      "description": "The `aria-roledescription` property is [prohibited][] for an element with a `generic` role.",
+      "code": "<div aria-roledescription=\"Banana text\">I like bananas</div>"
+    },
+    {
+      "category": "failed",
+      "name": "Failed Example 5",
+      "description": "The `aria-brailleroledescription` property is [prohibited][] for an element with a `none` role.",
+      "code": "<h1 role=\"none\" aria-brailleroledescription=\"Banana text\">I like bananas</h1>"
+    },
+    {
+      "category": "inapplicable",
+      "name": "Inapplicable Example 1",
+      "description": "The generic `div` element is hidden.",
+      "code": "<div aria-label=\"Bananas\" hidden></div>"
+    }
+  ],
+  "background": "The presence of prohibited ARIA attributes is often the result of a developer using an incorrect role, or a misunderstanding of the attribute. These attributes are ignored by browsers and other assistive technologies. This often means that a state or property which should exist is missing.\n\nIn HTML, there are language features that do not have corresponding implicit WAI-ARIA semantics. As per [ARIA in HTML](https://www.w3.org/TR/html-aria/), those elements can have [global states or properties][global]. Some of those elements can also have [inherited][], [supported][], or [required][] [states][state] or [properties][property] that correspond to a [WAI-ARIA role](https://www.w3.org/TR/wai-aria-1.2/#introroles). For example, the `audio` element has no corresponding ARIA semantics but it can have [inherited][], [supported][], or [required][] [states][state] or [properties][property] of the [`application` role](https://www.w3.org/TR/wai-aria-1.2/#application).",
+  "assumptions": "There are no assumptions.",
+  "accessibility_support": "Browsers and assistive technologies behave differently when prohibited attributes are used. Some may assign a role so that the property is available to assistive technologies, where others ignore the attribute.\n\nImplementation of [Presentational Roles Conflict Resolution][] varies from one browser or assistive technology to another. Depending on this, some elements can have a [semantic role][] of `none` and their attributes fail this rule with some technologies but users of other technology would not experience any accessibility issue.",
   "url": "https://act-rules.github.io/rules/kb1m8s"
 }
