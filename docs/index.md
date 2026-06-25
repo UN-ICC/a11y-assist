@@ -10,7 +10,7 @@ a11y-assist provides programmatic, source-traceable access to W3C web-accessibil
 [Open the web application]({{ '/app/' | relative_url }}){: .btn .btn-primary .mr-2 }
 [Set up for AI agents]({{ '/agents/' | relative_url }}){: .btn }
 
-The two surfaces share one query layer, so they return the same data. The web application mirrors the agent's tools: enter from an APG pattern or a native HTML role and drill down to the applicable ACT rules and WCAG criteria, or paste markup into the Verify tab to run axe-core in the browser. It also exposes the underlying knowledge base directly — WCAG and ACT browsers, cross-linked in both directions (each criterion lists the ACT rules that cover it; each rule lists the criteria it covers) — for reference outside the guided flow.
+The two surfaces share one engine, so they give the same answers. The web application mirrors the agent's flow: choose an APG pattern or a native HTML role and get the WCAG criteria that apply plus a verification checklist, refine it for your component's content, or paste markup into the Verify tab to run axe-core in the browser. It also exposes the knowledge base directly — WCAG and ACT browsers, cross-linked both ways (each criterion lists the ACT rules that cover it; each rule lists the criteria it covers) — for reference outside the guided flow.
 
 ## Purpose
 
@@ -24,11 +24,13 @@ a11y-assist extracts each source verbatim into a queryable library and exposes t
 
 ### 2. Verification is only partly automatable
 
-Automated tools, including axe-core, cover approximately half of the WCAG Success Criteria: the structurally testable ones. The remainder require human judgement — for example, whether a label is meaningful in context, whether screen-reader output is correct, or whether the focus indicator is visible. a11y-assist does not treat a passing automated scan as conformance. Verification proceeds in three stages:
+Automated tools, including axe-core, settle only the structurally testable part of WCAG — a minority of the criteria, not half. The rest require human judgement: whether a label is meaningful in context, whether screen-reader output is correct, whether the focus indicator is visible. a11y-assist never treats a passing scan as conformance. Instead it produces a verification checklist routed by who can settle each check:
 
-1. axe-core performs the automated structural checks.
-2. The agent reviews the markup against the retrieved recipe (element choice, required ARIA attributes, accessible name, keyboard handling, focus management).
-3. The remaining qualitative criteria are presented as a checklist for human review. Each item is derived from the retrieved data — for example, the keyboard-interaction table or the ARIA contract — and cites its Success Criterion.
+1. **axe-core** — the automated structural checks.
+2. **the agent** — review of the markup against the retrieved recipe (element choice, required ARIA, accessible name, keyboard handling, focus management).
+3. **a human** — the remaining qualitative criteria, each citing its Success Criterion.
+
+Determining which criteria even apply is itself partly judgement. The (experimental) applicability engine surfaces the criteria a component's *structure* entails automatically, and routes the content-dependent rest into the same checklist.
 
 ## Scope
 

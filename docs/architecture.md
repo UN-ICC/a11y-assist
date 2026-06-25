@@ -108,11 +108,11 @@ npm run extract --workspace=wcag-query -- --refresh
 
 This has a known limitation: ACT publishes no rules for several visual or perceptual Success Criteria (contrast `1.4.3`, target size `2.5.5`/`2.5.8`, focus appearance `2.4.7`, focus order `2.4.3`), so `search_act` does not surface them. The `search_wcag` path recovers some by matching the criteria directly; the rest are covered by axe-core at verification (contrast, target size) and by human review. None are asserted per pattern.
 
-Search is heuristic, and it can dead-end. A separate, exploratory line of work — the [Classifier (WIP)](/a11y-assist/classifier/) — investigates a deterministic alternative: encoding each criterion's *applicability conditions* as boolean predicate expressions, so the criteria that apply to a component can be computed rather than searched. It is not yet wired into the system.
+Search is heuristic, and it can dead-end. A deterministic alternative now ships **experimentally** in `a11y-assist-core`: each criterion's *applicability conditions* are encoded as boolean predicate expressions, so the criteria that apply to a component can be **computed** — the structural floor with no questions, the content-dependent rest by answering a few — together with a tiered verification checklist. Both the MCP server and the website use it. Unlike the rest of the system, its underlying data is LLM-decomposed and human-reviewed (a distinct provenance class); the method and that data are documented under [Classifier](/a11y-assist/classifier/).
 
 ## Limitations of automated checks
 
-Automated tooling covers approximately half of WCAG. A passing audit indicates "no automated violations found," not conformance. The following require human review:
+Automated tooling settles only the structurally testable part of WCAG — a small slice, not half. A passing audit indicates "no automated violations found," not conformance. The following require human review:
 
 - **Manual screen reader review** — NVDA, JAWS, VoiceOver, TalkBack interpret the same code differently.
 - **Manual keyboard review** — every interaction reachable, focus order matches visual order, focus always visible, no traps.

@@ -6,110 +6,64 @@ permalink: /packages/a11y-assist-mcp/
 ---
 
 
-The **a11y-assist MCP server** — the agent-facing surface. It exposes the tested query packages ([`apg-query`](/a11y-assist/packages/apg-query/), [`wcag-query`](/a11y-assist/packages/wcag-query/), [`act-rules-query`](/a11y-assist/packages/act-rules-query/), `aria-query`) through scoped tools, composes them via [`a11y-assist-core`](/a11y-assist/packages/a11y-assist-core/), and runs axe-core via Playwright for verification.
+The **a11y-assist MCP server** — the agent-facing surface. It exposes the query packages and [`a11y-assist-core`](/a11y-assist/packages/a11y-assist-core/) through scoped tools and runs axe-core via Playwright. Every response is verbatim data, mechanically-derived data, the applicable criteria, or a runnable next query — **never a conformance claim**.
 
-It asserts nothing about "which SCs apply." Each response is verbatim data, mechanically-derived data, or a runnable next query. See [the Architecture](/a11y-assist/architecture/) for the model.
-
-## The model: scoped entry points → shared drill-down → verify
+## The flow
 
 ```mermaid
-flowchart LR
-  subgraph entry [Entry points]
-    E1["get_apg_pattern (composite)"]
-    E2["get_aria_role (primitive)"]
-    E3["get_element_roles (resolve)"]
-    E4["list_apg_patterns (discover)"]
-  end
-  subgraph drill [Drill-down]
-    D1[search_act]
-    D3[search_wcag]
-    D4[get_act_rule]
-    D2[get_wcag_sc]
-  end
-  subgraph verify [Verify]
-    V1[audit_html]
-    V2[audit_url]
-  end
-  E1 --> D1
-  E1 --> D3
-  E2 --> D1
-  E2 --> D3
-  D1 --> D4
-  D1 --> D2
-  D3 --> D2
-  drill --> verify
+flowchart TD
+  E["get_apg_pattern / get_aria_role"] --> G["recipe + examples + applicable_scs (structural floor) + verification checklist"]
+  G --> R["evaluate_applicability — refine: get the content questions, answer them, get the full applicable set"]
+  R --> V["evaluate_verification — roll up pass / fail / unverified"]
+  G -. "axe tier" .-> A["audit_html / audit_url"]
+  A --> V
+  G -. "reference lookup" .-> D["search_act / search_wcag → get_wcag_sc / get_act_rule"]
 ```
 
-Both entry points return the same shape (`aria_contract` + `native_elements` + `suggested_queries`; APG adds the verbatim `apg` card) and converge on the same drill-down. The `suggested_queries` seed **two paths** so the drill-down is never empty: `search_act` (ACT rules → the WCAG SCs they cover, the mechanical **ACT rule → WCAG SC** link) and `search_wcag` (WCAG criteria directly, for components ACT's text index would miss). Both land on `get_wcag_sc`.
+You enter at a component and immediately get its **structural floor** of applicable criteria plus a checklist; you *refine* to the content-dependent rest only when you need it; you verify with axe + the checklist; and you can drill into any source directly for reference.
 
 ## Tools
 
 | Tool | Params | Purpose |
 |---|---|---|
-| `get_apg_pattern` | `name`, `level=AA` | Entry for composite components. Verbatim APG card + ARIA contract + native elements + `suggested_queries`. |
-| `get_aria_role` | `role`, `level=AA` | Entry for native primitives. ARIA contract + native elements + `suggested_queries`. |
+| `get_apg_pattern` | `name`, `level=AA` | Entry for composite components. Verbatim APG card (about, keyboard, **examples**) + ARIA contract + native elements + `suggested_queries` + **`applicable_scs`** (floor + tiered checklist). |
+| `get_aria_role` | `role`, `level=AA` | Entry for native primitives. ARIA contract + native elements + `suggested_queries` + `applicable_scs`. |
 | `get_element_roles` | `tag`, `attrs?` | Resolve an HTML element to its implicit ARIA role(s). |
 | `list_apg_patterns` | — | Discover APG pattern names. |
-| `search_act` | `query`, `level=AA` | Drill-down hub. ACT rules matching `query`, each with its in-scope WCAG SC ids; suggests `get_wcag_sc` calls. |
+| `evaluate_applicability` | `pattern`\|`role`, `level`, `present?` | **Refine** beyond the floor. No `present` → the content/context questions, grouped by facet. With `present` (the predicates that hold) → the complete applicable SC set + checklist. |
+| `evaluate_verification` | `scs`, `pass?`, `fail?` | Roll up the checks you resolved → per-SC `pass` / `fail` / `unverified`. |
+| `search_act` | `query`, `level=AA` | ACT rules matching `query`, each with its in-scope WCAG SC ids. |
+| `search_wcag` | `query`, `level=AA` | WCAG SCs by keyword, level-gated. |
 | `get_act_rule` | `id` | Full verbatim ACT rule. |
-| `search_wcag` | `query`, `level=AA` | SCs by keyword, level-gated. |
-| `get_wcag_sc` | `id` | Verbatim SC + sufficient techniques + documented failures. (Not level-gated — explicit fetch.) |
+| `get_wcag_sc` | `id` | Verbatim SC + sufficient techniques + documented failures (not level-gated — explicit fetch). |
 | `audit_html` | `html`, `component?`, `stylesheetPath?` | Run axe against an HTML snippet. |
 | `audit_url` | `url`, `component?`, `waitForSelector?` | Run axe against a live URL (catches dynamic behaviour). |
 
-`level` is `A | AA | AAA`, cumulative (`AA` ⇒ A∪AA), default `AA`. It's set at the entry call and stamped into the `suggested_queries`, so the agent runs pre-gated drill-down.
+`level` is `A | AA | AAA`, cumulative (`AA` ⇒ A∪AA), default `AA`. The applicability / refine / verification tools are **experimental**.
 
 ## Workflow
 
 ```
-get_apg_pattern("dialog", "AA")          # or get_aria_role("textbox","AA") for a primitive
-   → suggested_queries:
-        search_act("dialog"|"focus"|"keyboard", AA)
-        search_wcag("dialog"|"focus"|"keyboard"|"name", AA)
-search_act("focus", "AA")                # run a suggestion; the agent picks the path
-   → ACT rules + their in-scope SC ids → suggests get_wcag_sc(...)
-search_wcag("focus", "AA")               # or reach WCAG directly (larger corpus)
-   → SC ids → get_wcag_sc(...)
-get_wcag_sc("2.4.3")                      # full SC + techniques + failures
-audit_html("<dialog>…</dialog>")          # verify (axe covers contrast, target size, etc.)
+get_apg_pattern("dialog", "AA")            # recipe + examples + applicable_scs (floor) + checklist
+# …build it, studying the linked APG examples…
+evaluate_applicability("dialog", "AA")     # the content/context questions for this component
+evaluate_applicability("dialog", "AA", present=["non-text-content-present", …])
+                                           # → the COMPLETE applicable SC set + checklist
+audit_html("<dialog>…</dialog>")           # resolve the axe tier of the checklist
+evaluate_verification(scs, pass=[…], fail=[…])   # → per-SC pass / fail / unverified
 ```
 
-Each call returns a small payload; the agent decides which path and how far to drill.
-
-The tool layer is thin: `search_act`, `search_wcag`, `get_wcag_sc`, `get_act_rule`, and the composition tools all delegate to [`a11y-assist-core`](/a11y-assist/packages/a11y-assist-core/), so the server and the website query the same surface.
+Reference lookups are independent: `search_act` / `search_wcag` → `get_wcag_sc` / `get_act_rule` answer "what does X require?" without building anything. The tool layer is thin — everything delegates to `a11y-assist-core`, so the server and the website share one engine.
 
 ## Install
 
 ```sh
-npm install
-npm run build
-npx playwright install chromium   # required for audit tools (~150 MB)
+claude mcp add a11y -- npx -y a11y-assist-mcp
+npx playwright install chromium   # required for the audit tools (~150 MB)
 ```
 
-## MCP client config
-
-```json
-{
-  "mcpServers": {
-    "a11y": {
-      "command": "node",
-      "args": ["/absolute/path/to/a11y-assist/packages/mcp/dist/server.js"]
-    }
-  }
-}
-```
-
-## Verify
-
-```sh
-node dist/server.js < /dev/null 2>&1 | head -4
-```
-```
-[a11y-assist-mcp] axe tags: wcag2a, wcag2aa, wcag21a, wcag21aa
-[a11y-assist-mcp] tools: get_apg_pattern, get_aria_role, get_element_roles, list_apg_patterns, search_act, get_act_rule, search_wcag, get_wcag_sc, audit_html, audit_url
-[a11y-assist-mcp] data: apg-query (28 patterns @ …), wcag-query (WCAG 2.2, 86 SCs), act-rules-query (94 rules @ …)
-```
+For other MCP clients, run `npx -y a11y-assist-mcp` as the server command. See the [setup guide](/a11y-assist/agents/).
 
 ## Honest scope
 
-axe catches ~50% of WCAG. A passing audit means "no automated violations found," not "accessible." ACT publishes no rules for some visual/perceptual SCs (contrast, target size, focus appearance) — those are caught by **axe at verification** and by manual review, not asserted per-pattern. Manual screen-reader, keyboard, and cognitive review remain required. See [the Architecture](/a11y-assist/architecture/).
+axe settles only the **structurally testable** part of WCAG — a small slice, not "half." A passing audit means "no automated violations found," not "accessible." That is why the checklist is **tiered**: axe resolves what it can, the agent resolves what it can confirm by inspecting the markup, and the rest is handed to a human. An `applicable_scs` floor is "what the component's structure entails," not the complete set — `evaluate_applicability` adds the content-dependent rest. Nothing here is a conformance claim. See [the Architecture](/a11y-assist/architecture/).

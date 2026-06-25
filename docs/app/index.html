@@ -772,7 +772,7 @@ textarea { width: 100%; font-family: ui-monospace, monospace; padding: 0.6rem; b
   }
   function renderVerify() {
     main.innerHTML = '<section class="tab-intro"><h2>Verify</h2>'
-      + '<p>Paste an HTML snippet and run <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noreferrer">axe-core</a> in your browser to check it against WCAG at the selected level. This covers the structurally testable criteria — roughly half of WCAG. Qualitative criteria (screen-reader output, focus visibility, meaningful labels) and dynamic behaviour require human review.</p></section>'
+      + '<p>Paste an HTML snippet and run <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noreferrer">axe-core</a> in your browser to check it against WCAG at the selected level. This covers only the structurally testable criteria — a slice of WCAG, not half. Qualitative criteria (screen-reader output, focus visibility, meaningful labels) and dynamic behaviour require human review.</p></section>'
       + '<div class="pane">'
       + '<textarea id="vhtml" rows="8" placeholder="&lt;button&gt;&lt;/button&gt;"></textarea>'
       + '<p><button id="vrun" class="primary">Run axe (WCAG ' + esc(state.level) + ')</button></p>'
@@ -801,7 +801,7 @@ textarea { width: 100%; font-family: ui-monospace, monospace; padding: 0.6rem; b
             + (targets.length ? '<pre>' + esc(targets.join('\n')) + '</pre>' : '')
             + '<p><a href="' + esc(v.helpUrl) + '" target="_blank" rel="noreferrer">Learn more &#8599;</a></p></article>'
         }).join('')
-        + '<p class="note">axe covers ~50% of WCAG. Manual screen-reader, keyboard, and cognitive review still required.</p>'
+        + '<p class="note">axe covers only the structurally testable slice of WCAG. Manual screen-reader, keyboard, and cognitive review still required.</p>'
     } catch (e) {
       out.innerHTML = '<p class="fail">Audit error: ' + esc(e && e.message ? e.message : e) + '</p>'
     } finally {

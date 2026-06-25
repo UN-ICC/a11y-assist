@@ -6,7 +6,7 @@ permalink: /agents/
 
 # Use a11y-assist with an AI agent
 
-a11y-assist provides an MCP server (`a11y-assist-mcp`) that exposes source-traceable accessibility tools to an AI agent: planning, drill-down, and axe-core verification. Once configured, the agent can retrieve the guidance for a component, audit its markup, and report what remains for human review.
+a11y-assist provides an MCP server (`a11y-assist-mcp`) that exposes source-traceable accessibility tools to an AI agent: the guidance for a component, the WCAG criteria that apply to it, a tiered verification checklist, source drill-down, and axe-core verification. Once configured, the agent retrieves the recipe, builds, verifies its markup, and reports only what genuinely needs a human.
 
 ## 1. Add the MCP server
 
@@ -38,35 +38,23 @@ curl -sL https://raw.githubusercontent.com/UN-ICC/a11y-assist/main/.claude/skill
 
 | Tool | Purpose |
 |---|---|
-| `get_apg_pattern` | Entry for composite components (dialog, tabs, …) |
-| `get_aria_role` / `get_element_roles` | Entry for native primitives (input, link, img) |
-| `list_apg_patterns` | Discover pattern names |
-| `search_act` | Drill-down hub: ACT rules → the WCAG SCs they cover |
-| `get_act_rule` / `search_wcag` / `get_wcag_sc` | Reference lookups |
+| `get_apg_pattern` / `get_aria_role` | Entry point — recipe + ARIA contract + native elements + the WCAG criteria that apply structurally + a verification checklist |
+| `get_element_roles` / `list_apg_patterns` | Resolve markup to its role(s) / browse pattern names |
+| `evaluate_applicability` | Refine beyond the structural floor — the content questions, then the complete applicable set |
+| `evaluate_verification` | Roll up the resolved checks → per-SC pass / fail / unverified |
+| `search_act` / `search_wcag` / `get_wcag_sc` / `get_act_rule` | Reference lookups into any corpus |
 | `audit_html` / `audit_url` | Run axe-core verification |
 
 ## How the agent works
 
-The agent first establishes the target WCAG level (A, AA, or AAA). The level is passed to every tool call and determines which Success Criteria and ACT rules are in scope.
+The agent first establishes the target WCAG level (A, AA, or AAA), passed to every call to gate which criteria are in scope. Then it follows one lifecycle:
 
-### Retrieving guidance
+1. **Enter** at the component — `get_apg_pattern` (composite) or `get_aria_role` (primitive; `get_element_roles` resolves markup first). The response carries the verbatim recipe, the ARIA contract, the native elements, the linked APG **examples**, and — already — the WCAG criteria that apply from the component's structure plus a verification checklist.
+2. **Study the examples.** For anything non-trivial, the agent web-searches or opens the linked W3C example implementations before writing its own.
+3. **Build**, applying the recipe (native element, ARIA contract, keyboard table, focus management).
+4. **Refine** for the actual component with `evaluate_applicability` — it returns the content/context questions (grouped by facet); the agent answers them from its own markup and gets the complete applicable set with the full checklist.
+5. **Verify**, working the tiered checklist: run `audit_html` / `audit_url` for the automated tier, inspect the markup itself for the agent tier, and hand the user only the human-judgement tier. `evaluate_verification` rolls up what was resolved into a per-SC pass / fail / unverified verdict — never assuming pass for what was not checked.
 
-Work proceeds as a staged sequence: the agent begins at an entry point and refines only as far as needed. Each response is small and self-contained — verbatim data or further queries to run — so the agent retrieves only what is relevant and stays within its context budget.
-
-For example, to implement a modal dialog at level AA:
-
-1. `get_apg_pattern("dialog", "AA")` returns the APG recipe (description, keyboard-interaction table, examples), the ARIA contract for the dialog role, the native HTML elements that carry it, and a set of suggested queries seeding two drill-down paths — `search_act` (via ACT rules) and `search_wcag` (criteria directly).
-2. The agent runs a suggested query — for example `search_act("focus", "AA")`, which returns the ACT rules matching that term together with the WCAG Success Criteria they cover, filtered to AA; or `search_wcag("focus", "AA")` to reach the criteria directly, which is the path to take when a component has no matching ACT rules.
-3. `get_wcag_sc("2.4.3")` returns that Success Criterion in full, with its sufficient techniques and documented failures.
-
-For native primitives (text inputs, links, images) the agent enters through `get_aria_role` instead — or `get_element_roles` to resolve existing markup to a role first. The drill-down from that point is identical.
-
-### Verifying the result
-
-Verification proceeds in three stages:
-
-1. axe-core performs the automated structural checks (`audit_html` / `audit_url`).
-2. The agent reviews the markup against the retrieved recipe: element choice, required ARIA attributes, accessible name, keyboard handling, focus management.
-3. The remaining qualitative criteria — screen-reader output, focus visibility, meaningful labels — are presented as a checklist for human review. Each item is derived from the retrieved data (the keyboard-interaction table, the ARIA contract) and cites its Success Criterion.
+Each response is small and self-contained, so the agent stays within its context budget. For reference lookups outside this flow — "what does X require?" — `search_act` / `search_wcag` → `get_wcag_sc` / `get_act_rule` query any corpus directly.
 
 Full behavioural specification: the [`SKILL.md`](https://github.com/UN-ICC/a11y-assist/blob/main/.claude/skills/a11y-assist/SKILL.md) and the [`a11y-assist-mcp` package documentation]({{ '/packages/a11y-assist-mcp/' | relative_url }}).
