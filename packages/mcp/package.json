@@ -1,6 +1,6 @@
 {
   "name": "a11y-assist-mcp",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Design-system-agnostic accessibility MCP server for AI agents: scoped entry points (APG patterns, ARIA roles) with ACT/WCAG drill-down, plus Playwright + axe-core verification.",
   "type": "module",
   "main": "dist/server.js",
@@ -28,7 +28,7 @@
     "fastmcp": "^4.0.1",
     "playwright": "^1.44.0",
     "zod": "^3.23.0",
-    "a11y-assist-core": "^0.3.0"
+    "a11y-assist-core": "^0.4.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

@@ -1,27 +1,26 @@
 import { z } from 'zod'
 import { composeApgPattern, composeAriaRole, applicability } from 'a11y-assist-core'
 
-const {
-  factsFromComposition, deriveAuto, buildAssignment, evaluateApplicability, planVerification,
-  APPL_META, VERIF_META, SC_TITLE, APPLICABILITY_PREDICATES, FACETS,
-} = applicability
+const { factsFromComposition, refineApplicability, VERIF_META, SC_TITLE } = applicability
 
-type ApplPred = applicability.ApplicabilityPredicate
 type VerifPred = applicability.VerificationPredicate
-type SCId = applicability.SCId
 type Level = 'A' | 'AA' | 'AAA'
-
-const LEVEL_ORDER: Record<Level, number> = { A: 1, AA: 2, AAA: 3 }
-const within = (id: SCId, lv: Level) => LEVEL_ORDER[SC_TITLE[id].level] <= LEVEL_ORDER[lv]
-const APPL_SET = new Set<string>(APPLICABILITY_PREDICATES)
 
 const parameters = z.object({
   pattern: z.string().optional().describe('APG pattern name, e.g. accordion. Provide this OR role.'),
   role: z.string().optional().describe('ARIA role of a primitive, e.g. textbox. Provide this OR pattern.'),
   level: z.enum(['A', 'AA', 'AAA']).default('AA').describe('Conformance level (cumulative).'),
+  facets: z.array(z.string()).optional().describe(
+    'Facet keys your component involves (from the facet-gates step), e.g. ["color-contrast","text-language"]. ' +
+    'Returns the subgate questions under only those facets.',
+  ),
+  subgates: z.array(z.string()).optional().describe(
+    'Subgate ids your component involves (from the subgates step), e.g. ["color-contrast|0"]. ' +
+    'Returns the leaf predicate questions under only those subgates.',
+  ),
   present: z.array(z.string()).optional().describe(
     'Applicability predicate ids that hold for YOUR specific component (its content / context). ' +
-    'Omit on the first call to receive the content_dependent_questions to answer.',
+    'Provide on the final call to get the complete applicable SC set + checklist.',
   ),
 })
 
@@ -34,58 +33,75 @@ export const evaluateApplicabilityTool = {
   name: 'evaluate_applicability',
   description:
     'REFINE the applicable WCAG criteria for a component beyond the structural floor that ' +
-    'get_apg_pattern / get_aria_role return. Two steps (the agent equivalent of the website ' +
-    'refine/audit walkthrough): (1) call with pattern|role + level and NO `present` to get ' +
-    '`content_dependent_questions` (each a predicate id + a yes/no question about the content/' +
-    'context you are building); (2) decide which hold and call again with `present` set to those ' +
-    'predicate ids to get the COMPLETE applicable SC set plus a tiered verification checklist. ' +
-    'Then resolve the checklist (audit_html for the axe tier, inspect markup for the agent tier, ' +
-    'ask the user for the human tier) and roll it up with evaluate_verification.',
+    'get_apg_pattern / get_aria_role return. Gate-first walkthrough — the same engine the website ' +
+    'uses — that prunes the question set to only what your component can be affected by. Four steps: ' +
+    '(1) pattern|role + level, nothing else → the coarse facet `gates` ("Any audio or video?"); ' +
+    '(2) `facets` = the keys that apply → the `subgates` (finer questions) under them; ' +
+    '(3) `subgates` = the ids that apply → the leaf `predicates` (yes/no on your content); ' +
+    '(4) `present` = the predicate ids that hold → the COMPLETE applicable SC set + a tiered ' +
+    'verification checklist. You can also jump straight to step 4 with `present` if you already ' +
+    'know which predicates hold. Then resolve the checklist (audit_html for axe, inspect markup for ' +
+    'the agent tier, ask the user for the human tier) and roll it up with evaluate_verification.',
   parameters,
-  execute: async ({ pattern, role, level, present }: Args): Promise<string> => {
+  execute: async ({ pattern, role, level, facets, subgates, present }: Args): Promise<string> => {
     const composed = compose(pattern, role, level)
     if (!composed) return JSON.stringify({ error: 'Provide a known `pattern` (APG) or `role` (ARIA).' })
     const facts = factsFromComposition(composed)
+    const step = refineApplicability(facts, level, { facets, subgates, present })
 
-    if (!present) {
-      // Discovery: the content/context predicates this component's applicability hinges on,
-      // grouped by facet so the agent can dismiss whole clusters fast (no media, no timing, …).
-      const r = evaluateApplicability(deriveAuto(facts))
-      const relevant = new Set(r.depends.flatMap((d) => d.unknown))
-      const facets: { gate: string; predicates: { predicate: string; question: string }[] }[] = []
-      for (const f of Object.values(FACETS)) {
-        const preds: { predicate: string; question: string }[] = []
-        for (const sg of f.subgates) {
-          for (const p of sg.predicates) {
-            if (relevant.has(p)) preds.push({ predicate: p, question: APPL_META[p as ApplPred]?.definition })
-          }
-        }
-        if (preds.length) facets.push({ gate: f.gate, predicates: preds })
-      }
+    if (step.mode === 'facets') {
       return JSON.stringify({
-        mode: 'questions',
+        mode: 'gates',
         level,
-        instruction: 'For each facet, if its gate is "no" skip its predicates; otherwise pick the predicate ids that hold for your component. Then call evaluate_applicability again with `present` = those ids.',
-        facets,
+        instruction:
+          'Answer which of these your component involves, then call again with `facets` = the keys that apply.',
+        gates: step.gates.map((g) => ({
+          facet: g.facet,
+          question: g.question,
+          predicate_count: g.predicateCount,
+        })),
       })
     }
 
-    const unknown = present.filter((p) => !APPL_SET.has(p))
-    const selected = present.filter((p) => APPL_SET.has(p)) as ApplPred[]
-    const r = evaluateApplicability(buildAssignment(facts, selected))
-    const applies = r.applies.filter((id) => within(id, level))
-    const plan = planVerification(applies)
+    if (step.mode === 'subgates') {
+      return JSON.stringify({
+        mode: 'subgates',
+        level,
+        facets_selected: step.selectedFacets,
+        instruction: 'Pick the subgate ids that apply, then call again with `subgates` = those ids.',
+        subgates: step.subgates.map((s) => ({
+          id: s.id,
+          facet: s.facet,
+          question: s.question,
+          predicate_count: s.predicateCount,
+        })),
+        ...(step.unknownFacets.length ? { unknown_facets: step.unknownFacets } : {}),
+      })
+    }
+
+    if (step.mode === 'predicates') {
+      return JSON.stringify({
+        mode: 'questions',
+        level,
+        subgates_selected: step.selectedSubgates,
+        instruction: 'Decide which of these hold for your component, then call again with `present` = those predicate ids.',
+        content_dependent_questions: step.predicates.map((p) => ({ predicate: p.predicate, question: p.question })),
+        ...(step.unknownSubgates.length ? { unknown_subgates: step.unknownSubgates } : {}),
+      })
+    }
+
+    // result
     const check = (p: VerifPred) => ({ predicate: p, check: VERIF_META[p]?.definition })
     return JSON.stringify({
       mode: 'result',
       level,
-      applicable_scs: applies.map((id) => ({ id, title: SC_TITLE[id]?.title, level: SC_TITLE[id]?.level })),
+      applicable_scs: step.applies.map((id) => ({ id, title: SC_TITLE[id]?.title, level: SC_TITLE[id]?.level })),
       verification_checklist: {
-        automated_axe: plan.axe.map(check),
-        agent_verifiable: plan.agent.map(check),
-        needs_human: plan.human.map(check),
+        automated_axe: step.plan.axe.map(check),
+        agent_verifiable: step.plan.agent.map(check),
+        needs_human: step.plan.human.map(check),
       },
-      ...(unknown.length ? { unknown_predicates: unknown } : {}),
+      ...(step.unknownPresent.length ? { unknown_predicates: step.unknownPresent } : {}),
     })
   },
 }

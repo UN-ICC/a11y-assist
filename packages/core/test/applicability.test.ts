@@ -8,7 +8,7 @@ import assert from 'node:assert/strict'
 import { composeApgPattern } from '../src/index.js'
 import {
   factsFromComposition, deriveAuto, buildAssignment,
-  evaluateApplicability, planVerification, evaluateVerification, structuralGuidance,
+  evaluateApplicability, planVerification, evaluateVerification, structuralGuidance, refineApplicability,
   APPL_EXPR, APPL_META, VERIF_META, SC_TITLE, APPLICABILITY_PREDICATES, AUTO_PREDICATES,
 } from '../src/applicability/index.js'
 
@@ -100,4 +100,47 @@ test('structuralGuidance: AAA opens up higher-level criteria', () => {
   const aaa = structuralGuidance(factsFromComposition(c), 'AAA')
   assert.ok(aaa.floor.includes('2.1.3'), '2.1.3 (AAA) in floor at AAA')
   assert.ok(aaa.floor.length >= aa.floor.length, 'AAA floor is a superset of AA')
+})
+
+test('refineApplicability: gate-first walkthrough narrows facet → subgate → predicate → result', () => {
+  const c = composeApgPattern('table', 'AA')
+  assert.ok(c)
+  const facts = factsFromComposition(c)
+
+  // Step 1 — facet gates. Only facets with relevant predicates appear; counts are positive.
+  const s1 = refineApplicability(facts, 'AA')
+  assert.equal(s1.mode, 'facets')
+  if (s1.mode !== 'facets') return
+  assert.ok(s1.gates.length > 0 && s1.gates.length <= Object.keys(s1).length + 9)
+  for (const g of s1.gates) assert.ok(g.predicateCount > 0, g.facet + ' gate has 0 predicates')
+  const facetKey = s1.gates[0].facet
+
+  // Step 2 — subgates under the affirmed facet only; unknown facet keys are echoed.
+  const s2 = refineApplicability(facts, 'AA', { facets: [facetKey, 'not-a-facet'] })
+  assert.equal(s2.mode, 'subgates')
+  if (s2.mode !== 'subgates') return
+  assert.deepEqual(s2.unknownFacets, ['not-a-facet'])
+  assert.ok(s2.subgates.length > 0)
+  assert.ok(s2.subgates.every((sg) => sg.facet === facetKey), 'subgates limited to affirmed facet')
+  const subId = s2.subgates[0].id
+
+  // Step 3 — leaf predicates under the affirmed subgate only.
+  const s3 = refineApplicability(facts, 'AA', { facets: [facetKey], subgates: [subId, 'bogus|9'] })
+  assert.equal(s3.mode, 'predicates')
+  if (s3.mode !== 'predicates') return
+  assert.deepEqual(s3.unknownSubgates, ['bogus|9'])
+  assert.ok(s3.predicates.length > 0)
+  assert.ok(s3.predicates.every((p) => p.subgate === subId), 'predicates limited to affirmed subgate')
+
+  // Step 4 — present resolves to SCs + plan; unknown predicate ids are echoed, not silently dropped.
+  const hold = s3.predicates[0].predicate
+  const s4 = refineApplicability(facts, 'AA', { present: [hold, 'typo-predicate'] })
+  assert.equal(s4.mode, 'result')
+  if (s4.mode !== 'result') return
+  assert.deepEqual(s4.unknownPresent, ['typo-predicate'])
+  assert.ok(s4.applies.length > 0)
+  assert.ok(s4.applies.every((id) => SC_TITLE[id].level !== 'AAA'), 'level gating holds at AA')
+  // result is consistent with evaluateApplicability over the same selection
+  const direct = evaluateApplicability(buildAssignment(facts, [hold])).applies.filter((id) => SC_TITLE[id].level !== 'AAA')
+  assert.deepEqual([...s4.applies].sort(), [...direct].sort())
 })

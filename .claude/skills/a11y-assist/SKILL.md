@@ -19,11 +19,26 @@ Establish the target — **A, AA, or AAA** — and pass it to every call (it gat
 
 ## 2. Decide what you're building, then pick the entry point
 
-- **A composite component** (dialog, tabs, combobox, menu, accordion…) → `get_apg_pattern(name, level)`.
-- **A native primitive / single element** (text input, link, image, button…) → `get_aria_role(role, level)`. If you only have markup, `get_element_roles({ tag, attrs })` resolves it to its role(s) first.
-- **A whole HTML document / page** → it's a composition: handle each interactive part via the two entries above, and additionally cover the page-level criteria (title, language, headings/landmarks, focus order) — `search_wcag` or the refine step (§5) will surface them.
-- **Don't know the exact name?** `list_apg_patterns()` lists every composite pattern; for primitives, `get_element_roles` maps an HTML element to its role.
+Enter at the **right altitude** — match each part to its *most specific* entry:
+
+- **A composite component** (dialog, tabs, combobox, menu, accordion, breadcrumb…) → `get_apg_pattern(name, level)`. If a part matches an APG pattern, enter there — do **not** reduce it to a bare primitive (a breadcrumb is not just a `link`).
+- **A native primitive / single element** (text input, link, image, button…) → `get_aria_role(role, level)`; `get_element_roles({ tag, attrs })` resolves markup to its role(s) when unsure.
+- **Don't know the name?** `list_apg_patterns()`, or `get_element_roles` for a primitive.
 - React Native / non-web → not supported yet.
+
+### A page or multi-component view is not a single entry
+
+Before auditing or building any one part, **write a component inventory first** — list *every* interactive component (each routed to its own entry above) **and** the page-level concerns. Auditing one component and calling it "the page" is the most common failure here; the inventory is what prevents it.
+
+Then run the **page-level checklist** for the view as a whole — these apply independent of any component and are the easiest to miss when focused on one part:
+
+- **2.4.2** Page Titled · **3.1.1** Language of Page — always.
+- **2.4.3** Focus Order · **2.4.7** Focus Visible · **2.4.4** Link Purpose — the view's overall keyboard/navigation.
+- **2.4.1** Bypass Blocks — if content repeats across pages.
+- **2.4.5** Multiple Ways · **3.2.3** Consistent Navigation · **3.2.4** Consistent Identification — if part of a set of pages.
+- **1.4.3** Contrast · **1.4.10** Reflow · **1.4.12** Text Spacing · **1.4.13** Content on Hover/Focus — page-wide presentation.
+
+Run this set regardless of which components the inventory found — never let page-level criteria depend on which component refines you happened to do.
 
 ## 3. Read the guidance — and study the examples
 
@@ -47,8 +62,10 @@ The `verification_checklist` routes every check by **who can settle it**. Work t
 2. **`agent_verifiable`** → inspect the built markup/code yourself against each check (right element/role, required props present, accessible name exists, keyboard handlers, focus management, programmatic structure).
 3. **`needs_human`** → these go on the user checklist (§6) — judgment a tool and you cannot settle (meaningful labels, screen-reader output, visible focus, "color not the only cue").
 
-**Refine for your actual instance (do this for a real audit).** The floor is only what structure entails. To add the content/context criteria (images, color, timing, language…):
-`evaluate_applicability(pattern|role, level)` → returns the audit questions grouped by facet → decide which hold for *your* component → call again with `present: [predicate ids that hold]` → the **complete** applicable SC set + full checklist.
+**Refine for your actual instance (do this for a real audit).** The floor is only what structure entails. To add the content/context criteria (images, color, timing, language…), `evaluate_applicability` is **gate-first — three calls**:
+1. `evaluate_applicability(pattern|role, level)` → ~9 coarse **gates** ("Any audio or video?", "Any time limits or motion?"). Answer which your component involves.
+2. `evaluate_applicability(…, gates: [facet keys that apply])` → only the specific predicate questions *under those facets* — skip the rest.
+3. `evaluate_applicability(…, present: [predicate ids that hold])` → the **complete** applicable SC set + full tiered checklist.
 
 **Roll up the verdict.** Feed back what you resolved: `evaluate_verification(scs, pass:[…], fail:[…])` → per-SC **pass / fail / unverified**. Anything you didn't resolve stays `unverified` — never report it as pass.
 
@@ -74,6 +91,8 @@ When you just need to **look something up** rather than run the build/verify lif
 - **ARIA** (roles & elements) → `get_aria_role(role)` for a role's contract + the native elements that carry it; `get_element_roles({ tag, attrs })` to resolve an HTML element to its implicit role(s).
 
 Use these to answer "what does X require?" on their own — no component or audit needed.
+
+They are for **depth, adjudication, and spot-checks — not a completeness net.** You cannot query for the criterion you didn't know to ask about, so "use the API if something's missing" can't catch your own omissions. Completeness comes from the **component inventory** (§2) and the criteria the **entry / refine tools return** — never from free-form search.
 
 ## Auditing real apps — gotchas
 

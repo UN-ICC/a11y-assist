@@ -37,6 +37,12 @@ export {
 } from './guidance.js'
 
 export {
+  refineApplicability,
+  type RefineSelection,
+  type RefineStep,
+} from './refine.js'
+
+export {
   SC_IDS,
   APPLICABILITY_PREDICATES,
   VERIFICATION_PREDICATES,

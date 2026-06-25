@@ -1,9 +1,11 @@
 import { z } from 'zod'
 import { applicability } from 'a11y-assist-core'
 
-const { evaluateVerification, SC_TITLE } = applicability
+const { evaluateVerification, SC_TITLE, VERIFICATION_PREDICATES } = applicability
 type SCId = applicability.SCId
 type VerifPred = applicability.VerificationPredicate
+
+const VALID_VERIF = new Set<string>(VERIFICATION_PREDICATES)
 
 const parameters = z.object({
   scs: z.array(z.string()).describe('Applicable SC ids to roll up (from evaluate_applicability).'),
@@ -28,6 +30,7 @@ export const evaluateVerificationTool = {
     const truth: Partial<Record<VerifPred, boolean>> = {}
     for (const p of pass ?? []) truth[p as VerifPred] = true
     for (const p of fail ?? []) truth[p as VerifPred] = false
+    const unmatched = [...new Set([...(pass ?? []), ...(fail ?? [])])].filter((p) => !VALID_VERIF.has(p))
     const res = evaluateVerification(scs as SCId[], truth)
     let p = 0, f = 0, u = 0
     const per_sc = (scs as SCId[]).map((sc) => {
@@ -40,7 +43,10 @@ export const evaluateVerificationTool = {
     return JSON.stringify({
       summary: { pass: p, fail: f, unverified: u },
       per_sc,
-      note: 'unverified ≠ pass — not a conformance claim. axe covers only part; agent inspection and human judgment cover the rest.',
+      ...(unmatched.length ? { unmatched_predicates: unmatched } : {}),
+      note:
+        'unverified ≠ pass — not a conformance claim. axe covers only part; agent inspection and human judgment cover the rest.' +
+        (unmatched.length ? ' WARNING: unmatched_predicates were not recognised (typo?) and counted toward nothing — recheck them.' : ''),
     })
   },
 }
