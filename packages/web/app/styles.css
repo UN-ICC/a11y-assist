@@ -81,6 +81,16 @@ ul.rules li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
 .appl-q { font-weight: 600; margin: 0.6rem 0 0.4rem; }
 .ex-list { margin: 0.4rem 0 0; padding-left: 1.2rem; }
 .ex-list li { padding: 0.15rem 0; }
+.act-exp { margin: 0.3rem 0; padding-left: 1.2rem; }
+.act-exp li { padding: 0.15rem 0; }
+.act-ex-cat { font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; margin: 0.9rem 0 0.2rem; }
+.act-ex-passed { color: #137333; }
+.act-ex-failed { color: #c5221f; }
+.act-ex-inapplicable { color: var(--muted); }
+.act-ex { margin: 0 0 0.6rem; }
+.act-ex-desc { margin: 0.2rem 0; }
+.act-ex-code { background: #f6f8fa; border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.7rem; overflow-x: auto; font-size: 0.8em; }
+.act-ex-code code { white-space: pre; font-family: ui-monospace, monospace; }
 .appl-cb { display: block; padding: 0.3rem 0; line-height: 1.4; }
 .appl-cb input { margin-right: 0.5rem; }
 .vlist { list-style: none; padding: 0; margin: 0.3rem 0 0.8rem; }

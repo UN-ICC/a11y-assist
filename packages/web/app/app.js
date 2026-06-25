@@ -14,6 +14,17 @@
     })
   }
   function nl(s) { return esc(s).replace(/\n/g, '<br>') }
+  // Clean Markdown inline syntax (ACT rules are authored in Markdown with
+  // reference-style links to a shared glossary we don't carry): [text][ref] /
+  // [text][] / [text](url) / [text] → text; `code` → <code>code</code>.
+  function mdInline(s) {
+    return esc(s)
+      .replace(/\[([^\]]+)\]\[[^\]]*\]/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/\[([^\]]+)\]/g, '$1')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+  }
+  function mdText(s) { return mdInline(s).replace(/\n/g, '<br>') }
 
   // Client mirror of core.searchAct: substring over name+applicability, level-gated.
   function searchAct(query, level) {
@@ -571,6 +582,22 @@
   function actCoveredScs(r) {
     return r.wcag_sc_ids.filter(function (id) { return scLevel[id] && ORDER[scLevel[id]] <= ORDER[state.level] })
   }
+  function actExamplesHtml(ex) {
+    if (!ex || !ex.length) return ''
+    var h = '<h3>Examples</h3>'
+    ;['passed', 'failed', 'inapplicable'].forEach(function (cat) {
+      var items = ex.filter(function (e) { return e.category === cat })
+      if (!items.length) return
+      h += '<p class="act-ex-cat act-ex-' + cat + '">' + cat.charAt(0).toUpperCase() + cat.slice(1) + ' (' + items.length + ')</p>'
+      items.forEach(function (e) {
+        h += '<div class="act-ex">'
+        if (e.description) h += '<p class="act-ex-desc">' + mdInline(e.description) + '</p>'
+        if (e.code) h += '<pre class="act-ex-code"><code>' + esc(e.code) + '</code></pre>'
+        h += '</div>'
+      })
+    })
+    return h
+  }
   function renderActBrowser() {
     var items = D.act.slice()
       .filter(function (r) { return actCoveredScs(r).length > 0 })
@@ -582,14 +609,20 @@
       matches: function (r, q) { return (r.id + ' ' + r.name + ' ' + (r.applicability_text || '')).toLowerCase().indexOf(q) >= 0 },
       detailHtml: function (r) {
         var scs = actCoveredScs(r)
-        return '<h2>' + esc(r.name) + ' <span class="role">' + esc(r.id) + '</span></h2>'
+        var h = '<h2>' + esc(r.name) + ' <span class="role">' + esc(r.id) + '</span></h2>'
           + '<p><a href="' + esc(r.url) + '" target="_blank" rel="noreferrer">ACT rule reference &#8599;</a></p>'
-          + '<h3>Applicability</h3><p>' + nl(r.applicability_text) + '</p>'
-          + '<h3>Covered WCAG criteria &middot; level ' + esc(state.level) + ' (' + scs.length + ')</h3>'
+          + '<h3>Applicability</h3><p>' + mdText(r.applicability_text) + '</p>'
+        if (r.expectations && r.expectations.length) {
+          h += '<h3>Expectations</h3><ol class="act-exp">'
+            + r.expectations.map(function (e) { return '<li>' + mdText(e) + '</li>' }).join('') + '</ol>'
+        }
+        h += '<h3>Covered WCAG criteria &middot; level ' + esc(state.level) + ' (' + scs.length + ')</h3>'
           + '<ul class="rules">' + scs.map(function (id) {
             var sc = D.scs[id]
             return '<li><button class="sc-chip" data-sc="' + esc(id) + '">' + esc(id) + '</button> ' + esc(sc ? sc.title : '') + '</li>'
           }).join('') + '</ul>'
+        h += actExamplesHtml(r.examples)
+        return h
       },
       onWire: function (d) {
         d.querySelectorAll('.sc-chip').forEach(function (b) {

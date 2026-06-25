@@ -50,6 +50,8 @@ const act = [...actRules.values()].map((r) => ({
   wcag_sc_ids: r.wcag_sc_ids,
   url: r.url,
   applicability_text: r.applicability_text,
+  expectations: r.expectations,
+  examples: r.examples,
 }))
 
 // --- applicability engine (experimental): precompute each component's `auto`
