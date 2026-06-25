@@ -9,7 +9,8 @@ import { composeApgPattern } from '../src/index.js'
 import {
   factsFromComposition, deriveAuto, buildAssignment,
   evaluateApplicability, planVerification, evaluateVerification, structuralGuidance, refineApplicability,
-  APPL_EXPR, APPL_META, VERIF_META, SC_TITLE, APPLICABILITY_PREDICATES, AUTO_PREDICATES,
+  INSPECTION_PROBES, probeFor,
+  APPL_EXPR, APPL_META, VERIF_EXPR, VERIF_META, SC_TITLE, APPLICABILITY_PREDICATES, AUTO_PREDICATES,
 } from '../src/applicability/index.js'
 
 const OPS = new Set(['AND', 'OR', 'NOT', '(', ')', 'true'])
@@ -100,6 +101,22 @@ test('structuralGuidance: AAA opens up higher-level criteria', () => {
   const aaa = structuralGuidance(factsFromComposition(c), 'AAA')
   assert.ok(aaa.floor.includes('2.1.3'), '2.1.3 (AAA) in floor at AAA')
   assert.ok(aaa.floor.length >= aa.floor.length, 'AAA floor is a superset of AA')
+})
+
+test('inspection probes are well-formed and key onto real agent-tier predicates', () => {
+  const validPreds = new Set(Object.keys(VERIF_META))
+  for (const [key, probe] of Object.entries(INSPECTION_PROBES)) {
+    assert.equal(probe.predicate, key, 'probe map key matches predicate id')
+    assert.ok(validPreds.has(probe.predicate), key + ' is a real verification predicate')
+    assert.equal(VERIF_META[probe.predicate].tier, 'agent', key + ' is an agent-tier check (probe scaffolds the bluff-prone tier)')
+    // the probe must contribute to the SC it claims
+    assert.ok(VERIF_EXPR[probe.settles]?.includes(probe.predicate), probe.predicate + ' appears in ' + probe.settles + ' obligation')
+    assert.ok(probe.measure.startsWith('() =>'), key + ' measure is an arrow-function source')
+    assert.ok(probe.setup.viewport || probe.setup.injectCss, key + ' has a setup step')
+    assert.ok(probe.residue.length > 0, key + ' names its judgment residue')
+  }
+  assert.ok(probeFor('no-scrolling-in-two-dimensions'), 'reflow probe resolves')
+  assert.equal(probeFor('no-scrolling-in-two-dimensions')!.settles, '1.4.10')
 })
 
 test('refineApplicability: gate-first walkthrough narrows facet → subgate → predicate → result', () => {

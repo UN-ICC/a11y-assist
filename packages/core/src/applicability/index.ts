@@ -43,6 +43,13 @@ export {
 } from './refine.js'
 
 export {
+  INSPECTION_PROBES,
+  probeFor,
+  type InspectionProbe,
+  type ProbeSetup,
+} from './probes.js'
+
+export {
   SC_IDS,
   APPLICABILITY_PREDICATES,
   VERIFICATION_PREDICATES,

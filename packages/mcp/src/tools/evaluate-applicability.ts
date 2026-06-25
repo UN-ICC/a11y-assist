@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { composeApgPattern, composeAriaRole, applicability } from 'a11y-assist-core'
 
-const { factsFromComposition, refineApplicability, VERIF_META, SC_TITLE } = applicability
+const { factsFromComposition, refineApplicability, probeFor, VERIF_META, SC_TITLE } = applicability
 
 type VerifPred = applicability.VerificationPredicate
 type Level = 'A' | 'AA' | 'AAA'
@@ -90,8 +90,18 @@ export const evaluateApplicabilityTool = {
       })
     }
 
-    // result
-    const check = (p: VerifPred) => ({ predicate: p, check: VERIF_META[p]?.definition })
+    // result. Agent-tier checks carry an SC-linked `probe` when one exists — a
+    // runnable recipe (setup + measure) to execute in your browser (e.g. the
+    // Playwright MCP: browser_resize / inject the CSS, then browser_evaluate the
+    // measure), then feed the predicate back to evaluate_verification.
+    const check = (p: VerifPred) => {
+      const probe = probeFor(p)
+      return {
+        predicate: p,
+        check: VERIF_META[p]?.definition,
+        ...(probe ? { probe: { settles: probe.settles, title: probe.title, setup: probe.setup, measure: probe.measure, residue: probe.residue } } : {}),
+      }
+    }
     return JSON.stringify({
       mode: 'result',
       level,

@@ -9,10 +9,13 @@
  * the component, so a caller never wades through facets that cannot apply.
  *
  * Stateless: each call is a pure function of the facts + the selections so far.
- *   {}                         → the facet gates (coarse yes/no)
- *   { facets }                 → the subgate questions under those facets
- *   { facets, subgates }       → the leaf predicate questions under those subgates
- *   { present }                → the complete applicable SC set + verification plan
+ * Each step requires ONLY its own input — a subgate id already encodes its facet
+ * (`facet|index`), so `subgates` alone advances; you never have to re-send the
+ * earlier step's answer.
+ *   {}            → the facet gates (coarse yes/no)
+ *   { facets }    → the subgate questions under those facets
+ *   { subgates }  → the leaf predicate questions under those subgates
+ *   { present }   → the complete applicable SC set + verification plan
  *
  * Both the MCP `evaluate_applicability` tool and (build-time) the web app draw
  * from this one source so the two flows cannot diverge.
@@ -98,29 +101,31 @@ export function refineApplicability(
   const relevantInSub = (facet: FacetKey, i: number): ApplicabilityPredicate[] =>
     FACETS[facet].subgates[i].predicates.filter((p) => relevant.has(p))
 
-  // Step 1 — facet gates.
-  if (!sel.facets || !sel.facets.length) {
-    const gates = (Object.keys(FACETS) as FacetKey[])
-      .map((facet) => {
-        const subgates = FACETS[facet].subgates
-          .map((_, i) => relevantInSub(facet, i))
-          .filter((preds) => preds.length)
-        return {
-          facet,
-          question: FACETS[facet].gate,
-          subgateCount: subgates.length,
-          predicateCount: subgates.reduce((n, preds) => n + preds.length, 0),
-        }
-      })
-      .filter((g) => g.predicateCount)
-    return { mode: 'facets', level, gates }
+  // Step 3 — leaf predicates under the affirmed subgates. Checked BEFORE facets:
+  // a subgate id (`facet|index`) already names its facet, so `subgates` alone is
+  // sufficient to advance — the caller never has to re-send `facets`.
+  if (sel.subgates && sel.subgates.length) {
+    const unknownSubgates = sel.subgates.filter((id) => {
+      const [facet, idx] = id.split('|')
+      return !(facet in FACETS) || !FACETS[facet as FacetKey].subgates[Number(idx)]
+    })
+    const predicates: { predicate: ApplicabilityPredicate; question: string; facet: FacetKey; subgate: string }[] = []
+    for (const id of new Set(sel.subgates)) {
+      const [facet, idx] = id.split('|')
+      if (!(facet in FACETS)) continue
+      const i = Number(idx)
+      if (!FACETS[facet as FacetKey].subgates[i]) continue
+      for (const p of relevantInSub(facet as FacetKey, i)) {
+        predicates.push({ predicate: p, question: APPL_META[p].definition, facet: facet as FacetKey, subgate: id })
+      }
+    }
+    return { mode: 'predicates', level, selectedSubgates: sel.subgates, unknownSubgates, predicates }
   }
 
-  const facetSet = new Set(sel.facets)
-  const unknownFacets = sel.facets.filter((f) => !(f in FACETS))
-
   // Step 2 — subgates under the affirmed facets.
-  if (!sel.subgates || !sel.subgates.length) {
+  if (sel.facets && sel.facets.length) {
+    const facetSet = new Set(sel.facets)
+    const unknownFacets = sel.facets.filter((f) => !(f in FACETS))
     const subgates: { id: string; facet: FacetKey; question: string; predicateCount: number }[] = []
     for (const facet of Object.keys(FACETS) as FacetKey[]) {
       if (!facetSet.has(facet)) continue
@@ -132,20 +137,19 @@ export function refineApplicability(
     return { mode: 'subgates', level, selectedFacets: sel.facets, unknownFacets, subgates }
   }
 
-  // Step 3 — leaf predicates under the affirmed subgates.
-  const subSet = new Set(sel.subgates)
-  const unknownSubgates = sel.subgates.filter((id) => {
-    const [facet, idx] = id.split('|')
-    return !(facet in FACETS) || !FACETS[facet as FacetKey].subgates[Number(idx)]
-  })
-  const predicates: { predicate: ApplicabilityPredicate; question: string; facet: FacetKey; subgate: string }[] = []
-  for (const id of subSet) {
-    const [facet, idx] = id.split('|')
-    if (!(facet in FACETS)) continue
-    const i = Number(idx)
-    for (const p of relevantInSub(facet as FacetKey, i)) {
-      predicates.push({ predicate: p, question: APPL_META[p].definition, facet: facet as FacetKey, subgate: id })
-    }
-  }
-  return { mode: 'predicates', level, selectedSubgates: sel.subgates, unknownSubgates, predicates }
+  // Step 1 — facet gates.
+  const gates = (Object.keys(FACETS) as FacetKey[])
+    .map((facet) => {
+      const subgates = FACETS[facet].subgates
+        .map((_, i) => relevantInSub(facet, i))
+        .filter((preds) => preds.length)
+      return {
+        facet,
+        question: FACETS[facet].gate,
+        subgateCount: subgates.length,
+        predicateCount: subgates.reduce((n, preds) => n + preds.length, 0),
+      }
+    })
+    .filter((g) => g.predicateCount)
+  return { mode: 'facets', level, gates }
 }
